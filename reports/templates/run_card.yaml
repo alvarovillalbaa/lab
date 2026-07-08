@@ -1,0 +1,30 @@
+run_id: TODO
+experiment_id: TODO
+stage: TODO
+model_size: TODO
+parameters: TODO
+tokens_target: TODO
+sequence_length: TODO
+global_batch_tokens: TODO
+data_mix: TODO
+tokenizer: TODO
+framework: TODO
+provider: TODO
+hardware: TODO
+precision: TODO
+checkpoint_interval_steps: TODO
+eval_interval_steps: TODO
+budget_cap_usd: TODO
+git_commit: TODO
+docker_image: TODO
+train_manifest_sha256: TODO
+val_manifest_sha256: TODO
+tokenizer_sha256: TODO
+checkpoint_uri: TODO
+metrics_uri: TODO
+status: planned
+gates:
+  - TODO
+failures:
+  - TODO
+

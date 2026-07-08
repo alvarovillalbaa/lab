@@ -1,0 +1,49 @@
+{
+  "experiment_id": "lab-124m-pretrain-smoke-v001",
+  "stage": "pretrain",
+  "provider": "local",
+  "model": {
+    "name": "lab-124m",
+    "parameters": 124000000,
+    "architecture": "decoder-only-rmsnorm-rope-swiglu"
+  },
+  "resources": {
+    "nodes": 1,
+    "gpus": 1,
+    "gpu_type": "rtx4090-or-equivalent",
+    "gpu_tflops": 82,
+    "gpu_hourly_usd": 0.69,
+    "utilization": 0.35
+  },
+  "training": {
+    "tokens_target": 500000000,
+    "sequence_length": 2048,
+    "global_batch_tokens": 262144
+  },
+  "data": {
+    "train_manifest": "data/manifests/baseline_mix_train_v001.jsonl",
+    "val_manifest": "data/manifests/baseline_mix_val_v001.jsonl",
+    "tokenizer": "data/tokenizer/tokenizer_v001"
+  },
+  "checkpointing": {
+    "interval_steps": 500,
+    "output_uri": "checkpoints/lab-124m-pretrain-smoke-v001"
+  },
+  "logging": {
+    "metrics_uri": "outputs/metrics/lab-124m-pretrain-smoke-v001",
+    "public_report": "reports/run_cards/lab-124m-pretrain-smoke-v001.yaml"
+  },
+  "budget": {
+    "hard_cap_usd": 100,
+    "overhead_multiplier": 2.0
+  },
+  "gates": [
+    "loss_decreases",
+    "no_nans",
+    "checkpoint_resumes",
+    "eval_runs",
+    "generation_works",
+    "export_path_works"
+  ]
+}
+

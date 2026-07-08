@@ -1,0 +1,3 @@
+- Everything locally and from-scratch
+- Base10 for serving
+- Thinking Labs Machine

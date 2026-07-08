@@ -1,0 +1,17 @@
+{
+  "provider_id": "tinker",
+  "aliases": [
+    "Thinking Machines Lab",
+    "Thinking Labs Machine"
+  ],
+  "kind": "managed_posttraining",
+  "purpose": "SFT, DPO, RL, distillation, and self-distillation loops when access is available",
+  "requires_credentials": true,
+  "supports": [
+    "posttraining_sft",
+    "posttraining_rl",
+    "distillation"
+  ],
+  "human_gate": "Confirm access, supported model, export path, budget, and license before use."
+}
+

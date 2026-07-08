@@ -1,0 +1,3 @@
+run_id,job_id,provider,gpu_type,gpus,start_time,end_time,gpu_hours,storage_usd,network_usd,api_usd,total_usd,notes
+TODO,TODO,TODO,TODO,0,TODO,TODO,0,0,0,0,0,TODO
+

@@ -1,0 +1,19 @@
+{
+  "provider_id": "local",
+  "kind": "local",
+  "purpose": "from-scratch development, smoke runs, local serving benchmarks",
+  "requires_credentials": false,
+  "supports": [
+    "pretrain_smoke",
+    "data_processing",
+    "distillation",
+    "evals",
+    "serving_benchmark"
+  ],
+  "notes": [
+    "Mandatory credibility lane.",
+    "Use before paid providers.",
+    "Do not require Kubernetes for a single machine."
+  ]
+}
+

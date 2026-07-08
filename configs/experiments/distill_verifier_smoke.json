@@ -1,0 +1,47 @@
+{
+  "experiment_id": "distill-verifier-smoke-v001",
+  "stage": "distill",
+  "provider": "local",
+  "model": {
+    "name": "student-smoke",
+    "parameters": 20000000,
+    "architecture": "decoder-only-rmsnorm-rope-swiglu"
+  },
+  "resources": {
+    "nodes": 1,
+    "gpus": 1,
+    "gpu_type": "local",
+    "gpu_tflops": 40,
+    "gpu_hourly_usd": 0,
+    "utilization": 0.2
+  },
+  "training": {
+    "tokens_target": 1000000,
+    "sequence_length": 1024,
+    "global_batch_tokens": 32768
+  },
+  "data": {
+    "train_manifest": "data/manifests/distill_pairs_train_v001.jsonl",
+    "val_manifest": "data/manifests/distill_pairs_val_v001.jsonl",
+    "tokenizer": "data/tokenizer/tokenizer_v001"
+  },
+  "checkpointing": {
+    "interval_steps": 100,
+    "output_uri": "checkpoints/distill-verifier-smoke-v001"
+  },
+  "logging": {
+    "metrics_uri": "outputs/metrics/distill-verifier-smoke-v001",
+    "public_report": "reports/run_cards/distill-verifier-smoke-v001.yaml"
+  },
+  "budget": {
+    "hard_cap_usd": 0,
+    "overhead_multiplier": 1.0
+  },
+  "gates": [
+    "teacher_outputs_allowed",
+    "verifier_accepts_examples",
+    "preference_pairs_created",
+    "lineage_recorded"
+  ]
+}
+

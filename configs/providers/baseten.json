@@ -1,0 +1,16 @@
+{
+  "provider_id": "baseten",
+  "aliases": [
+    "Base10"
+  ],
+  "kind": "managed_training_and_serving",
+  "purpose": "public serving endpoint and optional managed training jobs",
+  "requires_credentials": true,
+  "supports": [
+    "serving_public",
+    "posttraining_sft",
+    "evals"
+  ],
+  "human_gate": "Confirm account, budget, deployment target, and model rights before upload."
+}
+

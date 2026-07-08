@@ -1,0 +1,48 @@
+{
+  "experiment_id": "lab-20m-tiny-pretrain-v001",
+  "stage": "pretrain",
+  "provider": "local",
+  "model": {
+    "name": "lab-20m",
+    "parameters": 20000000,
+    "architecture": "decoder-only-rmsnorm-rope-swiglu"
+  },
+  "resources": {
+    "nodes": 1,
+    "gpus": 1,
+    "gpu_type": "local-or-cpu-debug",
+    "gpu_tflops": 40,
+    "gpu_hourly_usd": 0,
+    "utilization": 0.2
+  },
+  "training": {
+    "tokens_target": 10000000,
+    "sequence_length": 1024,
+    "global_batch_tokens": 65536
+  },
+  "data": {
+    "train_manifest": "data/manifests/tiny_train_v001.jsonl",
+    "val_manifest": "data/manifests/tiny_val_v001.jsonl",
+    "tokenizer": "data/tokenizer/tokenizer_v001"
+  },
+  "checkpointing": {
+    "interval_steps": 100,
+    "output_uri": "checkpoints/lab-20m-tiny-pretrain-v001"
+  },
+  "logging": {
+    "metrics_uri": "outputs/metrics/lab-20m-tiny-pretrain-v001",
+    "public_report": "reports/run_cards/lab-20m-tiny-pretrain-v001.yaml"
+  },
+  "budget": {
+    "hard_cap_usd": 0,
+    "overhead_multiplier": 1.0
+  },
+  "gates": [
+    "loss_decreases",
+    "no_nans",
+    "checkpoint_resumes",
+    "generation_works",
+    "cost_ledger_filled"
+  ]
+}
+

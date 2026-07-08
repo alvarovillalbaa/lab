@@ -1,0 +1,47 @@
+{
+  "experiment_id": "serving-baseten-public-v001",
+  "stage": "serve",
+  "provider": "baseten",
+  "model": {
+    "name": "lab-public-demo",
+    "parameters": 20000000,
+    "architecture": "openai-compatible-chat-wrapper"
+  },
+  "resources": {
+    "nodes": 1,
+    "gpus": 1,
+    "gpu_type": "provider-managed",
+    "gpu_tflops": 82,
+    "gpu_hourly_usd": 0,
+    "utilization": 0.2
+  },
+  "training": {
+    "tokens_target": 1,
+    "sequence_length": 1,
+    "global_batch_tokens": 1
+  },
+  "data": {
+    "train_manifest": "data/manifests/serving_not_applicable.jsonl",
+    "val_manifest": "data/manifests/serving_smoke_prompts_v001.jsonl",
+    "tokenizer": "data/tokenizer/tokenizer_v001"
+  },
+  "checkpointing": {
+    "interval_steps": 1,
+    "output_uri": "baseten://models/lab-public-demo"
+  },
+  "logging": {
+    "metrics_uri": "outputs/metrics/serving-baseten-public-v001",
+    "public_report": "reports/serving/serving-baseten-public-v001.md"
+  },
+  "budget": {
+    "hard_cap_usd": 50,
+    "overhead_multiplier": 1.0
+  },
+  "gates": [
+    "endpoint_responds",
+    "latency_logged",
+    "safety_gateway_enabled",
+    "cost_logged"
+  ]
+}
+
