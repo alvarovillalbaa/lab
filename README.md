@@ -29,7 +29,7 @@ This repo currently provides the planning and execution skeleton:
 - Libraries and providers: [docs/LIBRARIES_AND_PROVIDERS.md](docs/LIBRARIES_AND_PROVIDERS.md)
 - Implementation backlog: [docs/IMPLEMENTATION_BACKLOG.md](docs/IMPLEMENTATION_BACKLOG.md)
 - Spec coverage audit: [docs/SPEC_COVERAGE.md](docs/SPEC_COVERAGE.md)
-- Decision template: [DECISIONS.md](DECISIONS.md)
+- Decision template: [docs/decisions/experiment-decisions.md](docs/decisions/experiment-decisions.md)
 - Experiment configs: [configs/experiments](configs/experiments)
 - Provider configs: [configs/providers](configs/providers)
 - Public proof templates: [reports/templates](reports/templates)
@@ -53,7 +53,7 @@ sh scripts/validate-lab.sh
 
 ## First Execution Milestones
 
-1. Fill [DECISIONS.md](DECISIONS.md) with budget, data, model, provider, license,
+1. Fill [docs/decisions/experiment-decisions.md](docs/decisions/experiment-decisions.md) with budget, data, model, provider, license,
    and success-gate choices.
 2. Run the local validation checks above.
 3. Implement the tiny 20M to 60M from-scratch transformer and train on a tiny

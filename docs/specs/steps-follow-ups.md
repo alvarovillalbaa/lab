@@ -199,9 +199,9 @@ Here is the stack I would use if the goal is maximum visible progress in 1–2 d
 | Safety    | Refusal/safety boundaries      | Test prompts and filters            |
 | Release   | What to publish                | Model cards, run cards, scripts     |
 
-The most dangerous mistake is letting Codex make implicit decisions. It will happily produce a working system with bad assumptions. You need a `DECISIONS.md` file before implementation.
+The most dangerous mistake is letting Codex make implicit decisions. It will happily produce a working system with bad assumptions. You need a `docs/decisions/experiment-decisions.md` file before implementation.
 
-## `DECISIONS.md` template
+## `docs/decisions/experiment-decisions.md` template
 
 Create this file and fill it manually:
 
