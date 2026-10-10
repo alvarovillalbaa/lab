@@ -13,11 +13,11 @@ money on larger training runs.
    evaluation, serving, cost ledger, and public report.
 3. Use local/from-scratch execution as the credibility anchor.
 4. Use managed providers only behind explicit adapters.
-5. Freeze the public claim in `DECISIONS.md` before GPU spending.
+5. Freeze the public claim in `docs/decisions/experiment-decisions.md` before GPU spending.
 
 Deliverables:
 
-- `DECISIONS.md`.
+- `docs/decisions/experiment-decisions.md`.
 - Public claim.
 - Budget cap.
 - Initial model ladder.
@@ -49,7 +49,7 @@ Deliverables:
 2. Keep provider configs separate from experiment configs.
 3. Require run cards, model cards, data cards, eval reports, and cost ledgers for
    public proof.
-4. Keep human decisions in `DECISIONS.md`, not implicit in code.
+4. Keep human decisions in `docs/decisions/experiment-decisions.md`, not implicit in code.
 5. Keep every generated dataset/model/checkpoint traceable to source manifests.
 
 Deliverables:
