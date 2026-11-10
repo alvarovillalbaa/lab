@@ -2,26 +2,68 @@
 
 Last updated: 2026-11-10
 
-1. Preserve an intact recovery copy before opening tools that write to it:
-   Git objects/refs, dirty files, untracked files, and unique artifacts. Keep
-   private data and credentials outside public repositories.
-2. Compare recovery refs and working files against source
-   `ba67e510bab2703b1042993744ce099490221c1f` and original main
-   `36bb3839f1bc166fa54824fd8457b28ca5189dae`. Later laptop commits need their
-   actual merge base identified; do not assume this Mac had the newest code.
-3. Use [the migration map](../sources/repository-split-map.json) to route old
-   paths to current owners. Match original hashes to distinguish unchanged
-   baseline files from recovered modifications. Archived paths preserve context.
-4. Export one coherent change per owner on a new branch. Adapt imports to the
-   new package names and declared dependencies. Keep conflicting implementations
-   available for comparison instead of overwriting the new owner.
-5. Link related PRs when one change crosses repositories. Verify each component
-   independently, then update Lab's declared composition and integration checks.
-6. Record recovered source revisions, old/new paths, hashes, decisions, tests,
-   failures, and unresolved artifacts. Keep scientific negative results.
-7. Only retire temporary recovery copies after unique source, history, and
-   artifacts are verified preserved. Recovery itself does not authorize release
-   of private datasets, paid jobs, or broad cleanup.
+## Preserve before routing
 
-Future work starts directly in its canonical component repository. Lab changes
-only when integrated configurations, compatibility pins, or shared reports change.
+1. Preserve the intact recovered Git objects/refs, dirty files, untracked files
+   and unique artifacts before opening tools that write to the recovery copy.
+   Keep private data and credentials outside public repositories.
+2. Identify the recovery's actual merge bases. Compare against original Lab main
+   `36bb3839f1bc166fa54824fd8457b28ca5189dae` and the preserved documentation
+   baseline `ba67e510bab2703b1042993744ce099490221c1f`; neither proves this Mac
+   contained the newest laptop work.
+3. Use [the first migration inventory](../sources/repository-split-map.json) for
+   original path/hash matching, then
+   [the expansion aliases](../sources/expanded-repository-aliases.json) and each
+   component's own relocation record for the current owner. The first inventory
+   is historical evidence and must not be rewritten to hide later moves.
+
+## Route through the expanded boundaries
+
+| Recovered responsibility or former location | Current owner / routing |
+| --- | --- |
+| Common research metadata or original Lab validation | experiment-kit |
+| Original Lab or compute-planner costing primitives | compute-economics; review explicit-rate and hour-unit API changes |
+| Routing and scheduling policy | compute-planner |
+| Job/backend execution lifecycle | compute-runners |
+| Corpus curation, data splits and document/shard manifests | model-data |
+| Tokenizer fitting, vocabulary/normalization policy and comparison | model-tokenizers |
+| Former model-training base/continued training and resume/export | model-pretraining |
+| Former model-training SFT, preference and reward adaptation | model-posttraining |
+| Teacher/task/response eligibility, verification and preference construction | model-distillation |
+| Former model-inference endpoint loading/lifecycle and raw telemetry | model-serving |
+| Former model-inference workload/metric aggregation and comparisons | inference-benchmarks |
+| Bounded model-research candidate sequencing and promotion policy | research-controller |
+| Educational ML implementations or reusable environment dynamics | ml-foundations or rl-environments according to semantics |
+| Reusable evaluation/scoring or prompt-improvement behavior | open-evals |
+| Study-specific integrated configurations and reports | Lab |
+
+Repository identity and Git history are preserved for model-training to
+model-pretraining and model-inference to model-serving. Verify the repository ID
+and recorded commit; URL redirects alone are insufficient if a former name is
+ever reused.
+
+The model pair relocation records are `docs/sources/repository-expansion-map.json`
+at their selected revisions. Model-data's tokenizer split records
+`docs/sources/tokenizer-boundary-map.json`. Economics retains its extraction
+records under `docs/sources/`. Resolve all references at the manifest/alias
+registry's exact selected revisions, including unmerged review branches.
+
+## Integrate and verify
+
+4. Export one coherent change per owner on a new branch. Inspect actual imports,
+   inputs/outputs and behavior when a recovered file spans several responsibilities;
+   filenames alone do not decide its destination.
+5. Adapt interfaces and declared dependencies. Keep competing implementations
+   and negative results available; do not overwrite a current owner with an
+   unexamined recovered copy.
+6. Link cross-repository PRs, verify each changed component independently, then
+   update Lab's pins and affected installation/integration checks. A new source
+   path or green prior receipt does not prove a changed combination.
+7. Record recovered revisions, old/new paths, hashes, decisions, tests, failures
+   and unresolved artifacts. Preserve scientific failures and exact study inputs.
+8. Retire temporary recovery copies only after unique source/history/artifacts
+   are verified preserved. Recovery does not authorize private-data publication,
+   paid jobs, releases or broad cleanup.
+
+Future reusable work starts in its canonical component home. Lab changes when
+integrated configurations, compatible combinations or shared study reports change.

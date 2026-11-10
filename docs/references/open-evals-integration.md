@@ -2,16 +2,19 @@
 
 Last updated: 2026-11-10
 
-Open Evals owns evaluation. Lab does not add another evaluator service.
-The optional `evals` installation profile depends on the SDK package from
-[Open Evals PR #1](https://github.com/alvarovillalbaa/open-evals/pull/1), pinned
-to its exact candidate commit. The SDK stays owned by open-evals.
+Open Evals owns reusable evaluation definitions/results/gates and system-prompt
+improvement. Lab's optional `evals` selector depends on the standalone Python
+SDK package inside open-evals. Follow the
+[composition manifest](../../src/lab/composition.json) for its exact selected
+source revision and review PR; packaging does not create a separate evaluator.
+
+For the current CPU fixture and an optional SDK connection:
 
 ```sh
 python3 -m pip install '.[compute,distillation,evals]'
 ```
 
-An application can explicitly submit evidence from its real CPU smoke execution:
+An application may explicitly send evidence from an actual fixture execution:
 
 ```python
 import os
@@ -26,16 +29,24 @@ status = submit_execution_evidence(
 )
 ```
 
-This performs an SDK trace write only when the function is called. Keep the
-configured URL explicit and the project key server-held. The client sends
-supplied evidence without local redaction; the example payload contains authored
-fixtures and excludes credentials. Preserve the original result if delivery fails.
-No automatic retry queue is introduced.
+The result identifies authored responses and a hypothetical GPU-cost calculation,
+with `observed_billing: false`. Sending the trace does not turn those fixtures
+into model outputs, billing observations or a scored evaluation run.
 
-The service's existing role/scope checks remain authoritative. SDK installation
-does not grant access. Evaluation runs use Open Evals' own workflows; trace
-delivery is not scored evaluation. Supplied-output and HTTP-target run profiles
-retain their existing capabilities and restrictions. No new API-key evaluation
-route, hosted configuration, or private evaluation-lab code is introduced.
+Keep the service root explicit and the key server-held. The SDK sends supplied
+evidence without local redaction; preserve the source result if delivery fails.
+No automatic retry queue is introduced. Existing role/scope checks remain
+authoritative; installing a client grants no service access.
 
-[Canonical SDK and privacy contract](https://github.com/alvarovillalbaa/open-evals/blob/d1002d58109156683be3ad4fc394c7cc6c534057/docs/trace-ingestion.md).
+Research-controller is a planned consumer of training and evaluation
+adapters. It owns bounded model-research sequencing and promotion policy.
+Open Evals remains the scoring and prompt-improvement owner, and Lab remains
+an integration consumer. Inference-benchmarks owns performance workloads/
+measurements and can link quality-evaluation outcomes without cloning an
+evaluation engine.
+
+The [expanded installed result](../results/2026/11-10/expanded-installed-package.md)
+records the current client/package/profile proof and its limits. Mocked transport
+is distinct from live hosted/service acceptance.
+[Canonical Open Evals documentation](https://github.com/alvarovillalbaa/open-evals)
+owns service contracts and privacy behavior at the selected source revision.

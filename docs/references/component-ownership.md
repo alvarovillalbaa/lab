@@ -2,36 +2,46 @@
 
 Last updated: 2026-11-10
 
-| Owner | Canonical responsibility | Boundary |
+Four component libraries are implemented; ten are planned specifications.
+The existing Open Evals platform and umbrella Lab complete the sixteen-repository
+ecosystem. Product ownership below is distinct from implementation status.
+
+| Owner | Canonical responsibility | Outside its responsibility |
 | --- | --- | --- |
-| [experiment-kit](https://github.com/alvarovillalbaa/experiment-kit) | Common experiment metadata and the separate legacy LLM spec profile. | Dataset processing, model execution, scheduling, or scoring. |
-| [compute-planner](https://github.com/alvarovillalbaa/compute-planner) | The 6NT language-model estimate, ordered provider recommendations, FIFO, cheapest-first, and risk-adjusted value ordering. | Cloud allocation, provider credentials, live pricing, training, or budget enforcement. |
-| [compute-runners](https://github.com/alvarovillalbaa/compute-runners) | Local/cluster/provider execution adapters, lifecycle status, cancellation, logs, and execution receipts. | Provider ranking, research priorities, model algorithms, endpoint serving policy, or evaluation engines. |
-| [model-data](https://github.com/alvarovillalbaa/model-data) | Ingestion, normalization, filters, deduplication, tokenization, packing, sharding, provenance, and data cards. | Model training, generic artifact storage services, scheduling, or evaluation scoring. |
-| [model-training](https://github.com/alvarovillalbaa/model-training) | Model implementations, pretraining, SFT/DPO/RL post-training, checkpoint resume, generation smoke checks, and export. | Standalone RL environment definitions, GPU scheduling, dataset preparation, or generic eval scoring. |
-| [model-distillation](https://github.com/alvarovillalbaa/model-distillation) | Task/response records, exact-match verification, eligibility gates, and preference-pair construction. | Teacher inference, a training engine, a general evaluation platform, or legal license approval. |
-| [model-inference](https://github.com/alvarovillalbaa/model-inference) | Inference adapters, model endpoint bindings, request workloads, latency/throughput measurements, and export compatibility. | Training, generic GPU scheduling, a custom evaluation engine, or production deployment authorization. |
-| [ml-foundations](https://github.com/alvarovillalbaa/ml-foundations) | Educational implementations, numerical explanations, correctness comparisons, frozen splits, and bounded experiments. | A claim that any algorithm is implemented yet, an evaluation service, or a generic training framework. |
-| [rl-environments](https://github.com/alvarovillalbaa/rl-environments) | Environment dynamics, observations, actions, rewards, termination rules, fixtures, and task-specific validation. | LLM RL post-training algorithms, a general trainer, or the Open Evals scoring platform. |
-| [open-evals](https://github.com/alvarovillalbaa/open-evals) | Evaluation definitions, execution, gates, prompt improvement, SDK evidence transport | A trace write does not execute evaluation. |
-| Lab | Integrated experiments, declared compatible combinations, research notes, cross-component reports | Reusable component engines live in their owner repos. |
+| [experiment-kit](https://github.com/alvarovillalbaa/experiment-kit) | Common research-record validation and the separate legacy LLM profile | Data preparation, compute policy, execution and scoring |
+| [compute-economics](https://github.com/alvarovillalbaa/compute-economics) | Workload compute/cost estimates, explicit assumptions, hour units and cost-ledger conventions | Live price discovery, billing measurement, job order, allocation and budget enforcement |
+| [compute-planner](https://github.com/alvarovillalbaa/compute-planner) | Ordered provider recommendations, FIFO, cheapest-first and value/risk-aware job order | Workload cost formulas, mandatory estimator dependencies and execution |
+| [compute-runners](https://github.com/alvarovillalbaa/compute-runners) | Explicit job submission/status/cancellation/logs and observed execution receipts | Model algorithms, scheduling objectives, evaluation scoring and endpoint serving policy |
+| [model-data](https://github.com/alvarovillalbaa/model-data) | Dataset/document/shard schemas, ingestion, curation, splits, mixing, encoding/packing, lineage and data cards | Tokenizer fitting/policy and semantic ownership of teacher/task/verifier/preference records |
+| [model-tokenizers](https://github.com/alvarovillalbaa/model-tokenizers) | Tokenizer training, vocabulary/special-token/normalization policy, inspection, comparisons and artifact/cards | Corpus curation, split construction and dataset packing |
+| [model-pretraining](https://github.com/alvarovillalbaa/model-pretraining) | Base-model implementation, from-scratch/continued pretraining, resume and portable base export | SFT/preference/reward adaptation, serving and benchmark methodology |
+| [model-posttraining](https://github.com/alvarovillalbaa/model-posttraining) | Existing-model SFT, preference and reward-based adaptation, resume and adapted-model/adapter export | Base pretraining, synthetic data generation, environment dynamics and generic scoring |
+| [model-distillation](https://github.com/alvarovillalbaa/model-distillation) | Teacher/task/response contracts, eligibility, verification results, preference-data construction and related lineage | Student optimization, endpoint serving and a second general evaluation engine |
+| [model-serving](https://github.com/alvarovillalbaa/model-serving) | Model loading/format compatibility, runtime adapters, endpoint launch/status/request/stop and raw telemetry | Workload protocols, performance aggregation, training and release promotion |
+| [inference-benchmarks](https://github.com/alvarovillalbaa/inference-benchmarks) | Independent workloads, bounded dispatch, latency/throughput/concurrency/memory/cost measurement and comparisons | Endpoint lifecycle, training and general quality/safety scoring |
+| [research-controller](https://github.com/alvarovillalbaa/research-controller) | Bounded model-research sequencing, candidate/attempt state, limits and promotion policy | Trainer algorithms, evaluation scoring, prompt optimization and production publication |
+| [ml-foundations](https://github.com/alvarovillalbaa/ml-foundations) | Educational ML implementations, numerical explanation and controlled reference comparisons | A general trainer, evaluation service or unimplemented algorithm claim |
+| [rl-environments](https://github.com/alvarovillalbaa/rl-environments) | Environment dynamics, observations, actions, rewards, termination and task protocols | Model-training algorithms and generic evaluation-platform behavior |
+| [open-evals](https://github.com/alvarovillalbaa/open-evals) | Evaluation definitions/results/gates, system-prompt improvement and SDK evidence transport | GPU execution and model-weight training orchestration; a trace write does not run evaluation |
+| Lab | Integrated experiments, study-specific configurations, declared compatible combinations and reports | Reusable component engines and their release ownership |
 
-## Planning-to-execution handoff
+## Important seams
 
-A future runner accepts an explicit workload/command, working directory,
-resources, input artifact references, and output destinations. It returns an
-execution identity and observed lifecycle/results. Planning recommendations do
-not establish access, allocation, or spend. This handoff is planned; no runner
-implementation or stable wire schema is claimed.
+Economics returns an estimate with explicit assumptions. Planning consumes
+ordinary expected-cost values and can operate without that estimator. Runners
+execute an explicit selection; a planning recommendation is not spend approval.
 
-## Artifact handoff
+Data preparation may consume an external tokenizer. Tokenizer policy does not
+move into a dataset pipeline. Model-distillation owns teacher/task/response/
+verifier/preference record semantics; model-data preserves such producer records
+without taking semantic ownership.
 
-Model-data will produce hash-pinned datasets/tokenizers. Model-training will
-consume explicit inputs and export checkpoints/models. Model-inference will
-consume those models. RL environments define dynamics/tasks independently of
-the trainer. Model-distillation produces permitted verified data, not a trainer.
-Prefer artifact references and optional adapters over mandatory dependencies
-among every component.
+Post-training accepts external base models and does not require pretraining.
+Inference benchmarks accept external targets and do not require model-serving.
+Research-controller consumes evaluator outcomes; Open Evals remains the scoring
+and prompt-improvement owner. Controller model promotion is not endpoint rollout.
 
-[Declared revisions and combinations](../../src/lab/composition.json) are
-candidate integration metadata until their acceptance checks pass.
+[Interfaces and API changes](interfaces.md) describe these handoffs. The
+[composition manifest](../../src/lab/composition.json) owns exact selected
+revisions and review state. Candidate status persists while existing-repository
+changes await review, independently of which local checks have passed.
