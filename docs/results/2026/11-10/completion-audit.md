@@ -2,65 +2,58 @@
 
 Last updated: 2026-11-10
 
-The original request was read again from the owner's attachment. This audit
-checks that request together with the owner's subsequent choices: nine public
-MIT repositories, planner/runner separation, descriptive names, standalone SDK
-packaging, six explicitly planned component homes, and publication through
-unmerged review PRs.
+The original request and the owner's subsequent choices define this audit:
+nine public MIT repositories, planner/runner separation, descriptive names,
+standalone SDK packaging, six explicitly planned component homes, and publication
+through unmerged review PRs.
 
 ## Requirements and current evidence
 
-| Requirement | Evidence inspected | Verdict |
+| Requirement | Authoritative evidence | Verdict |
 | --- | --- | --- |
-| Locate or bring Lab locally | Current Lab checkout and original migration checkout; both clean | Verified |
-| Create the agreed independent repository homes | GitHub API returned all nine repositories, public visibility, MIT license recognition, and their recorded main SHAs | Verified |
-| Move available code to relevant owners | All 57 original source hashes and every recorded destination hash checked against current files | Verified |
-| Independently install and use implemented components | Package manifests, library/CLI source, and prior source checks exist; no clean installed-environment execution exists | Incomplete |
-| Stack components in multiple combinations | Commit-pinned base/compute/distillation/evals profiles and packaged composition manifest; source composition checks cover the implemented CPU workflow | Source composition verified; installed combinations pending |
-| Reuse Open Evals | SDK remains in open-evals; its packaging PR is open at d1002d58109156683be3ad4fc394c7cc6c534057 | Verified within the agreed SDK scope |
-| Consider existing projects | Current catalogue routes nanochat, autoresearch, and my-evals as optional projects and keeps evaluation-lab's separate ownership/licensing | Verified as catalogue integration; no new runtime integration claimed |
-| Preserve history and existing work | Both original July main and October documentation head are ancestors of the migration branch; original checkout remains clean | Verified |
-| Allow future work in several repositories | Component ownership, separate project instructions/manifests, and pinned integration metadata are present | Verified |
-| Prepare for later laptop recovery | Recovery procedure and complete source/destination/hash inventory exist; no recovered data is claimed | Verified for migration preparation; actual recovery is future work |
-| Clearly distinguish code from planned projects | Three new component libraries and six specification homes remain labelled accordingly | Verified against the approved scope |
-| Publish without merging existing repositories | Lab PR #2 and Open Evals PR #1 are open, unmerged, and report clean mergeability | Verified |
-| Preserve a meaningful verification trail | Existing result receipts, CPU fixture output, extraction provenance, and this audit | Verified; proof limits retained |
+| Locate or bring Lab locally | Lab, original migration checkout, and component checkouts; original source remains preserved | Verified |
+| Create the agreed repository homes | Nine public repositories, MIT license recognition, and recorded GitHub heads | Verified |
+| Move available code to relevant owners | Complete 57-file source/destination/hash inventory and exact extraction snapshots | Verified |
+| Independently install and use implemented components | Five wheels built; four separate fresh component/SDK runtime environments; installed imports and CLI commands checked outside source | Verified on Python 3.14.7 |
+| Stack components in multiple combinations | Six fresh Lab profiles: base, compute, distillation, evals, CPU, full; packaged resources loaded and exact dependency Git origins checked | Verified for selected combinations |
+| Reuse Open Evals | SDK stays in open-evals, installs without optimizer dependencies, and is consumed in evals/full profiles | Verified within the agreed SDK scope |
+| Consider existing projects | Catalogue preserves optional nanochat, autoresearch, my-evals, and separate evaluation-lab ownership/licensing | Verified for catalogue integration |
+| Preserve history and existing work | Original July main and October documentation head retained as ancestors; original checkout preserved | Verified |
+| Enable future development across repos | Canonical component ownership, separate project instructions/manifests, optional dependency profiles | Verified |
+| Prepare for later laptop recovery | Recovery runbook and complete source/destination/hash map; no recovered work is claimed | Verified for migration preparation |
+| Distinguish code from planned projects | Three new component libraries and six specification homes remain labelled correctly | Verified against the approved scope |
+| Publish through review PRs without merging | Lab PR #2 and Open Evals PR #1 are published and left open | Verified |
+| Preserve checks and failures | Initial source receipts, installed receipt with command/build logs and initial DNS failure, wheel/source hashes, and cleanup evidence | Verified |
 
-The migrated Lab runtime, existing tests, validation script, and package metadata are
-unchanged from checked source 36dbfc04b9c4ab37e07584e25afee3a18ff04e1b.
-Source checks therefore still apply to those exact bytes. They do not establish
-installed-package behavior.
+## Installed acceptance
 
-## Outstanding acceptance gate
+[Installed acceptance](installed-package.md) records the successful wheel and
+fresh-environment checks at their exact source revisions. Source-path tests were
+not substituted for installation proof. The Lab runtime, package metadata,
+checker, and composition resource match the checked source; follow-up changes
+are documentation and evidence only.
 
-Storage Guard was run again and failed: 10.8 GiB free against 34 GiB required.
-The existing interpreter has pip and wheel but no setuptools/build backend.
-No install, build, storage-policy override, or unrelated cleanup was performed.
+The first direct build failed on PyPI DNS. Its log is retained. Build inputs
+were then fetched using available HTTPS transport and verified against PyPI
+SHA-256 metadata. Task-local mirrors fetched from GitHub supplied the unchanged
+declared Git dependency URLs; installed commit identities matched the manifest.
 
-Independent-install acceptance requires building the four library/SDK packages
-and Lab, checking each library alone outside source checkouts, checking selected
-Lab installation profiles, and checking installed console commands and packaged
-composition resources. The SDK network boundary can remain mocked; live provider
-or hosted-service acceptance is outside this migration.
+The owner approved the requested 256 MiB task-specific exception. Peak observed
+allocated temporary storage was 36.25 MiB. All disposable environments, source
+exports, mirrors, build caches, wheels, logs, and the runner were removed after
+receipt readback and an open-file check. The normal storage policy still applies
+to future tasks.
 
-A bounded task-specific storage exception has been requested from the owner.
-It is not granted by an unanswered question. Until permission or sufficient
-storage exists, the full goal remains active and independent installation is
-unproven. Existing PR review is intentionally left to the owner.
+## Intentional limits
 
-## Installed verification readiness
-
-The follow-up preflight still fails: 10.9 GiB free against 34 GiB required.
-The [installed acceptance procedure](../../../runbooks/installed-package-acceptance.md)
-and its checker are now prepared for four independent component/SDK installations
-and six Lab profiles. The checker performs no installation or build.
-
-Checker syntax and help passed. Invoking it in the existing non-isolated
-interpreter correctly returned exit 2 with the requirement for a fresh virtual
-environment. This is a rejection check, not successful installed-package proof.
-No package install, wheel build, storage exception, or unrelated cleanup has run.
+Both migration PRs remain open for owner review as requested. Six project homes
+contain specifications; new training, inference, data, environment, and GPU
+engines were outside the approved extraction implementation. Laptop recovery is
+future work. SDK HTTP was mocked; live provider/hosted acceptance, other Python
+versions/platforms, deployment, and scientific model performance are not claimed.
 
 Links: [migration result](repository-split.md),
+[installed receipt](installed-package.json),
 [source map](../../../sources/repository-split-map.json),
 [Lab PR](https://github.com/alvarovillalbaa/lab/pull/2),
 [SDK PR](https://github.com/alvarovillalbaa/open-evals/pull/1).

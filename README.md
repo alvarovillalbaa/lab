@@ -44,8 +44,9 @@ training, teacher inference, GPU allocation, or service call.
 Dependencies are pinned to full Git commit SHAs. The
 [composition manifest](src/lab/composition.json) records declared combinations
 and their status; it is not an attestation of a running environment.
-The manifest remains a candidate while integration PRs and fresh-install proof
-are pending. No public package-registry availability is assumed.
+The manifest remains a candidate while the integration PRs await review.
+[Independent installation checks](docs/results/2026/11-10/installed-package.md)
+passed for the four component/SDK packages and six selected Lab profiles. No public package-registry availability is assumed.
 
 For an optional Open Evals connection, install `.[evals]` and follow the
 [SDK integration guide](docs/references/open-evals-integration.md). Evidence

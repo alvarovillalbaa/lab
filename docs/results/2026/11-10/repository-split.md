@@ -51,10 +51,13 @@ repository changes remain for review; no main branch was merged.
 
 ## Remaining proof limits
 
-Storage Guard failed again: **10.8 GiB free; 34 GiB required** for the standard
-4 GiB install/build operation plus reserve. No installations, wheel construction,
-full frontend build, database setup, or storage-policy exception was performed.
-Fresh-install acceptance remains pending.
+The initial handoff was blocked by Storage Guard: 10.8 GiB free against
+34 GiB required. Those source-only receipts remain historical evidence.
+The owner subsequently approved a bounded storage exception, and
+[installed package acceptance](installed-package.md) passed five wheel builds,
+four standalone package installations, and six Lab profiles. Temporary files
+were removed after preserving the result. No frontend build or database setup
+was required for this package migration.
 
 The workflow uses authored fixture responses. It does not establish training,
 GPU allocation, provider billing, scientific model performance, or hosted
@@ -67,9 +70,10 @@ Review PRs: [Lab #2](https://github.com/alvarovillalbaa/lab/pull/2) and
 [Open Evals #1](https://github.com/alvarovillalbaa/open-evals/pull/1).
 Both are open and unmerged. The existing Lab documentation PR remains untouched.
 
-Review the Lab migration and SDK PRs, then rerun package installation/wheel
-acceptance after the storage reserve is restored. Update composition status only
-when those checks actually pass. No new CI, deploy, auth, migration, or registry
+Review the Lab migration and SDK PRs. Installed acceptance has passed; the
+composition remains a candidate until owner review and integration. Future
+package changes require their relevant checks and the normal storage policy or
+a separately approved exception. No new CI, deploy, auth, migration, or registry
 publication workflow is introduced.
 
 Use [the recovery procedure](../../../runbooks/recovered-laptop.md) for recovered

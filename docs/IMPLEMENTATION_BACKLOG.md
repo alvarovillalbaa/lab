@@ -10,7 +10,7 @@ their repositories, linked from [the ownership map](references/component-ownersh
 - [x] Compose validation, planning, and distillation in a CPU fixture workflow.
 - [x] Prepare optional delivery through the existing Open Evals SDK.
 - [ ] Review and merge the Lab migration and standalone SDK PRs.
-- [ ] Pass fresh-install and wheel verification once Storage Guard permits it.
+- [x] Pass wheel builds, four standalone installations, and six Lab profile checks under the approved bounded storage exception.
 - [ ] Materialize approved data/tokenizer artifacts before any real training.
 - [ ] Connect a working compute runner to a planner consumer.
 - [ ] Add training-to-evaluation and training-to-inference recipes when their engines exist.

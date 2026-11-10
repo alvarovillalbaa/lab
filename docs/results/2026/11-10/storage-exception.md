@@ -21,3 +21,10 @@ The composition stays a candidate because the two migration PRs await review.
 Removing the obsolete installation-pending phrase from its reason does not
 claim a passing check. Installed acceptance will be recorded separately after
 the actual runs.
+
+## Execution and closure
+
+The approved checks passed. Peak observed temporary allocation was 36.25 MiB,
+and all task-created temporary files were removed after evidence preservation.
+See [the installed result](installed-package.md). This exception is now consumed;
+it does not authorize later installations or alter the general reserve.

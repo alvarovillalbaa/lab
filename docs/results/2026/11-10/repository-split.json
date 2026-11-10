@@ -173,5 +173,7 @@
     "active_links_checked": 70,
     "errors": 0
   },
-  "quickstart_examples_passed": 3
+  "quickstart_examples_passed": 3,
+  "installed_acceptance_follow_up": "installed-package.json",
+  "current_delivery_status": "Installed package acceptance passed; both integration PRs remain open for owner review."
 }
