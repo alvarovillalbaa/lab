@@ -8,20 +8,23 @@ and their bounded implementation backlogs belong to the
 
 ## Current boundary expansion
 
-The expanded target is fourteen component repositories plus Open Evals and Lab.
-Its four implemented libraries are experiment-kit, compute-economics,
-compute-planner and model-distillation; ten component homes remain planned.
+The expanded target is seventeen component repositories plus Open Evals and Lab.
+Its five implemented libraries are experiment-kit, compute-economics,
+compute-planner, model-distillation and verification-runtime; twelve component homes remain planned.
 
 - Economics owns workload estimates; planning owns routing/job order; runners own execution.
+- Objective verification is owned by verification-runtime; distillation keeps eligibility and pair policy.
+- Reusable model definitions belong to model-architectures; optimization stays with trainers.
+- Generic artifact materialization/integrity belongs to research-artifacts, using existing backends.
 - Dataset preparation consumes explicit tokenizer artifacts from model-tokenizers.
 - Model-pretraining and model-posttraining exchange portable model artifacts.
 - Model-serving and inference-benchmarks exchange endpoint/measurement bindings.
 - Research-controller owns reusable bounded model-research orchestration.
 
 The expanded package/profile check outcomes are recorded separately in
-[expanded-installed-package.json](results/2026/11-10/expanded-installed-package.json).
+[product-installed-package.json](results/2026/11-10/product-installed-package.json).
 The first-stage wheel/install checks remain historical evidence; they do not
-prove changed economics/planner APIs or Lab 0.3.
+prove changed economics/planner APIs or Lab 0.4.
 
 ## Next integration work
 

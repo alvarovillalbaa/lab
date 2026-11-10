@@ -45,8 +45,13 @@ an integration consumer. Inference-benchmarks owns performance workloads/
 measurements and can link quality-evaluation outcomes without cloning an
 evaluation engine.
 
-The [expanded installed result](../results/2026/11-10/expanded-installed-package.md)
+The [expanded installed result](../results/2026/11-10/product-installed-package.md)
 records the current client/package/profile proof and its limits. Mocked transport
 is distinct from live hosted/service acceptance.
 [Canonical Open Evals documentation](https://github.com/alvarovillalbaa/open-evals)
 owns service contracts and privacy behavior at the selected source revision.
+
+Verification-runtime is a separate headless execution dependency. A future Open
+Evals adapter may consume objective results; the SDK trace call does not execute
+that adapter. Open Evals retains evaluator definitions, composition, scoring,
+runs and gates. No new scoring platform is introduced by this extraction.

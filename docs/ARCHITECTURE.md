@@ -2,14 +2,14 @@
 
 Last updated: 2026-11-10
 
-Lab assembles fourteen component products and the existing Open Evals platform.
-Four component libraries are implemented: experiment-kit, compute-economics,
-compute-planner and model-distillation. The other ten component homes are
+Lab assembles seventeen component products and the existing Open Evals platform.
+Five component libraries are implemented: experiment-kit, compute-economics,
+compute-planner, model-distillation and verification-runtime. The other twelve component homes are
 planned. The SDK is packaged inside open-evals and is not another repository.
 
 ## Executable composition
 
-The current Lab 0.3 CPU fixture workflow validates a common research record,
+The current Lab 0.4 CPU fixture workflow validates a common research record,
 constructs a preference pair from authored responses, calculates a hypothetical
 GPU-training estimate, and orders/recommends work through the planner. SDK
 evidence delivery is an explicit optional application operation.
@@ -25,7 +25,9 @@ flowchart LR
   Lab --> Records[experiment-kit]
   Lab --> Economics[compute-economics]
   Lab --> Planning[compute-planner]
+  Lab --> Verification[verification-runtime]
   Lab --> Distillation[model-distillation]
+  Distillation -->|declared package dependency| Verification
   Lab --> Evals[open-evals SDK]
   Economics -->|estimate values| Planning
   Planning -. explicit job handoff, planned .-> Runners[compute-runners]
@@ -33,10 +35,20 @@ flowchart LR
 
 The arrow from economics to planning is a value handoff, not a required package
 import. A caller can substitute another estimate or an explicit assumption.
-The base, economics, planning, compute, distillation and evals installation
+The base, verification, economics, planning, compute, distillation and evals installation
 selectors keep these dependencies independently selectable.
 
-## Planned product composition
+## Verification and planned product composition
+
+Verification-runtime owns headless objective checks. Exact-match v1 is implemented;
+code sandbox, math, schema, environment and citation adapters remain planned.
+Distillation consumes the result and separately enforces teacher eligibility and
+binds subject/candidate/reference identities. Open Evals retains scoring and gates.
+
+Model-architectures owns model math/configuration, forward/generation/cache and
+weight compatibility; trainers own optimization, data iteration and resume.
+Research-artifacts will materialize/cache/verify bytes through existing storage
+backends. Domain schemas, model compatibility and promotion keep their own owners.
 
 - Model-data owns datasets/splits/manifests and may encode/pack using an explicit
   tokenizer artifact. Model-tokenizers owns tokenizer fitting, inspection,
@@ -85,11 +97,11 @@ memory is not a measured zero.
 
 The [first inventory](sources/repository-split-map.json) freezes the original
 57-file migration. The [expansion aliases](sources/expanded-repository-aliases.json)
-and [expanded recovery map](sources/repository-split-v2-map.json) carry the next
+and [current recovery map](sources/repository-split-v3-map.json) carry the next
 routing step through pinned component relocation records. Do not rewrite
 first-stage source snapshots or receipts to make their old names look current.
 
 Use [the recovery procedure](runbooks/recovered-laptop.md) for later laptop work.
 Current expanded installation evidence is in the
-[expanded receipt](results/2026/11-10/expanded-installed-package.json); earlier
+[expanded receipt](results/2026/11-10/product-installed-package.json); earlier
 source and installation results retain their historical scope.

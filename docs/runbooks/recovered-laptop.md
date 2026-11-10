@@ -13,7 +13,7 @@ Last updated: 2026-11-10
    contained the newest laptop work.
 3. Use [the first migration inventory](../sources/repository-split-map.json) for
    original path/hash matching, then
-   [the expanded map](../sources/repository-split-v2-map.json),
+   [the expanded map](../sources/repository-split-v3-map.json),
    [the expansion aliases](../sources/expanded-repository-aliases.json) and each
    component's own relocation record for the current owner. The first inventory
    is historical evidence and must not be rewritten to hide later moves.
@@ -21,7 +21,7 @@ Last updated: 2026-11-10
 Before routing recovered changes, check the preserved local inventories from Lab:
 
 ```sh
-python3 -B scripts/check-expanded-provenance.py --workspace ..
+python3 -B scripts/check-product-provenance.py --workspace ..
 ```
 
 This reads explicit component checkouts and Git objects without fetching or
@@ -40,7 +40,10 @@ the recovered implementation.
 | Tokenizer fitting, vocabulary/normalization policy and comparison | model-tokenizers |
 | Former model-training base/continued training and resume/export | model-pretraining |
 | Former model-training SFT, preference and reward adaptation | model-posttraining |
-| Teacher/task/response eligibility, verification and preference construction | model-distillation |
+| Objective answer verification and generic verification execution | verification-runtime |
+| Teacher/task/response eligibility and preference construction | model-distillation |
+| Model math/configuration, forward/generation/cache and weight compatibility | model-architectures |
+| Generic artifact resolution/transfer/cache/byte integrity | research-artifacts |
 | Former model-inference endpoint loading/lifecycle and raw telemetry | model-serving |
 | Former model-inference workload/metric aggregation and comparisons | inference-benchmarks |
 | Bounded model-research candidate sequencing and promotion policy | research-controller |

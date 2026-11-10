@@ -9,23 +9,26 @@ lives in its component repository.
 
 ## Ecosystem
 
-The expanded catalogue contains **14 component repositories**, plus the existing
-open-evals platform and umbrella Lab: **16 repositories**. Four component
-libraries are implemented; ten homes currently contain specifications. The
+The expanded catalogue contains **17 component repositories**, plus the existing
+open-evals platform and umbrella Lab: **19 repositories**. Five component
+libraries are implemented; twelve homes currently contain specifications. The
 Open Evals SDK is a separate client package inside the existing open-evals repo,
-not a fifteenth component repository.
+a client distribution in that repository.
 
 | Component repository | Responsibility | Current scope |
 | --- | --- | --- |
 | [experiment-kit](https://github.com/alvarovillalbaa/experiment-kit) | Common experiment records and a separate LLM validation profile | Implemented library and CLI |
+| [verification-runtime](https://github.com/alvarovillalbaa/verification-runtime) | Objective verification with candidate/reference identities | Implemented exact-match library and CLI; other adapters planned |
+| [research-artifacts](https://github.com/alvarovillalbaa/research-artifacts) | Artifact resolution, transfer, cache and byte integrity using existing backends | Planned specification |
 | [compute-economics](https://github.com/alvarovillalbaa/compute-economics) | Caller-assumption compute/cost estimates and cost-ledger conventions | Implemented library and CLI |
 | [compute-planner](https://github.com/alvarovillalbaa/compute-planner) | Provider recommendations and job ordering from explicit values | Implemented library and CLI |
 | [compute-runners](https://github.com/alvarovillalbaa/compute-runners) | Explicit job execution, lifecycle, cancellation and receipts | Planned specification |
 | [model-data](https://github.com/alvarovillalbaa/model-data) | Dataset curation, splits, manifests, encoding and packing | Planned specification |
 | [model-tokenizers](https://github.com/alvarovillalbaa/model-tokenizers) | Tokenizer training, inspection, comparisons and artifact policy | Planned specification |
+| [model-architectures](https://github.com/alvarovillalbaa/model-architectures) | Model definitions, forward/generation/cache and weight compatibility | Planned specification |
 | [model-pretraining](https://github.com/alvarovillalbaa/model-pretraining) | Base/continued pretraining, checkpoint resume and portable export | Planned specification |
 | [model-posttraining](https://github.com/alvarovillalbaa/model-posttraining) | SFT, preference and reward-based adaptation of an existing model | Planned specification |
-| [model-distillation](https://github.com/alvarovillalbaa/model-distillation) | Eligible teacher-response verification and preference-data construction | Implemented library and CLI |
+| [model-distillation](https://github.com/alvarovillalbaa/model-distillation) | Teacher eligibility, verification-result binding and preference-data construction | Implemented library and CLI |
 | [model-serving](https://github.com/alvarovillalbaa/model-serving) | Model loading and endpoint launch/status/request/stop | Planned specification |
 | [inference-benchmarks](https://github.com/alvarovillalbaa/inference-benchmarks) | Endpoint-independent workloads and performance measurement | Planned specification |
 | [research-controller](https://github.com/alvarovillalbaa/research-controller) | Bounded model-research sequencing, candidate state and promotion policy | Planned specification |
@@ -42,7 +45,7 @@ own product homes.
 
 ## Install a chosen combination
 
-Lab 0.3 keeps the base installation small and exposes independent optional
+Lab 0.4 keeps the base installation small and exposes independent optional
 profiles:
 
 | Installation selector | Adds to experiment-kit in the base install |
@@ -51,7 +54,8 @@ profiles:
 | `.[economics]` | compute-economics |
 | `.[planning]` | compute-planner |
 | `.[compute]` | compute-economics and compute-planner |
-| `.[distillation]` | model-distillation |
+| `.[verification]` | verification-runtime |
+| `.[distillation]` | model-distillation and its verification-runtime dependency |
 | `.[evals]` | Open Evals Python SDK |
 
 Selectors compose. For the CPU fixture workflow, use compute plus distillation:
@@ -62,6 +66,7 @@ llm-lab validate configs/experiments/lab_20m_tiny_pretrain.json
 llm-lab validate configs/experiments/cpu_smoke.json --profile record
 llm-lab estimate-cost configs/experiments/lab_124m_pretrain_smoke.json
 llm-lab route pretrain_smoke
+llm-lab verify configs/experiments/verification.json
 llm-lab smoke --code-ref "lab@$(git rev-parse HEAD)"
 ```
 
@@ -85,9 +90,9 @@ A repository rename preserves history but does not merge its scope changes.
 Use the manifest's selected revision rather than assuming the latest main
 contains an unmerged interface. No public package-registry release is implied.
 
-Current expanded verification belongs in the
-[expanded installed-package result](docs/results/2026/11-10/expanded-installed-package.md)
-and its [machine-readable receipt](docs/results/2026/11-10/expanded-installed-package.json).
+Current product-split verification belongs in the
+[expanded installed-package result](docs/results/2026/11-10/product-installed-package.md)
+and its [machine-readable receipt](docs/results/2026/11-10/product-installed-package.json).
 Read those outcomes and limits for the exact revisions checked. The
 [first-stage result](docs/results/2026/11-10/installed-package.md) remains
 historical evidence for the earlier packages and combinations.
@@ -100,7 +105,7 @@ historical evidence for the earlier packages and combinations.
 [Integration backlog](docs/IMPLEMENTATION_BACKLOG.md) ·
 [Recovery procedure](docs/runbooks/recovered-laptop.md) ·
 [Original inventory](docs/sources/repository-split-map.json) ·
-[Expanded recovery map](docs/sources/repository-split-v2-map.json) ·
+[Current recovery map](docs/sources/repository-split-v3-map.json) ·
 [Rename/expansion aliases](docs/sources/expanded-repository-aliases.json)
 
 Components declare their own dependencies and run without Lab or sibling-path

@@ -33,3 +33,11 @@ Source, test, and template copies in component extraction commits preserve the
 original bytes. Later packaging commits adapt imports, add public interfaces,
 normalize whitespace, and record current scope. No damaged-laptop work or
 uninspected external provider documentation was ingested.
+
+[repository-split-v3-map.json](repository-split-v3-map.json) adds the verifier,
+model-architecture and artifact product boundaries. V1 and V2 stay unchanged.
+Run the complete chain from Lab with:
+
+```sh
+python3 -B scripts/check-product-provenance.py --workspace ..
+```

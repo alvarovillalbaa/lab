@@ -7,26 +7,28 @@ This procedure checks the expanded package set independently of the historical
 Installation/building still requires a passing Storage Guard preflight or the
 owner's explicit task-specific exception. This procedure grants no exception.
 
-Build six wheels: experiment-kit, compute-economics, compute-planner,
+Build seven wheels: verification-runtime, experiment-kit, compute-economics, compute-planner,
 model-distillation, open-evals-sdk and Lab, from the exact declared source
 revisions. Preserve the wheel hashes, build logs, source revisions, review
 state and tool versions in the result.
 
-For each of the five standalone component/SDK wheels, create a separate fresh virtual
-environment and install only that package. Run the checker below from outside
+For each of the six standalone component/SDK wheels, create a separate fresh virtual
+environment and install that package with only its declared dependencies.
+Model-distillation 0.2 requires verification-runtime; independent use does not
+mean dependency-free. Other component/SDK packages have no runtime dependencies. Run the checker below from outside
 the source checkouts, using the environment's interpreter:
 
 ```sh
 python -I /path/to/lab/scripts/check-installed.py --distribution experiment-kit
 ```
 
-Repeat with compute-economics, compute-planner, model-distillation and
+Repeat with verification-runtime, compute-economics, compute-planner, model-distillation and
 open-evals-sdk. The checker
 requires isolation, rejects editable/source imports and other installed
 ecosystem packages, and invokes the installed console commands. The SDK check
 mocks HTTP transport and sends no network request.
 
-In eight separate fresh environments, install Lab with base, economics,
+In nine separate fresh environments, install Lab with base, verification, economics,
 planning, compute, distillation, evals, CPU (compute plus distillation), and full
 profiles. The economics-only and planning-only profiles verify that neither
 requires the other. Check each with:
@@ -35,7 +37,7 @@ requires the other. Check each with:
 python -I /path/to/lab/scripts/check-installed.py --distribution clous-llm-lab --profile base
 ```
 
-Use --profile economics, planning, compute, distillation, evals, cpu or full as
+Use --profile verification, economics, planning, compute, distillation, evals, cpu or full as
 appropriate.
 CPU/full checks additionally require --code-ref with the exact checked Lab
 revision. Check the installed packaged composition resource and the actual
@@ -60,9 +62,9 @@ installed. A checker syntax/help run or deliberate rejection of a non-isolated
 environment is not installed-package acceptance.
 
 Record expanded outcomes in
-[expanded-installed-package.json](../results/2026/11-10/expanded-installed-package.json)
-and [the readable result](../results/2026/11-10/expanded-installed-package.md).
-The six-wheel, five-standalone and eight-profile counts above are required
+[product-installed-package.json](../results/2026/11-10/product-installed-package.json)
+and [the readable result](../results/2026/11-10/product-installed-package.md).
+The seven-wheel, six-standalone and nine-profile counts above are required
 coverage, not a claim that those checks have passed. Preserve the first-stage
 receipts unchanged.
 
