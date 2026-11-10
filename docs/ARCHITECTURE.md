@@ -85,7 +85,8 @@ memory is not a measured zero.
 
 The [first inventory](sources/repository-split-map.json) freezes the original
 57-file migration. The [expansion aliases](sources/expanded-repository-aliases.json)
-and each component's relocation map carry the next routing step. Do not rewrite
+and [expanded recovery map](sources/repository-split-v2-map.json) carry the next
+routing step through pinned component relocation records. Do not rewrite
 first-stage source snapshots or receipts to make their old names look current.
 
 Use [the recovery procedure](runbooks/recovered-laptop.md) for later laptop work.

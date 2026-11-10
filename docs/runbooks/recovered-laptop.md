@@ -13,9 +13,20 @@ Last updated: 2026-11-10
    contained the newest laptop work.
 3. Use [the first migration inventory](../sources/repository-split-map.json) for
    original path/hash matching, then
+   [the expanded map](../sources/repository-split-v2-map.json),
    [the expansion aliases](../sources/expanded-repository-aliases.json) and each
    component's own relocation record for the current owner. The first inventory
    is historical evidence and must not be rewritten to hide later moves.
+
+Before routing recovered changes, check the preserved local inventories from Lab:
+
+```sh
+python3 -B scripts/check-expanded-provenance.py --workspace ..
+```
+
+This reads explicit component checkouts and Git objects without fetching or
+changing them. Structural matches guide review; they do not replace reviewing
+the recovered implementation.
 
 ## Route through the expanded boundaries
 

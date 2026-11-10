@@ -100,6 +100,7 @@ historical evidence for the earlier packages and combinations.
 [Integration backlog](docs/IMPLEMENTATION_BACKLOG.md) ·
 [Recovery procedure](docs/runbooks/recovered-laptop.md) ·
 [Original inventory](docs/sources/repository-split-map.json) ·
+[Expanded recovery map](docs/sources/repository-split-v2-map.json) ·
 [Rename/expansion aliases](docs/sources/expanded-repository-aliases.json)
 
 Components declare their own dependencies and run without Lab or sibling-path
