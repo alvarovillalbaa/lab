@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "status": "candidate",
-  "reason": "Lab migration and Open Evals SDK packaging await review; fresh-install verification is pending.",
+  "reason": "Lab migration and Open Evals SDK packaging await review.",
   "components": {
     "experiment-kit": {
       "repository": "alvarovillalbaa/experiment-kit",
