@@ -14,6 +14,7 @@ def main(argv=None):
     validate.add_argument("spec", type=Path)
     validate.add_argument("--profile", choices=("llm", "record"), default="llm")
     sub.add_parser("estimate-cost").add_argument("spec", type=Path)
+    sub.add_parser("verify").add_argument("request", type=Path)
     sub.add_parser("route").add_argument("job_type")
     sub.add_parser("smoke").add_argument("--code-ref", required=True)
     args = parser.parse_args(argv)
@@ -39,6 +40,9 @@ def main(argv=None):
                     print(f"ERROR: {issue}", file=sys.stderr)
                 return 1
             print(format_estimate(estimate_from_spec(spec)))
+        elif args.command == "verify":
+            from verification_runtime.cli import main as verify_main
+            return verify_main([str(args.request)])
         elif args.command == "route":
             from compute_planner import providers_for
             print("\n".join(providers_for(args.job_type)))
@@ -46,7 +50,7 @@ def main(argv=None):
             from .workflow import run_smoke
             print(json.dumps(run_smoke(code_ref=args.code_ref), indent=2))
     except ImportError as exc:
-        profiles = {"estimate-cost": "economics or compute", "route": "planning or compute", "smoke": "compute and distillation"}
+        profiles = {"estimate-cost": "economics or compute", "route": "planning or compute", "verify": "verification or distillation", "smoke": "compute and distillation"}
         print(f"Missing optional component: {exc.name}. Install Lab's {profiles.get(args.command, 'required')} profile.", file=sys.stderr)
         return 2
     except (OSError, ValueError, KeyError, TypeError) as exc:

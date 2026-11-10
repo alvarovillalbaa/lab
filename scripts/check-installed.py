@@ -19,6 +19,7 @@ MODULES = {
     "experiment-kit": "experiment_kit",
     "compute-economics": "compute_economics",
     "compute-planner": "compute_planner",
+    "verification-runtime": "verification_runtime",
     "model-distillation": "model_distillation",
     "open-evals-sdk": "open_evals_sdk",
     "clous-llm-lab": "lab",
@@ -28,10 +29,11 @@ PROFILES = {
     "economics": {"experiment-kit", "compute-economics"},
     "planning": {"experiment-kit", "compute-planner"},
     "compute": {"experiment-kit", "compute-economics", "compute-planner"},
-    "distillation": {"experiment-kit", "model-distillation"},
+    "verification": {"experiment-kit", "verification-runtime"},
+    "distillation": {"experiment-kit", "model-distillation", "verification-runtime"},
     "evals": {"experiment-kit", "open-evals-sdk"},
-    "cpu": {"experiment-kit", "compute-economics", "compute-planner", "model-distillation"},
-    "full": {"experiment-kit", "compute-economics", "compute-planner", "model-distillation", "open-evals-sdk"},
+    "cpu": {"experiment-kit", "compute-economics", "compute-planner", "model-distillation", "verification-runtime"},
+    "full": {"experiment-kit", "compute-economics", "compute-planner", "model-distillation", "verification-runtime", "open-evals-sdk"},
 }
 
 
@@ -106,6 +108,8 @@ def main(argv=None):
         else:
             require(args.profile is None, "profiles apply only to Lab")
             expected = {args.distribution}
+            if args.distribution == "model-distillation":
+                expected.add("verification-runtime")
         present = {item.metadata["Name"] for item in metadata.distributions()}
         require(not ((set(MODULES) | {"open-evals-optimizers"}) - expected) & present,
                 "unexpected ecosystem packages would weaken independent-install proof")
@@ -144,16 +148,53 @@ def main(argv=None):
                 estimate_file.write_text(json.dumps(spec), encoding="utf-8")
                 check_cli("compute-economics", ["estimate-cost", str(estimate_file)], workdir)
                 cli_checks.append("training estimate")
+            elif args.distribution == "verification-runtime":
+                request = workdir / "verify.json"
+                request.write_text(json.dumps({"subject_id": "fixture", "candidate": "4", "reference": "4"}))
+                output = json.loads(check_cli("verification-runtime", [str(request)], workdir))
+                require(output["accepted"] and output["verifier"] == "exact_match/v1",
+                        "installed objective verification failed")
+                request.write_text(json.dumps({"subject_id": "fixture", "candidate": "5", "reference": "4"}))
+                rejected = json.loads(check_cli("verification-runtime", [str(request)], workdir, expected=1))
+                require(not rejected["accepted"], "wrong answer was accepted")
+                cli_checks.append("independent accepted/rejected verification")
             elif args.distribution == "model-distillation":
                 output = json.loads(check_cli("model-distillation", ["demo"], workdir))
                 require(output["source"] == "authored_fixture" and output["pair"]["chosen"] == "4",
                         "installed preference fixture changed")
                 cli_checks.append("preference fixture")
+                distillation = importlib.import_module("model_distillation")
+                require(not hasattr(distillation, "verify_exact_match")
+                        and not hasattr(distillation, "VerificationResult"),
+                        "distillation still owns objective verification")
+                verification = importlib.import_module("verification_runtime")
+                task = distillation.Task("fixture", "math", "2+2", 0.1, "4")
+                a = distillation.TeacherResponse("fixture", "a", "4", "MIT", True)
+                b = distillation.TeacherResponse("fixture", "b", "5", "MIT", True)
+                result = verification.verify_exact_match(subject_id="fixture", candidate="4", reference="4")
+                from dataclasses import replace
+                try:
+                    distillation.build_preference_pair(task, replace(a, response="5"), b, result)
+                except ValueError:
+                    pass
+                else:
+                    raise RuntimeError("distillation accepted stale verification")
+                cli_checks.append("external verifier identity and stale-result rejection")
             elif args.distribution == "open-evals-sdk":
                 check_sdk()
             else:
                 check_cli("llm-lab", ["validate", str(fixture), "--profile", "record"], workdir)
                 cli_checks.append("CPU record")
+                request = workdir / "verify.json"
+                request.write_text(json.dumps({"subject_id": "fixture", "candidate": "4", "reference": "4"}))
+                if "verification-runtime" in expected:
+                    output = json.loads(check_cli("llm-lab", ["verify", str(request)], workdir))
+                    require(output["accepted"] and output["subject_id"] == "fixture",
+                            "Lab verification delegation failed")
+                    cli_checks.append("objective verification")
+                else:
+                    check_cli("llm-lab", ["verify", str(request)], workdir, expected=2)
+                    cli_checks.append("missing optional verifier handled")
                 workflow = importlib.import_module("lab.workflow")
                 composition = workflow.declared_composition()
                 require(composition["schema_version"] == 1 and "components" in composition,
@@ -182,6 +223,9 @@ def main(argv=None):
                             "installed CPU composition failed")
                     require(output["record"]["resources"] == {"device": "cpu", "gpus": 0},
                             "CPU composition misstates executed resources")
+                    require(output["output"]["verification"]["accepted"]
+                            and output["output"]["verification"]["verifier"] == "exact_match/v1",
+                            "CPU composition omitted independent verification")
                     estimate = output["planning"]["estimate"]
                     require(estimate["source"] == "authored_assumptions"
                             and estimate["observed_billing"] is False

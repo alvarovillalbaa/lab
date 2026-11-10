@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "status": "candidate",
-  "reason": "Expanded Lab composition, component scope changes, and Open Evals SDK packaging await review.",
+  "reason": "Product extraction, expanded composition and SDK packaging await review; exact selected commits remain independently installable.",
   "components": {
     "experiment-kit": {
       "repository": "alvarovillalbaa/experiment-kit",
@@ -43,10 +43,11 @@
     },
     "model-pretraining": {
       "repository": "alvarovillalbaa/model-pretraining",
-      "revision": "83e0be783b4a15241b6eee285854365ab2a25f9d",
+      "revision": "9d111a3e75f8db8b9563904562483e66c79d7e27",
       "status": "planned",
       "interface_version": null,
-      "pull_request": "https://github.com/alvarovillalbaa/model-pretraining/pull/1"
+      "pull_request": "https://github.com/alvarovillalbaa/model-pretraining/pull/2",
+      "stacked_on": "https://github.com/alvarovillalbaa/model-pretraining/pull/1"
     },
     "model-posttraining": {
       "repository": "alvarovillalbaa/model-posttraining",
@@ -56,9 +57,10 @@
     },
     "model-distillation": {
       "repository": "alvarovillalbaa/model-distillation",
-      "revision": "c79864d530aa82fb6db7d58c83e2f53719e43587",
+      "revision": "77f73c8fff67d154f514a02dd9e0c3260273aa6d",
       "status": "implemented",
-      "interface_version": "0.1.0"
+      "interface_version": "0.2.0",
+      "pull_request": "https://github.com/alvarovillalbaa/model-distillation/pull/1"
     },
     "model-serving": {
       "repository": "alvarovillalbaa/model-serving",
@@ -98,6 +100,24 @@
       "pull_request": "https://github.com/alvarovillalbaa/open-evals/pull/1",
       "interface_version": "open-evals-sdk/0.1.0",
       "subdirectory": "python/open_evals_sdk"
+    },
+    "verification-runtime": {
+      "repository": "alvarovillalbaa/verification-runtime",
+      "revision": "0f293f9808598a38f58f85563e1ccafd815bbd36",
+      "status": "implemented",
+      "interface_version": "0.1.0"
+    },
+    "model-architectures": {
+      "repository": "alvarovillalbaa/model-architectures",
+      "revision": "ef4c4ebf8870b83a454cd9b880e02bf30a9b7361",
+      "status": "planned",
+      "interface_version": null
+    },
+    "research-artifacts": {
+      "repository": "alvarovillalbaa/research-artifacts",
+      "revision": "d383d12f735063b3bab2f1e2814beb3a2c8da2a8",
+      "status": "planned",
+      "interface_version": null
     }
   },
   "profiles": {
@@ -119,7 +139,8 @@
     ],
     "distillation": [
       "experiment-kit",
-      "model-distillation"
+      "model-distillation",
+      "verification-runtime"
     ],
     "evals": [
       "experiment-kit",
@@ -129,14 +150,20 @@
       "experiment-kit",
       "compute-economics",
       "compute-planner",
-      "model-distillation"
+      "model-distillation",
+      "verification-runtime"
     ],
     "full": [
       "experiment-kit",
       "compute-economics",
       "compute-planner",
       "model-distillation",
-      "open-evals"
+      "open-evals",
+      "verification-runtime"
+    ],
+    "verification": [
+      "experiment-kit",
+      "verification-runtime"
     ]
   }
 }

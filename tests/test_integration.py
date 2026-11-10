@@ -38,6 +38,16 @@ class IntegrationTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             run_smoke(code_ref="")
 
+    def test_verification_runtime_result_is_consumed_by_distillation(self):
+        import model_distillation
+        import verification_runtime
+        with patch("verification_runtime.verify_exact_match", wraps=verification_runtime.verify_exact_match) as verify, patch("model_distillation.build_preference_pair", wraps=model_distillation.build_preference_pair) as pair:
+            result = run_smoke(code_ref="fixture:verification-handoff")
+        verify.assert_called_once_with(subject_id="math-1", candidate="4", reference="4")
+        self.assertEqual(pair.call_args.args[3].candidate_sha256,
+                         result["output"]["verification"]["candidate_sha256"])
+        self.assertTrue(result["output"]["verification"]["accepted"])
+
     def test_economics_output_is_the_planner_job_cost(self):
         import compute_planner
         with patch("compute_planner.Job", wraps=compute_planner.Job) as job:
@@ -74,7 +84,7 @@ class IntegrationTests(unittest.TestCase):
         declared = declared_composition()
         self.assertEqual(declared["status"], "candidate")
         requirements = metadata["project"]["dependencies"] + sum(metadata["project"]["optional-dependencies"].values(), [])
-        for name in ("experiment-kit", "compute-economics", "compute-planner", "model-distillation"):
+        for name in ("experiment-kit", "compute-economics", "compute-planner", "model-distillation", "verification-runtime"):
             self.assertTrue(any(declared["components"][name]["revision"] in req for req in requirements))
 
     def test_bad_evidence_and_missing_configuration_fail_before_sdk(self):

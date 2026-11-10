@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "clous-llm-lab"
-version = "0.3.0"
+version = "0.4.0"
 description = "Composable AI research laboratory and integration examples."
 requires-python = ">=3.11"
 license = {text = "MIT"}
@@ -17,7 +17,8 @@ compute = [
   "compute-economics @ git+https://github.com/alvarovillalbaa/compute-economics.git@c7ea3b8e4b7324270988a3eab1e26942d05188e5",
   "compute-planner @ git+https://github.com/alvarovillalbaa/compute-planner.git@2ff06e9c649bc413fbe565fb25d0347970236036",
 ]
-distillation = ["model-distillation @ git+https://github.com/alvarovillalbaa/model-distillation.git@c79864d530aa82fb6db7d58c83e2f53719e43587"]
+verification = ["verification-runtime @ git+https://github.com/alvarovillalbaa/verification-runtime.git@0f293f9808598a38f58f85563e1ccafd815bbd36"]
+distillation = ["model-distillation @ git+https://github.com/alvarovillalbaa/model-distillation.git@77f73c8fff67d154f514a02dd9e0c3260273aa6d"]
 evals = ["open-evals-sdk @ git+https://github.com/alvarovillalbaa/open-evals.git@d1002d58109156683be3ad4fc394c7cc6c534057#subdirectory=python/open_evals_sdk"]
 
 [project.scripts]
