@@ -1,0 +1,28 @@
+{
+  "status": "passed",
+  "original_files": 57,
+  "previous_stage": {
+    "status": "passed",
+    "original_files": 57,
+    "second_stage_maps": 4,
+    "intermediate_files": 55,
+    "section_routes": 26,
+    "destination_checks": 171,
+    "history_aliases": 2,
+    "limits": "Local structural provenance only; no network, runtime or laptop recovery proof."
+  },
+  "new_homes": 3,
+  "intermediate_files": 31,
+  "destination_checks": 69,
+  "original_route_refinements": 2,
+  "section_routes": 5,
+  "artifact_reference_fixture": "passed; specification example only",
+  "limits": "Local source/provenance only; installed behavior and laptop recovery are separate.",
+  "negative_cases_rejected": [
+    "missing_home",
+    "missing_owner",
+    "changed_map_hash",
+    "omitted_original_route",
+    "omitted_section"
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-10",
+  "status": "pending_storage_approval",
+  "scope": "Seven wheel builds, six independent installations, nine Lab profiles",
+  "lab_source_revision": "fd8f16a8f238c3f2d2d5a18f53e9a3999e776de8",
+  "source_checks": {
+    "verification-runtime": {
+      "revision": "0f293f9808598a38f58f85563e1ccafd815bbd36",
+      "tests_passed": 3,
+      "scope": "normalization/raw identity, rejection/missing reference, invalid input types"
+    },
+    "model-distillation": {
+      "revision": "77f73c8fff67d154f514a02dd9e0c3260273aa6d",
+      "tests_passed": 4,
+      "scope": "verified pairs, separate eligibility, stale candidate/reference/subject results, removed verifier exports"
+    },
+    "lab": {
+      "revision": "fd8f16a8f238c3f2d2d5a18f53e9a3999e776de8",
+      "tests_passed": 9,
+      "scope": "direct verification/cost handoffs, CPU fixture, evidence transport behavior and exact pins"
+    }
+  },
+  "storage": {
+    "preflight_free_gib": 8.4,
+    "required_gib": 34,
+    "approval": "requested; no answer received yet",
+    "limit_requested_mib": 256,
+    "earlier_exceptions": "closed; not reused"
+  },
+  "limitations": [
+    "Source checks do not prove wheel construction or fresh installation.",
+    "Model architectures and research artifacts remain planned specifications.",
+    "Only exact-match verification is implemented; other adapters planned."
+  ]
+}
