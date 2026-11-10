@@ -26,7 +26,7 @@ unmerged review PRs.
 | Publish without merging existing repositories | Lab PR #2 and Open Evals PR #1 are open, unmerged, and report clean mergeability | Verified |
 | Preserve a meaningful verification trail | Existing result receipts, CPU fixture output, extraction provenance, and this audit | Verified; proof limits retained |
 
-The current Lab implementation, tests, scripts, and package metadata are
+The migrated Lab runtime, existing tests, validation script, and package metadata are
 unchanged from checked source 36dbfc04b9c4ab37e07584e25afee3a18ff04e1b.
 Source checks therefore still apply to those exact bytes. They do not establish
 installed-package behavior.
@@ -47,6 +47,18 @@ A bounded task-specific storage exception has been requested from the owner.
 It is not granted by an unanswered question. Until permission or sufficient
 storage exists, the full goal remains active and independent installation is
 unproven. Existing PR review is intentionally left to the owner.
+
+## Installed verification readiness
+
+The follow-up preflight still fails: 10.9 GiB free against 34 GiB required.
+The [installed acceptance procedure](../../../runbooks/installed-package-acceptance.md)
+and its checker are now prepared for four independent component/SDK installations
+and six Lab profiles. The checker performs no installation or build.
+
+Checker syntax and help passed. Invoking it in the existing non-isolated
+interpreter correctly returned exit 2 with the requirement for a fresh virtual
+environment. This is a rejection check, not successful installed-package proof.
+No package install, wheel build, storage exception, or unrelated cleanup has run.
 
 Links: [migration result](repository-split.md),
 [source map](../../../sources/repository-split-map.json),
