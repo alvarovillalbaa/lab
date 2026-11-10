@@ -1,0 +1,872 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-10",
+  "source_repository": "alvarovillalbaa/lab",
+  "source_revision": "ba67e510bab2703b1042993744ce099490221c1f",
+  "original_main": "36bb3839f1bc166fa54824fd8457b28ca5189dae",
+  "history_policy": "Original Lab history and clean source checkout preserved. Exact extraction snapshots precede packaging commits. Lab destinations are on the unmerged migration branch.",
+  "components": {
+    "experiment-kit": {
+      "url": "https://github.com/alvarovillalbaa/experiment-kit",
+      "sha": "fe96641e94a596551e24f26661cb7ca73f6d90d1",
+      "extraction_commit": "a8a0da0b6dda0b740559599ec234f4335b6051fc"
+    },
+    "compute-planner": {
+      "url": "https://github.com/alvarovillalbaa/compute-planner",
+      "sha": "63a0c9794d0ed67fcdd8ff1a61b881f8ae1af142",
+      "extraction_commit": "c4857fa0a743cdad7290ad3c4bafb820732ecdb5"
+    },
+    "compute-runners": {
+      "url": "https://github.com/alvarovillalbaa/compute-runners",
+      "sha": "47e530cf39428098caeab74361325907f6138d7a"
+    },
+    "model-data": {
+      "url": "https://github.com/alvarovillalbaa/model-data",
+      "sha": "89325b15e7c7e31f9e0eff234dbd608e387b2d1c"
+    },
+    "model-training": {
+      "url": "https://github.com/alvarovillalbaa/model-training",
+      "sha": "24e69c525a293281b28ff36f5ef4c3558f05fcd6"
+    },
+    "model-distillation": {
+      "url": "https://github.com/alvarovillalbaa/model-distillation",
+      "sha": "c79864d530aa82fb6db7d58c83e2f53719e43587",
+      "extraction_commit": "104334cdae9ace31de54d431b63005bc82eadc06"
+    },
+    "model-inference": {
+      "url": "https://github.com/alvarovillalbaa/model-inference",
+      "sha": "2eafeaf2bfac00acb3960311f381d38b72f40c97"
+    },
+    "ml-foundations": {
+      "url": "https://github.com/alvarovillalbaa/ml-foundations",
+      "sha": "b2997dc0eede147436d45a291123e14fab7c189a"
+    },
+    "rl-environments": {
+      "url": "https://github.com/alvarovillalbaa/rl-environments",
+      "sha": "810c0dc966c04bd933b5a887ee99c09c3fff63a2"
+    }
+  },
+  "files": [
+    {
+      "source_path": ".gitignore",
+      "source_sha256": "7a6841cb5c5ff512562a4b1db7f2f595b6e086ae9ba2f905078493a8b62a5d2f",
+      "destinations": [
+        {
+          "repository": "lab",
+          "path": ".gitignore",
+          "role": "retained_or_adapted",
+          "sha256": "7a6841cb5c5ff512562a4b1db7f2f595b6e086ae9ba2f905078493a8b62a5d2f",
+          "content_relation": "identical",
+          "revision": null,
+          "branch": "split/composable-repositories"
+        }
+      ]
+    },
+    {
+      "source_path": "GAPS.md",
+      "source_sha256": "ea6206fba4cb4e8d05491ee6a6435ce3d0b87a7471a9a27e4db4949f7a945092",
+      "destinations": [
+        {
+          "repository": "lab",
+          "path": "docs/sources/pre-split/GAPS.md",
+          "role": "frozen_original",
+          "sha256": "ea6206fba4cb4e8d05491ee6a6435ce3d0b87a7471a9a27e4db4949f7a945092",
+          "content_relation": "identical",
+          "revision": null,
+          "branch": "split/composable-repositories"
+        }
+      ]
+    },
+    {
+      "source_path": "README.md",
+      "source_sha256": "c693505c2f9abc6524ef05c70989ef22e50a61ea77938a267df872281d64b429",
+      "destinations": [
+        {
+          "repository": "lab",
+          "path": "docs/sources/pre-split/README.md",
+          "role": "frozen_original",
+          "sha256": "c693505c2f9abc6524ef05c70989ef22e50a61ea77938a267df872281d64b429",
+          "content_relation": "identical",
+          "revision": null,
+          "branch": "split/composable-repositories"
+        }
+      ]
+    },
+    {
+      "source_path": "REFERENCES.md",
+      "source_sha256": "49af54326af147056a448dc455d28cfb3295f96e7daf8e90aaa712f34de68f1d",
+      "destinations": [
+        {
+          "repository": "lab",
+          "path": "docs/sources/pre-split/REFERENCES.md",
+          "role": "frozen_original",
+          "sha256": "49af54326af147056a448dc455d28cfb3295f96e7daf8e90aaa712f34de68f1d",
+          "content_relation": "identical",
+          "revision": null,
+          "branch": "split/composable-repositories"
+        }
+      ]
+    },
+    {
+      "source_path": "SOURCES.md",
+      "source_sha256": "073ca0355f1b0b2c55f32a374c96ff598663fbfb44e3d12cf7b5f40204f73a51",
+      "destinations": [
+        {
+          "repository": "lab",
+          "path": "docs/sources/pre-split/SOURCES.md",
+          "role": "frozen_original",
+          "sha256": "073ca0355f1b0b2c55f32a374c96ff598663fbfb44e3d12cf7b5f40204f73a51",
+          "content_relation": "identical",
+          "revision": null,
+          "branch": "split/composable-repositories"
+        }
+      ]
+    },
+    {
+      "source_path": "configs/experiments/distill_verifier_smoke.json",
+      "source_sha256": "25091a19cae8cca3310f078d6358e3012cad8db468f7a4fc6cbe6a0aecdb603d",
+      "destinations": [
+        {
+          "repository": "lab",
+          "path": "configs/experiments/distill_verifier_smoke.json",
+          "role": "retained_or_adapted",
+          "sha256": "25091a19cae8cca3310f078d6358e3012cad8db468f7a4fc6cbe6a0aecdb603d",
+          "content_relation": "identical",
+          "revision": null,
+          "branch": "split/composable-repositories"
+        }
+      ]
+    },
+    {
+      "source_path": "configs/experiments/lab_124m_pretrain_smoke.json",
+      "source_sha256": "2c12fe9a5cbd1a721e5f8163cc97f4751c1aeaeb916027e05e1125b2c27ba546",
+      "destinations": [
+        {
+          "repository": "lab",
+          "path": "configs/experiments/lab_124m_pretrain_smoke.json",
+          "role": "retained_or_adapted",
+          "sha256": "2c12fe9a5cbd1a721e5f8163cc97f4751c1aeaeb916027e05e1125b2c27ba546",
+          "content_relation": "identical",
+          "revision": null,
+          "branch": "split/composable-repositories"
+        }
+      ]
+    },
+    {
+      "source_path": "configs/experiments/lab_20m_tiny_pretrain.json",
+      "source_sha256": "2e1b981650eb76f005f092ace59dea623e55274b45c870e071cb1be87bc2a9da",
+      "destinations": [
+        {
+          "repository": "lab",
+          "path": "configs/experiments/lab_20m_tiny_pretrain.json",
+          "role": "retained_or_adapted",
+          "sha256": "2e1b981650eb76f005f092ace59dea623e55274b45c870e071cb1be87bc2a9da",
+          "content_relation": "identical",
+          "revision": null,
+          "branch": "split/composable-repositories"
+        }
+      ]
+    },
+    {
+      "source_path": "configs/experiments/serving_baseten_public.json",
+      "source_sha256": "331eae43a81f89bda754d7670f1b7b0dafbde9e7b476783fbba1ad2d8fe02fb1",
+      "destinations": [
+        {
+          "repository": "lab",
+          "path": "configs/experiments/serving_baseten_public.json",
+          "role": "retained_or_adapted",
+          "sha256": "331eae43a81f89bda754d7670f1b7b0dafbde9e7b476783fbba1ad2d8fe02fb1",
+          "content_relation": "identical",
+          "revision": null,
+          "branch": "split/composable-repositories"
+        }
+      ]
+    },
+    {
+      "source_path": "configs/providers/baseten.json",
+      "source_sha256": "b6e55cea5d0fd36a955ec3b3a7899dbd0c0bc0efc014c0dec2cacadaceeba03f",
+      "destinations": [
+        {
+          "repository": "compute-runners",
+          "path": "configs/providers/baseten.json",
+          "sha256": "a1c46832d1e2399422e401338feacb41c94ea81ccfdfd500f2d487c4f55f8f4f",
+          "content_relation": "adapted",
+          "revision": "47e530cf39428098caeab74361325907f6138d7a"
+        }
+      ]
+    },
+    {
+      "source_path": "configs/providers/local.json",
+      "source_sha256": "137431cd6f0d6f8ecc0deef2131fe2eaf6e0679a9a4054fb579ce1f41a2c7a6e",
+      "destinations": [
+        {
+          "repository": "compute-runners",
+          "path": "configs/providers/local.json",
+          "sha256": "3e7d64a969bc1c7232a8e4b8e782b355d1b75a5bd6c3edc9cbcd7d639c0de73a",
+          "content_relation": "adapted",
+          "revision": "47e530cf39428098caeab74361325907f6138d7a"
+        }
+      ]
+    },
+    {
+      "source_path": "configs/providers/routing.json",
+      "source_sha256": "db03d30ee8f91faef19ca5e424f8723dfc7871cbce5026517f75c9ce9242e8a6",
+      "destinations": [
+        {
+          "repository": "compute-planner",
+          "path": "examples/routing.json",
+          "sha256": "186d6fbb0b036dcaa199521edac456df6b2374f4f6b392b501c03fa96e678a45",
+          "content_relation": "adapted",
+          "revision": "63a0c9794d0ed67fcdd8ff1a61b881f8ae1af142"
+        }
+      ]
+    },
+    {
+      "source_path": "configs/providers/tinker.json",
+      "source_sha256": "0f8ecb2c80eec9ea38a3ee511dd98ebfaa6deae83a213b658fdd88ab2348efb4",
+      "destinations": [
+        {
+          "repository": "compute-runners",
+          "path": "configs/providers/tinker.json",
+          "sha256": "89962dbfed67655408b21721febdbb6d296b91e853ba1da891366e68e6de2cdd",
+          "content_relation": "adapted",
+          "revision": "47e530cf39428098caeab74361325907f6138d7a"
+        }
+      ]
+    },
+    {
+      "source_path": "data/filters/README.md",
+      "source_sha256": "2a3c99d9ab7f22fd1c13d8316ad955b598a51f782fddabd19086ab4a416342d6",
+      "destinations": [
+        {
+          "repository": "model-data",
+          "path": "data/filters/README.md",
+          "sha256": "8a81acaf33df42496f9ecdd89c35eaa27159f090c295a141225faaa14ea26e63",
+          "content_relation": "adapted",
+          "revision": "89325b15e7c7e31f9e0eff234dbd608e387b2d1c"
+        }
+      ]
+    },
+    {
+      "source_path": "data/manifests/README.md",
+      "source_sha256": "6906dae77e72d008633a0c960ceb9b5a419e36425812c413eda1f18ae1310a32",
+      "destinations": [
+        {
+          "repository": "model-data",
+          "path": "data/manifests/README.md",
+          "sha256": "56b4705e1fa9be8b066dc77a28af11d07501f5b630e60ee1c6785a463fc57581",
+          "content_relation": "adapted",
+          "revision": "89325b15e7c7e31f9e0eff234dbd608e387b2d1c"
+        }
+      ]
+    },
+    {
+      "source_path": "data/schemas/README.md",
+      "source_sha256": "bde212a3e1b70ef79640464bf84316f73b4782683d5f3f41e3384fd1e3bbbe61",
+      "destinations": [
+        {
+          "repository": "model-data",
+          "path": "data/schemas/README.md",
+          "sha256": "24dc7bea46f1b31b79c681203af3241db4ae4f4765521a9dbcfee1bcc0ba4b54",
+          "content_relation": "adapted",
+          "revision": "89325b15e7c7e31f9e0eff234dbd608e387b2d1c"
+        }
+      ]
+    },
+    {
+      "source_path": "data/tokenizer/README.md",
+      "source_sha256": "ccbb37d005666b43a801352e9221d8dc0e41c71190f7e473761e9d238f3b4298",
+      "destinations": [
+        {
+          "repository": "model-data",
+          "path": "data/tokenizer/README.md",
+          "sha256": "d462a9c76c1e5fd8828d4b3e2f44006924a811beae8aae04106e5ad8f97b20cd",
+          "content_relation": "adapted",
+          "revision": "89325b15e7c7e31f9e0eff234dbd608e387b2d1c"
+        }
+      ]
+    },
+    {
+      "source_path": "docs/ARCHITECTURE.md",
+      "source_sha256": "3d4b9ff62b643bf7ff8bdda3989fd0823dab9898adc42d8177acf5fcc0d008fd",
+      "destinations": [
+        {
+          "repository": "lab",
+          "path": "docs/sources/pre-split/docs/ARCHITECTURE.md",
+          "role": "frozen_original",
+          "sha256": "3d4b9ff62b643bf7ff8bdda3989fd0823dab9898adc42d8177acf5fcc0d008fd",
+          "content_relation": "identical",
+          "revision": null,
+          "branch": "split/composable-repositories"
+        }
+      ]
+    },
+    {
+      "source_path": "docs/HUMAN_GATES.md",
+      "source_sha256": "9d410bbc6d9d8ee1010c590b6feb2eed21e94e5d57752b0b5d60659d3f0e1c8a",
+      "destinations": [
+        {
+          "repository": "lab",
+          "path": "docs/HUMAN_GATES.md",
+          "role": "retained_or_adapted",
+          "sha256": "c5178beb86ff97ae2ac8ef6a60ac02b5ed7ef5427cfc4a45249f5f54679f3fb0",
+          "content_relation": "adapted",
+          "revision": null,
+          "branch": "split/composable-repositories"
+        }
+      ]
+    },
+    {
+      "source_path": "docs/IMPLEMENTATION_BACKLOG.md",
+      "source_sha256": "24dce8fa1b4b7844a9f20e0a84058111b6db398b7a3b2accdda87ccb6649800d",
+      "destinations": [
+        {
+          "repository": "lab",
+          "path": "docs/sources/pre-split/docs/IMPLEMENTATION_BACKLOG.md",
+          "role": "frozen_original",
+          "sha256": "24dce8fa1b4b7844a9f20e0a84058111b6db398b7a3b2accdda87ccb6649800d",
+          "content_relation": "identical",
+          "revision": null,
+          "branch": "split/composable-repositories"
+        }
+      ]
+    },
+    {
+      "source_path": "docs/LIBRARIES_AND_PROVIDERS.md",
+      "source_sha256": "b5116c671f25612088e50c16e30e87d15fb69da2ca927486d1812caaf23c3c04",
+      "destinations": [
+        {
+          "repository": "lab",
+          "path": "docs/sources/pre-split/docs/LIBRARIES_AND_PROVIDERS.md",
+          "role": "frozen_original",
+          "sha256": "b5116c671f25612088e50c16e30e87d15fb69da2ca927486d1812caaf23c3c04",
+          "content_relation": "identical",
+          "revision": null,
+          "branch": "split/composable-repositories"
+        }
+      ]
+    },
+    {
+      "source_path": "docs/SPEC_COVERAGE.md",
+      "source_sha256": "2e3eb6b6c6f489783db3cbc49a9274468e587b2f3c349321e2e16332d7420eae",
+      "destinations": [
+        {
+          "repository": "lab",
+          "path": "docs/sources/pre-split/docs/SPEC_COVERAGE.md",
+          "role": "frozen_original",
+          "sha256": "2e3eb6b6c6f489783db3cbc49a9274468e587b2f3c349321e2e16332d7420eae",
+          "content_relation": "identical",
+          "revision": null,
+          "branch": "split/composable-repositories"
+        }
+      ]
+    },
+    {
+      "source_path": "docs/STEP_BY_STEP.md",
+      "source_sha256": "dc46e2b901a9f99d1667400c651e8f8dca390bdd308e0c935458f67b21d24158",
+      "destinations": [
+        {
+          "repository": "lab",
+          "path": "docs/sources/pre-split/docs/STEP_BY_STEP.md",
+          "role": "frozen_original",
+          "sha256": "dc46e2b901a9f99d1667400c651e8f8dca390bdd308e0c935458f67b21d24158",
+          "content_relation": "identical",
+          "revision": null,
+          "branch": "split/composable-repositories"
+        }
+      ]
+    },
+    {
+      "source_path": "docs/audits/2026/10-10/afs-layout.md",
+      "source_sha256": "f6be3751bcfe16db4996be88347c3e0f6fe7f7554df669a3451741d5c3351456",
+      "destinations": [
+        {
+          "repository": "lab",
+          "path": "docs/audits/2026/10-10/afs-layout.md",
+          "role": "retained_or_adapted",
+          "sha256": "f6be3751bcfe16db4996be88347c3e0f6fe7f7554df669a3451741d5c3351456",
+          "content_relation": "identical",
+          "revision": null,
+          "branch": "split/composable-repositories"
+        }
+      ]
+    },
+    {
+      "source_path": "docs/decisions/experiment-decisions.md",
+      "source_sha256": "6e983184f032a2c8768a44621b8443bbc9ea8c0658c11393363134fdbb98d59d",
+      "destinations": [
+        {
+          "repository": "lab",
+          "path": "docs/decisions/experiment-decisions.md",
+          "role": "retained_or_adapted",
+          "sha256": "6e983184f032a2c8768a44621b8443bbc9ea8c0658c11393363134fdbb98d59d",
+          "content_relation": "identical",
+          "revision": null,
+          "branch": "split/composable-repositories"
+        }
+      ]
+    },
+    {
+      "source_path": "docs/logs/2026/10-10/changes.md",
+      "source_sha256": "be236ba2c0971861cec890fc3df580ba3356da1db77695308a31130cbdc41c13",
+      "destinations": [
+        {
+          "repository": "lab",
+          "path": "docs/logs/2026/10-10/changes.md",
+          "role": "retained_or_adapted",
+          "sha256": "be236ba2c0971861cec890fc3df580ba3356da1db77695308a31130cbdc41c13",
+          "content_relation": "identical",
+          "revision": null,
+          "branch": "split/composable-repositories"
+        }
+      ]
+    },
+    {
+      "source_path": "docs/reports/PUBLIC_PROOF_STANDARD.md",
+      "source_sha256": "102e1e51f96043ed0ae4a1d2a5f668a164ceb61869e618125b8748b720fbb274",
+      "destinations": [
+        {
+          "repository": "lab",
+          "path": "docs/sources/pre-split/docs/reports/PUBLIC_PROOF_STANDARD.md",
+          "role": "frozen_original",
+          "sha256": "102e1e51f96043ed0ae4a1d2a5f668a164ceb61869e618125b8748b720fbb274",
+          "content_relation": "identical",
+          "revision": null,
+          "branch": "split/composable-repositories"
+        }
+      ]
+    },
+    {
+      "source_path": "docs/research/training-factory/README.md",
+      "source_sha256": "487e392185fd752c405e199e981a0cc9e694de1f72c862471ba3246cd0087ec7",
+      "destinations": [
+        {
+          "repository": "lab",
+          "path": "docs/sources/pre-split/docs/research/training-factory/README.md",
+          "role": "frozen_original",
+          "sha256": "487e392185fd752c405e199e981a0cc9e694de1f72c862471ba3246cd0087ec7",
+          "content_relation": "identical",
+          "revision": null,
+          "branch": "split/composable-repositories"
+        }
+      ]
+    },
+    {
+      "source_path": "docs/specs/human-steps.md",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "destinations": [
+        {
+          "repository": "lab",
+          "path": "docs/sources/pre-split/docs/specs/human-steps.md",
+          "role": "frozen_original",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "content_relation": "identical",
+          "revision": null,
+          "branch": "split/composable-repositories"
+        }
+      ]
+    },
+    {
+      "source_path": "docs/specs/libraries.md",
+      "source_sha256": "5770abed9e0cff48207de9bfe51072f2ef70a7763056422ea842ad87ba73a7e9",
+      "destinations": [
+        {
+          "repository": "lab",
+          "path": "docs/sources/pre-split/docs/specs/libraries.md",
+          "role": "frozen_original",
+          "sha256": "5770abed9e0cff48207de9bfe51072f2ef70a7763056422ea842ad87ba73a7e9",
+          "content_relation": "identical",
+          "revision": null,
+          "branch": "split/composable-repositories"
+        }
+      ]
+    },
+    {
+      "source_path": "docs/specs/providers.md",
+      "source_sha256": "ca145f562a274c4fe4170e7e0e343dbb35a60950224e99457c3608b8bde20438",
+      "destinations": [
+        {
+          "repository": "lab",
+          "path": "docs/sources/pre-split/docs/specs/providers.md",
+          "role": "frozen_original",
+          "sha256": "ca145f562a274c4fe4170e7e0e343dbb35a60950224e99457c3608b8bde20438",
+          "content_relation": "identical",
+          "revision": null,
+          "branch": "split/composable-repositories"
+        }
+      ]
+    },
+    {
+      "source_path": "docs/specs/steps-follow-ups.md",
+      "source_sha256": "cb9932cafa85ce61847b19b98a27820aaee859952a87719f9894402bdf6031cb",
+      "destinations": [
+        {
+          "repository": "lab",
+          "path": "docs/sources/pre-split/docs/specs/steps-follow-ups.md",
+          "role": "frozen_original",
+          "sha256": "cb9932cafa85ce61847b19b98a27820aaee859952a87719f9894402bdf6031cb",
+          "content_relation": "identical",
+          "revision": null,
+          "branch": "split/composable-repositories"
+        }
+      ]
+    },
+    {
+      "source_path": "docs/specs/steps.md",
+      "source_sha256": "7f0d72720515d83dd14d0e0dc55048125aa06fe22306f7e690f74d857821895a",
+      "destinations": [
+        {
+          "repository": "lab",
+          "path": "docs/sources/pre-split/docs/specs/steps.md",
+          "role": "frozen_original",
+          "sha256": "7f0d72720515d83dd14d0e0dc55048125aa06fe22306f7e690f74d857821895a",
+          "content_relation": "identical",
+          "revision": null,
+          "branch": "split/composable-repositories"
+        }
+      ]
+    },
+    {
+      "source_path": "infra/docker/README.md",
+      "source_sha256": "8f5ff373536cbc254b01d76442ef63e8125fd0b65486a7748d98a450ed9aee8f",
+      "destinations": [
+        {
+          "repository": "compute-runners",
+          "path": "infra/docker/README.md",
+          "sha256": "54e6e3691efd7c72e3464a8c22227d2fc24142ff51e716654e0c68a42b802e48",
+          "content_relation": "adapted",
+          "revision": "47e530cf39428098caeab74361325907f6138d7a"
+        }
+      ]
+    },
+    {
+      "source_path": "infra/k8s/README.md",
+      "source_sha256": "87081eb73f0fc448227616f5d60ef308d3cd8cefb04e41d6111b43f574ef958c",
+      "destinations": [
+        {
+          "repository": "compute-runners",
+          "path": "infra/k8s/README.md",
+          "sha256": "70e1e77d5c5acaec23a3383f7fc1b87380d9514f9bcfd272a02ca6e7e0b3900d",
+          "content_relation": "adapted",
+          "revision": "47e530cf39428098caeab74361325907f6138d7a"
+        }
+      ]
+    },
+    {
+      "source_path": "infra/skypilot/README.md",
+      "source_sha256": "878582ec468bdd63e7acbc321ff1269cfc489ed9a1937d8e4df069dde62149ab",
+      "destinations": [
+        {
+          "repository": "compute-runners",
+          "path": "infra/skypilot/README.md",
+          "sha256": "39cde9dbf5863b05026b3fd966c040f89cc8c0bcc67435261dc9d32cdcd429c0",
+          "content_relation": "adapted",
+          "revision": "47e530cf39428098caeab74361325907f6138d7a"
+        }
+      ]
+    },
+    {
+      "source_path": "infra/slurm/README.md",
+      "source_sha256": "6200b118195df6831e6b4e6dc83a7ee8f1581d3c27c67a28112fe761808c0142",
+      "destinations": [
+        {
+          "repository": "compute-runners",
+          "path": "infra/slurm/README.md",
+          "sha256": "f729505c8fc0dd941fba5e530701100d4d195cf35b6e430b358c74bebee3bd04",
+          "content_relation": "adapted",
+          "revision": "47e530cf39428098caeab74361325907f6138d7a"
+        }
+      ]
+    },
+    {
+      "source_path": "notebooks/data_quality/README.md",
+      "source_sha256": "486c01e1584ecf6228cd346ca9785fd1e07176cb375b12c5c4e759613bb64527",
+      "destinations": [
+        {
+          "repository": "lab",
+          "path": "notebooks/data_quality/README.md",
+          "role": "retained_or_adapted",
+          "sha256": "486c01e1584ecf6228cd346ca9785fd1e07176cb375b12c5c4e759613bb64527",
+          "content_relation": "identical",
+          "revision": null,
+          "branch": "split/composable-repositories"
+        }
+      ]
+    },
+    {
+      "source_path": "notebooks/loss_analysis/README.md",
+      "source_sha256": "b2d0e17fd4368d5feb82aedf2dfe0fbe7ec07137ed80bdd569e00d6a615e7027",
+      "destinations": [
+        {
+          "repository": "lab",
+          "path": "notebooks/loss_analysis/README.md",
+          "role": "retained_or_adapted",
+          "sha256": "b2d0e17fd4368d5feb82aedf2dfe0fbe7ec07137ed80bdd569e00d6a615e7027",
+          "content_relation": "identical",
+          "revision": null,
+          "branch": "split/composable-repositories"
+        }
+      ]
+    },
+    {
+      "source_path": "notebooks/scaling_laws/README.md",
+      "source_sha256": "fc50e135ad7c450404d6fd344ca7f6eca91b1249c51f5ec8010b0ea46cf12667",
+      "destinations": [
+        {
+          "repository": "lab",
+          "path": "notebooks/scaling_laws/README.md",
+          "role": "retained_or_adapted",
+          "sha256": "fc50e135ad7c450404d6fd344ca7f6eca91b1249c51f5ec8010b0ea46cf12667",
+          "content_relation": "identical",
+          "revision": null,
+          "branch": "split/composable-repositories"
+        }
+      ]
+    },
+    {
+      "source_path": "pyproject.toml",
+      "source_sha256": "078e785e09f795090977ca2034ba040411ab82c80c9a2208dc1aea43b6f63569",
+      "destinations": [
+        {
+          "repository": "lab",
+          "path": "pyproject.toml",
+          "role": "retained_or_adapted",
+          "sha256": "9a81d2b34863bca99de8890647aa43e3ae6e89f093df591bf667ca74e396fb9a",
+          "content_relation": "adapted",
+          "revision": null,
+          "branch": "split/composable-repositories"
+        }
+      ]
+    },
+    {
+      "source_path": "reports/templates/cost_ledger.csv",
+      "source_sha256": "313ba7a0c3af5116a1b88a9be174dcc49ff1565ed20b0d19f227aa38dc33cadb",
+      "destinations": [
+        {
+          "repository": "compute-planner",
+          "path": "templates/cost_ledger.csv",
+          "sha256": "171075c49e80f187fbfe6be21e2bbd1f07fc53e865df196b72d9dbc4248344e7",
+          "content_relation": "adapted",
+          "revision": "63a0c9794d0ed67fcdd8ff1a61b881f8ae1af142"
+        }
+      ]
+    },
+    {
+      "source_path": "reports/templates/data_card.md",
+      "source_sha256": "c24c5a00752f509ac915c92ff73ad52d0043ac2d74d364e34fec0b5db381a460",
+      "destinations": [
+        {
+          "repository": "model-data",
+          "path": "reports/templates/data_card.md",
+          "sha256": "b15634c4a434f6318a3c80feb459a08ab96a19de4b9dfb767c41d200d76ad775",
+          "content_relation": "adapted",
+          "revision": "89325b15e7c7e31f9e0eff234dbd608e387b2d1c"
+        }
+      ]
+    },
+    {
+      "source_path": "reports/templates/eval_report.md",
+      "source_sha256": "68920e25b1b9c224d4ada2e0470467ca23821ced6039efafa3ea4671368bd0ee",
+      "destinations": [
+        {
+          "repository": "lab",
+          "path": "reports/templates/eval_report.md",
+          "role": "retained_or_adapted",
+          "sha256": "68920e25b1b9c224d4ada2e0470467ca23821ced6039efafa3ea4671368bd0ee",
+          "content_relation": "identical",
+          "revision": null,
+          "branch": "split/composable-repositories"
+        }
+      ]
+    },
+    {
+      "source_path": "reports/templates/model_card.md",
+      "source_sha256": "104e09d559bb2ac14f0aca2210ef1f3512d28df2a19d59073dd0352a50882515",
+      "destinations": [
+        {
+          "repository": "model-training",
+          "path": "reports/templates/model_card.md",
+          "sha256": "22745f0579075e66fe10ae827436e661230a6a6974df6136f36fa5f2ee3ef59e",
+          "content_relation": "adapted",
+          "revision": "24e69c525a293281b28ff36f5ef4c3558f05fcd6"
+        }
+      ]
+    },
+    {
+      "source_path": "reports/templates/run_card.yaml",
+      "source_sha256": "da78e6f6bc81a8a0920a5f6b3e628511c21cfc741137d7dd183b18e6a29d60e9",
+      "destinations": [
+        {
+          "repository": "experiment-kit",
+          "path": "templates/llm_run_card.yaml",
+          "sha256": "4eab7872fce0bbe5c992ef386ac2534e244f929362f65ed15d52cb71656e27ad",
+          "content_relation": "adapted",
+          "revision": "fe96641e94a596551e24f26661cb7ca73f6d90d1"
+        }
+      ]
+    },
+    {
+      "source_path": "scripts/validate-lab.sh",
+      "source_sha256": "e943c1d186982f0cd6f9dc72b42a7d7a3bef45913f1bf40af270daee2e59215c",
+      "destinations": [
+        {
+          "repository": "lab",
+          "path": "scripts/validate-lab.sh",
+          "role": "retained_or_adapted",
+          "sha256": "a4239fe9d8b76fea6897cb6c4245b00ad8b09f7473ce5e3c4e300209c91cd8a2",
+          "content_relation": "adapted",
+          "revision": null,
+          "branch": "split/composable-repositories"
+        }
+      ]
+    },
+    {
+      "source_path": "src/lab/__init__.py",
+      "source_sha256": "ce06443dff207da11e7004f38a8d2914a960427c43d8cd614f58b9c3f0358fa0",
+      "destinations": [
+        {
+          "repository": "lab",
+          "path": "src/lab/__init__.py",
+          "role": "retained_or_adapted",
+          "sha256": "3ee3f8e8f991d32c48c398d56f50bde0e47516b57d6fe19edb68cfcc5d936cfd",
+          "content_relation": "adapted",
+          "revision": null,
+          "branch": "split/composable-repositories"
+        }
+      ]
+    },
+    {
+      "source_path": "src/lab/cli.py",
+      "source_sha256": "202bdad8f0d172d550aff16242d4da74eee78033007347d0dc139e2a9e3fb793",
+      "destinations": [
+        {
+          "repository": "lab",
+          "path": "src/lab/cli.py",
+          "role": "retained_or_adapted",
+          "sha256": "6c244b51b6cb54800917beeb8479d3490e9a5245ae3d77ade4b558b543b134fa",
+          "content_relation": "adapted",
+          "revision": null,
+          "branch": "split/composable-repositories"
+        }
+      ]
+    },
+    {
+      "source_path": "src/lab/costing.py",
+      "source_sha256": "c9e73a328c75c41906a7efecbb340f96dc49ddd78eee52af7678a972156b53b2",
+      "destinations": [
+        {
+          "repository": "compute-planner",
+          "path": "src/compute_planner/costing.py",
+          "sha256": "18d914dca8f9f392a062ae31fd12e740489648d7dd18a061b85b26b5580cebda",
+          "content_relation": "adapted",
+          "revision": "63a0c9794d0ed67fcdd8ff1a61b881f8ae1af142"
+        }
+      ]
+    },
+    {
+      "source_path": "src/lab/distillation.py",
+      "source_sha256": "8a23d3fe62c18febc664c4c9bca05b06b08b04980c98dda2193d099033b2c34b",
+      "destinations": [
+        {
+          "repository": "model-distillation",
+          "path": "src/model_distillation/distillation.py",
+          "sha256": "cf38049d57204c6c3680c7d193e6236f195bd13a215ed941b9b860724dbcb268",
+          "content_relation": "adapted",
+          "revision": "c79864d530aa82fb6db7d58c83e2f53719e43587"
+        }
+      ]
+    },
+    {
+      "source_path": "src/lab/routing.py",
+      "source_sha256": "cdb5654105dd2731343abb46d81940031edd499a208c43fb4af493a2546fef29",
+      "destinations": [
+        {
+          "repository": "compute-planner",
+          "path": "src/compute_planner/routing.py",
+          "sha256": "14e3feec9b3510165b3429d90ef75d5d75d2802379c6ca979960682f694e717d",
+          "content_relation": "adapted",
+          "revision": "63a0c9794d0ed67fcdd8ff1a61b881f8ae1af142"
+        }
+      ]
+    },
+    {
+      "source_path": "src/lab/scheduler.py",
+      "source_sha256": "ced993a23b24eddf339538a63780055a270a14d0bfc1f50441781ae2e17f9e7e",
+      "destinations": [
+        {
+          "repository": "compute-planner",
+          "path": "src/compute_planner/scheduler.py",
+          "sha256": "cf398c65a040a0ba27e80aea54919a623e780b4f71039c58a99274cd791241fa",
+          "content_relation": "adapted",
+          "revision": "63a0c9794d0ed67fcdd8ff1a61b881f8ae1af142"
+        }
+      ]
+    },
+    {
+      "source_path": "src/lab/validation.py",
+      "source_sha256": "27c0cc0399a8a6d18cbd32f476ca72e8563929b08ea50e07019d62055d15029b",
+      "destinations": [
+        {
+          "repository": "experiment-kit",
+          "path": "src/experiment_kit/validation.py",
+          "sha256": "63d7b187251725dc6f228ea81ec2341164028a24bce25dfde78ac35d339723ca",
+          "content_relation": "adapted",
+          "revision": "fe96641e94a596551e24f26661cb7ca73f6d90d1"
+        }
+      ]
+    },
+    {
+      "source_path": "tests/test_costing.py",
+      "source_sha256": "b219307a6dd7fb3c7b4225144cdf5a95c02933867a8125ee1d8851fd941e8bbe",
+      "destinations": [
+        {
+          "repository": "compute-planner",
+          "path": "tests/test_costing.py",
+          "sha256": "0e701b84932acc177c05d73cd835a0ba5b5859564f15581d7e280f303aa4cc42",
+          "content_relation": "adapted",
+          "revision": "63a0c9794d0ed67fcdd8ff1a61b881f8ae1af142"
+        }
+      ]
+    },
+    {
+      "source_path": "tests/test_distillation_scheduler.py",
+      "source_sha256": "a76ceadd305887ccd1496e599a993d8bec689c8c26c58ec965f7e351b69441fb",
+      "destinations": [
+        {
+          "repository": "model-distillation",
+          "path": "tests/test_distillation.py",
+          "sha256": "7ba83368a9045c4df15ad0fd798c2704a0ed5c1eac8774f2466fa5838ee270bc",
+          "content_relation": "adapted",
+          "revision": "c79864d530aa82fb6db7d58c83e2f53719e43587"
+        },
+        {
+          "repository": "compute-planner",
+          "path": "tests/test_scheduling.py",
+          "sha256": "000b840bc3a4eed49d8821bf63c52f304a06d3a932afe50818d9cadc88edc34b",
+          "content_relation": "adapted",
+          "revision": "63a0c9794d0ed67fcdd8ff1a61b881f8ae1af142"
+        }
+      ]
+    },
+    {
+      "source_path": "tests/test_validation.py",
+      "source_sha256": "67be29cc7fe7a38cd2cbe561e3471f13ee2a02aff02b855585818a9fc5a8524e",
+      "destinations": [
+        {
+          "repository": "experiment-kit",
+          "path": "tests/test_validation.py",
+          "sha256": "e645717978d6c8f264de8f55cc7b83eb4865ee3f1f8073346b08219dff902100",
+          "content_relation": "adapted",
+          "revision": "fe96641e94a596551e24f26661cb7ca73f6d90d1"
+        },
+        {
+          "repository": "compute-planner",
+          "path": "tests/test_scheduling.py",
+          "sha256": "000b840bc3a4eed49d8821bf63c52f304a06d3a932afe50818d9cadc88edc34b",
+          "content_relation": "adapted",
+          "revision": "63a0c9794d0ed67fcdd8ff1a61b881f8ae1af142"
+        }
+      ]
+    }
+  ]
+}

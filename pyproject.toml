@@ -1,13 +1,28 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
 [project]
 name = "clous-llm-lab"
-version = "0.1.0"
-description = "Reproducible LLM training lab skeleton."
+version = "0.2.0"
+description = "Composable AI research laboratory and integration examples."
 requires-python = ">=3.11"
-dependencies = []
+license = {text = "MIT"}
+dependencies = ["experiment-kit @ git+https://github.com/alvarovillalbaa/experiment-kit.git@fe96641e94a596551e24f26661cb7ca73f6d90d1"]
+
+[project.optional-dependencies]
+compute = ["compute-planner @ git+https://github.com/alvarovillalbaa/compute-planner.git@63a0c9794d0ed67fcdd8ff1a61b881f8ae1af142"]
+distillation = ["model-distillation @ git+https://github.com/alvarovillalbaa/model-distillation.git@c79864d530aa82fb6db7d58c83e2f53719e43587"]
+evals = ["open-evals-sdk @ git+https://github.com/alvarovillalbaa/open-evals.git@d1002d58109156683be3ad4fc394c7cc6c534057#subdirectory=python/open_evals_sdk"]
 
 [project.scripts]
 llm-lab = "lab.cli:main"
 
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+lab = ["composition.json"]
+
 [tool.ruff]
 line-length = 100
-

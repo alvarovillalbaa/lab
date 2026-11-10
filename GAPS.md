@@ -1,8 +1,10 @@
 # Gaps
 
-Last updated: 2026-10-10
+Last updated: 2026-11-10
 
-- Experiment decisions still contain owner TODOs. Budget, data rights, teacher
-  licenses, provider selection and public claims require their existing gates.
-- No research experiment, external source refresh or hardware run is proven by
-  the AFS layout change. The retired dated research placeholder contained zero bytes.
+- Six component repositories are specifications only; see the root component catalogue.
+- Fresh installs and package builds await a passing Storage Guard preflight.
+- Lab and SDK migration PRs await review; the composition is a candidate.
+- Damaged-laptop work is not part of this source baseline.
+- Budget, data/teacher rights, provider access, and scientific claims remain owner decisions.
+- Current provider capability, live service delivery, real training, inference, and evaluated model performance are unverified.

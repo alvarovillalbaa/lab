@@ -1,8 +1,10 @@
 # Sources
 
-Last updated: 2026-10-10
+Last updated: 2026-11-10
 
-The lab blueprint and provider register are authored project intent. No raw
-originals or provider documents are ingested by this layout migration. The
-external links in [the provider register](docs/LIBRARIES_AND_PROVIDERS.md)
-remain leads until their contents, versions and license terms are inspected.
+- [Frozen source inventory](docs/sources/repository-split-map.json): Lab main and October documentation lineage.
+- [Original documents](docs/sources/README.md): historical material preserved without claiming new research.
+- [Component ownership](docs/references/component-ownership.md): current canonical repositories.
+- [Composition manifest](src/lab/composition.json): declared pinned combinations, with candidate status.
+
+Provider facts and pricing in historical designs have not been refreshed.

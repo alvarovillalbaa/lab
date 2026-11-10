@@ -1,103 +1,55 @@
-# Architecture
+# Ecosystem architecture
 
-The lab uses one experiment contract and multiple execution backends.
+Last updated: 2026-11-10
 
-```text
-experiment spec
-  -> provider router
-  -> local trainer / OLMo-core / TorchTitan / TRL / Tinker / Baseten / vLLM
-  -> artifacts
-  -> evals
-  -> reports
+Lab assembles components; no component depends on Lab. A user can install the
+implemented libraries separately or combine selected versions.
+
+```mermaid
+flowchart TD
+  Lab --> Experiments[experiment-kit]
+  Lab --> Planning[compute-planner]
+  Lab --> Distillation[model-distillation]
+  Lab --> Evals[open-evals SDK]
+  Planning -. explicit job handoff, planned .-> Runners[compute-runners]
+  Data[model-data, planned] -. artifacts .-> Training[model-training, planned]
+  Training -. model artifacts .-> Inference[model-inference, planned]
+  Environments[rl-environments, planned] -. tasks .-> Training
 ```
 
-## Execution Lanes
+Current executable composition is a CPU fixture workflow: validate a common
+record, order candidate jobs, recommend providers, verify supplied fixture
+responses, and construct a preference pair. Optional SDK delivery transmits
+evidence from that execution. It does not run an Open Evals evaluation.
 
-### Local From-Scratch Lane
+Future data/training/inference workflows are documented interfaces, not engines
+implemented by this split. Classical ML implementations belong in ml-foundations.
+RL environments own tasks/dynamics; model-training owns RL training algorithms.
 
-Use for:
+## Interfaces
 
-- Tiny transformer.
-- 20M to 60M smoke training.
-- Unit tests.
-- Data pipeline tests.
-- Local generation.
-- Local vLLM benchmark when a compatible model exists.
+Experiment-kit owns common metadata and the separate legacy LLM validator.
+Other components expose their native APIs and may accept explicit records or
+artifact references; they do not need a mandatory central Python object model.
+Compute-planner owns estimates and scheduling policy. Compute-runners will own
+submit/status/cancel/logs and execution receipts. Planning is not authorization
+to allocate resources. Model-inference owns endpoint lifecycle.
 
-This lane is mandatory because it proves the lab is not only provider glue.
+Each repository declares only its own dependencies. Compatible combinations
+are pinned in [the composition manifest](../src/lab/composition.json).
+No sibling imports, copied implementation facades, submodules, or global
+multi-repository lockfile are required.
 
-### NVIDIA/PyTorch Lane
+## Artifacts and provenance
 
-Use for:
+Object storage remains canonical for large datasets, tokenizers, checkpoints,
+and evaluation outputs. Local/parallel filesystems are caches or execution
+optimizations. Record source revisions and content hashes; never keep the only
+copy on a provider-specific machine. Integrated experiment configs remain in
+Lab; their referenced artifacts need independent materialization.
 
-- OLMo-core pretraining.
-- TorchTitan experiments.
-- Megatron/NeMo experiments when needed.
-- Slurm or Kubernetes/Kueue execution.
-- SkyPilot routing to raw GPU providers.
-
-### Managed Post-Training Lane
-
-Use for:
-
-- Tinker SFT, DPO, RL, and distillation when access exists.
-- TRL as local fallback.
-- verl/OpenRLHF for scaled RL after local loops work.
-
-### Serving Lane
-
-Use for:
-
-- Baseten public endpoint.
-- Local/self-hosted vLLM benchmark.
-- SGLang for structured and multi-turn workloads.
-- TensorRT-LLM/Triton only after model stability.
-
-## Provider Interface
-
-Every provider adapter should implement:
-
-```text
-submit_job()
-cancel_job()
-get_logs()
-get_metrics()
-sync_data()
-upload_checkpoint()
-download_checkpoint()
-launch_endpoint()
-stop_endpoint()
-estimate_cost()
-```
-
-## Canonical Storage Rule
-
-Object storage is the source of truth.
-
-- Local NVMe is cache.
-- Parallel filesystems are performance optimizations.
-- Provider-specific paths must never be the only copy.
-- Every dataset shard, tokenizer, checkpoint, and eval result must have a hash.
-
-## Routing Policy
-
-Routing is job-type based:
-
-- `pretrain_smoke`: local, RunPod, Lambda.
-- `pretrain_serious`: local Slurm, Lambda, CoreWeave, OCI, Azure.
-- `data_processing`: local CPU, Kubernetes batch, cloud batch.
-- `teacher_generation`: local vLLM, Together, Fireworks, Baseten.
-- `posttraining_sft`: Tinker, TRL locally, Baseten Loops.
-- `posttraining_rl`: Tinker, verl, OpenRLHF.
-- `evals`: local, cheap GPUs, managed endpoints.
-- `serving_public`: Baseten first.
-- `serving_benchmark`: local vLLM first.
-
-## Security Boundaries
-
-- Provider credentials never go in configs.
-- Public demos must use a safety gateway.
-- Internal vLLM/SGLang ports must not be exposed directly.
-- Distillation data must include license/source metadata.
-- Commercial API outputs require legal review before model training.
-
+The [ownership map](references/component-ownership.md) routes future work.
+The [migration inventory](sources/repository-split-map.json) records every
+original tracked file, its source hash, and destination. Historical design is
+preserved byte-for-byte in [pre-split sources](sources/README.md) and original
+Git history. The original local checkout and open documentation PR are retained.
