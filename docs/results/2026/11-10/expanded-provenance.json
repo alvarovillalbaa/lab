@@ -1,0 +1,21 @@
+{
+  "status": "passed",
+  "original_files": 57,
+  "second_stage_maps": 4,
+  "intermediate_files": 55,
+  "section_routes": 26,
+  "destination_checks": 171,
+  "history_aliases": 2,
+  "limits": "Local structural provenance only; no network, runtime or laptop recovery proof.",
+  "schema_version": 1,
+  "date": "2026-11-10",
+  "negative_checks": {
+    "performed_by": "independent boundary reviewer",
+    "status": "passed",
+    "rejected": [
+      "tampered V1 hash",
+      "changed repository alias ID",
+      "omitted original source file"
+    ]
+  }
+}

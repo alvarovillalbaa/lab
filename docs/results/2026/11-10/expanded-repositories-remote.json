@@ -1,0 +1,337 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-10",
+  "status": "passed",
+  "scope": "Live GitHub identity, visibility, license and open-review snapshot; subsequent evidence-only Lab commits do not change tested runtime.",
+  "lab_tested_runtime_revision": "d9044c9cd0f1147fe0f965d23a609dbe0ac6599f",
+  "repositories": [
+    {
+      "databaseId": 1289032980,
+      "name": "lab",
+      "visibility": "PUBLIC",
+      "licenseInfo": null,
+      "defaultBranchRef": {
+        "name": "main",
+        "target": {
+          "oid": "36bb3839f1bc166fa54824fd8457b28ca5189dae"
+        }
+      },
+      "pullRequests": {
+        "nodes": [
+          {
+            "number": 1,
+            "url": "https://github.com/alvarovillalbaa/lab/pull/1",
+            "headRefName": "afs-contract-2026-10-10",
+            "headRefOid": "ba67e510bab2703b1042993744ce099490221c1f",
+            "baseRefName": "main"
+          },
+          {
+            "number": 2,
+            "url": "https://github.com/alvarovillalbaa/lab/pull/2",
+            "headRefName": "split/composable-repositories",
+            "headRefOid": "f426beef1f5717a06de3e000f29c7d5ad99ee710",
+            "baseRefName": "main"
+          }
+        ]
+      }
+    },
+    {
+      "databaseId": 1452711077,
+      "name": "experiment-kit",
+      "visibility": "PUBLIC",
+      "licenseInfo": {
+        "spdxId": "MIT"
+      },
+      "defaultBranchRef": {
+        "name": "main",
+        "target": {
+          "oid": "4e471f1913e6a0513b3e08e0595376aac60232bf"
+        }
+      },
+      "pullRequests": {
+        "nodes": []
+      }
+    },
+    {
+      "databaseId": 1453076816,
+      "name": "compute-economics",
+      "visibility": "PUBLIC",
+      "licenseInfo": {
+        "spdxId": "MIT"
+      },
+      "defaultBranchRef": {
+        "name": "main",
+        "target": {
+          "oid": "c7ea3b8e4b7324270988a3eab1e26942d05188e5"
+        }
+      },
+      "pullRequests": {
+        "nodes": []
+      }
+    },
+    {
+      "databaseId": 1452711248,
+      "name": "compute-planner",
+      "visibility": "PUBLIC",
+      "licenseInfo": {
+        "spdxId": "MIT"
+      },
+      "defaultBranchRef": {
+        "name": "main",
+        "target": {
+          "oid": "59258a93f533091df52db57ea06ab5fcd3df9bf2"
+        }
+      },
+      "pullRequests": {
+        "nodes": [
+          {
+            "number": 1,
+            "url": "https://github.com/alvarovillalbaa/compute-planner/pull/1",
+            "headRefName": "split/economics",
+            "headRefOid": "2ff06e9c649bc413fbe565fb25d0347970236036",
+            "baseRefName": "main"
+          }
+        ]
+      }
+    },
+    {
+      "databaseId": 1452711374,
+      "name": "compute-runners",
+      "visibility": "PUBLIC",
+      "licenseInfo": {
+        "spdxId": "MIT"
+      },
+      "defaultBranchRef": {
+        "name": "main",
+        "target": {
+          "oid": "47e530cf39428098caeab74361325907f6138d7a"
+        }
+      },
+      "pullRequests": {
+        "nodes": []
+      }
+    },
+    {
+      "databaseId": 1452711536,
+      "name": "model-data",
+      "visibility": "PUBLIC",
+      "licenseInfo": {
+        "spdxId": "MIT"
+      },
+      "defaultBranchRef": {
+        "name": "main",
+        "target": {
+          "oid": "89325b15e7c7e31f9e0eff234dbd608e387b2d1c"
+        }
+      },
+      "pullRequests": {
+        "nodes": [
+          {
+            "number": 1,
+            "url": "https://github.com/alvarovillalbaa/model-data/pull/1",
+            "headRefName": "split/tokenizers",
+            "headRefOid": "236f87e9be53b5298bbf89a80ae3b949f841c47c",
+            "baseRefName": "main"
+          }
+        ]
+      }
+    },
+    {
+      "databaseId": 1453067832,
+      "name": "model-tokenizers",
+      "visibility": "PUBLIC",
+      "licenseInfo": {
+        "spdxId": "MIT"
+      },
+      "defaultBranchRef": {
+        "name": "main",
+        "target": {
+          "oid": "4527dfba4c8706868f335018ebae3a068b05c146"
+        }
+      },
+      "pullRequests": {
+        "nodes": []
+      }
+    },
+    {
+      "databaseId": 1452711751,
+      "name": "model-pretraining",
+      "visibility": "PUBLIC",
+      "licenseInfo": {
+        "spdxId": "MIT"
+      },
+      "defaultBranchRef": {
+        "name": "main",
+        "target": {
+          "oid": "24e69c525a293281b28ff36f5ef4c3558f05fcd6"
+        }
+      },
+      "pullRequests": {
+        "nodes": [
+          {
+            "number": 1,
+            "url": "https://github.com/alvarovillalbaa/model-pretraining/pull/1",
+            "headRefName": "split/pretraining-posttraining",
+            "headRefOid": "83e0be783b4a15241b6eee285854365ab2a25f9d",
+            "baseRefName": "main"
+          }
+        ]
+      }
+    },
+    {
+      "databaseId": 1453067962,
+      "name": "model-posttraining",
+      "visibility": "PUBLIC",
+      "licenseInfo": {
+        "spdxId": "MIT"
+      },
+      "defaultBranchRef": {
+        "name": "main",
+        "target": {
+          "oid": "1fbb9e41f6b80dda54beeb68936e3339160cd8fe"
+        }
+      },
+      "pullRequests": {
+        "nodes": []
+      }
+    },
+    {
+      "databaseId": 1452711925,
+      "name": "model-distillation",
+      "visibility": "PUBLIC",
+      "licenseInfo": {
+        "spdxId": "MIT"
+      },
+      "defaultBranchRef": {
+        "name": "main",
+        "target": {
+          "oid": "89ae0b3b642566e385be1a292843419bb9ffbdd3"
+        }
+      },
+      "pullRequests": {
+        "nodes": []
+      }
+    },
+    {
+      "databaseId": 1452712112,
+      "name": "model-serving",
+      "visibility": "PUBLIC",
+      "licenseInfo": {
+        "spdxId": "MIT"
+      },
+      "defaultBranchRef": {
+        "name": "main",
+        "target": {
+          "oid": "2eafeaf2bfac00acb3960311f381d38b72f40c97"
+        }
+      },
+      "pullRequests": {
+        "nodes": [
+          {
+            "number": 1,
+            "url": "https://github.com/alvarovillalbaa/model-serving/pull/1",
+            "headRefName": "split/serving-benchmarks",
+            "headRefOid": "282d7399e724ba1d7dc254a0b6f632f0350953a6",
+            "baseRefName": "main"
+          }
+        ]
+      }
+    },
+    {
+      "databaseId": 1453068053,
+      "name": "inference-benchmarks",
+      "visibility": "PUBLIC",
+      "licenseInfo": {
+        "spdxId": "MIT"
+      },
+      "defaultBranchRef": {
+        "name": "main",
+        "target": {
+          "oid": "effcb270f54cd10d0d1b1f99d1873a2702221918"
+        }
+      },
+      "pullRequests": {
+        "nodes": []
+      }
+    },
+    {
+      "databaseId": 1452712366,
+      "name": "ml-foundations",
+      "visibility": "PUBLIC",
+      "licenseInfo": {
+        "spdxId": "MIT"
+      },
+      "defaultBranchRef": {
+        "name": "main",
+        "target": {
+          "oid": "b2997dc0eede147436d45a291123e14fab7c189a"
+        }
+      },
+      "pullRequests": {
+        "nodes": []
+      }
+    },
+    {
+      "databaseId": 1452712565,
+      "name": "rl-environments",
+      "visibility": "PUBLIC",
+      "licenseInfo": {
+        "spdxId": "MIT"
+      },
+      "defaultBranchRef": {
+        "name": "main",
+        "target": {
+          "oid": "810c0dc966c04bd933b5a887ee99c09c3fff63a2"
+        }
+      },
+      "pullRequests": {
+        "nodes": []
+      }
+    },
+    {
+      "databaseId": 1453068172,
+      "name": "research-controller",
+      "visibility": "PUBLIC",
+      "licenseInfo": {
+        "spdxId": "MIT"
+      },
+      "defaultBranchRef": {
+        "name": "main",
+        "target": {
+          "oid": "66e341725d024fbb546b4906e528a806171c3e7e"
+        }
+      },
+      "pullRequests": {
+        "nodes": []
+      }
+    },
+    {
+      "databaseId": 1279540731,
+      "name": "open-evals",
+      "visibility": "PUBLIC",
+      "licenseInfo": {
+        "spdxId": "MIT"
+      },
+      "defaultBranchRef": {
+        "name": "main",
+        "target": {
+          "oid": "c0721e140feebc2c8bfcc495e98a57729e164e9a"
+        }
+      },
+      "pullRequests": {
+        "nodes": [
+          {
+            "number": 1,
+            "url": "https://github.com/alvarovillalbaa/open-evals/pull/1",
+            "headRefName": "packaging/standalone-python-sdk",
+            "headRefOid": "45f4bb84e025bf042a1db321e0c484f7b769d6c9",
+            "baseRefName": "main"
+          }
+        ]
+      }
+    }
+  ],
+  "license_note": "Lab main predates this migration and has no GitHub-detected license; the MIT license is included in Lab review PR 2. The other fifteen repositories report MIT.",
+  "renamed_history_ids_preserved": true,
+  "repository_count": 16
+}
