@@ -1,9 +1,7 @@
-#!/usr/bin/env sh
+#!/bin/sh
 set -eu
-
-PYTHONPATH=src python3 -m lab.cli validate configs/experiments/lab_20m_tiny_pretrain.json
-PYTHONPATH=src python3 -m lab.cli validate configs/experiments/lab_124m_pretrain_smoke.json
-PYTHONPATH=src python3 -m lab.cli validate configs/experiments/distill_verifier_smoke.json
-PYTHONPATH=src python3 -m lab.cli validate configs/experiments/serving_baseten_public.json
-PYTHONPATH=src python3 -m lab.cli estimate-cost configs/experiments/lab_124m_pretrain_smoke.json
-PYTHONPATH=src python3 -m unittest discover -s tests
+llm-lab validate configs/experiments/lab_20m_tiny_pretrain.json
+llm-lab validate configs/experiments/cpu_smoke.json --profile record
+llm-lab estimate-cost configs/experiments/lab_124m_pretrain_smoke.json
+llm-lab route pretrain_smoke
+python3 -B -m unittest discover -s tests -v

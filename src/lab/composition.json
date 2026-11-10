@@ -1,0 +1,169 @@
+{
+  "schema_version": 1,
+  "status": "candidate",
+  "reason": "Product extraction, expanded composition and SDK packaging await review; exact selected commits remain independently installable.",
+  "components": {
+    "experiment-kit": {
+      "repository": "alvarovillalbaa/experiment-kit",
+      "revision": "fe96641e94a596551e24f26661cb7ca73f6d90d1",
+      "status": "implemented",
+      "interface_version": "0.1.0"
+    },
+    "compute-economics": {
+      "repository": "alvarovillalbaa/compute-economics",
+      "revision": "c7ea3b8e4b7324270988a3eab1e26942d05188e5",
+      "status": "implemented",
+      "interface_version": "0.1.0"
+    },
+    "compute-planner": {
+      "repository": "alvarovillalbaa/compute-planner",
+      "revision": "2ff06e9c649bc413fbe565fb25d0347970236036",
+      "status": "implemented",
+      "interface_version": "0.2.0",
+      "pull_request": "https://github.com/alvarovillalbaa/compute-planner/pull/1"
+    },
+    "compute-runners": {
+      "repository": "alvarovillalbaa/compute-runners",
+      "revision": "47e530cf39428098caeab74361325907f6138d7a",
+      "status": "planned",
+      "interface_version": null
+    },
+    "model-data": {
+      "repository": "alvarovillalbaa/model-data",
+      "revision": "236f87e9be53b5298bbf89a80ae3b949f841c47c",
+      "status": "planned",
+      "interface_version": null,
+      "pull_request": "https://github.com/alvarovillalbaa/model-data/pull/1"
+    },
+    "model-tokenizers": {
+      "repository": "alvarovillalbaa/model-tokenizers",
+      "revision": "4527dfba4c8706868f335018ebae3a068b05c146",
+      "status": "planned",
+      "interface_version": null
+    },
+    "model-pretraining": {
+      "repository": "alvarovillalbaa/model-pretraining",
+      "revision": "9d111a3e75f8db8b9563904562483e66c79d7e27",
+      "status": "planned",
+      "interface_version": null,
+      "pull_request": "https://github.com/alvarovillalbaa/model-pretraining/pull/2",
+      "stacked_on": "https://github.com/alvarovillalbaa/model-pretraining/pull/1"
+    },
+    "model-posttraining": {
+      "repository": "alvarovillalbaa/model-posttraining",
+      "revision": "1fbb9e41f6b80dda54beeb68936e3339160cd8fe",
+      "status": "planned",
+      "interface_version": null
+    },
+    "model-distillation": {
+      "repository": "alvarovillalbaa/model-distillation",
+      "revision": "77f73c8fff67d154f514a02dd9e0c3260273aa6d",
+      "status": "implemented",
+      "interface_version": "0.2.0",
+      "pull_request": "https://github.com/alvarovillalbaa/model-distillation/pull/1"
+    },
+    "model-serving": {
+      "repository": "alvarovillalbaa/model-serving",
+      "revision": "282d7399e724ba1d7dc254a0b6f632f0350953a6",
+      "status": "planned",
+      "interface_version": null,
+      "pull_request": "https://github.com/alvarovillalbaa/model-serving/pull/1"
+    },
+    "inference-benchmarks": {
+      "repository": "alvarovillalbaa/inference-benchmarks",
+      "revision": "effcb270f54cd10d0d1b1f99d1873a2702221918",
+      "status": "planned",
+      "interface_version": null
+    },
+    "ml-foundations": {
+      "repository": "alvarovillalbaa/ml-foundations",
+      "revision": "b2997dc0eede147436d45a291123e14fab7c189a",
+      "status": "planned",
+      "interface_version": null
+    },
+    "rl-environments": {
+      "repository": "alvarovillalbaa/rl-environments",
+      "revision": "810c0dc966c04bd933b5a887ee99c09c3fff63a2",
+      "status": "planned",
+      "interface_version": null
+    },
+    "research-controller": {
+      "repository": "alvarovillalbaa/research-controller",
+      "revision": "66e341725d024fbb546b4906e528a806171c3e7e",
+      "status": "planned",
+      "interface_version": null
+    },
+    "open-evals": {
+      "repository": "alvarovillalbaa/open-evals",
+      "revision": "d1002d58109156683be3ad4fc394c7cc6c534057",
+      "status": "candidate_pr",
+      "pull_request": "https://github.com/alvarovillalbaa/open-evals/pull/1",
+      "interface_version": "open-evals-sdk/0.1.0",
+      "subdirectory": "python/open_evals_sdk"
+    },
+    "verification-runtime": {
+      "repository": "alvarovillalbaa/verification-runtime",
+      "revision": "0f293f9808598a38f58f85563e1ccafd815bbd36",
+      "status": "implemented",
+      "interface_version": "0.1.0"
+    },
+    "model-architectures": {
+      "repository": "alvarovillalbaa/model-architectures",
+      "revision": "ef4c4ebf8870b83a454cd9b880e02bf30a9b7361",
+      "status": "planned",
+      "interface_version": null
+    },
+    "research-artifacts": {
+      "repository": "alvarovillalbaa/research-artifacts",
+      "revision": "d383d12f735063b3bab2f1e2814beb3a2c8da2a8",
+      "status": "planned",
+      "interface_version": null
+    }
+  },
+  "profiles": {
+    "base": [
+      "experiment-kit"
+    ],
+    "economics": [
+      "experiment-kit",
+      "compute-economics"
+    ],
+    "planning": [
+      "experiment-kit",
+      "compute-planner"
+    ],
+    "compute": [
+      "experiment-kit",
+      "compute-economics",
+      "compute-planner"
+    ],
+    "distillation": [
+      "experiment-kit",
+      "model-distillation",
+      "verification-runtime"
+    ],
+    "evals": [
+      "experiment-kit",
+      "open-evals"
+    ],
+    "cpu_smoke": [
+      "experiment-kit",
+      "compute-economics",
+      "compute-planner",
+      "model-distillation",
+      "verification-runtime"
+    ],
+    "full": [
+      "experiment-kit",
+      "compute-economics",
+      "compute-planner",
+      "model-distillation",
+      "open-evals",
+      "verification-runtime"
+    ],
+    "verification": [
+      "experiment-kit",
+      "verification-runtime"
+    ]
+  }
+}

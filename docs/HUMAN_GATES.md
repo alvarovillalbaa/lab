@@ -1,5 +1,10 @@
 # Human Gates
 
+Last updated: 2026-11-10
+
+Component ownership has moved to the [ecosystem map](references/component-ownership.md).
+These gates still apply to actual experiments and public research claims.
+
 The specs make clear that Codex can build implementation scaffolding, but the
 research, infrastructure, legal, and product choices must be explicit human
 decisions.
@@ -15,7 +20,7 @@ Decide:
 
 Required artifact:
 
-- `DECISIONS.md` public claim section filled.
+- `docs/decisions/experiment-decisions.md` public claim section filled.
 
 ## Gate 1: Budget
 
@@ -29,8 +34,8 @@ Decide:
 
 Required artifact:
 
-- `DECISIONS.md` budget section filled.
-- `reports/templates/cost_ledger.csv` copied to a real run ledger.
+- `docs/decisions/experiment-decisions.md` budget section filled.
+- [compute-planner cost ledger](https://github.com/alvarovillalbaa/compute-planner/blob/63a0c9794d0ed67fcdd8ff1a61b881f8ae1af142/templates/cost_ledger.csv) copied to a real run ledger.
 
 ## Gate 2: Data And Licensing
 

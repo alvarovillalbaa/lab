@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "status": "renamed_and_scope_prs_open",
+  "renames": [
+    {
+      "former_repository": "alvarovillalbaa/model-training",
+      "canonical_repository": "alvarovillalbaa/model-pretraining",
+      "repository_id": 1452711751,
+      "pre_expansion_revision": "24e69c525a293281b28ff36f5ef4c3558f05fcd6",
+      "scope_branch": "split/pretraining-posttraining",
+      "scope_revision": "83e0be783b4a15241b6eee285854365ab2a25f9d",
+      "pull_request": "https://github.com/alvarovillalbaa/model-pretraining/pull/1"
+    },
+    {
+      "former_repository": "alvarovillalbaa/model-inference",
+      "canonical_repository": "alvarovillalbaa/model-serving",
+      "repository_id": 1452712112,
+      "pre_expansion_revision": "2eafeaf2bfac00acb3960311f381d38b72f40c97",
+      "scope_branch": "split/serving-benchmarks",
+      "scope_revision": "282d7399e724ba1d7dc254a0b6f632f0350953a6",
+      "pull_request": "https://github.com/alvarovillalbaa/model-serving/pull/1"
+    }
+  ],
+  "identity_policy": "Repository IDs and source revisions are authoritative historical identities. URL redirects are convenience; review aliases before any former name is reused.",
+  "split_routes": {
+    "posttraining": "alvarovillalbaa/model-posttraining",
+    "inference_measurement": "alvarovillalbaa/inference-benchmarks"
+  }
+}

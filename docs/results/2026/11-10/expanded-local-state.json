@@ -1,0 +1,101 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-10",
+  "status": "passed",
+  "components": [
+    {
+      "repository": "experiment-kit",
+      "head": "4e471f1913e6a0513b3e08e0595376aac60232bf",
+      "selected_revision": "fe96641e94a596551e24f26661cb7ca73f6d90d1",
+      "clean": true
+    },
+    {
+      "repository": "compute-economics",
+      "head": "c7ea3b8e4b7324270988a3eab1e26942d05188e5",
+      "selected_revision": "c7ea3b8e4b7324270988a3eab1e26942d05188e5",
+      "clean": true
+    },
+    {
+      "repository": "compute-planner",
+      "head": "2ff06e9c649bc413fbe565fb25d0347970236036",
+      "selected_revision": "2ff06e9c649bc413fbe565fb25d0347970236036",
+      "clean": true
+    },
+    {
+      "repository": "compute-runners",
+      "head": "47e530cf39428098caeab74361325907f6138d7a",
+      "selected_revision": "47e530cf39428098caeab74361325907f6138d7a",
+      "clean": true
+    },
+    {
+      "repository": "model-data",
+      "head": "236f87e9be53b5298bbf89a80ae3b949f841c47c",
+      "selected_revision": "236f87e9be53b5298bbf89a80ae3b949f841c47c",
+      "clean": true
+    },
+    {
+      "repository": "model-tokenizers",
+      "head": "4527dfba4c8706868f335018ebae3a068b05c146",
+      "selected_revision": "4527dfba4c8706868f335018ebae3a068b05c146",
+      "clean": true
+    },
+    {
+      "repository": "model-pretraining",
+      "head": "83e0be783b4a15241b6eee285854365ab2a25f9d",
+      "selected_revision": "83e0be783b4a15241b6eee285854365ab2a25f9d",
+      "clean": true
+    },
+    {
+      "repository": "model-posttraining",
+      "head": "1fbb9e41f6b80dda54beeb68936e3339160cd8fe",
+      "selected_revision": "1fbb9e41f6b80dda54beeb68936e3339160cd8fe",
+      "clean": true
+    },
+    {
+      "repository": "model-distillation",
+      "head": "89ae0b3b642566e385be1a292843419bb9ffbdd3",
+      "selected_revision": "c79864d530aa82fb6db7d58c83e2f53719e43587",
+      "clean": true
+    },
+    {
+      "repository": "model-serving",
+      "head": "282d7399e724ba1d7dc254a0b6f632f0350953a6",
+      "selected_revision": "282d7399e724ba1d7dc254a0b6f632f0350953a6",
+      "clean": true
+    },
+    {
+      "repository": "inference-benchmarks",
+      "head": "effcb270f54cd10d0d1b1f99d1873a2702221918",
+      "selected_revision": "effcb270f54cd10d0d1b1f99d1873a2702221918",
+      "clean": true
+    },
+    {
+      "repository": "ml-foundations",
+      "head": "b2997dc0eede147436d45a291123e14fab7c189a",
+      "selected_revision": "b2997dc0eede147436d45a291123e14fab7c189a",
+      "clean": true
+    },
+    {
+      "repository": "rl-environments",
+      "head": "810c0dc966c04bd933b5a887ee99c09c3fff63a2",
+      "selected_revision": "810c0dc966c04bd933b5a887ee99c09c3fff63a2",
+      "clean": true
+    },
+    {
+      "repository": "research-controller",
+      "head": "66e341725d024fbb546b4906e528a806171c3e7e",
+      "selected_revision": "66e341725d024fbb546b4906e528a806171c3e7e",
+      "clean": true
+    },
+    {
+      "repository": "open-evals",
+      "head": "45f4bb84e025bf042a1db321e0c484f7b769d6c9",
+      "selected_revision": "d1002d58109156683be3ad4fc394c7cc6c534057",
+      "clean": true
+    }
+  ],
+  "lab_tested_runtime": "d9044c9cd0f1147fe0f965d23a609dbe0ac6599f",
+  "runtime_unchanged": true,
+  "frozen_sources_unchanged": true,
+  "temporary_resources_removed": true
+}

@@ -1,0 +1,1 @@
+- Adopted living experiment decisions, root catalogs and a proposed continuous research unit; [evidence](../../../audits/2026/10-10/afs-layout.md).

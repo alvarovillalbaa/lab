@@ -1,0 +1,179 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-10",
+  "source_commit": "36dbfc04b9c4ab37e07584e25afee3a18ff04e1b",
+  "source_baseline": "ba67e510bab2703b1042993744ce099490221c1f",
+  "repositories": [
+    {
+      "name": "experiment-kit",
+      "url": "https://github.com/alvarovillalbaa/experiment-kit",
+      "visibility": "public",
+      "sha": "fe96641e94a596551e24f26661cb7ca73f6d90d1"
+    },
+    {
+      "name": "compute-planner",
+      "url": "https://github.com/alvarovillalbaa/compute-planner",
+      "visibility": "public",
+      "sha": "63a0c9794d0ed67fcdd8ff1a61b881f8ae1af142"
+    },
+    {
+      "name": "compute-runners",
+      "url": "https://github.com/alvarovillalbaa/compute-runners",
+      "visibility": "public",
+      "sha": "47e530cf39428098caeab74361325907f6138d7a"
+    },
+    {
+      "name": "model-data",
+      "url": "https://github.com/alvarovillalbaa/model-data",
+      "visibility": "public",
+      "sha": "89325b15e7c7e31f9e0eff234dbd608e387b2d1c"
+    },
+    {
+      "name": "model-training",
+      "url": "https://github.com/alvarovillalbaa/model-training",
+      "visibility": "public",
+      "sha": "24e69c525a293281b28ff36f5ef4c3558f05fcd6"
+    },
+    {
+      "name": "model-distillation",
+      "url": "https://github.com/alvarovillalbaa/model-distillation",
+      "visibility": "public",
+      "sha": "c79864d530aa82fb6db7d58c83e2f53719e43587"
+    },
+    {
+      "name": "model-inference",
+      "url": "https://github.com/alvarovillalbaa/model-inference",
+      "visibility": "public",
+      "sha": "2eafeaf2bfac00acb3960311f381d38b72f40c97"
+    },
+    {
+      "name": "ml-foundations",
+      "url": "https://github.com/alvarovillalbaa/ml-foundations",
+      "visibility": "public",
+      "sha": "b2997dc0eede147436d45a291123e14fab7c189a"
+    },
+    {
+      "name": "rl-environments",
+      "url": "https://github.com/alvarovillalbaa/rl-environments",
+      "visibility": "public",
+      "sha": "810c0dc966c04bd933b5a887ee99c09c3fff63a2"
+    }
+  ],
+  "sdk": {
+    "pull_request": "https://github.com/alvarovillalbaa/open-evals/pull/1",
+    "revision": "d1002d58109156683be3ad4fc394c7cc6c534057",
+    "implementation_bytes_unchanged": true
+  },
+  "verification": {
+    "method": "Existing Python interpreter with explicit source roots; tests and examples run outside component checkouts. No package installation.",
+    "unit_tests": {
+      "experiment-kit": {
+        "exit_code": 0,
+        "output": "test_cpu_has_no_llm_requirements (test_records.RecordTests.test_cpu_has_no_llm_requirements) ... ok\ntest_malformed_records_fail (test_records.RecordTests.test_malformed_records_fail) ... ok\ntest_experiment_configs_validate (test_validation.ValidationTests.test_experiment_configs_validate) ... ok\ntest_invalid_spec_reports_missing_keys (test_validation.ValidationTests.test_invalid_spec_reports_missing_keys) ... ok\n\n----------------------------------------------------------------------\nRan 4 tests in 0.002s\n\nOK\n"
+      },
+      "compute-planner": {
+        "exit_code": 0,
+        "output": "test_estimate_from_spec_has_positive_flops (test_costing.CostingTests.test_estimate_from_spec_has_positive_flops) ... ok\ntest_unsupported_and_nonfinite_inputs_fail (test_costing.CostingTests.test_unsupported_and_nonfinite_inputs_fail) ... ok\ntest_policy_order_and_fifo_input (test_scheduling.SchedulingTests.test_policy_order_and_fifo_input) ... ok\ntest_route_example_matches_defaults (test_scheduling.SchedulingTests.test_route_example_matches_defaults) ... ok\n\n----------------------------------------------------------------------\nRan 4 tests in 0.001s\n\nOK\n"
+      },
+      "model-distillation": {
+        "exit_code": 0,
+        "output": "test_disallowed_output_fails_verification (test_distillation.DistillationTests.test_disallowed_output_fails_verification) ... ok\ntest_missing_answer_and_mismatched_task_fail (test_distillation.DistillationTests.test_missing_answer_and_mismatched_task_fail) ... ok\ntest_pair_rejects_unbound_verification_and_ineligible_output (test_distillation.DistillationTests.test_pair_rejects_unbound_verification_and_ineligible_output) ... ok\ntest_verification_and_pair (test_distillation.DistillationTests.test_verification_and_pair) ... ok\n\n----------------------------------------------------------------------\nRan 4 tests in 0.000s\n\nOK\n"
+      },
+      "open-evals-sdk": {
+        "exit_code": 0,
+        "output": "test_default_and_optional_key (test_sdk.SdkTests.test_default_and_optional_key) ... ok\ntest_errors_propagate_without_retry (test_sdk.SdkTests.test_errors_propagate_without_retry) ... ok\ntest_methods_preserve_transport (test_sdk.SdkTests.test_methods_preserve_transport) ... ok\n\n----------------------------------------------------------------------\nRan 3 tests in 0.003s\n\nOK\n"
+      },
+      "lab": {
+        "exit_code": 0,
+        "output": "test_bad_evidence_and_missing_configuration_fail_before_sdk (test_integration.IntegrationTests.test_bad_evidence_and_missing_configuration_fail_before_sdk) ... ok\ntest_blank_code_identity_fails (test_integration.IntegrationTests.test_blank_code_identity_fails) ... ok\ntest_cpu_workflow_is_explicitly_fixture_based (test_integration.IntegrationTests.test_cpu_workflow_is_explicitly_fixture_based) ... ok\ntest_legacy_estimate_command_keeps_spec_validation (test_integration.IntegrationTests.test_legacy_estimate_command_keeps_spec_validation) ... ok\ntest_profile_pins_match_declared_composition (test_integration.IntegrationTests.test_profile_pins_match_declared_composition) ... ok\ntest_sdk_failure_propagates_without_retry (test_integration.IntegrationTests.test_sdk_failure_propagates_without_retry) ... ok\ntest_sdk_receives_actual_execution_evidence (test_integration.IntegrationTests.test_sdk_receives_actual_execution_evidence) ... ok\n\n----------------------------------------------------------------------\nRan 7 tests in 0.017s\n\nOK\n"
+      }
+    },
+    "total_tests": 22,
+    "cli": {
+      "base_llm": {
+        "expected_exit": 0,
+        "exit_code": 0,
+        "output": "OK: <workspace>/lab/configs/experiments/lab_20m_tiny_pretrain.json\n"
+      },
+      "base_cpu": {
+        "expected_exit": 0,
+        "exit_code": 0,
+        "output": "OK: <workspace>/lab/configs/experiments/cpu_smoke.json\n"
+      },
+      "cost": {
+        "expected_exit": 0,
+        "exit_code": 0,
+        "output": "parameters: 124000000\ntokens: 500000000\ntraining_flops: 3.720e+17\nraw_gpu_hours: 3.60\nraw_cost_usd: 2.48\nrealistic_cost_usd: 4.97\n"
+      },
+      "route": {
+        "expected_exit": 0,
+        "exit_code": 0,
+        "output": "local\nrunpod\nlambda_cloud\n"
+      },
+      "unknown_route": {
+        "expected_exit": 1,
+        "exit_code": 1,
+        "output": "ERROR: \"unknown job type 'nonexistent'; known job types: data_processing, distillation, evals, posttraining_rl, posttraining_sft, pretrain_serious, pretrain_smoke, serving_benchmark, serving_public, teacher_generation\"\n"
+      },
+      "optional_missing": {
+        "expected_exit": 2,
+        "exit_code": 2,
+        "output": "Missing optional component: compute_planner. Install the compute/distillation profile for this command.\n"
+      },
+      "smoke": {
+        "expected_exit": 0,
+        "exit_code": 0,
+        "output": "CPU fixture output preserved in cpu-smoke.json"
+      },
+      "experiment_cli": {
+        "expected_exit": 0,
+        "exit_code": 0,
+        "output": "OK\n"
+      },
+      "planner_cli": {
+        "expected_exit": 0,
+        "exit_code": 0,
+        "output": "parameters: 124000000\ntokens: 500000000\ntraining_flops: 3.720e+17\nraw_gpu_hours: 3.60\nraw_cost_usd: 2.48\nrealistic_cost_usd: 4.97\n"
+      },
+      "distill_cli": {
+        "expected_exit": 0,
+        "exit_code": 0,
+        "output": "{\"pair\": {\"chosen\": \"4\", \"rejected\": \"5\", \"source\": \"fixture-a_over_fixture-b\", \"task_id\": \"math-1\"}, \"source\": \"authored_fixture\"}\n"
+      }
+    },
+    "extraction_originals_verified": 11,
+    "original_inventory_files": 57,
+    "archived_original_documents": 16,
+    "original_checkout_clean": true,
+    "syntax_json_toml": "passed"
+  },
+  "storage_preflight": {
+    "exit_code": 2,
+    "free_gib": 10.8,
+    "required_gib": 34,
+    "reserve_gib": 30,
+    "installs_and_builds": "not run"
+  },
+  "limits": [
+    "Three new component libraries have code; six component homes are specifications only.",
+    "Fresh install/wheel checks remain gated by Storage Guard.",
+    "CPU smoke uses authored teacher responses; it proves no model training, model quality, GPU/provider operation, or live Open Evals delivery.",
+    "No migrations, infrastructure deployment, registry publication, or damaged-laptop import.",
+    "Source import checks are not installed-package proof."
+  ],
+  "publication": {
+    "lab_pull_request": "https://github.com/alvarovillalbaa/lab/pull/2",
+    "sdk_pull_request": "https://github.com/alvarovillalbaa/open-evals/pull/1",
+    "both_prs_left_open": true,
+    "original_documentation_pr_preserved": "https://github.com/alvarovillalbaa/lab/pull/1",
+    "all_nine_remote_main_heads_verified": true,
+    "original_and_task_checkouts_clean": true
+  },
+  "navigation": {
+    "active_links_checked": 70,
+    "errors": 0
+  },
+  "quickstart_examples_passed": 3,
+  "installed_acceptance_follow_up": "installed-package.json",
+  "current_delivery_status": "Installed package acceptance passed; both integration PRs remain open for owner review."
+}

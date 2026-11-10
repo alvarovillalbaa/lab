@@ -1,0 +1,1684 @@
+{
+  "schema_version": 2,
+  "date": "2026-11-10",
+  "kind": "expanded_repository_migration_and_recovery",
+  "previous_manifest": {
+    "path": "docs/sources/repository-split-map.json",
+    "sha256": "ba56e46bfb9454daa440bc03894c07fe6b35539a746488fdce712e96df56a417",
+    "lab_destination_snapshot_revision": "36dbfc04b9c4ab37e07584e25afee3a18ff04e1b",
+    "policy": "V1 remains byte-identical. Its source hashes and historical destinations are inherited, not rewritten."
+  },
+  "source_repository": "alvarovillalbaa/lab",
+  "source_revision": "ba67e510bab2703b1042993744ce099490221c1f",
+  "original_main": "36bb3839f1bc166fa54824fd8457b28ca5189dae",
+  "original_file_count": 57,
+  "aliases": [
+    {
+      "former_repository": "alvarovillalbaa/model-training",
+      "canonical_repository": "alvarovillalbaa/model-pretraining",
+      "repository_id": 1452711751,
+      "pre_expansion_revision": "24e69c525a293281b28ff36f5ef4c3558f05fcd6"
+    },
+    {
+      "former_repository": "alvarovillalbaa/model-inference",
+      "canonical_repository": "alvarovillalbaa/model-serving",
+      "repository_id": 1452712112,
+      "pre_expansion_revision": "2eafeaf2bfac00acb3960311f381d38b72f40c97"
+    }
+  ],
+  "alias_registry": "docs/sources/expanded-repository-aliases.json",
+  "current_homes": [
+    "lab",
+    "experiment-kit",
+    "compute-economics",
+    "compute-planner",
+    "compute-runners",
+    "model-data",
+    "model-tokenizers",
+    "model-pretraining",
+    "model-posttraining",
+    "model-distillation",
+    "model-serving",
+    "inference-benchmarks",
+    "research-controller",
+    "ml-foundations",
+    "rl-environments",
+    "open-evals"
+  ],
+  "files": [
+    {
+      "source_path": ".gitignore",
+      "source_sha256": "7a6841cb5c5ff512562a4b1db7f2f595b6e086ae9ba2f905078493a8b62a5d2f",
+      "current_destinations": [
+        {
+          "repository": "lab",
+          "path": ".gitignore",
+          "role": "active_retained_or_adapted"
+        }
+      ]
+    },
+    {
+      "source_path": "GAPS.md",
+      "source_sha256": "ea6206fba4cb4e8d05491ee6a6435ce3d0b87a7471a9a27e4db4949f7a945092",
+      "current_destinations": [
+        {
+          "repository": "lab",
+          "path": "docs/sources/pre-split/GAPS.md",
+          "role": "frozen_original",
+          "sha256": "ea6206fba4cb4e8d05491ee6a6435ce3d0b87a7471a9a27e4db4949f7a945092"
+        }
+      ]
+    },
+    {
+      "source_path": "README.md",
+      "source_sha256": "c693505c2f9abc6524ef05c70989ef22e50a61ea77938a267df872281d64b429",
+      "current_destinations": [
+        {
+          "repository": "lab",
+          "path": "docs/sources/pre-split/README.md",
+          "role": "frozen_original",
+          "sha256": "c693505c2f9abc6524ef05c70989ef22e50a61ea77938a267df872281d64b429"
+        }
+      ]
+    },
+    {
+      "source_path": "REFERENCES.md",
+      "source_sha256": "49af54326af147056a448dc455d28cfb3295f96e7daf8e90aaa712f34de68f1d",
+      "current_destinations": [
+        {
+          "repository": "lab",
+          "path": "docs/sources/pre-split/REFERENCES.md",
+          "role": "frozen_original",
+          "sha256": "49af54326af147056a448dc455d28cfb3295f96e7daf8e90aaa712f34de68f1d"
+        }
+      ]
+    },
+    {
+      "source_path": "SOURCES.md",
+      "source_sha256": "073ca0355f1b0b2c55f32a374c96ff598663fbfb44e3d12cf7b5f40204f73a51",
+      "current_destinations": [
+        {
+          "repository": "lab",
+          "path": "docs/sources/pre-split/SOURCES.md",
+          "role": "frozen_original",
+          "sha256": "073ca0355f1b0b2c55f32a374c96ff598663fbfb44e3d12cf7b5f40204f73a51"
+        }
+      ]
+    },
+    {
+      "source_path": "configs/experiments/distill_verifier_smoke.json",
+      "source_sha256": "25091a19cae8cca3310f078d6358e3012cad8db468f7a4fc6cbe6a0aecdb603d",
+      "current_destinations": [
+        {
+          "repository": "lab",
+          "path": "configs/experiments/distill_verifier_smoke.json",
+          "role": "active_retained_or_adapted"
+        }
+      ]
+    },
+    {
+      "source_path": "configs/experiments/lab_124m_pretrain_smoke.json",
+      "source_sha256": "2c12fe9a5cbd1a721e5f8163cc97f4751c1aeaeb916027e05e1125b2c27ba546",
+      "current_destinations": [
+        {
+          "repository": "lab",
+          "path": "configs/experiments/lab_124m_pretrain_smoke.json",
+          "role": "active_retained_or_adapted"
+        }
+      ]
+    },
+    {
+      "source_path": "configs/experiments/lab_20m_tiny_pretrain.json",
+      "source_sha256": "2e1b981650eb76f005f092ace59dea623e55274b45c870e071cb1be87bc2a9da",
+      "current_destinations": [
+        {
+          "repository": "lab",
+          "path": "configs/experiments/lab_20m_tiny_pretrain.json",
+          "role": "active_retained_or_adapted"
+        }
+      ]
+    },
+    {
+      "source_path": "configs/experiments/serving_baseten_public.json",
+      "source_sha256": "331eae43a81f89bda754d7670f1b7b0dafbde9e7b476783fbba1ad2d8fe02fb1",
+      "current_destinations": [
+        {
+          "repository": "lab",
+          "path": "configs/experiments/serving_baseten_public.json",
+          "role": "active_retained_or_adapted"
+        }
+      ]
+    },
+    {
+      "source_path": "configs/providers/baseten.json",
+      "source_sha256": "b6e55cea5d0fd36a955ec3b3a7899dbd0c0bc0efc014c0dec2cacadaceeba03f",
+      "current_destinations": [
+        {
+          "repository": "compute-runners",
+          "path": "configs/providers/baseten.json",
+          "role": "active_retained_or_adapted"
+        }
+      ]
+    },
+    {
+      "source_path": "configs/providers/local.json",
+      "source_sha256": "137431cd6f0d6f8ecc0deef2131fe2eaf6e0679a9a4054fb579ce1f41a2c7a6e",
+      "current_destinations": [
+        {
+          "repository": "compute-runners",
+          "path": "configs/providers/local.json",
+          "role": "active_retained_or_adapted"
+        }
+      ]
+    },
+    {
+      "source_path": "configs/providers/routing.json",
+      "source_sha256": "db03d30ee8f91faef19ca5e424f8723dfc7871cbce5026517f75c9ce9242e8a6",
+      "current_destinations": [
+        {
+          "repository": "compute-planner",
+          "path": "examples/routing.json",
+          "role": "active_retained_or_adapted"
+        }
+      ]
+    },
+    {
+      "source_path": "configs/providers/tinker.json",
+      "source_sha256": "0f8ecb2c80eec9ea38a3ee511dd98ebfaa6deae83a213b658fdd88ab2348efb4",
+      "current_destinations": [
+        {
+          "repository": "compute-runners",
+          "path": "configs/providers/tinker.json",
+          "role": "active_retained_or_adapted"
+        }
+      ]
+    },
+    {
+      "source_path": "data/filters/README.md",
+      "source_sha256": "2a3c99d9ab7f22fd1c13d8316ad955b598a51f782fddabd19086ab4a416342d6",
+      "current_destinations": [
+        {
+          "repository": "model-data",
+          "path": "data/filters/README.md",
+          "role": "active_retained_or_adapted"
+        }
+      ]
+    },
+    {
+      "source_path": "data/manifests/README.md",
+      "source_sha256": "6906dae77e72d008633a0c960ceb9b5a419e36425812c413eda1f18ae1310a32",
+      "current_destinations": [
+        {
+          "repository": "model-data",
+          "path": "data/manifests/README.md",
+          "role": "active_retained_or_adapted"
+        }
+      ]
+    },
+    {
+      "source_path": "data/schemas/README.md",
+      "source_sha256": "bde212a3e1b70ef79640464bf84316f73b4782683d5f3f41e3384fd1e3bbbe61",
+      "current_destinations": [
+        {
+          "repository": "model-data",
+          "path": "data/schemas/README.md",
+          "role": "active_adapted"
+        },
+        {
+          "repository": "model-distillation",
+          "path": "src/model_distillation/distillation.py",
+          "role": "semantic_contract_owner",
+          "scope": "Teacher/task/response/verifier/preference types; dataset/document/split/shard manifests remain model-data."
+        }
+      ]
+    },
+    {
+      "source_path": "data/tokenizer/README.md",
+      "source_sha256": "ccbb37d005666b43a801352e9221d8dc0e41c71190f7e473761e9d238f3b4298",
+      "current_destinations": [
+        {
+          "repository": "model-tokenizers",
+          "path": "docs/specs/artifacts.md",
+          "role": "active_adapted"
+        },
+        {
+          "repository": "model-tokenizers",
+          "path": "docs/sources/tokenizer-artifacts-original.md",
+          "role": "frozen_intermediate",
+          "sha256": "d462a9c76c1e5fd8828d4b3e2f44006924a811beae8aae04106e5ad8f97b20cd"
+        },
+        {
+          "repository": "model-data",
+          "path": "docs/sources/pre-tokenizer-split/tokenizer-artifacts.md",
+          "role": "frozen_intermediate",
+          "sha256": "d462a9c76c1e5fd8828d4b3e2f44006924a811beae8aae04106e5ad8f97b20cd"
+        }
+      ]
+    },
+    {
+      "source_path": "docs/ARCHITECTURE.md",
+      "source_sha256": "3d4b9ff62b643bf7ff8bdda3989fd0823dab9898adc42d8177acf5fcc0d008fd",
+      "current_destinations": [
+        {
+          "repository": "lab",
+          "path": "docs/sources/pre-split/docs/ARCHITECTURE.md",
+          "role": "frozen_original",
+          "sha256": "3d4b9ff62b643bf7ff8bdda3989fd0823dab9898adc42d8177acf5fcc0d008fd"
+        }
+      ]
+    },
+    {
+      "source_path": "docs/HUMAN_GATES.md",
+      "source_sha256": "9d410bbc6d9d8ee1010c590b6feb2eed21e94e5d57752b0b5d60659d3f0e1c8a",
+      "current_destinations": [
+        {
+          "repository": "lab",
+          "path": "docs/HUMAN_GATES.md",
+          "role": "active_retained_or_adapted"
+        }
+      ]
+    },
+    {
+      "source_path": "docs/IMPLEMENTATION_BACKLOG.md",
+      "source_sha256": "24dce8fa1b4b7844a9f20e0a84058111b6db398b7a3b2accdda87ccb6649800d",
+      "current_destinations": [
+        {
+          "repository": "lab",
+          "path": "docs/sources/pre-split/docs/IMPLEMENTATION_BACKLOG.md",
+          "role": "frozen_original",
+          "sha256": "24dce8fa1b4b7844a9f20e0a84058111b6db398b7a3b2accdda87ccb6649800d"
+        }
+      ]
+    },
+    {
+      "source_path": "docs/LIBRARIES_AND_PROVIDERS.md",
+      "source_sha256": "b5116c671f25612088e50c16e30e87d15fb69da2ca927486d1812caaf23c3c04",
+      "current_destinations": [
+        {
+          "repository": "lab",
+          "path": "docs/sources/pre-split/docs/LIBRARIES_AND_PROVIDERS.md",
+          "role": "frozen_original",
+          "sha256": "b5116c671f25612088e50c16e30e87d15fb69da2ca927486d1812caaf23c3c04"
+        }
+      ]
+    },
+    {
+      "source_path": "docs/SPEC_COVERAGE.md",
+      "source_sha256": "2e3eb6b6c6f489783db3cbc49a9274468e587b2f3c349321e2e16332d7420eae",
+      "current_destinations": [
+        {
+          "repository": "lab",
+          "path": "docs/sources/pre-split/docs/SPEC_COVERAGE.md",
+          "role": "frozen_original",
+          "sha256": "2e3eb6b6c6f489783db3cbc49a9274468e587b2f3c349321e2e16332d7420eae"
+        }
+      ]
+    },
+    {
+      "source_path": "docs/STEP_BY_STEP.md",
+      "source_sha256": "dc46e2b901a9f99d1667400c651e8f8dca390bdd308e0c935458f67b21d24158",
+      "current_destinations": [
+        {
+          "repository": "lab",
+          "path": "docs/sources/pre-split/docs/STEP_BY_STEP.md",
+          "role": "frozen_original",
+          "sha256": "dc46e2b901a9f99d1667400c651e8f8dca390bdd308e0c935458f67b21d24158"
+        }
+      ]
+    },
+    {
+      "source_path": "docs/audits/2026/10-10/afs-layout.md",
+      "source_sha256": "f6be3751bcfe16db4996be88347c3e0f6fe7f7554df669a3451741d5c3351456",
+      "current_destinations": [
+        {
+          "repository": "lab",
+          "path": "docs/audits/2026/10-10/afs-layout.md",
+          "role": "active_retained_or_adapted"
+        }
+      ]
+    },
+    {
+      "source_path": "docs/decisions/experiment-decisions.md",
+      "source_sha256": "6e983184f032a2c8768a44621b8443bbc9ea8c0658c11393363134fdbb98d59d",
+      "current_destinations": [
+        {
+          "repository": "lab",
+          "path": "docs/decisions/experiment-decisions.md",
+          "role": "active_retained_or_adapted"
+        }
+      ]
+    },
+    {
+      "source_path": "docs/logs/2026/10-10/changes.md",
+      "source_sha256": "be236ba2c0971861cec890fc3df580ba3356da1db77695308a31130cbdc41c13",
+      "current_destinations": [
+        {
+          "repository": "lab",
+          "path": "docs/logs/2026/10-10/changes.md",
+          "role": "active_retained_or_adapted"
+        }
+      ]
+    },
+    {
+      "source_path": "docs/reports/PUBLIC_PROOF_STANDARD.md",
+      "source_sha256": "102e1e51f96043ed0ae4a1d2a5f668a164ceb61869e618125b8748b720fbb274",
+      "current_destinations": [
+        {
+          "repository": "lab",
+          "path": "docs/sources/pre-split/docs/reports/PUBLIC_PROOF_STANDARD.md",
+          "role": "frozen_original",
+          "sha256": "102e1e51f96043ed0ae4a1d2a5f668a164ceb61869e618125b8748b720fbb274"
+        }
+      ]
+    },
+    {
+      "source_path": "docs/research/training-factory/README.md",
+      "source_sha256": "487e392185fd752c405e199e981a0cc9e694de1f72c862471ba3246cd0087ec7",
+      "current_destinations": [
+        {
+          "repository": "lab",
+          "path": "docs/sources/pre-split/docs/research/training-factory/README.md",
+          "role": "frozen_original",
+          "sha256": "487e392185fd752c405e199e981a0cc9e694de1f72c862471ba3246cd0087ec7"
+        }
+      ]
+    },
+    {
+      "source_path": "docs/specs/human-steps.md",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "current_destinations": [
+        {
+          "repository": "lab",
+          "path": "docs/sources/pre-split/docs/specs/human-steps.md",
+          "role": "frozen_original",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ]
+    },
+    {
+      "source_path": "docs/specs/libraries.md",
+      "source_sha256": "5770abed9e0cff48207de9bfe51072f2ef70a7763056422ea842ad87ba73a7e9",
+      "current_destinations": [
+        {
+          "repository": "lab",
+          "path": "docs/sources/pre-split/docs/specs/libraries.md",
+          "role": "frozen_original",
+          "sha256": "5770abed9e0cff48207de9bfe51072f2ef70a7763056422ea842ad87ba73a7e9"
+        }
+      ]
+    },
+    {
+      "source_path": "docs/specs/providers.md",
+      "source_sha256": "ca145f562a274c4fe4170e7e0e343dbb35a60950224e99457c3608b8bde20438",
+      "current_destinations": [
+        {
+          "repository": "lab",
+          "path": "docs/sources/pre-split/docs/specs/providers.md",
+          "role": "frozen_original",
+          "sha256": "ca145f562a274c4fe4170e7e0e343dbb35a60950224e99457c3608b8bde20438"
+        }
+      ]
+    },
+    {
+      "source_path": "docs/specs/steps-follow-ups.md",
+      "source_sha256": "cb9932cafa85ce61847b19b98a27820aaee859952a87719f9894402bdf6031cb",
+      "current_destinations": [
+        {
+          "repository": "lab",
+          "path": "docs/sources/pre-split/docs/specs/steps-follow-ups.md",
+          "role": "frozen_original",
+          "sha256": "cb9932cafa85ce61847b19b98a27820aaee859952a87719f9894402bdf6031cb"
+        }
+      ]
+    },
+    {
+      "source_path": "docs/specs/steps.md",
+      "source_sha256": "7f0d72720515d83dd14d0e0dc55048125aa06fe22306f7e690f74d857821895a",
+      "current_destinations": [
+        {
+          "repository": "lab",
+          "path": "docs/sources/pre-split/docs/specs/steps.md",
+          "role": "frozen_original",
+          "sha256": "7f0d72720515d83dd14d0e0dc55048125aa06fe22306f7e690f74d857821895a"
+        }
+      ]
+    },
+    {
+      "source_path": "infra/docker/README.md",
+      "source_sha256": "8f5ff373536cbc254b01d76442ef63e8125fd0b65486a7748d98a450ed9aee8f",
+      "current_destinations": [
+        {
+          "repository": "compute-runners",
+          "path": "infra/docker/README.md",
+          "role": "active_retained_or_adapted"
+        }
+      ]
+    },
+    {
+      "source_path": "infra/k8s/README.md",
+      "source_sha256": "87081eb73f0fc448227616f5d60ef308d3cd8cefb04e41d6111b43f574ef958c",
+      "current_destinations": [
+        {
+          "repository": "compute-runners",
+          "path": "infra/k8s/README.md",
+          "role": "active_retained_or_adapted"
+        }
+      ]
+    },
+    {
+      "source_path": "infra/skypilot/README.md",
+      "source_sha256": "878582ec468bdd63e7acbc321ff1269cfc489ed9a1937d8e4df069dde62149ab",
+      "current_destinations": [
+        {
+          "repository": "compute-runners",
+          "path": "infra/skypilot/README.md",
+          "role": "active_retained_or_adapted"
+        }
+      ]
+    },
+    {
+      "source_path": "infra/slurm/README.md",
+      "source_sha256": "6200b118195df6831e6b4e6dc83a7ee8f1581d3c27c67a28112fe761808c0142",
+      "current_destinations": [
+        {
+          "repository": "compute-runners",
+          "path": "infra/slurm/README.md",
+          "role": "active_retained_or_adapted"
+        }
+      ]
+    },
+    {
+      "source_path": "notebooks/data_quality/README.md",
+      "source_sha256": "486c01e1584ecf6228cd346ca9785fd1e07176cb375b12c5c4e759613bb64527",
+      "current_destinations": [
+        {
+          "repository": "lab",
+          "path": "notebooks/data_quality/README.md",
+          "role": "active_retained_or_adapted"
+        }
+      ]
+    },
+    {
+      "source_path": "notebooks/loss_analysis/README.md",
+      "source_sha256": "b2d0e17fd4368d5feb82aedf2dfe0fbe7ec07137ed80bdd569e00d6a615e7027",
+      "current_destinations": [
+        {
+          "repository": "lab",
+          "path": "notebooks/loss_analysis/README.md",
+          "role": "active_retained_or_adapted"
+        }
+      ]
+    },
+    {
+      "source_path": "notebooks/scaling_laws/README.md",
+      "source_sha256": "fc50e135ad7c450404d6fd344ca7f6eca91b1249c51f5ec8010b0ea46cf12667",
+      "current_destinations": [
+        {
+          "repository": "lab",
+          "path": "notebooks/scaling_laws/README.md",
+          "role": "active_retained_or_adapted"
+        }
+      ]
+    },
+    {
+      "source_path": "pyproject.toml",
+      "source_sha256": "078e785e09f795090977ca2034ba040411ab82c80c9a2208dc1aea43b6f63569",
+      "current_destinations": [
+        {
+          "repository": "lab",
+          "path": "pyproject.toml",
+          "role": "active_retained_or_adapted"
+        }
+      ]
+    },
+    {
+      "source_path": "reports/templates/cost_ledger.csv",
+      "source_sha256": "313ba7a0c3af5116a1b88a9be174dcc49ff1565ed20b0d19f227aa38dc33cadb",
+      "current_destinations": [
+        {
+          "repository": "compute-economics",
+          "path": "templates/cost_ledger.csv",
+          "role": "active_adapted"
+        }
+      ]
+    },
+    {
+      "source_path": "reports/templates/data_card.md",
+      "source_sha256": "c24c5a00752f509ac915c92ff73ad52d0043ac2d74d364e34fec0b5db381a460",
+      "current_destinations": [
+        {
+          "repository": "model-data",
+          "path": "reports/templates/data_card.md",
+          "role": "active_retained_or_adapted"
+        }
+      ]
+    },
+    {
+      "source_path": "reports/templates/eval_report.md",
+      "source_sha256": "68920e25b1b9c224d4ada2e0470467ca23821ced6039efafa3ea4671368bd0ee",
+      "current_destinations": [
+        {
+          "repository": "lab",
+          "path": "reports/templates/eval_report.md",
+          "role": "active_retained_or_adapted"
+        }
+      ]
+    },
+    {
+      "source_path": "reports/templates/model_card.md",
+      "source_sha256": "104e09d559bb2ac14f0aca2210ef1f3512d28df2a19d59073dd0352a50882515",
+      "current_destinations": [
+        {
+          "repository": "model-pretraining",
+          "path": "reports/templates/model_card.md",
+          "role": "active_retained_or_adapted"
+        },
+        {
+          "repository": "model-posttraining",
+          "path": "reports/templates/model_card.md",
+          "role": "adapted_lineage_template"
+        }
+      ]
+    },
+    {
+      "source_path": "reports/templates/run_card.yaml",
+      "source_sha256": "da78e6f6bc81a8a0920a5f6b3e628511c21cfc741137d7dd183b18e6a29d60e9",
+      "current_destinations": [
+        {
+          "repository": "experiment-kit",
+          "path": "templates/llm_run_card.yaml",
+          "role": "active_retained_or_adapted"
+        }
+      ]
+    },
+    {
+      "source_path": "scripts/validate-lab.sh",
+      "source_sha256": "e943c1d186982f0cd6f9dc72b42a7d7a3bef45913f1bf40af270daee2e59215c",
+      "current_destinations": [
+        {
+          "repository": "lab",
+          "path": "scripts/validate-lab.sh",
+          "role": "active_retained_or_adapted"
+        }
+      ]
+    },
+    {
+      "source_path": "src/lab/__init__.py",
+      "source_sha256": "ce06443dff207da11e7004f38a8d2914a960427c43d8cd614f58b9c3f0358fa0",
+      "current_destinations": [
+        {
+          "repository": "lab",
+          "path": "src/lab/__init__.py",
+          "role": "active_retained_or_adapted"
+        }
+      ]
+    },
+    {
+      "source_path": "src/lab/cli.py",
+      "source_sha256": "202bdad8f0d172d550aff16242d4da74eee78033007347d0dc139e2a9e3fb793",
+      "current_destinations": [
+        {
+          "repository": "lab",
+          "path": "src/lab/cli.py",
+          "role": "active_retained_or_adapted"
+        }
+      ]
+    },
+    {
+      "source_path": "src/lab/costing.py",
+      "source_sha256": "c9e73a328c75c41906a7efecbb340f96dc49ddd78eee52af7678a972156b53b2",
+      "current_destinations": [
+        {
+          "repository": "compute-economics",
+          "path": "src/compute_economics/costing.py",
+          "role": "active_adapted"
+        }
+      ]
+    },
+    {
+      "source_path": "src/lab/distillation.py",
+      "source_sha256": "8a23d3fe62c18febc664c4c9bca05b06b08b04980c98dda2193d099033b2c34b",
+      "current_destinations": [
+        {
+          "repository": "model-distillation",
+          "path": "src/model_distillation/distillation.py",
+          "role": "active_retained_or_adapted"
+        }
+      ]
+    },
+    {
+      "source_path": "src/lab/routing.py",
+      "source_sha256": "cdb5654105dd2731343abb46d81940031edd499a208c43fb4af493a2546fef29",
+      "current_destinations": [
+        {
+          "repository": "compute-planner",
+          "path": "src/compute_planner/routing.py",
+          "role": "active_retained_or_adapted"
+        }
+      ]
+    },
+    {
+      "source_path": "src/lab/scheduler.py",
+      "source_sha256": "ced993a23b24eddf339538a63780055a270a14d0bfc1f50441781ae2e17f9e7e",
+      "current_destinations": [
+        {
+          "repository": "compute-planner",
+          "path": "src/compute_planner/scheduler.py",
+          "role": "active_retained_or_adapted"
+        }
+      ]
+    },
+    {
+      "source_path": "src/lab/validation.py",
+      "source_sha256": "27c0cc0399a8a6d18cbd32f476ca72e8563929b08ea50e07019d62055d15029b",
+      "current_destinations": [
+        {
+          "repository": "experiment-kit",
+          "path": "src/experiment_kit/validation.py",
+          "role": "active_retained_or_adapted"
+        }
+      ]
+    },
+    {
+      "source_path": "tests/test_costing.py",
+      "source_sha256": "b219307a6dd7fb3c7b4225144cdf5a95c02933867a8125ee1d8851fd941e8bbe",
+      "current_destinations": [
+        {
+          "repository": "compute-economics",
+          "path": "tests/test_costing.py",
+          "role": "active_adapted"
+        }
+      ]
+    },
+    {
+      "source_path": "tests/test_distillation_scheduler.py",
+      "source_sha256": "a76ceadd305887ccd1496e599a993d8bec689c8c26c58ec965f7e351b69441fb",
+      "current_destinations": [
+        {
+          "repository": "model-distillation",
+          "path": "tests/test_distillation.py",
+          "role": "active_retained_or_adapted"
+        },
+        {
+          "repository": "compute-planner",
+          "path": "tests/test_scheduling.py",
+          "role": "active_retained_or_adapted"
+        }
+      ]
+    },
+    {
+      "source_path": "tests/test_validation.py",
+      "source_sha256": "67be29cc7fe7a38cd2cbe561e3471f13ee2a02aff02b855585818a9fc5a8524e",
+      "current_destinations": [
+        {
+          "repository": "experiment-kit",
+          "path": "tests/test_validation.py",
+          "role": "active_retained_or_adapted"
+        },
+        {
+          "repository": "compute-planner",
+          "path": "tests/test_scheduling.py",
+          "role": "active_retained_or_adapted"
+        }
+      ]
+    }
+  ],
+  "second_stage_maps": [
+    {
+      "repository": "model-data",
+      "path": "docs/sources/tokenizer-boundary-map.json",
+      "revision": "236f87e9be53b5298bbf89a80ae3b949f841c47c",
+      "sha256": "86828a73213a90b6282b70daac9974c40eed92fa5b4f2a6b5c5df083bb933e8d",
+      "kind": "tokenizer_boundary",
+      "source_repository": "alvarovillalbaa/model-data",
+      "source_revision": "89325b15e7c7e31f9e0eff234dbd608e387b2d1c",
+      "source_inventory": [
+        ".gitignore",
+        "AGENTS.md",
+        "LICENSE",
+        "README.md",
+        "data/filters/README.md",
+        "data/manifests/README.md",
+        "data/schemas/README.md",
+        "data/tokenizer/README.md",
+        "docs/results/2026/11-10/repository-split.json",
+        "docs/sources/lab-provenance.json",
+        "docs/specs/README.md",
+        "docs/specs/backlog.md",
+        "docs/specs/blueprint.md",
+        "reports/templates/data_card.md"
+      ],
+      "destination_snapshot_revisions": {
+        "model-data": "236f87e9be53b5298bbf89a80ae3b949f841c47c",
+        "model-tokenizers": "4527dfba4c8706868f335018ebae3a068b05c146",
+        "model-pretraining": "83e0be783b4a15241b6eee285854365ab2a25f9d",
+        "model-posttraining": "1fbb9e41f6b80dda54beeb68936e3339160cd8fe",
+        "model-serving": "282d7399e724ba1d7dc254a0b6f632f0350953a6",
+        "inference-benchmarks": "effcb270f54cd10d0d1b1f99d1873a2702221918",
+        "compute-economics": "c7ea3b8e4b7324270988a3eab1e26942d05188e5",
+        "compute-planner": "2ff06e9c649bc413fbe565fb25d0347970236036"
+      },
+      "complete_routes": [
+        {
+          "source_path": ".gitignore",
+          "destinations": [
+            {
+              "repository": "model-data",
+              "path": ".gitignore",
+              "role": "retained_or_adapted"
+            }
+          ]
+        },
+        {
+          "source_path": "AGENTS.md",
+          "destinations": [
+            {
+              "repository": "model-data",
+              "path": "AGENTS.md",
+              "role": "retained_or_adapted"
+            }
+          ]
+        },
+        {
+          "source_path": "LICENSE",
+          "destinations": [
+            {
+              "repository": "model-data",
+              "path": "LICENSE",
+              "role": "retained_or_adapted"
+            }
+          ]
+        },
+        {
+          "source_path": "README.md",
+          "destinations": [
+            {
+              "repository": "model-data",
+              "path": "README.md",
+              "role": "retained_or_adapted"
+            }
+          ]
+        },
+        {
+          "source_path": "data/filters/README.md",
+          "destinations": [
+            {
+              "repository": "model-data",
+              "path": "data/filters/README.md",
+              "role": "retained_or_adapted"
+            }
+          ]
+        },
+        {
+          "source_path": "data/manifests/README.md",
+          "destinations": [
+            {
+              "repository": "model-data",
+              "path": "data/manifests/README.md",
+              "role": "retained_or_adapted"
+            }
+          ]
+        },
+        {
+          "source_path": "data/schemas/README.md",
+          "destinations": [
+            {
+              "repository": "model-data",
+              "path": "data/schemas/README.md",
+              "role": "active_adapted"
+            }
+          ]
+        },
+        {
+          "source_path": "data/tokenizer/README.md",
+          "destinations": [
+            {
+              "repository": "model-data",
+              "path": "docs/sources/pre-tokenizer-split/tokenizer-artifacts.md",
+              "role": "frozen_intermediate",
+              "sha256": "d462a9c76c1e5fd8828d4b3e2f44006924a811beae8aae04106e5ad8f97b20cd"
+            },
+            {
+              "repository": "model-tokenizers",
+              "path": "docs/sources/tokenizer-artifacts-original.md",
+              "role": "frozen_intermediate",
+              "sha256": "d462a9c76c1e5fd8828d4b3e2f44006924a811beae8aae04106e5ad8f97b20cd"
+            }
+          ]
+        },
+        {
+          "source_path": "docs/results/2026/11-10/repository-split.json",
+          "destinations": [
+            {
+              "repository": "model-data",
+              "path": "docs/results/2026/11-10/repository-split.json",
+              "role": "retained_or_adapted"
+            }
+          ]
+        },
+        {
+          "source_path": "docs/sources/lab-provenance.json",
+          "destinations": [
+            {
+              "repository": "model-data",
+              "path": "docs/sources/lab-provenance.json",
+              "role": "retained_or_adapted"
+            }
+          ]
+        },
+        {
+          "source_path": "docs/specs/README.md",
+          "destinations": [
+            {
+              "repository": "model-data",
+              "path": "docs/specs/README.md",
+              "role": "retained_or_adapted"
+            }
+          ]
+        },
+        {
+          "source_path": "docs/specs/backlog.md",
+          "destinations": [
+            {
+              "repository": "model-data",
+              "path": "docs/sources/pre-tokenizer-split/backlog.md",
+              "role": "frozen_intermediate",
+              "sha256": "39d25f2c5826e3d2f703b8ed4f67b910bcaabfe7c29b7397106cf23b19e3dd0f"
+            },
+            {
+              "repository": "model-data",
+              "path": "docs/specs/backlog.md",
+              "role": "active_adapted"
+            },
+            {
+              "repository": "model-tokenizers",
+              "path": "docs/specs/backlog.md",
+              "role": "active_adapted"
+            }
+          ]
+        },
+        {
+          "source_path": "docs/specs/blueprint.md",
+          "destinations": [
+            {
+              "repository": "model-data",
+              "path": "docs/sources/pre-tokenizer-split/blueprint.md",
+              "role": "frozen_intermediate",
+              "sha256": "289f2760d8cdaeab40df39d013716869ca16ce865fccc9cceecde3295f67b479"
+            },
+            {
+              "repository": "model-data",
+              "path": "docs/specs/blueprint.md",
+              "role": "active_adapted"
+            },
+            {
+              "repository": "model-tokenizers",
+              "path": "docs/specs/blueprint.md",
+              "role": "active_adapted"
+            }
+          ]
+        },
+        {
+          "source_path": "reports/templates/data_card.md",
+          "destinations": [
+            {
+              "repository": "model-data",
+              "path": "reports/templates/data_card.md",
+              "role": "retained_or_adapted"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "repository": "model-pretraining",
+      "path": "docs/sources/repository-expansion-map.json",
+      "revision": "83e0be783b4a15241b6eee285854365ab2a25f9d",
+      "sha256": "84b4f49fab5c88784cc316aad631670bd9bb7e92f6e627c44f5689b9d17b04e4",
+      "kind": "scope_expansion",
+      "source_repository": "alvarovillalbaa/model-training",
+      "source_revision": "24e69c525a293281b28ff36f5ef4c3558f05fcd6",
+      "source_inventory": [
+        ".gitignore",
+        "AGENTS.md",
+        "LICENSE",
+        "README.md",
+        "docs/results/2026/11-10/repository-split.json",
+        "docs/sources/lab-provenance.json",
+        "docs/specs/README.md",
+        "docs/specs/backlog.md",
+        "docs/specs/blueprint.md",
+        "reports/templates/model_card.md"
+      ],
+      "destination_snapshot_revisions": {
+        "model-data": "236f87e9be53b5298bbf89a80ae3b949f841c47c",
+        "model-tokenizers": "4527dfba4c8706868f335018ebae3a068b05c146",
+        "model-pretraining": "83e0be783b4a15241b6eee285854365ab2a25f9d",
+        "model-posttraining": "1fbb9e41f6b80dda54beeb68936e3339160cd8fe",
+        "model-serving": "282d7399e724ba1d7dc254a0b6f632f0350953a6",
+        "inference-benchmarks": "effcb270f54cd10d0d1b1f99d1873a2702221918",
+        "compute-economics": "c7ea3b8e4b7324270988a3eab1e26942d05188e5",
+        "compute-planner": "2ff06e9c649bc413fbe565fb25d0347970236036"
+      }
+    },
+    {
+      "repository": "model-serving",
+      "path": "docs/sources/repository-expansion-map.json",
+      "revision": "282d7399e724ba1d7dc254a0b6f632f0350953a6",
+      "sha256": "bb129887d7749765d3d4f8a28075780af1c73e30e2a952f11f1d156713a9edf8",
+      "kind": "scope_expansion",
+      "source_repository": "alvarovillalbaa/model-inference",
+      "source_revision": "2eafeaf2bfac00acb3960311f381d38b72f40c97",
+      "source_inventory": [
+        ".gitignore",
+        "AGENTS.md",
+        "LICENSE",
+        "README.md",
+        "docs/results/2026/11-10/repository-split.json",
+        "docs/sources/lab-provenance.json",
+        "docs/specs/README.md",
+        "docs/specs/backlog.md",
+        "docs/specs/blueprint.md"
+      ],
+      "destination_snapshot_revisions": {
+        "model-data": "236f87e9be53b5298bbf89a80ae3b949f841c47c",
+        "model-tokenizers": "4527dfba4c8706868f335018ebae3a068b05c146",
+        "model-pretraining": "83e0be783b4a15241b6eee285854365ab2a25f9d",
+        "model-posttraining": "1fbb9e41f6b80dda54beeb68936e3339160cd8fe",
+        "model-serving": "282d7399e724ba1d7dc254a0b6f632f0350953a6",
+        "inference-benchmarks": "effcb270f54cd10d0d1b1f99d1873a2702221918",
+        "compute-economics": "c7ea3b8e4b7324270988a3eab1e26942d05188e5",
+        "compute-planner": "2ff06e9c649bc413fbe565fb25d0347970236036"
+      }
+    },
+    {
+      "repository": "compute-economics",
+      "path": "docs/sources/extraction.json",
+      "revision": "3086e3262da4bc4700fd3a7e1480b7aba6aa40ca",
+      "sha256": "4b70621fbb230572a9e25dea2c8f70b17082d29c2c2ae9b450f929625fa1cb05",
+      "kind": "economics_extraction",
+      "source_repository": "alvarovillalbaa/compute-planner",
+      "source_revision": "59258a93f533091df52db57ea06ab5fcd3df9bf2",
+      "source_inventory": [
+        ".gitignore",
+        "AGENTS.md",
+        "LICENSE",
+        "README.md",
+        "docs/results/2026/11-10/installed-package.json",
+        "docs/results/2026/11-10/repository-split.json",
+        "docs/sources/lab-provenance.json",
+        "docs/specs/README.md",
+        "docs/specs/backlog.md",
+        "docs/specs/blueprint.md",
+        "examples/estimate.json",
+        "examples/quickstart.py",
+        "examples/routing.json",
+        "pyproject.toml",
+        "src/compute_planner/__init__.py",
+        "src/compute_planner/cli.py",
+        "src/compute_planner/costing.py",
+        "src/compute_planner/routing.py",
+        "src/compute_planner/scheduler.py",
+        "templates/cost_ledger.csv",
+        "tests/test_costing.py",
+        "tests/test_scheduling.py"
+      ],
+      "destination_snapshot_revisions": {
+        "model-data": "236f87e9be53b5298bbf89a80ae3b949f841c47c",
+        "model-tokenizers": "4527dfba4c8706868f335018ebae3a068b05c146",
+        "model-pretraining": "83e0be783b4a15241b6eee285854365ab2a25f9d",
+        "model-posttraining": "1fbb9e41f6b80dda54beeb68936e3339160cd8fe",
+        "model-serving": "282d7399e724ba1d7dc254a0b6f632f0350953a6",
+        "inference-benchmarks": "effcb270f54cd10d0d1b1f99d1873a2702221918",
+        "compute-economics": "c7ea3b8e4b7324270988a3eab1e26942d05188e5",
+        "compute-planner": "2ff06e9c649bc413fbe565fb25d0347970236036"
+      },
+      "complete_routes": [
+        {
+          "source_path": ".gitignore",
+          "destinations": [
+            {
+              "repository": "compute-planner",
+              "path": ".gitignore",
+              "role": "retained_or_adapted"
+            }
+          ]
+        },
+        {
+          "source_path": "AGENTS.md",
+          "destinations": [
+            {
+              "repository": "compute-planner",
+              "path": "AGENTS.md",
+              "role": "retained_or_adapted"
+            }
+          ]
+        },
+        {
+          "source_path": "LICENSE",
+          "destinations": [
+            {
+              "repository": "compute-planner",
+              "path": "LICENSE",
+              "role": "retained_or_adapted"
+            }
+          ]
+        },
+        {
+          "source_path": "README.md",
+          "destinations": [
+            {
+              "repository": "compute-planner",
+              "path": "README.md",
+              "role": "retained_or_adapted"
+            }
+          ]
+        },
+        {
+          "source_path": "docs/results/2026/11-10/installed-package.json",
+          "destinations": [
+            {
+              "repository": "compute-planner",
+              "path": "docs/results/2026/11-10/installed-package.json",
+              "role": "retained_or_adapted"
+            }
+          ]
+        },
+        {
+          "source_path": "docs/results/2026/11-10/repository-split.json",
+          "destinations": [
+            {
+              "repository": "compute-planner",
+              "path": "docs/results/2026/11-10/repository-split.json",
+              "role": "retained_or_adapted"
+            }
+          ]
+        },
+        {
+          "source_path": "docs/sources/lab-provenance.json",
+          "destinations": [
+            {
+              "repository": "compute-planner",
+              "path": "docs/sources/lab-provenance.json",
+              "role": "retained_or_adapted"
+            }
+          ]
+        },
+        {
+          "source_path": "docs/specs/README.md",
+          "destinations": [
+            {
+              "repository": "compute-planner",
+              "path": "docs/specs/README.md",
+              "role": "retained_or_adapted"
+            }
+          ]
+        },
+        {
+          "source_path": "docs/specs/backlog.md",
+          "destinations": [
+            {
+              "repository": "compute-planner",
+              "path": "docs/specs/backlog.md",
+              "role": "retained_or_adapted"
+            }
+          ]
+        },
+        {
+          "source_path": "docs/specs/blueprint.md",
+          "destinations": [
+            {
+              "repository": "compute-planner",
+              "path": "docs/specs/blueprint.md",
+              "role": "retained_or_adapted"
+            }
+          ]
+        },
+        {
+          "source_path": "examples/estimate.json",
+          "destinations": [
+            {
+              "repository": "compute-economics",
+              "path": "examples/estimate.json",
+              "role": "adapted_after_exact_extraction"
+            }
+          ]
+        },
+        {
+          "source_path": "examples/quickstart.py",
+          "destinations": [
+            {
+              "repository": "compute-planner",
+              "path": "examples/quickstart.py",
+              "role": "retained_or_adapted"
+            }
+          ]
+        },
+        {
+          "source_path": "examples/routing.json",
+          "destinations": [
+            {
+              "repository": "compute-planner",
+              "path": "examples/routing.json",
+              "role": "retained_or_adapted"
+            }
+          ]
+        },
+        {
+          "source_path": "pyproject.toml",
+          "destinations": [
+            {
+              "repository": "compute-planner",
+              "path": "pyproject.toml",
+              "role": "retained_or_adapted"
+            }
+          ]
+        },
+        {
+          "source_path": "src/compute_planner/__init__.py",
+          "destinations": [
+            {
+              "repository": "compute-planner",
+              "path": "src/compute_planner/__init__.py",
+              "role": "retained_or_adapted"
+            }
+          ]
+        },
+        {
+          "source_path": "src/compute_planner/cli.py",
+          "destinations": [
+            {
+              "repository": "compute-planner",
+              "path": "src/compute_planner/cli.py",
+              "role": "retained_or_adapted"
+            }
+          ]
+        },
+        {
+          "source_path": "src/compute_planner/costing.py",
+          "destinations": [
+            {
+              "repository": "compute-economics",
+              "path": "src/compute_economics/costing.py",
+              "role": "adapted_after_exact_extraction"
+            }
+          ]
+        },
+        {
+          "source_path": "src/compute_planner/routing.py",
+          "destinations": [
+            {
+              "repository": "compute-planner",
+              "path": "src/compute_planner/routing.py",
+              "role": "retained_or_adapted"
+            }
+          ]
+        },
+        {
+          "source_path": "src/compute_planner/scheduler.py",
+          "destinations": [
+            {
+              "repository": "compute-planner",
+              "path": "src/compute_planner/scheduler.py",
+              "role": "retained_or_adapted"
+            }
+          ]
+        },
+        {
+          "source_path": "templates/cost_ledger.csv",
+          "destinations": [
+            {
+              "repository": "compute-economics",
+              "path": "templates/cost_ledger.csv",
+              "role": "adapted_after_exact_extraction"
+            }
+          ]
+        },
+        {
+          "source_path": "tests/test_costing.py",
+          "destinations": [
+            {
+              "repository": "compute-economics",
+              "path": "tests/test_costing.py",
+              "role": "adapted_after_exact_extraction"
+            }
+          ]
+        },
+        {
+          "source_path": "tests/test_scheduling.py",
+          "destinations": [
+            {
+              "repository": "compute-planner",
+              "path": "tests/test_scheduling.py",
+              "role": "retained_or_adapted"
+            }
+          ]
+        }
+      ],
+      "exact_extraction_revision": "dfe6de5e2fea5a5467e3b40a9c255c147c6c5507",
+      "correction_manifest": {
+        "path": "docs/sources/extraction-v2.json",
+        "revision": "c7ea3b8e4b7324270988a3eab1e26942d05188e5",
+        "sha256": "5f072e03b37e1fd7b065d37e6827ae1adaf1fd0cad9ebee6dea0749ec5b6b8ac"
+      },
+      "identity_limit": "Exact extraction applies only at dfe6; current estimator intentionally corrects price/hour semantics."
+    }
+  ],
+  "section_routes": [
+    {
+      "source_path": "docs/specs/steps.md",
+      "heading": "# 2. Compute strategy and realistic budget",
+      "start_line": 48,
+      "end_line": 74,
+      "sha256": "b2414436ef18461eb66126ef7e86fa910e5a096f576c1dde46c80aa9f97fd7bc",
+      "relation": "adapted_requirements",
+      "destinations": [
+        {
+          "repository": "compute-economics",
+          "path": "docs/specs/README.md",
+          "role": "active_requirements"
+        }
+      ]
+    },
+    {
+      "source_path": "docs/specs/steps.md",
+      "heading": "# 5. Phase 1 \u2014 learn by building the smallest full system",
+      "start_line": 167,
+      "end_line": 203,
+      "sha256": "f570c4d4db7debad85184bfdc45c8bc6111d2e14781a15e4cb6eda68ae57403a",
+      "relation": "adapted_requirements",
+      "destinations": [
+        {
+          "repository": "model-pretraining",
+          "path": "docs/specs/blueprint.md",
+          "role": "active_requirements"
+        }
+      ]
+    },
+    {
+      "source_path": "docs/specs/steps.md",
+      "heading": "# 6. Phase 2 \u2014 infrastructure baseline",
+      "start_line": 204,
+      "end_line": 261,
+      "sha256": "e8a94fb334f6cdf3b7cd17a8d4cc95f23815fd5eba1dbce37cd6075afe1de0a8",
+      "relation": "adapted_requirements",
+      "destinations": [
+        {
+          "repository": "compute-runners",
+          "path": "README.md",
+          "role": "active_requirements"
+        }
+      ]
+    },
+    {
+      "source_path": "docs/specs/steps.md",
+      "heading": "# 7. Phase 3 \u2014 data pipeline",
+      "start_line": 262,
+      "end_line": 338,
+      "sha256": "04f4de50e96cc6be6d7a8aad096ae690a928decebe979e0beb48e013fa2bf1fa",
+      "relation": "adapted_requirements",
+      "destinations": [
+        {
+          "repository": "model-data",
+          "path": "docs/specs/blueprint.md",
+          "role": "active_requirements"
+        }
+      ]
+    },
+    {
+      "source_path": "docs/specs/steps.md",
+      "heading": "# 8. Phase 4 \u2014 tokenizer",
+      "start_line": 339,
+      "end_line": 367,
+      "sha256": "68a00d4f6116981f21fd247cc6ea696a35d75d84d84e06204c2824d04972db34",
+      "relation": "adapted_requirements",
+      "destinations": [
+        {
+          "repository": "model-tokenizers",
+          "path": "docs/specs/blueprint.md",
+          "role": "active_requirements"
+        }
+      ]
+    },
+    {
+      "source_path": "docs/specs/steps.md",
+      "heading": "# 9. Phase 5 \u2014 model architecture",
+      "start_line": 368,
+      "end_line": 411,
+      "sha256": "ebaf975b35e96c75f1d0db9fe4b5cbe100288431d2a8d15e315e541e89e06016",
+      "relation": "adapted_requirements",
+      "destinations": [
+        {
+          "repository": "model-pretraining",
+          "path": "docs/specs/blueprint.md",
+          "role": "active_requirements"
+        }
+      ]
+    },
+    {
+      "source_path": "docs/specs/steps.md",
+      "heading": "# 10. Phase 6 \u2014 pretraining ladder",
+      "start_line": 412,
+      "end_line": 469,
+      "sha256": "7d92a1bb90cc8f87b002016185fd0ecce7322519ddca6d1a4e836648717d94a3",
+      "relation": "adapted_requirements",
+      "destinations": [
+        {
+          "repository": "model-pretraining",
+          "path": "docs/specs/blueprint.md",
+          "role": "active_requirements"
+        }
+      ]
+    },
+    {
+      "source_path": "docs/specs/steps.md",
+      "heading": "# 11. Phase 7 \u2014 pretraining configuration",
+      "start_line": 470,
+      "end_line": 499,
+      "sha256": "8a45ea5c3b9ac71cc2ee3f8ea423c79dc8baa037bb095369b7fe0534426557eb",
+      "relation": "adapted_requirements",
+      "destinations": [
+        {
+          "repository": "model-pretraining",
+          "path": "docs/specs/blueprint.md",
+          "role": "active_requirements"
+        }
+      ]
+    },
+    {
+      "source_path": "docs/specs/steps.md",
+      "heading": "# 12. Phase 8 \u2014 post-training",
+      "start_line": 500,
+      "end_line": 580,
+      "sha256": "979d4e939a81d5ebd7ea5eb6192b8fb976f057fdf47154f0c9c27c68517a74a1",
+      "relation": "adapted_requirements",
+      "destinations": [
+        {
+          "repository": "model-posttraining",
+          "path": "docs/specs/blueprint.md",
+          "role": "active_requirements"
+        }
+      ]
+    },
+    {
+      "source_path": "docs/specs/steps.md",
+      "heading": "# 13. Phase 9 \u2014 build the advanced distillation system",
+      "start_line": 581,
+      "end_line": 766,
+      "sha256": "0a9192ba4cc9446a4021b61ab5a1b5d4866113e3efc0be46ddf14f9c50f5550c",
+      "relation": "adapted_requirements",
+      "destinations": [
+        {
+          "repository": "model-distillation",
+          "path": "docs/specs/blueprint.md",
+          "role": "active_requirements"
+        }
+      ]
+    },
+    {
+      "source_path": "docs/specs/steps.md",
+      "heading": "# 14. Phase 10 \u2014 self-improvement loop",
+      "start_line": 767,
+      "end_line": 808,
+      "sha256": "2af71b3eaf0edc71bd9446fa315475b1e00feea0654fbe8b94206a355034f421",
+      "relation": "adapted_requirements",
+      "destinations": [
+        {
+          "repository": "research-controller",
+          "path": "docs/specs/README.md",
+          "role": "active_requirements"
+        }
+      ]
+    },
+    {
+      "source_path": "docs/specs/steps.md",
+      "heading": "# 15. Phase 11 \u2014 autonomous GPU workload allocation",
+      "start_line": 809,
+      "end_line": 884,
+      "sha256": "aad31c8eeee70c47c27410c898ae18cc311418c7a45ef6822c3e293239c346fa",
+      "relation": "adapted_requirements",
+      "destinations": [
+        {
+          "repository": "compute-planner",
+          "path": "README.md",
+          "role": "active_requirements"
+        }
+      ]
+    },
+    {
+      "source_path": "docs/specs/steps.md",
+      "heading": "# 16. Phase 12 \u2014 evaluation",
+      "start_line": 885,
+      "end_line": 935,
+      "sha256": "2a962acbbbda943b892d9012c653aaab4f43b8e0d5a9d27a38f5b75203a5c549",
+      "relation": "adapted_requirements",
+      "destinations": [
+        {
+          "repository": "open-evals",
+          "path": "README.md",
+          "role": "active_requirements"
+        }
+      ]
+    },
+    {
+      "source_path": "docs/specs/steps.md",
+      "heading": "# 17. Phase 13 \u2014 serving",
+      "start_line": 936,
+      "end_line": 994,
+      "sha256": "0b3ae2abd1cc75196ec7aa66a144a7e52d46c927f3df72e627a27066eefe652e",
+      "relation": "adapted_requirements",
+      "destinations": [
+        {
+          "repository": "model-serving",
+          "path": "docs/specs/blueprint.md",
+          "role": "active_requirements"
+        },
+        {
+          "repository": "inference-benchmarks",
+          "path": "docs/specs/blueprint.md",
+          "role": "active_requirements"
+        }
+      ]
+    },
+    {
+      "source_path": "docs/IMPLEMENTATION_BACKLOG.md",
+      "heading": "## Foundation",
+      "start_line": 7,
+      "end_line": 21,
+      "sha256": "4215e5c8f060347195977957480eec01e4d7b7678f1c1e307838e83d79014474",
+      "relation": "adapted_requirements",
+      "destinations": [
+        {
+          "repository": "experiment-kit",
+          "path": "README.md",
+          "role": "active_requirements"
+        },
+        {
+          "repository": "lab",
+          "path": "README.md",
+          "role": "active_requirements"
+        }
+      ]
+    },
+    {
+      "source_path": "docs/IMPLEMENTATION_BACKLOG.md",
+      "heading": "## Tiny From-Scratch Trainer",
+      "start_line": 22,
+      "end_line": 41,
+      "sha256": "7a08854ff839304cb4516e39f2e38f91b86697d36184c1a9956613613ff4840d",
+      "relation": "adapted_requirements",
+      "destinations": [
+        {
+          "repository": "model-pretraining",
+          "path": "README.md",
+          "role": "active_requirements"
+        }
+      ]
+    },
+    {
+      "source_path": "docs/IMPLEMENTATION_BACKLOG.md",
+      "heading": "## Data Pipeline",
+      "start_line": 42,
+      "end_line": 62,
+      "sha256": "766b47fe374c088f637c9b8be982f85f9cda0a9e323bb72e9f73f3e5399ff805",
+      "relation": "adapted_requirements",
+      "destinations": [
+        {
+          "repository": "model-data",
+          "path": "README.md",
+          "role": "active_requirements"
+        }
+      ]
+    },
+    {
+      "source_path": "docs/IMPLEMENTATION_BACKLOG.md",
+      "heading": "## Tokenizer",
+      "start_line": 63,
+      "end_line": 73,
+      "sha256": "d9b06332d78b749655285b10d6904d2b0d80bc0e595a105965c5150ad24fba8c",
+      "relation": "adapted_requirements",
+      "destinations": [
+        {
+          "repository": "model-tokenizers",
+          "path": "README.md",
+          "role": "active_requirements"
+        }
+      ]
+    },
+    {
+      "source_path": "docs/IMPLEMENTATION_BACKLOG.md",
+      "heading": "## Pretraining",
+      "start_line": 74,
+      "end_line": 87,
+      "sha256": "a04eeee75f45116d597d78f0bff365d236acb81b0346647e20ad914ce3670da9",
+      "relation": "adapted_requirements",
+      "destinations": [
+        {
+          "repository": "model-pretraining",
+          "path": "README.md",
+          "role": "active_requirements"
+        }
+      ]
+    },
+    {
+      "source_path": "docs/IMPLEMENTATION_BACKLOG.md",
+      "heading": "## Post-Training",
+      "start_line": 88,
+      "end_line": 100,
+      "sha256": "b54b0a0de3543326555a100fc394f23ccb7442fc82d12c4602b1cdd70f7afd55",
+      "relation": "adapted_requirements",
+      "destinations": [
+        {
+          "repository": "model-posttraining",
+          "path": "README.md",
+          "role": "active_requirements"
+        }
+      ]
+    },
+    {
+      "source_path": "docs/IMPLEMENTATION_BACKLOG.md",
+      "heading": "## Distillation",
+      "start_line": 101,
+      "end_line": 114,
+      "sha256": "bfe849b1fa11f9b453cbee766f84934aac4c8deb628a1c3c71c94219eaae6244",
+      "relation": "adapted_requirements",
+      "destinations": [
+        {
+          "repository": "model-distillation",
+          "path": "README.md",
+          "role": "active_requirements"
+        }
+      ]
+    },
+    {
+      "source_path": "docs/IMPLEMENTATION_BACKLOG.md",
+      "heading": "## Self-Improvement",
+      "start_line": 115,
+      "end_line": 125,
+      "sha256": "1ff36b40dca9e54babbdfc3428d37b5989c9b00416a667f44eb6fd31c73fd429",
+      "relation": "adapted_requirements",
+      "destinations": [
+        {
+          "repository": "research-controller",
+          "path": "README.md",
+          "role": "active_requirements"
+        }
+      ]
+    },
+    {
+      "source_path": "docs/IMPLEMENTATION_BACKLOG.md",
+      "heading": "## Scheduler",
+      "start_line": 126,
+      "end_line": 140,
+      "sha256": "54b88547563040186e02521b6b3edcfbb6d9a922b5d26059f0e9c9ffc758e736",
+      "relation": "adapted_requirements",
+      "destinations": [
+        {
+          "repository": "compute-planner",
+          "path": "README.md",
+          "role": "active_requirements"
+        }
+      ]
+    },
+    {
+      "source_path": "docs/IMPLEMENTATION_BACKLOG.md",
+      "heading": "## Evaluation",
+      "start_line": 141,
+      "end_line": 152,
+      "sha256": "5b0d8bdaaa66162ea63460a4e33444c0deff987a913ac342a2db257a2ff43ce1",
+      "relation": "adapted_requirements",
+      "destinations": [
+        {
+          "repository": "open-evals",
+          "path": "README.md",
+          "role": "active_requirements"
+        }
+      ]
+    },
+    {
+      "source_path": "docs/IMPLEMENTATION_BACKLOG.md",
+      "heading": "## Serving",
+      "start_line": 153,
+      "end_line": 164,
+      "sha256": "727ff3a2ed0a11830d5a96fd6e4e82e47c8ce03e7e52a0e53356edec7a0cf8d4",
+      "relation": "adapted_requirements",
+      "destinations": [
+        {
+          "repository": "model-serving",
+          "path": "README.md",
+          "role": "active_requirements"
+        },
+        {
+          "repository": "inference-benchmarks",
+          "path": "README.md",
+          "role": "active_requirements"
+        }
+      ]
+    },
+    {
+      "source_path": "docs/IMPLEMENTATION_BACKLOG.md",
+      "heading": "## Public Release",
+      "start_line": 165,
+      "end_line": 177,
+      "sha256": "103749acc6e00bd26c40f7369a144c524d98158a53373383f605a82a61d67104",
+      "relation": "adapted_requirements",
+      "destinations": [
+        {
+          "repository": "lab",
+          "path": "README.md",
+          "role": "active_requirements"
+        }
+      ]
+    }
+  ],
+  "recovery_policy": [
+    "Preserve recovered Git history, dirty/untracked files and unique artifacts before reconciliation.",
+    "Resolve old repository names by preserved ID and source revision; route individual sections. Renaming training does not route post-training to pretraining, nor inference measurements to serving.",
+    "Original sources remain in the frozen Lab commit. Exact intermediate archives retain their own hashes; active adapted files may evolve.",
+    "Use second-stage maps for tokenizer, pre/post-training, serving/benchmark and economics relocations.",
+    "Dataset/document/split/shard manifests belong to model-data; teacher/task/response/verifier/preference types belong to model-distillation.",
+    "Research-controller owns original section 14 bounded sequencing; open-evals owns evaluation. ML foundations and RL environments are user-intended future products, not extracted LLM engines.",
+    "Unknown recovered paths require inspection; unpublished laptop work cannot be classified automatically."
+  ],
+  "verification_limits": "Local inventories, exact snapshots, archive preservation and destination existence only. IDs are declared rename evidence, not live network proof. Planned homes do not imply engines; recovered laptop data has not been inspected."
+}

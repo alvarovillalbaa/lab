@@ -1,177 +1,43 @@
-# Implementation Backlog
+# Integration backlog
 
-This backlog turns the full plan into ordered work. It is intentionally not an
-MVP list; it is the production roadmap staged so each layer can be proven before
-the next layer spends money.
+Last updated: 2026-11-10
 
-## Foundation
+Lab owns ecosystem integration, experiments and shared reports. Product engines
+and their bounded implementation backlogs belong to the
+[canonical component owners](references/component-ownership.md).
 
-Status: in progress.
+## Current boundary expansion
 
-- [x] Create repo skeleton.
-- [x] Add master step-by-step plan.
-- [x] Add human decision gates.
-- [x] Add spec coverage audit.
-- [x] Add local config validation.
-- [x] Add cost-estimation primitive.
-- [x] Add provider routing primitive.
-- [ ] Fill `DECISIONS.md`.
-- [ ] Add real dependency groups after choosing package manager constraints.
-- [ ] Add CI workflow for validation.
+The expanded target is seventeen component repositories plus Open Evals and Lab.
+Its five implemented libraries are experiment-kit, compute-economics,
+compute-planner, model-distillation and verification-runtime; twelve component homes remain planned.
 
-## Tiny From-Scratch Trainer
+- Economics owns workload estimates; planning owns routing/job order; runners own execution.
+- Objective verification is owned by verification-runtime; distillation keeps eligibility and pair policy.
+- Reusable model definitions belong to model-architectures; optimization stays with trainers.
+- Generic artifact materialization/integrity belongs to research-artifacts, using existing backends.
+- Dataset preparation consumes explicit tokenizer artifacts from model-tokenizers.
+- Model-pretraining and model-posttraining exchange portable model artifacts.
+- Model-serving and inference-benchmarks exchange endpoint/measurement bindings.
+- Research-controller owns reusable bounded model-research orchestration.
 
-Status: planned.
+The expanded package/profile check outcomes are recorded separately in
+[product-installed-package.json](results/2026/11-10/product-installed-package.json).
+The first-stage wheel/install checks remain historical evidence; they do not
+prove changed economics/planner APIs or Lab 0.4.
 
-- [ ] Tokenizer loading.
-- [ ] Packed dataset loader.
-- [ ] Transformer block.
-- [ ] RoPE.
-- [ ] RMSNorm.
-- [ ] SwiGLU MLP.
-- [ ] Causal attention.
-- [ ] AdamW.
-- [ ] LR schedule.
-- [ ] Checkpoint save/load.
-- [ ] Eval loss.
-- [ ] Generation.
-- [ ] Chat wrapper.
-- [ ] Export path.
-- [ ] Blog/report draft.
+## Next integration work
 
-## Data Pipeline
+- [ ] Review and integrate the existing-repository scope changes and SDK packaging; retain the manifest's candidate state until those owner reviews complete.
+- [ ] Update compatibility pins deliberately when a component's public interface changes.
+- [ ] Materialize approved dataset/tokenizer/model artifacts before any real training or serving run.
+- [ ] Connect a working compute runner to a planner consumer after the runner exists.
+- [ ] Add tokenizer/data and pretraining/post-training artifact round trips when their engines exist.
+- [ ] Measure an independently supplied serving endpoint with a working benchmark harness.
+- [ ] Integrate a bounded research-controller implementation using explicit external training/evaluation adapters.
+- [ ] Preserve, inspect and distribute recovered laptop work through the two-stage relocation maps.
+- [ ] Resolve per-study budget, data/teacher rights, provider access and scientific release gates.
 
-Status: planned.
-
-- [ ] Manifest schema.
-- [ ] Source ingestion.
-- [ ] Unicode normalization.
-- [ ] Boilerplate stripping.
-- [ ] Language detection.
-- [ ] Length filters.
-- [ ] Paragraph dedup.
-- [ ] Exact dedup.
-- [ ] Fuzzy dedup.
-- [ ] Quality scoring.
-- [ ] Toxicity/safety/PII tagging.
-- [ ] Domain classification.
-- [ ] License/source tracking.
-- [ ] Tokenization.
-- [ ] Packing.
-- [ ] Deterministic sharding.
-
-## Tokenizer
-
-Status: planned.
-
-- [ ] Tokenizer training config.
-- [ ] Domain sampling strategy.
-- [ ] Special token policy.
-- [ ] Compression evaluation.
-- [ ] Tokenizer card.
-- [ ] Hash-pinned artifact.
-
-## Pretraining
-
-Status: planned.
-
-- [ ] OLMo-core or TorchTitan runner.
-- [ ] `lab-124m` smoke config.
-- [ ] Checkpoint resume test.
-- [ ] Generation smoke test.
-- [ ] Eval wrapper.
-- [ ] 124M data ablations.
-- [ ] 350M data ablations.
-- [ ] 1.3B run plan.
-- [ ] 3B run plan.
-
-## Post-Training
-
-Status: planned.
-
-- [ ] TRL local SFT runner.
-- [ ] Fixed chat template.
-- [ ] Loss masking.
-- [ ] DPO runner.
-- [ ] GRPO/verifiable reward runner.
-- [ ] Tinker adapter.
-- [ ] Safety dataset hooks.
-- [ ] Post-training eval gates.
-
-## Distillation
-
-Status: in progress.
-
-- [x] Define distillation phase in docs.
-- [ ] Teacher registry schema.
-- [ ] Task generator.
-- [ ] Teacher response collector.
-- [ ] Objective verifiers.
-- [ ] Preference pair builder.
-- [ ] Curriculum sampler.
-- [ ] Lineage database.
-- [ ] Distillation ablation runner.
-
-## Self-Improvement
-
-Status: planned.
-
-- [ ] Student-generated task queue.
-- [ ] Verifier filtering.
-- [ ] Candidate training loop.
-- [ ] Frozen holdout eval.
-- [ ] Promotion gate.
-- [ ] Rollback policy.
-
-## Scheduler
-
-Status: in progress.
-
-- [x] Provider routing primitive.
-- [ ] Job schema.
-- [ ] FIFO policy.
-- [ ] Cheapest-first policy.
-- [ ] Fastest-first policy.
-- [ ] Value-per-dollar policy.
-- [ ] Bayesian policy.
-- [ ] Preemption-aware policy.
-- [ ] Portfolio optimizer.
-- [ ] Scheduler report.
-
-## Evaluation
-
-Status: planned.
-
-- [ ] Base model eval config.
-- [ ] Chat eval config.
-- [ ] Safety eval config.
-- [ ] Custom verifier evals.
-- [ ] Serving latency benchmark.
-- [ ] Regression suite.
-- [ ] Eval report generator.
-
-## Serving
-
-Status: planned.
-
-- [ ] Local vLLM wrapper.
-- [ ] Baseten deployment folder.
-- [ ] OpenAI-compatible chat endpoint.
-- [ ] Safety gateway.
-- [ ] Latency logging.
-- [ ] Cost logging.
-- [ ] Base vs post-trained vs distilled comparison mode.
-
-## Public Release
-
-Status: planned.
-
-- [ ] Run card.
-- [ ] Model card.
-- [ ] Data card.
-- [ ] Eval report.
-- [ ] Serving benchmark.
-- [ ] Cost ledger.
-- [ ] Failure and bug log.
-- [ ] Reproducibility kit.
-
+The CPU integration fixture is an implementation check over authored responses
+and hypothetical compute assumptions. It does not establish GPU allocation,
+observed billing, trained model capability, inference performance or promotion.

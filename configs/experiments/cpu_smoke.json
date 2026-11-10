@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "experiment_id": "cpu-contract-smoke",
+  "kind": "distillation_fixture",
+  "objective": "Validate CPU component composition metadata",
+  "code_ref": "lab@ba67e510bab2703b1042993744ce099490221c1f",
+  "seed": 0,
+  "inputs": [],
+  "resources": {
+    "device": "cpu",
+    "gpus": 0
+  }
+}
