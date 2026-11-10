@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-10",
+  "scope": "product-split-20261110",
+  "approved_by_owner": true,
+  "approval_quote": "I approve. Go on.",
+  "limit_bytes": 268435456,
+  "cleanup_required": true,
+  "preflight_free_gib": 9.6,
+  "required_gib": 34,
+  "earlier_exceptions": "closed; not reused",
+  "status": "closed_after_verified_cleanup",
+  "peak_observed_allocated_bytes": 43999232,
+  "temporary_resources_removed": true
+}

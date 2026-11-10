@@ -1,9 +1,2261 @@
 {
   "schema_version": 1,
   "date": "2026-11-10",
-  "status": "pending_storage_approval",
-  "scope": "Seven wheel builds, six independent installations, nine Lab profiles",
-  "lab_source_revision": "fd8f16a8f238c3f2d2d5a18f53e9a3999e776de8",
+  "status": "passed",
+  "scope": "Seven wheels, six independent installations, nine Lab profiles",
+  "commands": [
+    {
+      "label": "mirror-verification-runtime",
+      "arguments": [
+        "git",
+        "clone",
+        "--bare",
+        "--no-local",
+        "--single-branch",
+        "--branch",
+        "main",
+        "<workspace>/verification-runtime",
+        "<task>/mirrors/verification-runtime.git"
+      ],
+      "cwd": "<task>",
+      "log": "<task>/logs/001-mirror-verification-runtime.log",
+      "exit_code": 0
+    },
+    {
+      "label": "check-mirror-verification-runtime",
+      "arguments": [
+        "git",
+        "--git-dir=<task>/mirrors/verification-runtime.git",
+        "cat-file",
+        "-e",
+        "0f293f9808598a38f58f85563e1ccafd815bbd36^{commit}"
+      ],
+      "cwd": "<task>",
+      "log": "<task>/logs/002-check-mirror-verification-runtime.log",
+      "exit_code": 0
+    },
+    {
+      "label": "mirror-experiment-kit",
+      "arguments": [
+        "git",
+        "clone",
+        "--bare",
+        "--no-local",
+        "--single-branch",
+        "--branch",
+        "main",
+        "<workspace>/experiment-kit",
+        "<task>/mirrors/experiment-kit.git"
+      ],
+      "cwd": "<task>",
+      "log": "<task>/logs/003-mirror-experiment-kit.log",
+      "exit_code": 0
+    },
+    {
+      "label": "check-mirror-experiment-kit",
+      "arguments": [
+        "git",
+        "--git-dir=<task>/mirrors/experiment-kit.git",
+        "cat-file",
+        "-e",
+        "fe96641e94a596551e24f26661cb7ca73f6d90d1^{commit}"
+      ],
+      "cwd": "<task>",
+      "log": "<task>/logs/004-check-mirror-experiment-kit.log",
+      "exit_code": 0
+    },
+    {
+      "label": "mirror-compute-economics",
+      "arguments": [
+        "git",
+        "clone",
+        "--bare",
+        "--no-local",
+        "--single-branch",
+        "--branch",
+        "main",
+        "<workspace>/compute-economics",
+        "<task>/mirrors/compute-economics.git"
+      ],
+      "cwd": "<task>",
+      "log": "<task>/logs/005-mirror-compute-economics.log",
+      "exit_code": 0
+    },
+    {
+      "label": "check-mirror-compute-economics",
+      "arguments": [
+        "git",
+        "--git-dir=<task>/mirrors/compute-economics.git",
+        "cat-file",
+        "-e",
+        "c7ea3b8e4b7324270988a3eab1e26942d05188e5^{commit}"
+      ],
+      "cwd": "<task>",
+      "log": "<task>/logs/006-check-mirror-compute-economics.log",
+      "exit_code": 0
+    },
+    {
+      "label": "mirror-compute-planner",
+      "arguments": [
+        "git",
+        "clone",
+        "--bare",
+        "--no-local",
+        "--single-branch",
+        "--branch",
+        "split/economics",
+        "<workspace>/compute-planner",
+        "<task>/mirrors/compute-planner.git"
+      ],
+      "cwd": "<task>",
+      "log": "<task>/logs/007-mirror-compute-planner.log",
+      "exit_code": 0
+    },
+    {
+      "label": "check-mirror-compute-planner",
+      "arguments": [
+        "git",
+        "--git-dir=<task>/mirrors/compute-planner.git",
+        "cat-file",
+        "-e",
+        "2ff06e9c649bc413fbe565fb25d0347970236036^{commit}"
+      ],
+      "cwd": "<task>",
+      "log": "<task>/logs/008-check-mirror-compute-planner.log",
+      "exit_code": 0
+    },
+    {
+      "label": "mirror-model-distillation",
+      "arguments": [
+        "git",
+        "clone",
+        "--bare",
+        "--no-local",
+        "--single-branch",
+        "--branch",
+        "split/verification-runtime",
+        "<workspace>/model-distillation",
+        "<task>/mirrors/model-distillation.git"
+      ],
+      "cwd": "<task>",
+      "log": "<task>/logs/009-mirror-model-distillation.log",
+      "exit_code": 0
+    },
+    {
+      "label": "check-mirror-model-distillation",
+      "arguments": [
+        "git",
+        "--git-dir=<task>/mirrors/model-distillation.git",
+        "cat-file",
+        "-e",
+        "77f73c8fff67d154f514a02dd9e0c3260273aa6d^{commit}"
+      ],
+      "cwd": "<task>",
+      "log": "<task>/logs/010-check-mirror-model-distillation.log",
+      "exit_code": 0
+    },
+    {
+      "label": "check-mirror-open-evals",
+      "arguments": [
+        "git",
+        "--git-dir=<task>/mirrors/open-evals.git",
+        "cat-file",
+        "-e",
+        "d1002d58109156683be3ad4fc394c7cc6c534057^{commit}"
+      ],
+      "cwd": "<task>",
+      "log": "<task>/logs/011-check-mirror-open-evals.log",
+      "exit_code": 0
+    },
+    {
+      "label": "uv-version",
+      "arguments": [
+        "<toolchain>/bin/uv",
+        "--version"
+      ],
+      "cwd": "<task>",
+      "log": "<task>/logs/012-uv-version.log",
+      "exit_code": 0
+    },
+    {
+      "label": "export-verification-runtime",
+      "arguments": [
+        "git",
+        "--git-dir=<task>/mirrors/verification-runtime.git",
+        "archive",
+        "--format=tar",
+        "--output=<task>/tmp/verification-runtime.tar",
+        "0f293f9808598a38f58f85563e1ccafd815bbd36"
+      ],
+      "cwd": "<workspace>/verification-runtime",
+      "log": "<task>/logs/013-export-verification-runtime.log",
+      "exit_code": 0
+    },
+    {
+      "label": "build-verification-runtime",
+      "arguments": [
+        "<toolchain>/bin/uv",
+        "build",
+        "--wheel",
+        "--no-sources",
+        "--no-config",
+        "--no-python-downloads",
+        "--python",
+        "<toolchain>/opt/python@3.14/bin/python3.14",
+        "--no-index",
+        "--find-links",
+        "<task>/bootstrap",
+        "--out-dir",
+        "<task>/wheels",
+        "<task>/sources/verification-runtime"
+      ],
+      "cwd": "<task>",
+      "log": "<task>/logs/014-build-verification-runtime.log",
+      "exit_code": 0
+    },
+    {
+      "label": "export-experiment-kit",
+      "arguments": [
+        "git",
+        "--git-dir=<task>/mirrors/experiment-kit.git",
+        "archive",
+        "--format=tar",
+        "--output=<task>/tmp/experiment-kit.tar",
+        "fe96641e94a596551e24f26661cb7ca73f6d90d1"
+      ],
+      "cwd": "<workspace>/experiment-kit",
+      "log": "<task>/logs/015-export-experiment-kit.log",
+      "exit_code": 0
+    },
+    {
+      "label": "build-experiment-kit",
+      "arguments": [
+        "<toolchain>/bin/uv",
+        "build",
+        "--wheel",
+        "--no-sources",
+        "--no-config",
+        "--no-python-downloads",
+        "--python",
+        "<toolchain>/opt/python@3.14/bin/python3.14",
+        "--no-index",
+        "--find-links",
+        "<task>/bootstrap",
+        "--out-dir",
+        "<task>/wheels",
+        "<task>/sources/experiment-kit"
+      ],
+      "cwd": "<task>",
+      "log": "<task>/logs/016-build-experiment-kit.log",
+      "exit_code": 0
+    },
+    {
+      "label": "export-compute-economics",
+      "arguments": [
+        "git",
+        "--git-dir=<task>/mirrors/compute-economics.git",
+        "archive",
+        "--format=tar",
+        "--output=<task>/tmp/compute-economics.tar",
+        "c7ea3b8e4b7324270988a3eab1e26942d05188e5"
+      ],
+      "cwd": "<workspace>/compute-economics",
+      "log": "<task>/logs/017-export-compute-economics.log",
+      "exit_code": 0
+    },
+    {
+      "label": "build-compute-economics",
+      "arguments": [
+        "<toolchain>/bin/uv",
+        "build",
+        "--wheel",
+        "--no-sources",
+        "--no-config",
+        "--no-python-downloads",
+        "--python",
+        "<toolchain>/opt/python@3.14/bin/python3.14",
+        "--no-index",
+        "--find-links",
+        "<task>/bootstrap",
+        "--out-dir",
+        "<task>/wheels",
+        "<task>/sources/compute-economics"
+      ],
+      "cwd": "<task>",
+      "log": "<task>/logs/018-build-compute-economics.log",
+      "exit_code": 0
+    },
+    {
+      "label": "export-compute-planner",
+      "arguments": [
+        "git",
+        "--git-dir=<task>/mirrors/compute-planner.git",
+        "archive",
+        "--format=tar",
+        "--output=<task>/tmp/compute-planner.tar",
+        "2ff06e9c649bc413fbe565fb25d0347970236036"
+      ],
+      "cwd": "<workspace>/compute-planner",
+      "log": "<task>/logs/019-export-compute-planner.log",
+      "exit_code": 0
+    },
+    {
+      "label": "build-compute-planner",
+      "arguments": [
+        "<toolchain>/bin/uv",
+        "build",
+        "--wheel",
+        "--no-sources",
+        "--no-config",
+        "--no-python-downloads",
+        "--python",
+        "<toolchain>/opt/python@3.14/bin/python3.14",
+        "--no-index",
+        "--find-links",
+        "<task>/bootstrap",
+        "--out-dir",
+        "<task>/wheels",
+        "<task>/sources/compute-planner"
+      ],
+      "cwd": "<task>",
+      "log": "<task>/logs/020-build-compute-planner.log",
+      "exit_code": 0
+    },
+    {
+      "label": "export-model-distillation",
+      "arguments": [
+        "git",
+        "--git-dir=<task>/mirrors/model-distillation.git",
+        "archive",
+        "--format=tar",
+        "--output=<task>/tmp/model-distillation.tar",
+        "77f73c8fff67d154f514a02dd9e0c3260273aa6d"
+      ],
+      "cwd": "<workspace>/model-distillation",
+      "log": "<task>/logs/021-export-model-distillation.log",
+      "exit_code": 0
+    },
+    {
+      "label": "build-model-distillation",
+      "arguments": [
+        "<toolchain>/bin/uv",
+        "build",
+        "--wheel",
+        "--no-sources",
+        "--no-config",
+        "--no-python-downloads",
+        "--python",
+        "<toolchain>/opt/python@3.14/bin/python3.14",
+        "--no-index",
+        "--find-links",
+        "<task>/bootstrap",
+        "--out-dir",
+        "<task>/wheels",
+        "<task>/sources/model-distillation"
+      ],
+      "cwd": "<task>",
+      "log": "<task>/logs/022-build-model-distillation.log",
+      "exit_code": 0
+    },
+    {
+      "label": "export-open-evals-sdk",
+      "arguments": [
+        "git",
+        "--git-dir=<task>/mirrors/open-evals.git",
+        "archive",
+        "--format=tar",
+        "--output=<task>/tmp/open-evals-sdk.tar",
+        "d1002d58109156683be3ad4fc394c7cc6c534057",
+        "python/open_evals_sdk"
+      ],
+      "cwd": "<workspace>/open-evals",
+      "log": "<task>/logs/023-export-open-evals-sdk.log",
+      "exit_code": 0
+    },
+    {
+      "label": "build-open-evals-sdk",
+      "arguments": [
+        "<toolchain>/bin/uv",
+        "build",
+        "--wheel",
+        "--no-sources",
+        "--no-config",
+        "--no-python-downloads",
+        "--python",
+        "<toolchain>/opt/python@3.14/bin/python3.14",
+        "--no-index",
+        "--find-links",
+        "<task>/bootstrap",
+        "--out-dir",
+        "<task>/wheels",
+        "<task>/sources/open-evals-sdk/python/open_evals_sdk"
+      ],
+      "cwd": "<task>",
+      "log": "<task>/logs/024-build-open-evals-sdk.log",
+      "exit_code": 0
+    },
+    {
+      "label": "export-clous-llm-lab",
+      "arguments": [
+        "git",
+        "archive",
+        "--format=tar",
+        "--output=<task>/tmp/clous-llm-lab.tar",
+        "0396ad6045b778ca701b5e09dca63cb36e8f2486"
+      ],
+      "cwd": "<workspace>/lab",
+      "log": "<task>/logs/025-export-clous-llm-lab.log",
+      "exit_code": 0
+    },
+    {
+      "label": "build-clous-llm-lab",
+      "arguments": [
+        "<toolchain>/bin/uv",
+        "build",
+        "--wheel",
+        "--no-sources",
+        "--no-config",
+        "--no-python-downloads",
+        "--python",
+        "<toolchain>/opt/python@3.14/bin/python3.14",
+        "--no-index",
+        "--find-links",
+        "<task>/bootstrap",
+        "--out-dir",
+        "<task>/wheels",
+        "<task>/sources/clous-llm-lab"
+      ],
+      "cwd": "<task>",
+      "log": "<task>/logs/026-build-clous-llm-lab.log",
+      "exit_code": 0
+    },
+    {
+      "label": "venv-verification-runtime",
+      "arguments": [
+        "<toolchain>/bin/uv",
+        "venv",
+        "--no-config",
+        "--no-python-downloads",
+        "--python",
+        "<toolchain>/opt/python@3.14/bin/python3.14",
+        "<task>/environments/verification-runtime"
+      ],
+      "cwd": "<task>",
+      "log": "<task>/logs/027-venv-verification-runtime.log",
+      "exit_code": 0
+    },
+    {
+      "label": "install-verification-runtime",
+      "arguments": [
+        "<toolchain>/bin/uv",
+        "pip",
+        "install",
+        "--python",
+        "<task>/environments/verification-runtime/bin/python",
+        "--no-index",
+        "--find-links",
+        "<task>/bootstrap",
+        "--strict",
+        "verification-runtime @ file://<task>/wheels/verification_runtime-0.1.0-py3-none-any.whl"
+      ],
+      "cwd": "<task>",
+      "log": "<task>/logs/028-install-verification-runtime.log",
+      "exit_code": 0
+    },
+    {
+      "label": "check-verification-runtime",
+      "arguments": [
+        "<task>/environments/verification-runtime/bin/python",
+        "-I",
+        "<task>/sources/clous-llm-lab/scripts/check-installed.py",
+        "--distribution",
+        "verification-runtime"
+      ],
+      "cwd": "<task>",
+      "log": "<task>/logs/029-check-verification-runtime.log",
+      "exit_code": 0
+    },
+    {
+      "label": "origins-verification-runtime",
+      "arguments": [
+        "<task>/environments/verification-runtime/bin/python",
+        "-I",
+        "-c",
+        "import importlib.metadata as m,json; print(json.dumps({d.metadata[\"Name\"]:json.loads(d.read_text(\"direct_url.json\")) for d in m.distributions() if d.read_text(\"direct_url.json\")}))"
+      ],
+      "cwd": "<task>",
+      "log": "<task>/logs/030-origins-verification-runtime.log",
+      "exit_code": 0
+    },
+    {
+      "label": "venv-experiment-kit",
+      "arguments": [
+        "<toolchain>/bin/uv",
+        "venv",
+        "--no-config",
+        "--no-python-downloads",
+        "--python",
+        "<toolchain>/opt/python@3.14/bin/python3.14",
+        "<task>/environments/experiment-kit"
+      ],
+      "cwd": "<task>",
+      "log": "<task>/logs/031-venv-experiment-kit.log",
+      "exit_code": 0
+    },
+    {
+      "label": "install-experiment-kit",
+      "arguments": [
+        "<toolchain>/bin/uv",
+        "pip",
+        "install",
+        "--python",
+        "<task>/environments/experiment-kit/bin/python",
+        "--no-index",
+        "--find-links",
+        "<task>/bootstrap",
+        "--strict",
+        "experiment-kit @ file://<task>/wheels/experiment_kit-0.1.0-py3-none-any.whl"
+      ],
+      "cwd": "<task>",
+      "log": "<task>/logs/032-install-experiment-kit.log",
+      "exit_code": 0
+    },
+    {
+      "label": "check-experiment-kit",
+      "arguments": [
+        "<task>/environments/experiment-kit/bin/python",
+        "-I",
+        "<task>/sources/clous-llm-lab/scripts/check-installed.py",
+        "--distribution",
+        "experiment-kit"
+      ],
+      "cwd": "<task>",
+      "log": "<task>/logs/033-check-experiment-kit.log",
+      "exit_code": 0
+    },
+    {
+      "label": "origins-experiment-kit",
+      "arguments": [
+        "<task>/environments/experiment-kit/bin/python",
+        "-I",
+        "-c",
+        "import importlib.metadata as m,json; print(json.dumps({d.metadata[\"Name\"]:json.loads(d.read_text(\"direct_url.json\")) for d in m.distributions() if d.read_text(\"direct_url.json\")}))"
+      ],
+      "cwd": "<task>",
+      "log": "<task>/logs/034-origins-experiment-kit.log",
+      "exit_code": 0
+    },
+    {
+      "label": "venv-compute-economics",
+      "arguments": [
+        "<toolchain>/bin/uv",
+        "venv",
+        "--no-config",
+        "--no-python-downloads",
+        "--python",
+        "<toolchain>/opt/python@3.14/bin/python3.14",
+        "<task>/environments/compute-economics"
+      ],
+      "cwd": "<task>",
+      "log": "<task>/logs/035-venv-compute-economics.log",
+      "exit_code": 0
+    },
+    {
+      "label": "install-compute-economics",
+      "arguments": [
+        "<toolchain>/bin/uv",
+        "pip",
+        "install",
+        "--python",
+        "<task>/environments/compute-economics/bin/python",
+        "--no-index",
+        "--find-links",
+        "<task>/bootstrap",
+        "--strict",
+        "compute-economics @ file://<task>/wheels/compute_economics-0.1.0-py3-none-any.whl"
+      ],
+      "cwd": "<task>",
+      "log": "<task>/logs/036-install-compute-economics.log",
+      "exit_code": 0
+    },
+    {
+      "label": "check-compute-economics",
+      "arguments": [
+        "<task>/environments/compute-economics/bin/python",
+        "-I",
+        "<task>/sources/clous-llm-lab/scripts/check-installed.py",
+        "--distribution",
+        "compute-economics"
+      ],
+      "cwd": "<task>",
+      "log": "<task>/logs/037-check-compute-economics.log",
+      "exit_code": 0
+    },
+    {
+      "label": "origins-compute-economics",
+      "arguments": [
+        "<task>/environments/compute-economics/bin/python",
+        "-I",
+        "-c",
+        "import importlib.metadata as m,json; print(json.dumps({d.metadata[\"Name\"]:json.loads(d.read_text(\"direct_url.json\")) for d in m.distributions() if d.read_text(\"direct_url.json\")}))"
+      ],
+      "cwd": "<task>",
+      "log": "<task>/logs/038-origins-compute-economics.log",
+      "exit_code": 0
+    },
+    {
+      "label": "venv-compute-planner",
+      "arguments": [
+        "<toolchain>/bin/uv",
+        "venv",
+        "--no-config",
+        "--no-python-downloads",
+        "--python",
+        "<toolchain>/opt/python@3.14/bin/python3.14",
+        "<task>/environments/compute-planner"
+      ],
+      "cwd": "<task>",
+      "log": "<task>/logs/039-venv-compute-planner.log",
+      "exit_code": 0
+    },
+    {
+      "label": "install-compute-planner",
+      "arguments": [
+        "<toolchain>/bin/uv",
+        "pip",
+        "install",
+        "--python",
+        "<task>/environments/compute-planner/bin/python",
+        "--no-index",
+        "--find-links",
+        "<task>/bootstrap",
+        "--strict",
+        "compute-planner @ file://<task>/wheels/compute_planner-0.2.0-py3-none-any.whl"
+      ],
+      "cwd": "<task>",
+      "log": "<task>/logs/040-install-compute-planner.log",
+      "exit_code": 0
+    },
+    {
+      "label": "check-compute-planner",
+      "arguments": [
+        "<task>/environments/compute-planner/bin/python",
+        "-I",
+        "<task>/sources/clous-llm-lab/scripts/check-installed.py",
+        "--distribution",
+        "compute-planner"
+      ],
+      "cwd": "<task>",
+      "log": "<task>/logs/041-check-compute-planner.log",
+      "exit_code": 0
+    },
+    {
+      "label": "origins-compute-planner",
+      "arguments": [
+        "<task>/environments/compute-planner/bin/python",
+        "-I",
+        "-c",
+        "import importlib.metadata as m,json; print(json.dumps({d.metadata[\"Name\"]:json.loads(d.read_text(\"direct_url.json\")) for d in m.distributions() if d.read_text(\"direct_url.json\")}))"
+      ],
+      "cwd": "<task>",
+      "log": "<task>/logs/042-origins-compute-planner.log",
+      "exit_code": 0
+    },
+    {
+      "label": "venv-model-distillation",
+      "arguments": [
+        "<toolchain>/bin/uv",
+        "venv",
+        "--no-config",
+        "--no-python-downloads",
+        "--python",
+        "<toolchain>/opt/python@3.14/bin/python3.14",
+        "<task>/environments/model-distillation"
+      ],
+      "cwd": "<task>",
+      "log": "<task>/logs/043-venv-model-distillation.log",
+      "exit_code": 0
+    },
+    {
+      "label": "install-model-distillation",
+      "arguments": [
+        "<toolchain>/bin/uv",
+        "pip",
+        "install",
+        "--python",
+        "<task>/environments/model-distillation/bin/python",
+        "--no-index",
+        "--find-links",
+        "<task>/bootstrap",
+        "--strict",
+        "model-distillation @ file://<task>/wheels/model_distillation-0.2.0-py3-none-any.whl"
+      ],
+      "cwd": "<task>",
+      "log": "<task>/logs/044-install-model-distillation.log",
+      "exit_code": 0
+    },
+    {
+      "label": "check-model-distillation",
+      "arguments": [
+        "<task>/environments/model-distillation/bin/python",
+        "-I",
+        "<task>/sources/clous-llm-lab/scripts/check-installed.py",
+        "--distribution",
+        "model-distillation"
+      ],
+      "cwd": "<task>",
+      "log": "<task>/logs/045-check-model-distillation.log",
+      "exit_code": 0
+    },
+    {
+      "label": "origins-model-distillation",
+      "arguments": [
+        "<task>/environments/model-distillation/bin/python",
+        "-I",
+        "-c",
+        "import importlib.metadata as m,json; print(json.dumps({d.metadata[\"Name\"]:json.loads(d.read_text(\"direct_url.json\")) for d in m.distributions() if d.read_text(\"direct_url.json\")}))"
+      ],
+      "cwd": "<task>",
+      "log": "<task>/logs/046-origins-model-distillation.log",
+      "exit_code": 0
+    },
+    {
+      "label": "venv-open-evals-sdk",
+      "arguments": [
+        "<toolchain>/bin/uv",
+        "venv",
+        "--no-config",
+        "--no-python-downloads",
+        "--python",
+        "<toolchain>/opt/python@3.14/bin/python3.14",
+        "<task>/environments/open-evals-sdk"
+      ],
+      "cwd": "<task>",
+      "log": "<task>/logs/047-venv-open-evals-sdk.log",
+      "exit_code": 0
+    },
+    {
+      "label": "install-open-evals-sdk",
+      "arguments": [
+        "<toolchain>/bin/uv",
+        "pip",
+        "install",
+        "--python",
+        "<task>/environments/open-evals-sdk/bin/python",
+        "--no-index",
+        "--find-links",
+        "<task>/bootstrap",
+        "--strict",
+        "open-evals-sdk @ file://<task>/wheels/open_evals_sdk-0.1.0-py3-none-any.whl"
+      ],
+      "cwd": "<task>",
+      "log": "<task>/logs/048-install-open-evals-sdk.log",
+      "exit_code": 0
+    },
+    {
+      "label": "check-open-evals-sdk",
+      "arguments": [
+        "<task>/environments/open-evals-sdk/bin/python",
+        "-I",
+        "<task>/sources/clous-llm-lab/scripts/check-installed.py",
+        "--distribution",
+        "open-evals-sdk"
+      ],
+      "cwd": "<task>",
+      "log": "<task>/logs/049-check-open-evals-sdk.log",
+      "exit_code": 0
+    },
+    {
+      "label": "origins-open-evals-sdk",
+      "arguments": [
+        "<task>/environments/open-evals-sdk/bin/python",
+        "-I",
+        "-c",
+        "import importlib.metadata as m,json; print(json.dumps({d.metadata[\"Name\"]:json.loads(d.read_text(\"direct_url.json\")) for d in m.distributions() if d.read_text(\"direct_url.json\")}))"
+      ],
+      "cwd": "<task>",
+      "log": "<task>/logs/050-origins-open-evals-sdk.log",
+      "exit_code": 0
+    },
+    {
+      "label": "venv-base",
+      "arguments": [
+        "<toolchain>/bin/uv",
+        "venv",
+        "--no-config",
+        "--no-python-downloads",
+        "--python",
+        "<toolchain>/opt/python@3.14/bin/python3.14",
+        "<task>/environments/base"
+      ],
+      "cwd": "<task>",
+      "log": "<task>/logs/051-venv-base.log",
+      "exit_code": 0
+    },
+    {
+      "label": "install-base",
+      "arguments": [
+        "<toolchain>/bin/uv",
+        "pip",
+        "install",
+        "--python",
+        "<task>/environments/base/bin/python",
+        "--no-index",
+        "--find-links",
+        "<task>/bootstrap",
+        "--strict",
+        "clous-llm-lab @ file://<task>/wheels/clous_llm_lab-0.4.0-py3-none-any.whl"
+      ],
+      "cwd": "<task>",
+      "log": "<task>/logs/052-install-base.log",
+      "exit_code": 0
+    },
+    {
+      "label": "check-base",
+      "arguments": [
+        "<task>/environments/base/bin/python",
+        "-I",
+        "<task>/sources/clous-llm-lab/scripts/check-installed.py",
+        "--distribution",
+        "clous-llm-lab",
+        "--profile",
+        "base",
+        "--code-ref",
+        "0396ad6045b778ca701b5e09dca63cb36e8f2486"
+      ],
+      "cwd": "<task>",
+      "log": "<task>/logs/053-check-base.log",
+      "exit_code": 0
+    },
+    {
+      "label": "origins-base",
+      "arguments": [
+        "<task>/environments/base/bin/python",
+        "-I",
+        "-c",
+        "import importlib.metadata as m,json; print(json.dumps({d.metadata[\"Name\"]:json.loads(d.read_text(\"direct_url.json\")) for d in m.distributions() if d.read_text(\"direct_url.json\")}))"
+      ],
+      "cwd": "<task>",
+      "log": "<task>/logs/054-origins-base.log",
+      "exit_code": 0
+    },
+    {
+      "label": "venv-verification",
+      "arguments": [
+        "<toolchain>/bin/uv",
+        "venv",
+        "--no-config",
+        "--no-python-downloads",
+        "--python",
+        "<toolchain>/opt/python@3.14/bin/python3.14",
+        "<task>/environments/verification"
+      ],
+      "cwd": "<task>",
+      "log": "<task>/logs/055-venv-verification.log",
+      "exit_code": 0
+    },
+    {
+      "label": "install-verification",
+      "arguments": [
+        "<toolchain>/bin/uv",
+        "pip",
+        "install",
+        "--python",
+        "<task>/environments/verification/bin/python",
+        "--no-index",
+        "--find-links",
+        "<task>/bootstrap",
+        "--strict",
+        "clous-llm-lab[verification] @ file://<task>/wheels/clous_llm_lab-0.4.0-py3-none-any.whl"
+      ],
+      "cwd": "<task>",
+      "log": "<task>/logs/056-install-verification.log",
+      "exit_code": 0
+    },
+    {
+      "label": "check-verification",
+      "arguments": [
+        "<task>/environments/verification/bin/python",
+        "-I",
+        "<task>/sources/clous-llm-lab/scripts/check-installed.py",
+        "--distribution",
+        "clous-llm-lab",
+        "--profile",
+        "verification",
+        "--code-ref",
+        "0396ad6045b778ca701b5e09dca63cb36e8f2486"
+      ],
+      "cwd": "<task>",
+      "log": "<task>/logs/057-check-verification.log",
+      "exit_code": 0
+    },
+    {
+      "label": "origins-verification",
+      "arguments": [
+        "<task>/environments/verification/bin/python",
+        "-I",
+        "-c",
+        "import importlib.metadata as m,json; print(json.dumps({d.metadata[\"Name\"]:json.loads(d.read_text(\"direct_url.json\")) for d in m.distributions() if d.read_text(\"direct_url.json\")}))"
+      ],
+      "cwd": "<task>",
+      "log": "<task>/logs/058-origins-verification.log",
+      "exit_code": 0
+    },
+    {
+      "label": "venv-economics",
+      "arguments": [
+        "<toolchain>/bin/uv",
+        "venv",
+        "--no-config",
+        "--no-python-downloads",
+        "--python",
+        "<toolchain>/opt/python@3.14/bin/python3.14",
+        "<task>/environments/economics"
+      ],
+      "cwd": "<task>",
+      "log": "<task>/logs/059-venv-economics.log",
+      "exit_code": 0
+    },
+    {
+      "label": "install-economics",
+      "arguments": [
+        "<toolchain>/bin/uv",
+        "pip",
+        "install",
+        "--python",
+        "<task>/environments/economics/bin/python",
+        "--no-index",
+        "--find-links",
+        "<task>/bootstrap",
+        "--strict",
+        "clous-llm-lab[economics] @ file://<task>/wheels/clous_llm_lab-0.4.0-py3-none-any.whl"
+      ],
+      "cwd": "<task>",
+      "log": "<task>/logs/060-install-economics.log",
+      "exit_code": 0
+    },
+    {
+      "label": "check-economics",
+      "arguments": [
+        "<task>/environments/economics/bin/python",
+        "-I",
+        "<task>/sources/clous-llm-lab/scripts/check-installed.py",
+        "--distribution",
+        "clous-llm-lab",
+        "--profile",
+        "economics",
+        "--code-ref",
+        "0396ad6045b778ca701b5e09dca63cb36e8f2486"
+      ],
+      "cwd": "<task>",
+      "log": "<task>/logs/061-check-economics.log",
+      "exit_code": 0
+    },
+    {
+      "label": "origins-economics",
+      "arguments": [
+        "<task>/environments/economics/bin/python",
+        "-I",
+        "-c",
+        "import importlib.metadata as m,json; print(json.dumps({d.metadata[\"Name\"]:json.loads(d.read_text(\"direct_url.json\")) for d in m.distributions() if d.read_text(\"direct_url.json\")}))"
+      ],
+      "cwd": "<task>",
+      "log": "<task>/logs/062-origins-economics.log",
+      "exit_code": 0
+    },
+    {
+      "label": "venv-planning",
+      "arguments": [
+        "<toolchain>/bin/uv",
+        "venv",
+        "--no-config",
+        "--no-python-downloads",
+        "--python",
+        "<toolchain>/opt/python@3.14/bin/python3.14",
+        "<task>/environments/planning"
+      ],
+      "cwd": "<task>",
+      "log": "<task>/logs/063-venv-planning.log",
+      "exit_code": 0
+    },
+    {
+      "label": "install-planning",
+      "arguments": [
+        "<toolchain>/bin/uv",
+        "pip",
+        "install",
+        "--python",
+        "<task>/environments/planning/bin/python",
+        "--no-index",
+        "--find-links",
+        "<task>/bootstrap",
+        "--strict",
+        "clous-llm-lab[planning] @ file://<task>/wheels/clous_llm_lab-0.4.0-py3-none-any.whl"
+      ],
+      "cwd": "<task>",
+      "log": "<task>/logs/064-install-planning.log",
+      "exit_code": 0
+    },
+    {
+      "label": "check-planning",
+      "arguments": [
+        "<task>/environments/planning/bin/python",
+        "-I",
+        "<task>/sources/clous-llm-lab/scripts/check-installed.py",
+        "--distribution",
+        "clous-llm-lab",
+        "--profile",
+        "planning",
+        "--code-ref",
+        "0396ad6045b778ca701b5e09dca63cb36e8f2486"
+      ],
+      "cwd": "<task>",
+      "log": "<task>/logs/065-check-planning.log",
+      "exit_code": 0
+    },
+    {
+      "label": "origins-planning",
+      "arguments": [
+        "<task>/environments/planning/bin/python",
+        "-I",
+        "-c",
+        "import importlib.metadata as m,json; print(json.dumps({d.metadata[\"Name\"]:json.loads(d.read_text(\"direct_url.json\")) for d in m.distributions() if d.read_text(\"direct_url.json\")}))"
+      ],
+      "cwd": "<task>",
+      "log": "<task>/logs/066-origins-planning.log",
+      "exit_code": 0
+    },
+    {
+      "label": "venv-compute",
+      "arguments": [
+        "<toolchain>/bin/uv",
+        "venv",
+        "--no-config",
+        "--no-python-downloads",
+        "--python",
+        "<toolchain>/opt/python@3.14/bin/python3.14",
+        "<task>/environments/compute"
+      ],
+      "cwd": "<task>",
+      "log": "<task>/logs/067-venv-compute.log",
+      "exit_code": 0
+    },
+    {
+      "label": "install-compute",
+      "arguments": [
+        "<toolchain>/bin/uv",
+        "pip",
+        "install",
+        "--python",
+        "<task>/environments/compute/bin/python",
+        "--no-index",
+        "--find-links",
+        "<task>/bootstrap",
+        "--strict",
+        "clous-llm-lab[compute] @ file://<task>/wheels/clous_llm_lab-0.4.0-py3-none-any.whl"
+      ],
+      "cwd": "<task>",
+      "log": "<task>/logs/068-install-compute.log",
+      "exit_code": 0
+    },
+    {
+      "label": "check-compute",
+      "arguments": [
+        "<task>/environments/compute/bin/python",
+        "-I",
+        "<task>/sources/clous-llm-lab/scripts/check-installed.py",
+        "--distribution",
+        "clous-llm-lab",
+        "--profile",
+        "compute",
+        "--code-ref",
+        "0396ad6045b778ca701b5e09dca63cb36e8f2486"
+      ],
+      "cwd": "<task>",
+      "log": "<task>/logs/069-check-compute.log",
+      "exit_code": 0
+    },
+    {
+      "label": "origins-compute",
+      "arguments": [
+        "<task>/environments/compute/bin/python",
+        "-I",
+        "-c",
+        "import importlib.metadata as m,json; print(json.dumps({d.metadata[\"Name\"]:json.loads(d.read_text(\"direct_url.json\")) for d in m.distributions() if d.read_text(\"direct_url.json\")}))"
+      ],
+      "cwd": "<task>",
+      "log": "<task>/logs/070-origins-compute.log",
+      "exit_code": 0
+    },
+    {
+      "label": "venv-distillation",
+      "arguments": [
+        "<toolchain>/bin/uv",
+        "venv",
+        "--no-config",
+        "--no-python-downloads",
+        "--python",
+        "<toolchain>/opt/python@3.14/bin/python3.14",
+        "<task>/environments/distillation"
+      ],
+      "cwd": "<task>",
+      "log": "<task>/logs/071-venv-distillation.log",
+      "exit_code": 0
+    },
+    {
+      "label": "install-distillation",
+      "arguments": [
+        "<toolchain>/bin/uv",
+        "pip",
+        "install",
+        "--python",
+        "<task>/environments/distillation/bin/python",
+        "--no-index",
+        "--find-links",
+        "<task>/bootstrap",
+        "--strict",
+        "clous-llm-lab[distillation] @ file://<task>/wheels/clous_llm_lab-0.4.0-py3-none-any.whl"
+      ],
+      "cwd": "<task>",
+      "log": "<task>/logs/072-install-distillation.log",
+      "exit_code": 0
+    },
+    {
+      "label": "check-distillation",
+      "arguments": [
+        "<task>/environments/distillation/bin/python",
+        "-I",
+        "<task>/sources/clous-llm-lab/scripts/check-installed.py",
+        "--distribution",
+        "clous-llm-lab",
+        "--profile",
+        "distillation",
+        "--code-ref",
+        "0396ad6045b778ca701b5e09dca63cb36e8f2486"
+      ],
+      "cwd": "<task>",
+      "log": "<task>/logs/073-check-distillation.log",
+      "exit_code": 0
+    },
+    {
+      "label": "origins-distillation",
+      "arguments": [
+        "<task>/environments/distillation/bin/python",
+        "-I",
+        "-c",
+        "import importlib.metadata as m,json; print(json.dumps({d.metadata[\"Name\"]:json.loads(d.read_text(\"direct_url.json\")) for d in m.distributions() if d.read_text(\"direct_url.json\")}))"
+      ],
+      "cwd": "<task>",
+      "log": "<task>/logs/074-origins-distillation.log",
+      "exit_code": 0
+    },
+    {
+      "label": "venv-evals",
+      "arguments": [
+        "<toolchain>/bin/uv",
+        "venv",
+        "--no-config",
+        "--no-python-downloads",
+        "--python",
+        "<toolchain>/opt/python@3.14/bin/python3.14",
+        "<task>/environments/evals"
+      ],
+      "cwd": "<task>",
+      "log": "<task>/logs/075-venv-evals.log",
+      "exit_code": 0
+    },
+    {
+      "label": "install-evals",
+      "arguments": [
+        "<toolchain>/bin/uv",
+        "pip",
+        "install",
+        "--python",
+        "<task>/environments/evals/bin/python",
+        "--no-index",
+        "--find-links",
+        "<task>/bootstrap",
+        "--strict",
+        "clous-llm-lab[evals] @ file://<task>/wheels/clous_llm_lab-0.4.0-py3-none-any.whl"
+      ],
+      "cwd": "<task>",
+      "log": "<task>/logs/076-install-evals.log",
+      "exit_code": 0
+    },
+    {
+      "label": "check-evals",
+      "arguments": [
+        "<task>/environments/evals/bin/python",
+        "-I",
+        "<task>/sources/clous-llm-lab/scripts/check-installed.py",
+        "--distribution",
+        "clous-llm-lab",
+        "--profile",
+        "evals",
+        "--code-ref",
+        "0396ad6045b778ca701b5e09dca63cb36e8f2486"
+      ],
+      "cwd": "<task>",
+      "log": "<task>/logs/077-check-evals.log",
+      "exit_code": 0
+    },
+    {
+      "label": "origins-evals",
+      "arguments": [
+        "<task>/environments/evals/bin/python",
+        "-I",
+        "-c",
+        "import importlib.metadata as m,json; print(json.dumps({d.metadata[\"Name\"]:json.loads(d.read_text(\"direct_url.json\")) for d in m.distributions() if d.read_text(\"direct_url.json\")}))"
+      ],
+      "cwd": "<task>",
+      "log": "<task>/logs/078-origins-evals.log",
+      "exit_code": 0
+    },
+    {
+      "label": "venv-cpu",
+      "arguments": [
+        "<toolchain>/bin/uv",
+        "venv",
+        "--no-config",
+        "--no-python-downloads",
+        "--python",
+        "<toolchain>/opt/python@3.14/bin/python3.14",
+        "<task>/environments/cpu"
+      ],
+      "cwd": "<task>",
+      "log": "<task>/logs/079-venv-cpu.log",
+      "exit_code": 0
+    },
+    {
+      "label": "install-cpu",
+      "arguments": [
+        "<toolchain>/bin/uv",
+        "pip",
+        "install",
+        "--python",
+        "<task>/environments/cpu/bin/python",
+        "--no-index",
+        "--find-links",
+        "<task>/bootstrap",
+        "--strict",
+        "clous-llm-lab[compute,distillation] @ file://<task>/wheels/clous_llm_lab-0.4.0-py3-none-any.whl"
+      ],
+      "cwd": "<task>",
+      "log": "<task>/logs/080-install-cpu.log",
+      "exit_code": 0
+    },
+    {
+      "label": "check-cpu",
+      "arguments": [
+        "<task>/environments/cpu/bin/python",
+        "-I",
+        "<task>/sources/clous-llm-lab/scripts/check-installed.py",
+        "--distribution",
+        "clous-llm-lab",
+        "--profile",
+        "cpu",
+        "--code-ref",
+        "0396ad6045b778ca701b5e09dca63cb36e8f2486"
+      ],
+      "cwd": "<task>",
+      "log": "<task>/logs/081-check-cpu.log",
+      "exit_code": 0
+    },
+    {
+      "label": "origins-cpu",
+      "arguments": [
+        "<task>/environments/cpu/bin/python",
+        "-I",
+        "-c",
+        "import importlib.metadata as m,json; print(json.dumps({d.metadata[\"Name\"]:json.loads(d.read_text(\"direct_url.json\")) for d in m.distributions() if d.read_text(\"direct_url.json\")}))"
+      ],
+      "cwd": "<task>",
+      "log": "<task>/logs/082-origins-cpu.log",
+      "exit_code": 0
+    },
+    {
+      "label": "venv-full",
+      "arguments": [
+        "<toolchain>/bin/uv",
+        "venv",
+        "--no-config",
+        "--no-python-downloads",
+        "--python",
+        "<toolchain>/opt/python@3.14/bin/python3.14",
+        "<task>/environments/full"
+      ],
+      "cwd": "<task>",
+      "log": "<task>/logs/083-venv-full.log",
+      "exit_code": 0
+    },
+    {
+      "label": "install-full",
+      "arguments": [
+        "<toolchain>/bin/uv",
+        "pip",
+        "install",
+        "--python",
+        "<task>/environments/full/bin/python",
+        "--no-index",
+        "--find-links",
+        "<task>/bootstrap",
+        "--strict",
+        "clous-llm-lab[compute,distillation,evals] @ file://<task>/wheels/clous_llm_lab-0.4.0-py3-none-any.whl"
+      ],
+      "cwd": "<task>",
+      "log": "<task>/logs/084-install-full.log",
+      "exit_code": 0
+    },
+    {
+      "label": "check-full",
+      "arguments": [
+        "<task>/environments/full/bin/python",
+        "-I",
+        "<task>/sources/clous-llm-lab/scripts/check-installed.py",
+        "--distribution",
+        "clous-llm-lab",
+        "--profile",
+        "full",
+        "--code-ref",
+        "0396ad6045b778ca701b5e09dca63cb36e8f2486"
+      ],
+      "cwd": "<task>",
+      "log": "<task>/logs/085-check-full.log",
+      "exit_code": 0
+    },
+    {
+      "label": "origins-full",
+      "arguments": [
+        "<task>/environments/full/bin/python",
+        "-I",
+        "-c",
+        "import importlib.metadata as m,json; print(json.dumps({d.metadata[\"Name\"]:json.loads(d.read_text(\"direct_url.json\")) for d in m.distributions() if d.read_text(\"direct_url.json\")}))"
+      ],
+      "cwd": "<task>",
+      "log": "<task>/logs/086-origins-full.log",
+      "exit_code": 0
+    }
+  ],
+  "source_revisions": {
+    "verification-runtime": {
+      "repository": "verification-runtime",
+      "revision": "0f293f9808598a38f58f85563e1ccafd815bbd36",
+      "subdirectory": null,
+      "exported_project": "<task>/sources/verification-runtime"
+    },
+    "experiment-kit": {
+      "repository": "experiment-kit",
+      "revision": "fe96641e94a596551e24f26661cb7ca73f6d90d1",
+      "subdirectory": null,
+      "exported_project": "<task>/sources/experiment-kit"
+    },
+    "compute-economics": {
+      "repository": "compute-economics",
+      "revision": "c7ea3b8e4b7324270988a3eab1e26942d05188e5",
+      "subdirectory": null,
+      "exported_project": "<task>/sources/compute-economics"
+    },
+    "compute-planner": {
+      "repository": "compute-planner",
+      "revision": "2ff06e9c649bc413fbe565fb25d0347970236036",
+      "subdirectory": null,
+      "exported_project": "<task>/sources/compute-planner"
+    },
+    "model-distillation": {
+      "repository": "model-distillation",
+      "revision": "77f73c8fff67d154f514a02dd9e0c3260273aa6d",
+      "subdirectory": null,
+      "exported_project": "<task>/sources/model-distillation"
+    },
+    "open-evals-sdk": {
+      "repository": "open-evals",
+      "revision": "d1002d58109156683be3ad4fc394c7cc6c534057",
+      "subdirectory": "python/open_evals_sdk",
+      "exported_project": "<task>/sources/open-evals-sdk/python/open_evals_sdk"
+    },
+    "clous-llm-lab": {
+      "repository": "lab",
+      "revision": "0396ad6045b778ca701b5e09dca63cb36e8f2486",
+      "subdirectory": null,
+      "exported_project": "<task>/sources/clous-llm-lab"
+    }
+  },
+  "wheels": {
+    "verification-runtime": {
+      "path": "<task>/wheels/verification_runtime-0.1.0-py3-none-any.whl",
+      "sha256": "c4fbc97c4dc9031804dd1c8a32d189a24e986ae2c46f5cd2a016d817c1403c92",
+      "size_bytes": 4237,
+      "version": "0.1.0",
+      "requires_dist": []
+    },
+    "experiment-kit": {
+      "path": "<task>/wheels/experiment_kit-0.1.0-py3-none-any.whl",
+      "sha256": "bcf73eb52236c3d93519adf3ea77531cc16c107233ed220aa48f3bbc3b43d1e1",
+      "size_bytes": 5308,
+      "version": "0.1.0",
+      "requires_dist": []
+    },
+    "compute-economics": {
+      "path": "<task>/wheels/compute_economics-0.1.0-py3-none-any.whl",
+      "sha256": "ea7a2f4da2a5e9a6d369ec1a9e6081f7de2368de63d66b02ace35d8cde1b9133",
+      "size_bytes": 4761,
+      "version": "0.1.0",
+      "requires_dist": []
+    },
+    "compute-planner": {
+      "path": "<task>/wheels/compute_planner-0.2.0-py3-none-any.whl",
+      "sha256": "6edeed452dd678c711636bf47924ca6756c490eabbd92d577ab9540b5ed713e7",
+      "size_bytes": 4346,
+      "version": "0.2.0",
+      "requires_dist": []
+    },
+    "model-distillation": {
+      "path": "<task>/wheels/model_distillation-0.2.0-py3-none-any.whl",
+      "sha256": "b2dd25302c043ae2a040d370e3b6940c62079e64803b6abf6c7c8c0f07dccba3",
+      "size_bytes": 4382,
+      "version": "0.2.0",
+      "requires_dist": [
+        "verification-runtime @ git+https://github.com/alvarovillalbaa/verification-runtime.git@0f293f9808598a38f58f85563e1ccafd815bbd36"
+      ]
+    },
+    "open-evals-sdk": {
+      "path": "<task>/wheels/open_evals_sdk-0.1.0-py3-none-any.whl",
+      "sha256": "ecb053a7bef3aade4fb0d78041116f8514b10cfc6fb63a53eed8ff31856a0262",
+      "size_bytes": 2626,
+      "version": "0.1.0",
+      "requires_dist": []
+    },
+    "clous-llm-lab": {
+      "path": "<task>/wheels/clous_llm_lab-0.4.0-py3-none-any.whl",
+      "sha256": "0c0248eb08eebc872df4409fe2d0730d06ae31b6acc4145b9ac4b220de118272",
+      "size_bytes": 7356,
+      "version": "0.4.0",
+      "requires_dist": [
+        "experiment-kit @ git+https://github.com/alvarovillalbaa/experiment-kit.git@fe96641e94a596551e24f26661cb7ca73f6d90d1",
+        "compute-economics @ git+https://github.com/alvarovillalbaa/compute-economics.git@c7ea3b8e4b7324270988a3eab1e26942d05188e5 ; extra == \"economics\"",
+        "compute-planner @ git+https://github.com/alvarovillalbaa/compute-planner.git@2ff06e9c649bc413fbe565fb25d0347970236036 ; extra == \"planning\"",
+        "compute-economics @ git+https://github.com/alvarovillalbaa/compute-economics.git@c7ea3b8e4b7324270988a3eab1e26942d05188e5 ; extra == \"compute\"",
+        "compute-planner @ git+https://github.com/alvarovillalbaa/compute-planner.git@2ff06e9c649bc413fbe565fb25d0347970236036 ; extra == \"compute\"",
+        "verification-runtime @ git+https://github.com/alvarovillalbaa/verification-runtime.git@0f293f9808598a38f58f85563e1ccafd815bbd36 ; extra == \"verification\"",
+        "model-distillation @ git+https://github.com/alvarovillalbaa/model-distillation.git@77f73c8fff67d154f514a02dd9e0c3260273aa6d ; extra == \"distillation\"",
+        "open-evals-sdk @ git+https://github.com/alvarovillalbaa/open-evals.git@d1002d58109156683be3ad4fc394c7cc6c534057#subdirectory=python/open_evals_sdk ; extra == \"evals\""
+      ]
+    }
+  },
+  "standalone": {
+    "verification-runtime": {
+      "status": "passed",
+      "distribution": "verification-runtime",
+      "profile": null,
+      "installed": {
+        "verification-runtime": {
+          "version": "0.1.0",
+          "module": "<environment>/lib/python3.14/site-packages/verification_runtime/__init__.py"
+        }
+      },
+      "cli_checks": [
+        "independent accepted/rejected verification"
+      ],
+      "sdk_transport": "not used",
+      "origins": {
+        "verification-runtime": {
+          "url": "file://<task>/wheels/verification_runtime-0.1.0-py3-none-any.whl",
+          "archive_info": {}
+        }
+      }
+    },
+    "experiment-kit": {
+      "status": "passed",
+      "distribution": "experiment-kit",
+      "profile": null,
+      "installed": {
+        "experiment-kit": {
+          "version": "0.1.0",
+          "module": "<environment>/lib/python3.14/site-packages/experiment_kit/__init__.py"
+        }
+      },
+      "cli_checks": [
+        "CPU record"
+      ],
+      "sdk_transport": "not used",
+      "origins": {
+        "experiment-kit": {
+          "url": "file://<task>/wheels/experiment_kit-0.1.0-py3-none-any.whl",
+          "archive_info": {}
+        }
+      }
+    },
+    "compute-economics": {
+      "status": "passed",
+      "distribution": "compute-economics",
+      "profile": null,
+      "installed": {
+        "compute-economics": {
+          "version": "0.1.0",
+          "module": "<environment>/lib/python3.14/site-packages/compute_economics/__init__.py"
+        }
+      },
+      "cli_checks": [
+        "training estimate"
+      ],
+      "sdk_transport": "not used",
+      "origins": {
+        "compute-economics": {
+          "url": "file://<task>/wheels/compute_economics-0.1.0-py3-none-any.whl",
+          "archive_info": {}
+        }
+      }
+    },
+    "compute-planner": {
+      "status": "passed",
+      "distribution": "compute-planner",
+      "profile": null,
+      "installed": {
+        "compute-planner": {
+          "version": "0.2.0",
+          "module": "<environment>/lib/python3.14/site-packages/compute_planner/__init__.py"
+        }
+      },
+      "cli_checks": [
+        "provider routing and job ordering"
+      ],
+      "sdk_transport": "not used",
+      "origins": {
+        "compute-planner": {
+          "url": "file://<task>/wheels/compute_planner-0.2.0-py3-none-any.whl",
+          "archive_info": {}
+        }
+      }
+    },
+    "model-distillation": {
+      "status": "passed",
+      "distribution": "model-distillation",
+      "profile": null,
+      "installed": {
+        "model-distillation": {
+          "version": "0.2.0",
+          "module": "<environment>/lib/python3.14/site-packages/model_distillation/__init__.py"
+        },
+        "verification-runtime": {
+          "version": "0.1.0",
+          "module": "<environment>/lib/python3.14/site-packages/verification_runtime/__init__.py"
+        }
+      },
+      "cli_checks": [
+        "preference fixture",
+        "external verifier identity and stale-result rejection"
+      ],
+      "sdk_transport": "not used",
+      "origins": {
+        "model-distillation": {
+          "url": "file://<task>/wheels/model_distillation-0.2.0-py3-none-any.whl",
+          "archive_info": {}
+        },
+        "verification-runtime": {
+          "url": "https://github.com/alvarovillalbaa/verification-runtime.git",
+          "vcs_info": {
+            "vcs": "git",
+            "commit_id": "0f293f9808598a38f58f85563e1ccafd815bbd36",
+            "requested_revision": "0f293f9808598a38f58f85563e1ccafd815bbd36"
+          }
+        }
+      }
+    },
+    "open-evals-sdk": {
+      "status": "passed",
+      "distribution": "open-evals-sdk",
+      "profile": null,
+      "installed": {
+        "open-evals-sdk": {
+          "version": "0.1.0",
+          "module": "<environment>/lib/python3.14/site-packages/open_evals_sdk.py"
+        }
+      },
+      "cli_checks": [],
+      "sdk_transport": "mocked",
+      "origins": {
+        "open-evals-sdk": {
+          "url": "file://<task>/wheels/open_evals_sdk-0.1.0-py3-none-any.whl",
+          "archive_info": {}
+        }
+      }
+    }
+  },
+  "profiles": {
+    "base": {
+      "status": "passed",
+      "distribution": "clous-llm-lab",
+      "profile": "base",
+      "installed": {
+        "clous-llm-lab": {
+          "version": "0.4.0",
+          "module": "<environment>/lib/python3.14/site-packages/lab/__init__.py"
+        },
+        "experiment-kit": {
+          "version": "0.1.0",
+          "module": "<environment>/lib/python3.14/site-packages/experiment_kit/__init__.py"
+        }
+      },
+      "cli_checks": [
+        "CPU record",
+        "missing optional verifier handled",
+        "missing optional planner handled",
+        "missing optional economics handled"
+      ],
+      "sdk_transport": "not used",
+      "origins": {
+        "clous-llm-lab": {
+          "url": "file://<task>/wheels/clous_llm_lab-0.4.0-py3-none-any.whl",
+          "archive_info": {}
+        },
+        "experiment-kit": {
+          "url": "https://github.com/alvarovillalbaa/experiment-kit.git",
+          "vcs_info": {
+            "vcs": "git",
+            "commit_id": "fe96641e94a596551e24f26661cb7ca73f6d90d1",
+            "requested_revision": "fe96641e94a596551e24f26661cb7ca73f6d90d1"
+          }
+        }
+      }
+    },
+    "verification": {
+      "status": "passed",
+      "distribution": "clous-llm-lab",
+      "profile": "verification",
+      "installed": {
+        "clous-llm-lab": {
+          "version": "0.4.0",
+          "module": "<environment>/lib/python3.14/site-packages/lab/__init__.py"
+        },
+        "experiment-kit": {
+          "version": "0.1.0",
+          "module": "<environment>/lib/python3.14/site-packages/experiment_kit/__init__.py"
+        },
+        "verification-runtime": {
+          "version": "0.1.0",
+          "module": "<environment>/lib/python3.14/site-packages/verification_runtime/__init__.py"
+        }
+      },
+      "cli_checks": [
+        "CPU record",
+        "objective verification",
+        "missing optional planner handled",
+        "missing optional economics handled"
+      ],
+      "sdk_transport": "not used",
+      "origins": {
+        "clous-llm-lab": {
+          "url": "file://<task>/wheels/clous_llm_lab-0.4.0-py3-none-any.whl",
+          "archive_info": {}
+        },
+        "experiment-kit": {
+          "url": "https://github.com/alvarovillalbaa/experiment-kit.git",
+          "vcs_info": {
+            "vcs": "git",
+            "commit_id": "fe96641e94a596551e24f26661cb7ca73f6d90d1",
+            "requested_revision": "fe96641e94a596551e24f26661cb7ca73f6d90d1"
+          }
+        },
+        "verification-runtime": {
+          "url": "https://github.com/alvarovillalbaa/verification-runtime.git",
+          "vcs_info": {
+            "vcs": "git",
+            "commit_id": "0f293f9808598a38f58f85563e1ccafd815bbd36",
+            "requested_revision": "0f293f9808598a38f58f85563e1ccafd815bbd36"
+          }
+        }
+      }
+    },
+    "economics": {
+      "status": "passed",
+      "distribution": "clous-llm-lab",
+      "profile": "economics",
+      "installed": {
+        "clous-llm-lab": {
+          "version": "0.4.0",
+          "module": "<environment>/lib/python3.14/site-packages/lab/__init__.py"
+        },
+        "compute-economics": {
+          "version": "0.1.0",
+          "module": "<environment>/lib/python3.14/site-packages/compute_economics/__init__.py"
+        },
+        "experiment-kit": {
+          "version": "0.1.0",
+          "module": "<environment>/lib/python3.14/site-packages/experiment_kit/__init__.py"
+        }
+      },
+      "cli_checks": [
+        "CPU record",
+        "missing optional verifier handled",
+        "missing optional planner handled",
+        "economics estimate"
+      ],
+      "sdk_transport": "not used",
+      "origins": {
+        "clous-llm-lab": {
+          "url": "file://<task>/wheels/clous_llm_lab-0.4.0-py3-none-any.whl",
+          "archive_info": {}
+        },
+        "experiment-kit": {
+          "url": "https://github.com/alvarovillalbaa/experiment-kit.git",
+          "vcs_info": {
+            "vcs": "git",
+            "commit_id": "fe96641e94a596551e24f26661cb7ca73f6d90d1",
+            "requested_revision": "fe96641e94a596551e24f26661cb7ca73f6d90d1"
+          }
+        },
+        "compute-economics": {
+          "url": "https://github.com/alvarovillalbaa/compute-economics.git",
+          "vcs_info": {
+            "vcs": "git",
+            "commit_id": "c7ea3b8e4b7324270988a3eab1e26942d05188e5",
+            "requested_revision": "c7ea3b8e4b7324270988a3eab1e26942d05188e5"
+          }
+        }
+      }
+    },
+    "planning": {
+      "status": "passed",
+      "distribution": "clous-llm-lab",
+      "profile": "planning",
+      "installed": {
+        "clous-llm-lab": {
+          "version": "0.4.0",
+          "module": "<environment>/lib/python3.14/site-packages/lab/__init__.py"
+        },
+        "compute-planner": {
+          "version": "0.2.0",
+          "module": "<environment>/lib/python3.14/site-packages/compute_planner/__init__.py"
+        },
+        "experiment-kit": {
+          "version": "0.1.0",
+          "module": "<environment>/lib/python3.14/site-packages/experiment_kit/__init__.py"
+        }
+      },
+      "cli_checks": [
+        "CPU record",
+        "missing optional verifier handled",
+        "provider routing",
+        "missing optional economics handled"
+      ],
+      "sdk_transport": "not used",
+      "origins": {
+        "compute-planner": {
+          "url": "https://github.com/alvarovillalbaa/compute-planner.git",
+          "vcs_info": {
+            "vcs": "git",
+            "commit_id": "2ff06e9c649bc413fbe565fb25d0347970236036",
+            "requested_revision": "2ff06e9c649bc413fbe565fb25d0347970236036"
+          }
+        },
+        "clous-llm-lab": {
+          "url": "file://<task>/wheels/clous_llm_lab-0.4.0-py3-none-any.whl",
+          "archive_info": {}
+        },
+        "experiment-kit": {
+          "url": "https://github.com/alvarovillalbaa/experiment-kit.git",
+          "vcs_info": {
+            "vcs": "git",
+            "commit_id": "fe96641e94a596551e24f26661cb7ca73f6d90d1",
+            "requested_revision": "fe96641e94a596551e24f26661cb7ca73f6d90d1"
+          }
+        }
+      }
+    },
+    "compute": {
+      "status": "passed",
+      "distribution": "clous-llm-lab",
+      "profile": "compute",
+      "installed": {
+        "clous-llm-lab": {
+          "version": "0.4.0",
+          "module": "<environment>/lib/python3.14/site-packages/lab/__init__.py"
+        },
+        "compute-economics": {
+          "version": "0.1.0",
+          "module": "<environment>/lib/python3.14/site-packages/compute_economics/__init__.py"
+        },
+        "compute-planner": {
+          "version": "0.2.0",
+          "module": "<environment>/lib/python3.14/site-packages/compute_planner/__init__.py"
+        },
+        "experiment-kit": {
+          "version": "0.1.0",
+          "module": "<environment>/lib/python3.14/site-packages/experiment_kit/__init__.py"
+        }
+      },
+      "cli_checks": [
+        "CPU record",
+        "missing optional verifier handled",
+        "provider routing",
+        "economics estimate"
+      ],
+      "sdk_transport": "not used",
+      "origins": {
+        "compute-planner": {
+          "url": "https://github.com/alvarovillalbaa/compute-planner.git",
+          "vcs_info": {
+            "vcs": "git",
+            "commit_id": "2ff06e9c649bc413fbe565fb25d0347970236036",
+            "requested_revision": "2ff06e9c649bc413fbe565fb25d0347970236036"
+          }
+        },
+        "clous-llm-lab": {
+          "url": "file://<task>/wheels/clous_llm_lab-0.4.0-py3-none-any.whl",
+          "archive_info": {}
+        },
+        "experiment-kit": {
+          "url": "https://github.com/alvarovillalbaa/experiment-kit.git",
+          "vcs_info": {
+            "vcs": "git",
+            "commit_id": "fe96641e94a596551e24f26661cb7ca73f6d90d1",
+            "requested_revision": "fe96641e94a596551e24f26661cb7ca73f6d90d1"
+          }
+        },
+        "compute-economics": {
+          "url": "https://github.com/alvarovillalbaa/compute-economics.git",
+          "vcs_info": {
+            "vcs": "git",
+            "commit_id": "c7ea3b8e4b7324270988a3eab1e26942d05188e5",
+            "requested_revision": "c7ea3b8e4b7324270988a3eab1e26942d05188e5"
+          }
+        }
+      }
+    },
+    "distillation": {
+      "status": "passed",
+      "distribution": "clous-llm-lab",
+      "profile": "distillation",
+      "installed": {
+        "clous-llm-lab": {
+          "version": "0.4.0",
+          "module": "<environment>/lib/python3.14/site-packages/lab/__init__.py"
+        },
+        "experiment-kit": {
+          "version": "0.1.0",
+          "module": "<environment>/lib/python3.14/site-packages/experiment_kit/__init__.py"
+        },
+        "model-distillation": {
+          "version": "0.2.0",
+          "module": "<environment>/lib/python3.14/site-packages/model_distillation/__init__.py"
+        },
+        "verification-runtime": {
+          "version": "0.1.0",
+          "module": "<environment>/lib/python3.14/site-packages/verification_runtime/__init__.py"
+        }
+      },
+      "cli_checks": [
+        "CPU record",
+        "objective verification",
+        "missing optional planner handled",
+        "missing optional economics handled"
+      ],
+      "sdk_transport": "not used",
+      "origins": {
+        "model-distillation": {
+          "url": "https://github.com/alvarovillalbaa/model-distillation.git",
+          "vcs_info": {
+            "vcs": "git",
+            "commit_id": "77f73c8fff67d154f514a02dd9e0c3260273aa6d",
+            "requested_revision": "77f73c8fff67d154f514a02dd9e0c3260273aa6d"
+          }
+        },
+        "clous-llm-lab": {
+          "url": "file://<task>/wheels/clous_llm_lab-0.4.0-py3-none-any.whl",
+          "archive_info": {}
+        },
+        "experiment-kit": {
+          "url": "https://github.com/alvarovillalbaa/experiment-kit.git",
+          "vcs_info": {
+            "vcs": "git",
+            "commit_id": "fe96641e94a596551e24f26661cb7ca73f6d90d1",
+            "requested_revision": "fe96641e94a596551e24f26661cb7ca73f6d90d1"
+          }
+        },
+        "verification-runtime": {
+          "url": "https://github.com/alvarovillalbaa/verification-runtime.git",
+          "vcs_info": {
+            "vcs": "git",
+            "commit_id": "0f293f9808598a38f58f85563e1ccafd815bbd36",
+            "requested_revision": "0f293f9808598a38f58f85563e1ccafd815bbd36"
+          }
+        }
+      }
+    },
+    "evals": {
+      "status": "passed",
+      "distribution": "clous-llm-lab",
+      "profile": "evals",
+      "installed": {
+        "clous-llm-lab": {
+          "version": "0.4.0",
+          "module": "<environment>/lib/python3.14/site-packages/lab/__init__.py"
+        },
+        "experiment-kit": {
+          "version": "0.1.0",
+          "module": "<environment>/lib/python3.14/site-packages/experiment_kit/__init__.py"
+        },
+        "open-evals-sdk": {
+          "version": "0.1.0",
+          "module": "<environment>/lib/python3.14/site-packages/open_evals_sdk.py"
+        }
+      },
+      "cli_checks": [
+        "CPU record",
+        "missing optional verifier handled",
+        "missing optional planner handled",
+        "missing optional economics handled"
+      ],
+      "sdk_transport": "mocked",
+      "origins": {
+        "clous-llm-lab": {
+          "url": "file://<task>/wheels/clous_llm_lab-0.4.0-py3-none-any.whl",
+          "archive_info": {}
+        },
+        "experiment-kit": {
+          "url": "https://github.com/alvarovillalbaa/experiment-kit.git",
+          "vcs_info": {
+            "vcs": "git",
+            "commit_id": "fe96641e94a596551e24f26661cb7ca73f6d90d1",
+            "requested_revision": "fe96641e94a596551e24f26661cb7ca73f6d90d1"
+          }
+        },
+        "open-evals-sdk": {
+          "url": "https://github.com/alvarovillalbaa/open-evals.git",
+          "vcs_info": {
+            "vcs": "git",
+            "commit_id": "d1002d58109156683be3ad4fc394c7cc6c534057",
+            "requested_revision": "d1002d58109156683be3ad4fc394c7cc6c534057"
+          },
+          "subdirectory": "python/open_evals_sdk"
+        }
+      }
+    },
+    "cpu": {
+      "status": "passed",
+      "distribution": "clous-llm-lab",
+      "profile": "cpu",
+      "installed": {
+        "clous-llm-lab": {
+          "version": "0.4.0",
+          "module": "<environment>/lib/python3.14/site-packages/lab/__init__.py"
+        },
+        "compute-economics": {
+          "version": "0.1.0",
+          "module": "<environment>/lib/python3.14/site-packages/compute_economics/__init__.py"
+        },
+        "compute-planner": {
+          "version": "0.2.0",
+          "module": "<environment>/lib/python3.14/site-packages/compute_planner/__init__.py"
+        },
+        "experiment-kit": {
+          "version": "0.1.0",
+          "module": "<environment>/lib/python3.14/site-packages/experiment_kit/__init__.py"
+        },
+        "model-distillation": {
+          "version": "0.2.0",
+          "module": "<environment>/lib/python3.14/site-packages/model_distillation/__init__.py"
+        },
+        "verification-runtime": {
+          "version": "0.1.0",
+          "module": "<environment>/lib/python3.14/site-packages/verification_runtime/__init__.py"
+        }
+      },
+      "cli_checks": [
+        "CPU record",
+        "objective verification",
+        "provider routing",
+        "economics estimate",
+        "CPU composition"
+      ],
+      "sdk_transport": "not used",
+      "origins": {
+        "compute-planner": {
+          "url": "https://github.com/alvarovillalbaa/compute-planner.git",
+          "vcs_info": {
+            "vcs": "git",
+            "commit_id": "2ff06e9c649bc413fbe565fb25d0347970236036",
+            "requested_revision": "2ff06e9c649bc413fbe565fb25d0347970236036"
+          }
+        },
+        "model-distillation": {
+          "url": "https://github.com/alvarovillalbaa/model-distillation.git",
+          "vcs_info": {
+            "vcs": "git",
+            "commit_id": "77f73c8fff67d154f514a02dd9e0c3260273aa6d",
+            "requested_revision": "77f73c8fff67d154f514a02dd9e0c3260273aa6d"
+          }
+        },
+        "clous-llm-lab": {
+          "url": "file://<task>/wheels/clous_llm_lab-0.4.0-py3-none-any.whl",
+          "archive_info": {}
+        },
+        "experiment-kit": {
+          "url": "https://github.com/alvarovillalbaa/experiment-kit.git",
+          "vcs_info": {
+            "vcs": "git",
+            "commit_id": "fe96641e94a596551e24f26661cb7ca73f6d90d1",
+            "requested_revision": "fe96641e94a596551e24f26661cb7ca73f6d90d1"
+          }
+        },
+        "verification-runtime": {
+          "url": "https://github.com/alvarovillalbaa/verification-runtime.git",
+          "vcs_info": {
+            "vcs": "git",
+            "commit_id": "0f293f9808598a38f58f85563e1ccafd815bbd36",
+            "requested_revision": "0f293f9808598a38f58f85563e1ccafd815bbd36"
+          }
+        },
+        "compute-economics": {
+          "url": "https://github.com/alvarovillalbaa/compute-economics.git",
+          "vcs_info": {
+            "vcs": "git",
+            "commit_id": "c7ea3b8e4b7324270988a3eab1e26942d05188e5",
+            "requested_revision": "c7ea3b8e4b7324270988a3eab1e26942d05188e5"
+          }
+        }
+      }
+    },
+    "full": {
+      "status": "passed",
+      "distribution": "clous-llm-lab",
+      "profile": "full",
+      "installed": {
+        "clous-llm-lab": {
+          "version": "0.4.0",
+          "module": "<environment>/lib/python3.14/site-packages/lab/__init__.py"
+        },
+        "compute-economics": {
+          "version": "0.1.0",
+          "module": "<environment>/lib/python3.14/site-packages/compute_economics/__init__.py"
+        },
+        "compute-planner": {
+          "version": "0.2.0",
+          "module": "<environment>/lib/python3.14/site-packages/compute_planner/__init__.py"
+        },
+        "experiment-kit": {
+          "version": "0.1.0",
+          "module": "<environment>/lib/python3.14/site-packages/experiment_kit/__init__.py"
+        },
+        "model-distillation": {
+          "version": "0.2.0",
+          "module": "<environment>/lib/python3.14/site-packages/model_distillation/__init__.py"
+        },
+        "open-evals-sdk": {
+          "version": "0.1.0",
+          "module": "<environment>/lib/python3.14/site-packages/open_evals_sdk.py"
+        },
+        "verification-runtime": {
+          "version": "0.1.0",
+          "module": "<environment>/lib/python3.14/site-packages/verification_runtime/__init__.py"
+        }
+      },
+      "cli_checks": [
+        "CPU record",
+        "objective verification",
+        "provider routing",
+        "economics estimate",
+        "CPU composition"
+      ],
+      "sdk_transport": "mocked",
+      "origins": {
+        "compute-planner": {
+          "url": "https://github.com/alvarovillalbaa/compute-planner.git",
+          "vcs_info": {
+            "vcs": "git",
+            "commit_id": "2ff06e9c649bc413fbe565fb25d0347970236036",
+            "requested_revision": "2ff06e9c649bc413fbe565fb25d0347970236036"
+          }
+        },
+        "model-distillation": {
+          "url": "https://github.com/alvarovillalbaa/model-distillation.git",
+          "vcs_info": {
+            "vcs": "git",
+            "commit_id": "77f73c8fff67d154f514a02dd9e0c3260273aa6d",
+            "requested_revision": "77f73c8fff67d154f514a02dd9e0c3260273aa6d"
+          }
+        },
+        "clous-llm-lab": {
+          "url": "file://<task>/wheels/clous_llm_lab-0.4.0-py3-none-any.whl",
+          "archive_info": {}
+        },
+        "experiment-kit": {
+          "url": "https://github.com/alvarovillalbaa/experiment-kit.git",
+          "vcs_info": {
+            "vcs": "git",
+            "commit_id": "fe96641e94a596551e24f26661cb7ca73f6d90d1",
+            "requested_revision": "fe96641e94a596551e24f26661cb7ca73f6d90d1"
+          }
+        },
+        "verification-runtime": {
+          "url": "https://github.com/alvarovillalbaa/verification-runtime.git",
+          "vcs_info": {
+            "vcs": "git",
+            "commit_id": "0f293f9808598a38f58f85563e1ccafd815bbd36",
+            "requested_revision": "0f293f9808598a38f58f85563e1ccafd815bbd36"
+          }
+        },
+        "open-evals-sdk": {
+          "url": "https://github.com/alvarovillalbaa/open-evals.git",
+          "vcs_info": {
+            "vcs": "git",
+            "commit_id": "d1002d58109156683be3ad4fc394c7cc6c534057",
+            "requested_revision": "d1002d58109156683be3ad4fc394c7cc6c534057"
+          },
+          "subdirectory": "python/open_evals_sdk"
+        },
+        "compute-economics": {
+          "url": "https://github.com/alvarovillalbaa/compute-economics.git",
+          "vcs_info": {
+            "vcs": "git",
+            "commit_id": "c7ea3b8e4b7324270988a3eab1e26942d05188e5",
+            "requested_revision": "c7ea3b8e4b7324270988a3eab1e26942d05188e5"
+          }
+        }
+      }
+    }
+  },
+  "storage": {
+    "limit_bytes": 268435456,
+    "sampling_interval_seconds": 0.1,
+    "peak_observed_allocated_bytes": 43999232,
+    "exception_approved_by_owner": true,
+    "cleanup": {
+      "status": "passed",
+      "all_runtime_environments_removed": true,
+      "task_directory_removed": true,
+      "open_file_check": "lsof returned no open files before teardown",
+      "scope": "Only this task's source exports, bare mirrors, backend/built wheels, environments, cache, logs and runner removed after canonical receipt and wheel-hash readback."
+    }
+  },
+  "bootstrap": {
+    "setuptools": {
+      "version": "84.2.1",
+      "filename": "setuptools-84.2.1-py3-none-any.whl",
+      "url": "https://files.pythonhosted.org/packages/ef/55/6dc6d6bb953bdfc52519a0059592c52b6e3b8ad51cf8256dffceb55b0610/setuptools-84.2.1-py3-none-any.whl",
+      "sha256": "ca140b45d5325a9478f880e351484f62fef15f336462e449ca0c03c873d589c2",
+      "size_bytes": 876263
+    },
+    "wheel": {
+      "version": "0.48.0",
+      "filename": "wheel-0.48.0-py3-none-any.whl",
+      "url": "https://files.pythonhosted.org/packages/2e/29/69cfbb602cd91690c55d38ba9fe53e6a7e76a6fa647bf38f19c138d25449/wheel-0.48.0-py3-none-any.whl",
+      "sha256": "3217dcc807155e45db462d7ef2431f5ddda0d7273b700d05a67b271ceb1287ab",
+      "size_bytes": 33320
+    },
+    "packaging": {
+      "version": "26.3",
+      "filename": "packaging-26.3-py3-none-any.whl",
+      "url": "https://files.pythonhosted.org/packages/63/34/ba1c580383c9eada3711951fef0795c80b829a078d72188184bcab9dd527/packaging-26.3-py3-none-any.whl",
+      "sha256": "d7193f7c8e4e93f444fde0262bf90af30e16fa0ad0ad44cb553c87339b23cd1c",
+      "size_bytes": 129956
+    }
+  },
+  "tools": {
+    "python": "3.14.7 (main, Aug  5 2026, 10:29:49) [Clang 21.0.0 (clang-2100.1.1.101)]",
+    "uv": "uv 0.10.3 (Homebrew 2026-02-16)"
+  },
+  "transport": {
+    "build_dependencies": "Backend wheels were downloaded through supported curl commands with a 2 MiB per-file limit, then verified against recorded PyPI SHA-256 metadata. Isolated PEP517 builds use only those local wheels.",
+    "git_dependencies": "Five task-local bare mirrors from canonical checkouts plus a depth-2 SDK mirror cloned directly from GitHub. Original declared Git URLs resolve through task-local insteadOf settings.",
+    "remote_availability": "All six exact dependency commits independently read successfully through the GitHub commits API before the run. Installed Git commit IDs match the composition pins.",
+    "limits": "Mirror-backed offline dependency resolution and installed interfaces; unrestricted online uv resolution and live provider/service execution are not tested."
+  },
+  "limitations": [
+    "Exact-match verifier only; other verification adapters planned.",
+    "Architectures/artifacts are specifications, not implemented engines.",
+    "CPU authored fixtures and mocked SDK transport; no live service, GPU, paid job or scientific proof.",
+    "Mirror-backed offline installation, not unrestricted online resolver proof."
+  ],
+  "logs": {
+    "073-check-distillation.log": "{\"status\": \"passed\", \"distribution\": \"clous-llm-lab\", \"profile\": \"distillation\", \"installed\": {\"clous-llm-lab\": {\"version\": \"0.4.0\", \"module\": \"<environment>/lib/python3.14/site-packages/lab/__init__.py\"}, \"experiment-kit\": {\"version\": \"0.1.0\", \"module\": \"<environment>/lib/python3.14/site-packages/experiment_kit/__init__.py\"}, \"model-distillation\": {\"version\": \"0.2.0\", \"module\": \"<environment>/lib/python3.14/site-packages/model_distillation/__init__.py\"}, \"verification-runtime\": {\"version\": \"0.1.0\", \"module\": \"<environment>/lib/python3.14/site-packages/verification_runtime/__init__.py\"}}, \"cli_checks\": [\"CPU record\", \"objective verification\", \"missing optional planner handled\", \"missing optional economics handled\"], \"sdk_transport\": \"not used\"}\n",
+    "057-check-verification.log": "{\"status\": \"passed\", \"distribution\": \"clous-llm-lab\", \"profile\": \"verification\", \"installed\": {\"clous-llm-lab\": {\"version\": \"0.4.0\", \"module\": \"<environment>/lib/python3.14/site-packages/lab/__init__.py\"}, \"experiment-kit\": {\"version\": \"0.1.0\", \"module\": \"<environment>/lib/python3.14/site-packages/experiment_kit/__init__.py\"}, \"verification-runtime\": {\"version\": \"0.1.0\", \"module\": \"<environment>/lib/python3.14/site-packages/verification_runtime/__init__.py\"}}, \"cli_checks\": [\"CPU record\", \"objective verification\", \"missing optional planner handled\", \"missing optional economics handled\"], \"sdk_transport\": \"not used\"}\n",
+    "020-build-compute-planner.log": "Building wheel...\n<task>/cache/builds-v0/.tmpxglZ0M/lib/python3.14/site-packages/setuptools/config/_apply_pyprojecttoml.py:82: SetuptoolsDeprecationWarning: `project.license` as a TOML table is deprecated\n!!\n\n        ********************************************************************************\n        Please use a simple string containing a SPDX expression for `project.license`. You can also use `project.license-files`. (Both options available on setuptools>=77.0.0).\n\n        By 2027-Feb-18, you need to update your project and remove deprecated calls\n        or your builds will no longer be supported.\n\n        See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.\n        ********************************************************************************\n\n!!\n  corresp(dist, value, root_dir)\nrunning egg_info\ncreating src/compute_planner.egg-info\nwriting src/compute_planner.egg-info/PKG-INFO\nwriting dependency_links to src/compute_planner.egg-info/dependency_links.txt\nwriting entry points to src/compute_planner.egg-info/entry_points.txt\nwriting top-level names to src/compute_planner.egg-info/top_level.txt\nwriting manifest file 'src/compute_planner.egg-info/SOURCES.txt'\nreading manifest file 'src/compute_planner.egg-info/SOURCES.txt'\nadding license file 'LICENSE'\nwriting manifest file 'src/compute_planner.egg-info/SOURCES.txt'\n<task>/cache/builds-v0/.tmpxglZ0M/lib/python3.14/site-packages/setuptools/config/_apply_pyprojecttoml.py:82: SetuptoolsDeprecationWarning: `project.license` as a TOML table is deprecated\n!!\n\n        ********************************************************************************\n        Please use a simple string containing a SPDX expression for `project.license`. You can also use `project.license-files`. (Both options available on setuptools>=77.0.0).\n\n        By 2027-Feb-18, you need to update your project and remove deprecated calls\n        or your builds will no longer be supported.\n\n        See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.\n        ********************************************************************************\n\n!!\n  corresp(dist, value, root_dir)\nrunning bdist_wheel\nrunning build\nrunning build_py\ncreating build/lib/compute_planner\ncopying src/compute_planner/__init__.py -> build/lib/compute_planner\ncopying src/compute_planner/cli.py -> build/lib/compute_planner\ncopying src/compute_planner/routing.py -> build/lib/compute_planner\ncopying src/compute_planner/scheduler.py -> build/lib/compute_planner\nrunning egg_info\nwriting src/compute_planner.egg-info/PKG-INFO\nwriting dependency_links to src/compute_planner.egg-info/dependency_links.txt\nwriting entry points to src/compute_planner.egg-info/entry_points.txt\nwriting top-level names to src/compute_planner.egg-info/top_level.txt\nreading manifest file 'src/compute_planner.egg-info/SOURCES.txt'\nadding license file 'LICENSE'\nwriting manifest file 'src/compute_planner.egg-info/SOURCES.txt'\nwarning: build_py: byte-compiling is disabled, skipping.\n\ninstalling to build/bdist.macosx-26.0-arm64/wheel\nrunning install\nrunning install_lib\ncreating build/bdist.macosx-26.0-arm64/wheel\ncreating build/bdist.macosx-26.0-arm64/wheel/compute_planner\ncopying build/lib/compute_planner/__init__.py -> build/bdist.macosx-26.0-arm64/wheel/./compute_planner\ncopying build/lib/compute_planner/cli.py -> build/bdist.macosx-26.0-arm64/wheel/./compute_planner\ncopying build/lib/compute_planner/routing.py -> build/bdist.macosx-26.0-arm64/wheel/./compute_planner\ncopying build/lib/compute_planner/scheduler.py -> build/bdist.macosx-26.0-arm64/wheel/./compute_planner\nwarning: install_lib: byte-compiling is disabled, skipping.\n\nrunning install_egg_info\nCopying src/compute_planner.egg-info to build/bdist.macosx-26.0-arm64/wheel/./compute_planner-0.2.0-py3.14.egg-info\nrunning install_scripts\ncreating build/bdist.macosx-26.0-arm64/wheel/compute_planner-0.2.0.dist-info/WHEEL\ncreating '<task>/wheels/.tmp-vs7f1mit/compute_planner-0.2.0-py3-none-any.whl' and adding 'build/bdist.macosx-26.0-arm64/wheel' to it\nadding 'compute_planner/__init__.py'\nadding 'compute_planner/cli.py'\nadding 'compute_planner/routing.py'\nadding 'compute_planner/scheduler.py'\nadding 'compute_planner-0.2.0.dist-info/licenses/LICENSE'\nadding 'compute_planner-0.2.0.dist-info/METADATA'\nadding 'compute_planner-0.2.0.dist-info/WHEEL'\nadding 'compute_planner-0.2.0.dist-info/entry_points.txt'\nadding 'compute_planner-0.2.0.dist-info/top_level.txt'\nadding 'compute_planner-0.2.0.dist-info/RECORD'\nremoving build/bdist.macosx-26.0-arm64/wheel\nSuccessfully built wheels/compute_planner-0.2.0-py3-none-any.whl\n",
+    "038-origins-compute-economics.log": "{\"compute-economics\": {\"url\": \"file://<task>/wheels/compute_economics-0.1.0-py3-none-any.whl\", \"archive_info\": {}}}\n",
+    "054-origins-base.log": "{\"clous-llm-lab\": {\"url\": \"file://<task>/wheels/clous_llm_lab-0.4.0-py3-none-any.whl\", \"archive_info\": {}}, \"experiment-kit\": {\"url\": \"https://github.com/alvarovillalbaa/experiment-kit.git\", \"vcs_info\": {\"vcs\": \"git\", \"commit_id\": \"fe96641e94a596551e24f26661cb7ca73f6d90d1\", \"requested_revision\": \"fe96641e94a596551e24f26661cb7ca73f6d90d1\"}}}\n",
+    "015-export-experiment-kit.log": "",
+    "050-origins-open-evals-sdk.log": "{\"open-evals-sdk\": {\"url\": \"file://<task>/wheels/open_evals_sdk-0.1.0-py3-none-any.whl\", \"archive_info\": {}}}\n",
+    "019-export-compute-planner.log": "",
+    "086-origins-full.log": "{\"compute-planner\": {\"url\": \"https://github.com/alvarovillalbaa/compute-planner.git\", \"vcs_info\": {\"vcs\": \"git\", \"commit_id\": \"2ff06e9c649bc413fbe565fb25d0347970236036\", \"requested_revision\": \"2ff06e9c649bc413fbe565fb25d0347970236036\"}}, \"model-distillation\": {\"url\": \"https://github.com/alvarovillalbaa/model-distillation.git\", \"vcs_info\": {\"vcs\": \"git\", \"commit_id\": \"77f73c8fff67d154f514a02dd9e0c3260273aa6d\", \"requested_revision\": \"77f73c8fff67d154f514a02dd9e0c3260273aa6d\"}}, \"clous-llm-lab\": {\"url\": \"file://<task>/wheels/clous_llm_lab-0.4.0-py3-none-any.whl\", \"archive_info\": {}}, \"experiment-kit\": {\"url\": \"https://github.com/alvarovillalbaa/experiment-kit.git\", \"vcs_info\": {\"vcs\": \"git\", \"commit_id\": \"fe96641e94a596551e24f26661cb7ca73f6d90d1\", \"requested_revision\": \"fe96641e94a596551e24f26661cb7ca73f6d90d1\"}}, \"verification-runtime\": {\"url\": \"https://github.com/alvarovillalbaa/verification-runtime.git\", \"vcs_info\": {\"vcs\": \"git\", \"commit_id\": \"0f293f9808598a38f58f85563e1ccafd815bbd36\", \"requested_revision\": \"0f293f9808598a38f58f85563e1ccafd815bbd36\"}}, \"open-evals-sdk\": {\"url\": \"https://github.com/alvarovillalbaa/open-evals.git\", \"vcs_info\": {\"vcs\": \"git\", \"commit_id\": \"d1002d58109156683be3ad4fc394c7cc6c534057\", \"requested_revision\": \"d1002d58109156683be3ad4fc394c7cc6c534057\"}, \"subdirectory\": \"python/open_evals_sdk\"}, \"compute-economics\": {\"url\": \"https://github.com/alvarovillalbaa/compute-economics.git\", \"vcs_info\": {\"vcs\": \"git\", \"commit_id\": \"c7ea3b8e4b7324270988a3eab1e26942d05188e5\", \"requested_revision\": \"c7ea3b8e4b7324270988a3eab1e26942d05188e5\"}}}\n",
+    "006-check-mirror-compute-economics.log": "",
+    "066-origins-planning.log": "{\"compute-planner\": {\"url\": \"https://github.com/alvarovillalbaa/compute-planner.git\", \"vcs_info\": {\"vcs\": \"git\", \"commit_id\": \"2ff06e9c649bc413fbe565fb25d0347970236036\", \"requested_revision\": \"2ff06e9c649bc413fbe565fb25d0347970236036\"}}, \"clous-llm-lab\": {\"url\": \"file://<task>/wheels/clous_llm_lab-0.4.0-py3-none-any.whl\", \"archive_info\": {}}, \"experiment-kit\": {\"url\": \"https://github.com/alvarovillalbaa/experiment-kit.git\", \"vcs_info\": {\"vcs\": \"git\", \"commit_id\": \"fe96641e94a596551e24f26661cb7ca73f6d90d1\", \"requested_revision\": \"fe96641e94a596551e24f26661cb7ca73f6d90d1\"}}}\n",
+    "002-check-mirror-verification-runtime.log": "",
+    "027-venv-verification-runtime.log": "Using CPython 3.14.7 interpreter at: <toolchain>/opt/python@3.14/bin/python3.14\nCreating virtual environment at: environments/verification-runtime\nActivate with: source environments/verification-runtime/bin/activate\n",
+    "035-venv-compute-economics.log": "Using CPython 3.14.7 interpreter at: <toolchain>/opt/python@3.14/bin/python3.14\nCreating virtual environment at: environments/compute-economics\nActivate with: source environments/compute-economics/bin/activate\n",
+    "042-origins-compute-planner.log": "{\"compute-planner\": {\"url\": \"file://<task>/wheels/compute_planner-0.2.0-py3-none-any.whl\", \"archive_info\": {}}}\n",
+    "043-venv-model-distillation.log": "Using CPython 3.14.7 interpreter at: <toolchain>/opt/python@3.14/bin/python3.14\nCreating virtual environment at: environments/model-distillation\nActivate with: source environments/model-distillation/bin/activate\n",
+    "011-check-mirror-open-evals.log": "",
+    "024-build-open-evals-sdk.log": "Building wheel...\n<task>/cache/builds-v0/.tmp6fmHsd/lib/python3.14/site-packages/setuptools/config/_apply_pyprojecttoml.py:82: SetuptoolsDeprecationWarning: `project.license` as a TOML table is deprecated\n!!\n\n        ********************************************************************************\n        Please use a simple string containing a SPDX expression for `project.license`. You can also use `project.license-files`. (Both options available on setuptools>=77.0.0).\n\n        By 2027-Feb-18, you need to update your project and remove deprecated calls\n        or your builds will no longer be supported.\n\n        See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.\n        ********************************************************************************\n\n!!\n  corresp(dist, value, root_dir)\nrunning egg_info\ncreating src/open_evals_sdk.egg-info\nwriting src/open_evals_sdk.egg-info/PKG-INFO\nwriting dependency_links to src/open_evals_sdk.egg-info/dependency_links.txt\nwriting top-level names to src/open_evals_sdk.egg-info/top_level.txt\nwriting manifest file 'src/open_evals_sdk.egg-info/SOURCES.txt'\nreading manifest file 'src/open_evals_sdk.egg-info/SOURCES.txt'\nadding license file 'LICENSE'\nwriting manifest file 'src/open_evals_sdk.egg-info/SOURCES.txt'\n<task>/cache/builds-v0/.tmp6fmHsd/lib/python3.14/site-packages/setuptools/config/_apply_pyprojecttoml.py:82: SetuptoolsDeprecationWarning: `project.license` as a TOML table is deprecated\n!!\n\n        ********************************************************************************\n        Please use a simple string containing a SPDX expression for `project.license`. You can also use `project.license-files`. (Both options available on setuptools>=77.0.0).\n\n        By 2027-Feb-18, you need to update your project and remove deprecated calls\n        or your builds will no longer be supported.\n\n        See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.\n        ********************************************************************************\n\n!!\n  corresp(dist, value, root_dir)\nrunning bdist_wheel\nrunning build\nrunning build_py\ncreating build/lib\ncopying src/open_evals_sdk.py -> build/lib\nrunning egg_info\nwriting src/open_evals_sdk.egg-info/PKG-INFO\nwriting dependency_links to src/open_evals_sdk.egg-info/dependency_links.txt\nwriting top-level names to src/open_evals_sdk.egg-info/top_level.txt\nreading manifest file 'src/open_evals_sdk.egg-info/SOURCES.txt'\nadding license file 'LICENSE'\nwriting manifest file 'src/open_evals_sdk.egg-info/SOURCES.txt'\nwarning: build_py: byte-compiling is disabled, skipping.\n\ninstalling to build/bdist.macosx-26.0-arm64/wheel\nrunning install\nrunning install_lib\ncreating build/bdist.macosx-26.0-arm64/wheel\ncopying build/lib/open_evals_sdk.py -> build/bdist.macosx-26.0-arm64/wheel/.\nwarning: install_lib: byte-compiling is disabled, skipping.\n\nrunning install_egg_info\nCopying src/open_evals_sdk.egg-info to build/bdist.macosx-26.0-arm64/wheel/./open_evals_sdk-0.1.0-py3.14.egg-info\nrunning install_scripts\ncreating build/bdist.macosx-26.0-arm64/wheel/open_evals_sdk-0.1.0.dist-info/WHEEL\ncreating '<task>/wheels/.tmp-vdmgrupx/open_evals_sdk-0.1.0-py3-none-any.whl' and adding 'build/bdist.macosx-26.0-arm64/wheel' to it\nadding 'open_evals_sdk.py'\nadding 'open_evals_sdk-0.1.0.dist-info/licenses/LICENSE'\nadding 'open_evals_sdk-0.1.0.dist-info/METADATA'\nadding 'open_evals_sdk-0.1.0.dist-info/WHEEL'\nadding 'open_evals_sdk-0.1.0.dist-info/top_level.txt'\nadding 'open_evals_sdk-0.1.0.dist-info/RECORD'\nremoving build/bdist.macosx-26.0-arm64/wheel\nSuccessfully built wheels/open_evals_sdk-0.1.0-py3-none-any.whl\n",
+    "063-venv-planning.log": "Using CPython 3.14.7 interpreter at: <toolchain>/opt/python@3.14/bin/python3.14\nCreating virtual environment at: environments/planning\nActivate with: source environments/planning/bin/activate\n",
+    "040-install-compute-planner.log": "Using Python 3.14.7 environment at: environments/compute-planner\nResolved 1 package in 0.73ms\nPrepared 1 package in 1ms\nInstalled 1 package in 1ms\n + compute-planner==0.2.0 (from file://<task>/wheels/compute_planner-0.2.0-py3-none-any.whl)\n",
+    "081-check-cpu.log": "{\"status\": \"passed\", \"distribution\": \"clous-llm-lab\", \"profile\": \"cpu\", \"installed\": {\"clous-llm-lab\": {\"version\": \"0.4.0\", \"module\": \"<environment>/lib/python3.14/site-packages/lab/__init__.py\"}, \"compute-economics\": {\"version\": \"0.1.0\", \"module\": \"<environment>/lib/python3.14/site-packages/compute_economics/__init__.py\"}, \"compute-planner\": {\"version\": \"0.2.0\", \"module\": \"<environment>/lib/python3.14/site-packages/compute_planner/__init__.py\"}, \"experiment-kit\": {\"version\": \"0.1.0\", \"module\": \"<environment>/lib/python3.14/site-packages/experiment_kit/__init__.py\"}, \"model-distillation\": {\"version\": \"0.2.0\", \"module\": \"<environment>/lib/python3.14/site-packages/model_distillation/__init__.py\"}, \"verification-runtime\": {\"version\": \"0.1.0\", \"module\": \"<environment>/lib/python3.14/site-packages/verification_runtime/__init__.py\"}}, \"cli_checks\": [\"CPU record\", \"objective verification\", \"provider routing\", \"economics estimate\", \"CPU composition\"], \"sdk_transport\": \"not used\"}\n",
+    "071-venv-distillation.log": "Using CPython 3.14.7 interpreter at: <toolchain>/opt/python@3.14/bin/python3.14\nCreating virtual environment at: environments/distillation\nActivate with: source environments/distillation/bin/activate\n",
+    "064-install-planning.log": "Using Python 3.14.7 environment at: environments/planning\n   Updating https://github.com/alvarovillalbaa/compute-planner.git (2ff06e9c649bc413fbe565fb25d0347970236036)\n    Updated https://github.com/alvarovillalbaa/compute-planner.git (2ff06e9c649bc413fbe565fb25d0347970236036)\nResolved 3 packages in 4.33s\n   Building compute-planner @ git+https://github.com/alvarovillalbaa/compute-planner.git@2ff06e9c649bc413fbe565fb25d0347970236036\n      Built compute-planner @ git+https://github.com/alvarovillalbaa/compute-planner.git@2ff06e9c649bc413fbe565fb25d0347970236036\nPrepared 1 package in 640ms\nInstalled 3 packages in 2ms\n + clous-llm-lab==0.4.0 (from file://<task>/wheels/clous_llm_lab-0.4.0-py3-none-any.whl)\n + compute-planner==0.2.0 (from git+https://github.com/alvarovillalbaa/compute-planner.git@2ff06e9c649bc413fbe565fb25d0347970236036)\n + experiment-kit==0.1.0 (from git+https://github.com/alvarovillalbaa/experiment-kit.git@fe96641e94a596551e24f26661cb7ca73f6d90d1)\n",
+    "008-check-mirror-compute-planner.log": "",
+    "062-origins-economics.log": "{\"clous-llm-lab\": {\"url\": \"file://<task>/wheels/clous_llm_lab-0.4.0-py3-none-any.whl\", \"archive_info\": {}}, \"experiment-kit\": {\"url\": \"https://github.com/alvarovillalbaa/experiment-kit.git\", \"vcs_info\": {\"vcs\": \"git\", \"commit_id\": \"fe96641e94a596551e24f26661cb7ca73f6d90d1\", \"requested_revision\": \"fe96641e94a596551e24f26661cb7ca73f6d90d1\"}}, \"compute-economics\": {\"url\": \"https://github.com/alvarovillalbaa/compute-economics.git\", \"vcs_info\": {\"vcs\": \"git\", \"commit_id\": \"c7ea3b8e4b7324270988a3eab1e26942d05188e5\", \"requested_revision\": \"c7ea3b8e4b7324270988a3eab1e26942d05188e5\"}}}\n",
+    "046-origins-model-distillation.log": "{\"model-distillation\": {\"url\": \"file://<task>/wheels/model_distillation-0.2.0-py3-none-any.whl\", \"archive_info\": {}}, \"verification-runtime\": {\"url\": \"https://github.com/alvarovillalbaa/verification-runtime.git\", \"vcs_info\": {\"vcs\": \"git\", \"commit_id\": \"0f293f9808598a38f58f85563e1ccafd815bbd36\", \"requested_revision\": \"0f293f9808598a38f58f85563e1ccafd815bbd36\"}}}\n",
+    "030-origins-verification-runtime.log": "{\"verification-runtime\": {\"url\": \"file://<task>/wheels/verification_runtime-0.1.0-py3-none-any.whl\", \"archive_info\": {}}}\n",
+    "058-origins-verification.log": "{\"clous-llm-lab\": {\"url\": \"file://<task>/wheels/clous_llm_lab-0.4.0-py3-none-any.whl\", \"archive_info\": {}}, \"experiment-kit\": {\"url\": \"https://github.com/alvarovillalbaa/experiment-kit.git\", \"vcs_info\": {\"vcs\": \"git\", \"commit_id\": \"fe96641e94a596551e24f26661cb7ca73f6d90d1\", \"requested_revision\": \"fe96641e94a596551e24f26661cb7ca73f6d90d1\"}}, \"verification-runtime\": {\"url\": \"https://github.com/alvarovillalbaa/verification-runtime.git\", \"vcs_info\": {\"vcs\": \"git\", \"commit_id\": \"0f293f9808598a38f58f85563e1ccafd815bbd36\", \"requested_revision\": \"0f293f9808598a38f58f85563e1ccafd815bbd36\"}}}\n",
+    "031-venv-experiment-kit.log": "Using CPython 3.14.7 interpreter at: <toolchain>/opt/python@3.14/bin/python3.14\nCreating virtual environment at: environments/experiment-kit\nActivate with: source environments/experiment-kit/bin/activate\n",
+    "079-venv-cpu.log": "Using CPython 3.14.7 interpreter at: <toolchain>/opt/python@3.14/bin/python3.14\nCreating virtual environment at: environments/cpu\nActivate with: source environments/cpu/bin/activate\n",
+    "082-origins-cpu.log": "{\"compute-planner\": {\"url\": \"https://github.com/alvarovillalbaa/compute-planner.git\", \"vcs_info\": {\"vcs\": \"git\", \"commit_id\": \"2ff06e9c649bc413fbe565fb25d0347970236036\", \"requested_revision\": \"2ff06e9c649bc413fbe565fb25d0347970236036\"}}, \"model-distillation\": {\"url\": \"https://github.com/alvarovillalbaa/model-distillation.git\", \"vcs_info\": {\"vcs\": \"git\", \"commit_id\": \"77f73c8fff67d154f514a02dd9e0c3260273aa6d\", \"requested_revision\": \"77f73c8fff67d154f514a02dd9e0c3260273aa6d\"}}, \"clous-llm-lab\": {\"url\": \"file://<task>/wheels/clous_llm_lab-0.4.0-py3-none-any.whl\", \"archive_info\": {}}, \"experiment-kit\": {\"url\": \"https://github.com/alvarovillalbaa/experiment-kit.git\", \"vcs_info\": {\"vcs\": \"git\", \"commit_id\": \"fe96641e94a596551e24f26661cb7ca73f6d90d1\", \"requested_revision\": \"fe96641e94a596551e24f26661cb7ca73f6d90d1\"}}, \"verification-runtime\": {\"url\": \"https://github.com/alvarovillalbaa/verification-runtime.git\", \"vcs_info\": {\"vcs\": \"git\", \"commit_id\": \"0f293f9808598a38f58f85563e1ccafd815bbd36\", \"requested_revision\": \"0f293f9808598a38f58f85563e1ccafd815bbd36\"}}, \"compute-economics\": {\"url\": \"https://github.com/alvarovillalbaa/compute-economics.git\", \"vcs_info\": {\"vcs\": \"git\", \"commit_id\": \"c7ea3b8e4b7324270988a3eab1e26942d05188e5\", \"requested_revision\": \"c7ea3b8e4b7324270988a3eab1e26942d05188e5\"}}}\n",
+    "085-check-full.log": "{\"status\": \"passed\", \"distribution\": \"clous-llm-lab\", \"profile\": \"full\", \"installed\": {\"clous-llm-lab\": {\"version\": \"0.4.0\", \"module\": \"<environment>/lib/python3.14/site-packages/lab/__init__.py\"}, \"compute-economics\": {\"version\": \"0.1.0\", \"module\": \"<environment>/lib/python3.14/site-packages/compute_economics/__init__.py\"}, \"compute-planner\": {\"version\": \"0.2.0\", \"module\": \"<environment>/lib/python3.14/site-packages/compute_planner/__init__.py\"}, \"experiment-kit\": {\"version\": \"0.1.0\", \"module\": \"<environment>/lib/python3.14/site-packages/experiment_kit/__init__.py\"}, \"model-distillation\": {\"version\": \"0.2.0\", \"module\": \"<environment>/lib/python3.14/site-packages/model_distillation/__init__.py\"}, \"open-evals-sdk\": {\"version\": \"0.1.0\", \"module\": \"<environment>/lib/python3.14/site-packages/open_evals_sdk.py\"}, \"verification-runtime\": {\"version\": \"0.1.0\", \"module\": \"<environment>/lib/python3.14/site-packages/verification_runtime/__init__.py\"}}, \"cli_checks\": [\"CPU record\", \"objective verification\", \"provider routing\", \"economics estimate\", \"CPU composition\"], \"sdk_transport\": \"mocked\"}\n",
+    "051-venv-base.log": "Using CPython 3.14.7 interpreter at: <toolchain>/opt/python@3.14/bin/python3.14\nCreating virtual environment at: environments/base\nActivate with: source environments/base/bin/activate\n",
+    "012-uv-version.log": "uv 0.10.3 (Homebrew 2026-02-16)\n",
+    "039-venv-compute-planner.log": "Using CPython 3.14.7 interpreter at: <toolchain>/opt/python@3.14/bin/python3.14\nCreating virtual environment at: environments/compute-planner\nActivate with: source environments/compute-planner/bin/activate\n",
+    "056-install-verification.log": "Using Python 3.14.7 environment at: environments/verification\nResolved 3 packages in 30ms\nInstalled 3 packages in 3ms\n + clous-llm-lab==0.4.0 (from file://<task>/wheels/clous_llm_lab-0.4.0-py3-none-any.whl)\n + experiment-kit==0.1.0 (from git+https://github.com/alvarovillalbaa/experiment-kit.git@fe96641e94a596551e24f26661cb7ca73f6d90d1)\n + verification-runtime==0.1.0 (from git+https://github.com/alvarovillalbaa/verification-runtime.git@0f293f9808598a38f58f85563e1ccafd815bbd36)\n",
+    "077-check-evals.log": "{\"status\": \"passed\", \"distribution\": \"clous-llm-lab\", \"profile\": \"evals\", \"installed\": {\"clous-llm-lab\": {\"version\": \"0.4.0\", \"module\": \"<environment>/lib/python3.14/site-packages/lab/__init__.py\"}, \"experiment-kit\": {\"version\": \"0.1.0\", \"module\": \"<environment>/lib/python3.14/site-packages/experiment_kit/__init__.py\"}, \"open-evals-sdk\": {\"version\": \"0.1.0\", \"module\": \"<environment>/lib/python3.14/site-packages/open_evals_sdk.py\"}}, \"cli_checks\": [\"CPU record\", \"missing optional verifier handled\", \"missing optional planner handled\", \"missing optional economics handled\"], \"sdk_transport\": \"mocked\"}\n",
+    "018-build-compute-economics.log": "Building wheel...\n<task>/cache/builds-v0/.tmpelGrtR/lib/python3.14/site-packages/setuptools/config/_apply_pyprojecttoml.py:82: SetuptoolsDeprecationWarning: `project.license` as a TOML table is deprecated\n!!\n\n        ********************************************************************************\n        Please use a simple string containing a SPDX expression for `project.license`. You can also use `project.license-files`. (Both options available on setuptools>=77.0.0).\n\n        By 2027-Feb-18, you need to update your project and remove deprecated calls\n        or your builds will no longer be supported.\n\n        See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.\n        ********************************************************************************\n\n!!\n  corresp(dist, value, root_dir)\nrunning egg_info\ncreating src/compute_economics.egg-info\nwriting src/compute_economics.egg-info/PKG-INFO\nwriting dependency_links to src/compute_economics.egg-info/dependency_links.txt\nwriting entry points to src/compute_economics.egg-info/entry_points.txt\nwriting top-level names to src/compute_economics.egg-info/top_level.txt\nwriting manifest file 'src/compute_economics.egg-info/SOURCES.txt'\nreading manifest file 'src/compute_economics.egg-info/SOURCES.txt'\nadding license file 'LICENSE'\nwriting manifest file 'src/compute_economics.egg-info/SOURCES.txt'\n<task>/cache/builds-v0/.tmpelGrtR/lib/python3.14/site-packages/setuptools/config/_apply_pyprojecttoml.py:82: SetuptoolsDeprecationWarning: `project.license` as a TOML table is deprecated\n!!\n\n        ********************************************************************************\n        Please use a simple string containing a SPDX expression for `project.license`. You can also use `project.license-files`. (Both options available on setuptools>=77.0.0).\n\n        By 2027-Feb-18, you need to update your project and remove deprecated calls\n        or your builds will no longer be supported.\n\n        See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.\n        ********************************************************************************\n\n!!\n  corresp(dist, value, root_dir)\nrunning bdist_wheel\nrunning build\nrunning build_py\ncreating build/lib/compute_economics\ncopying src/compute_economics/costing.py -> build/lib/compute_economics\ncopying src/compute_economics/__init__.py -> build/lib/compute_economics\ncopying src/compute_economics/cli.py -> build/lib/compute_economics\nrunning egg_info\nwriting src/compute_economics.egg-info/PKG-INFO\nwriting dependency_links to src/compute_economics.egg-info/dependency_links.txt\nwriting entry points to src/compute_economics.egg-info/entry_points.txt\nwriting top-level names to src/compute_economics.egg-info/top_level.txt\nreading manifest file 'src/compute_economics.egg-info/SOURCES.txt'\nadding license file 'LICENSE'\nwriting manifest file 'src/compute_economics.egg-info/SOURCES.txt'\nwarning: build_py: byte-compiling is disabled, skipping.\n\ninstalling to build/bdist.macosx-26.0-arm64/wheel\nrunning install\nrunning install_lib\ncreating build/bdist.macosx-26.0-arm64/wheel\ncreating build/bdist.macosx-26.0-arm64/wheel/compute_economics\ncopying build/lib/compute_economics/costing.py -> build/bdist.macosx-26.0-arm64/wheel/./compute_economics\ncopying build/lib/compute_economics/__init__.py -> build/bdist.macosx-26.0-arm64/wheel/./compute_economics\ncopying build/lib/compute_economics/cli.py -> build/bdist.macosx-26.0-arm64/wheel/./compute_economics\nwarning: install_lib: byte-compiling is disabled, skipping.\n\nrunning install_egg_info\nCopying src/compute_economics.egg-info to build/bdist.macosx-26.0-arm64/wheel/./compute_economics-0.1.0-py3.14.egg-info\nrunning install_scripts\ncreating build/bdist.macosx-26.0-arm64/wheel/compute_economics-0.1.0.dist-info/WHEEL\ncreating '<task>/wheels/.tmp-5gark6ws/compute_economics-0.1.0-py3-none-any.whl' and adding 'build/bdist.macosx-26.0-arm64/wheel' to it\nadding 'compute_economics/__init__.py'\nadding 'compute_economics/cli.py'\nadding 'compute_economics/costing.py'\nadding 'compute_economics-0.1.0.dist-info/licenses/LICENSE'\nadding 'compute_economics-0.1.0.dist-info/METADATA'\nadding 'compute_economics-0.1.0.dist-info/WHEEL'\nadding 'compute_economics-0.1.0.dist-info/entry_points.txt'\nadding 'compute_economics-0.1.0.dist-info/top_level.txt'\nadding 'compute_economics-0.1.0.dist-info/RECORD'\nremoving build/bdist.macosx-26.0-arm64/wheel\nSuccessfully built wheels/compute_economics-0.1.0-py3-none-any.whl\n",
+    "067-venv-compute.log": "Using CPython 3.14.7 interpreter at: <toolchain>/opt/python@3.14/bin/python3.14\nCreating virtual environment at: environments/compute\nActivate with: source environments/compute/bin/activate\n",
+    "028-install-verification-runtime.log": "Using Python 3.14.7 environment at: environments/verification-runtime\nResolved 1 package in 3ms\nPrepared 1 package in 1ms\nInstalled 1 package in 2ms\n + verification-runtime==0.1.0 (from file://<task>/wheels/verification_runtime-0.1.0-py3-none-any.whl)\n",
+    "001-mirror-verification-runtime.log": "Cloning into bare repository '<task>/mirrors/verification-runtime.git'...\n",
+    "007-mirror-compute-planner.log": "Cloning into bare repository '<task>/mirrors/compute-planner.git'...\n",
+    "023-export-open-evals-sdk.log": "",
+    "017-export-compute-economics.log": "",
+    "052-install-base.log": "Using Python 3.14.7 environment at: environments/base\n   Updating https://github.com/alvarovillalbaa/experiment-kit.git (fe96641e94a596551e24f26661cb7ca73f6d90d1)\n    Updated https://github.com/alvarovillalbaa/experiment-kit.git (fe96641e94a596551e24f26661cb7ca73f6d90d1)\nResolved 2 packages in 2.33s\n   Building experiment-kit @ git+https://github.com/alvarovillalbaa/experiment-kit.git@fe96641e94a596551e24f26661cb7ca73f6d90d1\n      Built experiment-kit @ git+https://github.com/alvarovillalbaa/experiment-kit.git@fe96641e94a596551e24f26661cb7ca73f6d90d1\nPrepared 2 packages in 636ms\nInstalled 2 packages in 2ms\n + clous-llm-lab==0.4.0 (from file://<task>/wheels/clous_llm_lab-0.4.0-py3-none-any.whl)\n + experiment-kit==0.1.0 (from git+https://github.com/alvarovillalbaa/experiment-kit.git@fe96641e94a596551e24f26661cb7ca73f6d90d1)\n",
+    "048-install-open-evals-sdk.log": "Using Python 3.14.7 environment at: environments/open-evals-sdk\nResolved 1 package in 0.59ms\nPrepared 1 package in 1ms\nInstalled 1 package in 1ms\n + open-evals-sdk==0.1.0 (from file://<task>/wheels/open_evals_sdk-0.1.0-py3-none-any.whl)\n",
+    "009-mirror-model-distillation.log": "Cloning into bare repository '<task>/mirrors/model-distillation.git'...\n",
+    "005-mirror-compute-economics.log": "Cloning into bare repository '<task>/mirrors/compute-economics.git'...\n",
+    "034-origins-experiment-kit.log": "{\"experiment-kit\": {\"url\": \"file://<task>/wheels/experiment_kit-0.1.0-py3-none-any.whl\", \"archive_info\": {}}}\n",
+    "059-venv-economics.log": "Using CPython 3.14.7 interpreter at: <toolchain>/opt/python@3.14/bin/python3.14\nCreating virtual environment at: environments/economics\nActivate with: source environments/economics/bin/activate\n",
+    "013-export-verification-runtime.log": "",
+    "065-check-planning.log": "{\"status\": \"passed\", \"distribution\": \"clous-llm-lab\", \"profile\": \"planning\", \"installed\": {\"clous-llm-lab\": {\"version\": \"0.4.0\", \"module\": \"<environment>/lib/python3.14/site-packages/lab/__init__.py\"}, \"compute-planner\": {\"version\": \"0.2.0\", \"module\": \"<environment>/lib/python3.14/site-packages/compute_planner/__init__.py\"}, \"experiment-kit\": {\"version\": \"0.1.0\", \"module\": \"<environment>/lib/python3.14/site-packages/experiment_kit/__init__.py\"}}, \"cli_checks\": [\"CPU record\", \"missing optional verifier handled\", \"provider routing\", \"missing optional economics handled\"], \"sdk_transport\": \"not used\"}\n",
+    "032-install-experiment-kit.log": "Using Python 3.14.7 environment at: environments/experiment-kit\nResolved 1 package in 0.66ms\nPrepared 1 package in 1ms\nInstalled 1 package in 1ms\n + experiment-kit==0.1.0 (from file://<task>/wheels/experiment_kit-0.1.0-py3-none-any.whl)\n",
+    "061-check-economics.log": "{\"status\": \"passed\", \"distribution\": \"clous-llm-lab\", \"profile\": \"economics\", \"installed\": {\"clous-llm-lab\": {\"version\": \"0.4.0\", \"module\": \"<environment>/lib/python3.14/site-packages/lab/__init__.py\"}, \"compute-economics\": {\"version\": \"0.1.0\", \"module\": \"<environment>/lib/python3.14/site-packages/compute_economics/__init__.py\"}, \"experiment-kit\": {\"version\": \"0.1.0\", \"module\": \"<environment>/lib/python3.14/site-packages/experiment_kit/__init__.py\"}}, \"cli_checks\": [\"CPU record\", \"missing optional verifier handled\", \"missing optional planner handled\", \"economics estimate\"], \"sdk_transport\": \"not used\"}\n",
+    "076-install-evals.log": "Using Python 3.14.7 environment at: environments/evals\n   Updating https://github.com/alvarovillalbaa/open-evals.git (d1002d58109156683be3ad4fc394c7cc6c534057)\n    Updated https://github.com/alvarovillalbaa/open-evals.git (d1002d58109156683be3ad4fc394c7cc6c534057)\nResolved 3 packages in 5.71s\n   Building open-evals-sdk @ git+https://github.com/alvarovillalbaa/open-evals.git@d1002d58109156683be3ad4fc394c7cc6c534057#subdirectory=python/open_evals_sdk\n      Built open-evals-sdk @ git+https://github.com/alvarovillalbaa/open-evals.git@d1002d58109156683be3ad4fc394c7cc6c534057#subdirectory=python/open_evals_sdk\nPrepared 1 package in 871ms\nInstalled 3 packages in 4ms\n + clous-llm-lab==0.4.0 (from file://<task>/wheels/clous_llm_lab-0.4.0-py3-none-any.whl)\n + experiment-kit==0.1.0 (from git+https://github.com/alvarovillalbaa/experiment-kit.git@fe96641e94a596551e24f26661cb7ca73f6d90d1)\n + open-evals-sdk==0.1.0 (from git+https://github.com/alvarovillalbaa/open-evals.git@d1002d58109156683be3ad4fc394c7cc6c534057#subdirectory=python/open_evals_sdk)\n",
+    "036-install-compute-economics.log": "Using Python 3.14.7 environment at: environments/compute-economics\nResolved 1 package in 0.78ms\nPrepared 1 package in 1ms\nInstalled 1 package in 1ms\n + compute-economics==0.1.0 (from file://<task>/wheels/compute_economics-0.1.0-py3-none-any.whl)\n",
+    "044-install-model-distillation.log": "Using Python 3.14.7 environment at: environments/model-distillation\n   Updating https://github.com/alvarovillalbaa/verification-runtime.git (0f293f9808598a38f58f85563e1ccafd815bbd36)\n    Updated https://github.com/alvarovillalbaa/verification-runtime.git (0f293f9808598a38f58f85563e1ccafd815bbd36)\nResolved 2 packages in 3.66s\n   Building verification-runtime @ git+https://github.com/alvarovillalbaa/verification-runtime.git@0f293f9808598a38f58f85563e1ccafd815bbd36\n      Built verification-runtime @ git+https://github.com/alvarovillalbaa/verification-runtime.git@0f293f9808598a38f58f85563e1ccafd815bbd36\nPrepared 2 packages in 649ms\nInstalled 2 packages in 2ms\n + model-distillation==0.2.0 (from file://<task>/wheels/model_distillation-0.2.0-py3-none-any.whl)\n + verification-runtime==0.1.0 (from git+https://github.com/alvarovillalbaa/verification-runtime.git@0f293f9808598a38f58f85563e1ccafd815bbd36)\n",
+    "045-check-model-distillation.log": "{\"status\": \"passed\", \"distribution\": \"model-distillation\", \"profile\": null, \"installed\": {\"model-distillation\": {\"version\": \"0.2.0\", \"module\": \"<environment>/lib/python3.14/site-packages/model_distillation/__init__.py\"}, \"verification-runtime\": {\"version\": \"0.1.0\", \"module\": \"<environment>/lib/python3.14/site-packages/verification_runtime/__init__.py\"}}, \"cli_checks\": [\"preference fixture\", \"external verifier identity and stale-result rejection\"], \"sdk_transport\": \"not used\"}\n",
+    "022-build-model-distillation.log": "Building wheel...\n<task>/cache/builds-v0/.tmpWTmevg/lib/python3.14/site-packages/setuptools/config/_apply_pyprojecttoml.py:82: SetuptoolsDeprecationWarning: `project.license` as a TOML table is deprecated\n!!\n\n        ********************************************************************************\n        Please use a simple string containing a SPDX expression for `project.license`. You can also use `project.license-files`. (Both options available on setuptools>=77.0.0).\n\n        By 2027-Feb-18, you need to update your project and remove deprecated calls\n        or your builds will no longer be supported.\n\n        See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.\n        ********************************************************************************\n\n!!\n  corresp(dist, value, root_dir)\nrunning egg_info\ncreating src/model_distillation.egg-info\nwriting src/model_distillation.egg-info/PKG-INFO\nwriting dependency_links to src/model_distillation.egg-info/dependency_links.txt\nwriting entry points to src/model_distillation.egg-info/entry_points.txt\nwriting requirements to src/model_distillation.egg-info/requires.txt\nwriting top-level names to src/model_distillation.egg-info/top_level.txt\nwriting manifest file 'src/model_distillation.egg-info/SOURCES.txt'\nreading manifest file 'src/model_distillation.egg-info/SOURCES.txt'\nadding license file 'LICENSE'\nwriting manifest file 'src/model_distillation.egg-info/SOURCES.txt'\n<task>/cache/builds-v0/.tmpWTmevg/lib/python3.14/site-packages/setuptools/config/_apply_pyprojecttoml.py:82: SetuptoolsDeprecationWarning: `project.license` as a TOML table is deprecated\n!!\n\n        ********************************************************************************\n        Please use a simple string containing a SPDX expression for `project.license`. You can also use `project.license-files`. (Both options available on setuptools>=77.0.0).\n\n        By 2027-Feb-18, you need to update your project and remove deprecated calls\n        or your builds will no longer be supported.\n\n        See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.\n        ********************************************************************************\n\n!!\n  corresp(dist, value, root_dir)\nrunning bdist_wheel\nrunning build\nrunning build_py\ncreating build/lib/model_distillation\ncopying src/model_distillation/__init__.py -> build/lib/model_distillation\ncopying src/model_distillation/cli.py -> build/lib/model_distillation\ncopying src/model_distillation/distillation.py -> build/lib/model_distillation\nrunning egg_info\nwriting src/model_distillation.egg-info/PKG-INFO\nwriting dependency_links to src/model_distillation.egg-info/dependency_links.txt\nwriting entry points to src/model_distillation.egg-info/entry_points.txt\nwriting requirements to src/model_distillation.egg-info/requires.txt\nwriting top-level names to src/model_distillation.egg-info/top_level.txt\nreading manifest file 'src/model_distillation.egg-info/SOURCES.txt'\nadding license file 'LICENSE'\nwriting manifest file 'src/model_distillation.egg-info/SOURCES.txt'\nwarning: build_py: byte-compiling is disabled, skipping.\n\ninstalling to build/bdist.macosx-26.0-arm64/wheel\nrunning install\nrunning install_lib\ncreating build/bdist.macosx-26.0-arm64/wheel\ncreating build/bdist.macosx-26.0-arm64/wheel/model_distillation\ncopying build/lib/model_distillation/__init__.py -> build/bdist.macosx-26.0-arm64/wheel/./model_distillation\ncopying build/lib/model_distillation/cli.py -> build/bdist.macosx-26.0-arm64/wheel/./model_distillation\ncopying build/lib/model_distillation/distillation.py -> build/bdist.macosx-26.0-arm64/wheel/./model_distillation\nwarning: install_lib: byte-compiling is disabled, skipping.\n\nrunning install_egg_info\nCopying src/model_distillation.egg-info to build/bdist.macosx-26.0-arm64/wheel/./model_distillation-0.2.0-py3.14.egg-info\nrunning install_scripts\ncreating build/bdist.macosx-26.0-arm64/wheel/model_distillation-0.2.0.dist-info/WHEEL\ncreating '<task>/wheels/.tmp-jc4le0li/model_distillation-0.2.0-py3-none-any.whl' and adding 'build/bdist.macosx-26.0-arm64/wheel' to it\nadding 'model_distillation/__init__.py'\nadding 'model_distillation/cli.py'\nadding 'model_distillation/distillation.py'\nadding 'model_distillation-0.2.0.dist-info/licenses/LICENSE'\nadding 'model_distillation-0.2.0.dist-info/METADATA'\nadding 'model_distillation-0.2.0.dist-info/WHEEL'\nadding 'model_distillation-0.2.0.dist-info/entry_points.txt'\nadding 'model_distillation-0.2.0.dist-info/top_level.txt'\nadding 'model_distillation-0.2.0.dist-info/RECORD'\nremoving build/bdist.macosx-26.0-arm64/wheel\nSuccessfully built wheels/model_distillation-0.2.0-py3-none-any.whl\n",
+    "080-install-cpu.log": "Using Python 3.14.7 environment at: environments/cpu\nResolved 6 packages in 62ms\nInstalled 6 packages in 5ms\n + clous-llm-lab==0.4.0 (from file://<task>/wheels/clous_llm_lab-0.4.0-py3-none-any.whl)\n + compute-economics==0.1.0 (from git+https://github.com/alvarovillalbaa/compute-economics.git@c7ea3b8e4b7324270988a3eab1e26942d05188e5)\n + compute-planner==0.2.0 (from git+https://github.com/alvarovillalbaa/compute-planner.git@2ff06e9c649bc413fbe565fb25d0347970236036)\n + experiment-kit==0.1.0 (from git+https://github.com/alvarovillalbaa/experiment-kit.git@fe96641e94a596551e24f26661cb7ca73f6d90d1)\n + model-distillation==0.2.0 (from git+https://github.com/alvarovillalbaa/model-distillation.git@77f73c8fff67d154f514a02dd9e0c3260273aa6d)\n + verification-runtime==0.1.0 (from git+https://github.com/alvarovillalbaa/verification-runtime.git@0f293f9808598a38f58f85563e1ccafd815bbd36)\n",
+    "016-build-experiment-kit.log": "Building wheel...\n<task>/cache/builds-v0/.tmpLJgBuo/lib/python3.14/site-packages/setuptools/config/_apply_pyprojecttoml.py:82: SetuptoolsDeprecationWarning: `project.license` as a TOML table is deprecated\n!!\n\n        ********************************************************************************\n        Please use a simple string containing a SPDX expression for `project.license`. You can also use `project.license-files`. (Both options available on setuptools>=77.0.0).\n\n        By 2027-Feb-18, you need to update your project and remove deprecated calls\n        or your builds will no longer be supported.\n\n        See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.\n        ********************************************************************************\n\n!!\n  corresp(dist, value, root_dir)\nrunning egg_info\ncreating src/experiment_kit.egg-info\nwriting src/experiment_kit.egg-info/PKG-INFO\nwriting dependency_links to src/experiment_kit.egg-info/dependency_links.txt\nwriting entry points to src/experiment_kit.egg-info/entry_points.txt\nwriting top-level names to src/experiment_kit.egg-info/top_level.txt\nwriting manifest file 'src/experiment_kit.egg-info/SOURCES.txt'\nreading manifest file 'src/experiment_kit.egg-info/SOURCES.txt'\nadding license file 'LICENSE'\nwriting manifest file 'src/experiment_kit.egg-info/SOURCES.txt'\n<task>/cache/builds-v0/.tmpLJgBuo/lib/python3.14/site-packages/setuptools/config/_apply_pyprojecttoml.py:82: SetuptoolsDeprecationWarning: `project.license` as a TOML table is deprecated\n!!\n\n        ********************************************************************************\n        Please use a simple string containing a SPDX expression for `project.license`. You can also use `project.license-files`. (Both options available on setuptools>=77.0.0).\n\n        By 2027-Feb-18, you need to update your project and remove deprecated calls\n        or your builds will no longer be supported.\n\n        See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.\n        ********************************************************************************\n\n!!\n  corresp(dist, value, root_dir)\nrunning bdist_wheel\nrunning build\nrunning build_py\ncreating build/lib/experiment_kit\ncopying src/experiment_kit/records.py -> build/lib/experiment_kit\ncopying src/experiment_kit/__init__.py -> build/lib/experiment_kit\ncopying src/experiment_kit/cli.py -> build/lib/experiment_kit\ncopying src/experiment_kit/validation.py -> build/lib/experiment_kit\nrunning egg_info\nwriting src/experiment_kit.egg-info/PKG-INFO\nwriting dependency_links to src/experiment_kit.egg-info/dependency_links.txt\nwriting entry points to src/experiment_kit.egg-info/entry_points.txt\nwriting top-level names to src/experiment_kit.egg-info/top_level.txt\nreading manifest file 'src/experiment_kit.egg-info/SOURCES.txt'\nadding license file 'LICENSE'\nwriting manifest file 'src/experiment_kit.egg-info/SOURCES.txt'\nwarning: build_py: byte-compiling is disabled, skipping.\n\ninstalling to build/bdist.macosx-26.0-arm64/wheel\nrunning install\nrunning install_lib\ncreating build/bdist.macosx-26.0-arm64/wheel\ncreating build/bdist.macosx-26.0-arm64/wheel/experiment_kit\ncopying build/lib/experiment_kit/records.py -> build/bdist.macosx-26.0-arm64/wheel/./experiment_kit\ncopying build/lib/experiment_kit/__init__.py -> build/bdist.macosx-26.0-arm64/wheel/./experiment_kit\ncopying build/lib/experiment_kit/cli.py -> build/bdist.macosx-26.0-arm64/wheel/./experiment_kit\ncopying build/lib/experiment_kit/validation.py -> build/bdist.macosx-26.0-arm64/wheel/./experiment_kit\nwarning: install_lib: byte-compiling is disabled, skipping.\n\nrunning install_egg_info\nCopying src/experiment_kit.egg-info to build/bdist.macosx-26.0-arm64/wheel/./experiment_kit-0.1.0-py3.14.egg-info\nrunning install_scripts\ncreating build/bdist.macosx-26.0-arm64/wheel/experiment_kit-0.1.0.dist-info/WHEEL\ncreating '<task>/wheels/.tmp-62il2e1o/experiment_kit-0.1.0-py3-none-any.whl' and adding 'build/bdist.macosx-26.0-arm64/wheel' to it\nadding 'experiment_kit/__init__.py'\nadding 'experiment_kit/cli.py'\nadding 'experiment_kit/records.py'\nadding 'experiment_kit/validation.py'\nadding 'experiment_kit-0.1.0.dist-info/licenses/LICENSE'\nadding 'experiment_kit-0.1.0.dist-info/METADATA'\nadding 'experiment_kit-0.1.0.dist-info/WHEEL'\nadding 'experiment_kit-0.1.0.dist-info/entry_points.txt'\nadding 'experiment_kit-0.1.0.dist-info/top_level.txt'\nadding 'experiment_kit-0.1.0.dist-info/RECORD'\nremoving build/bdist.macosx-26.0-arm64/wheel\nSuccessfully built wheels/experiment_kit-0.1.0-py3-none-any.whl\n",
+    "083-venv-full.log": "Using CPython 3.14.7 interpreter at: <toolchain>/opt/python@3.14/bin/python3.14\nCreating virtual environment at: environments/full\nActivate with: source environments/full/bin/activate\n",
+    "025-export-clous-llm-lab.log": "",
+    "041-check-compute-planner.log": "{\"status\": \"passed\", \"distribution\": \"compute-planner\", \"profile\": null, \"installed\": {\"compute-planner\": {\"version\": \"0.2.0\", \"module\": \"<environment>/lib/python3.14/site-packages/compute_planner/__init__.py\"}}, \"cli_checks\": [\"provider routing and job ordering\"], \"sdk_transport\": \"not used\"}\n",
+    "084-install-full.log": "Using Python 3.14.7 environment at: environments/full\nResolved 7 packages in 69ms\nInstalled 7 packages in 5ms\n + clous-llm-lab==0.4.0 (from file://<task>/wheels/clous_llm_lab-0.4.0-py3-none-any.whl)\n + compute-economics==0.1.0 (from git+https://github.com/alvarovillalbaa/compute-economics.git@c7ea3b8e4b7324270988a3eab1e26942d05188e5)\n + compute-planner==0.2.0 (from git+https://github.com/alvarovillalbaa/compute-planner.git@2ff06e9c649bc413fbe565fb25d0347970236036)\n + experiment-kit==0.1.0 (from git+https://github.com/alvarovillalbaa/experiment-kit.git@fe96641e94a596551e24f26661cb7ca73f6d90d1)\n + model-distillation==0.2.0 (from git+https://github.com/alvarovillalbaa/model-distillation.git@77f73c8fff67d154f514a02dd9e0c3260273aa6d)\n + open-evals-sdk==0.1.0 (from git+https://github.com/alvarovillalbaa/open-evals.git@d1002d58109156683be3ad4fc394c7cc6c534057#subdirectory=python/open_evals_sdk)\n + verification-runtime==0.1.0 (from git+https://github.com/alvarovillalbaa/verification-runtime.git@0f293f9808598a38f58f85563e1ccafd815bbd36)\n",
+    "055-venv-verification.log": "Using CPython 3.14.7 interpreter at: <toolchain>/opt/python@3.14/bin/python3.14\nCreating virtual environment at: environments/verification\nActivate with: source environments/verification/bin/activate\n",
+    "029-check-verification-runtime.log": "{\"status\": \"passed\", \"distribution\": \"verification-runtime\", \"profile\": null, \"installed\": {\"verification-runtime\": {\"version\": \"0.1.0\", \"module\": \"<environment>/lib/python3.14/site-packages/verification_runtime/__init__.py\"}}, \"cli_checks\": [\"independent accepted/rejected verification\"], \"sdk_transport\": \"not used\"}\n",
+    "069-check-compute.log": "{\"status\": \"passed\", \"distribution\": \"clous-llm-lab\", \"profile\": \"compute\", \"installed\": {\"clous-llm-lab\": {\"version\": \"0.4.0\", \"module\": \"<environment>/lib/python3.14/site-packages/lab/__init__.py\"}, \"compute-economics\": {\"version\": \"0.1.0\", \"module\": \"<environment>/lib/python3.14/site-packages/compute_economics/__init__.py\"}, \"compute-planner\": {\"version\": \"0.2.0\", \"module\": \"<environment>/lib/python3.14/site-packages/compute_planner/__init__.py\"}, \"experiment-kit\": {\"version\": \"0.1.0\", \"module\": \"<environment>/lib/python3.14/site-packages/experiment_kit/__init__.py\"}}, \"cli_checks\": [\"CPU record\", \"missing optional verifier handled\", \"provider routing\", \"economics estimate\"], \"sdk_transport\": \"not used\"}\n",
+    "060-install-economics.log": "Using Python 3.14.7 environment at: environments/economics\n   Updating https://github.com/alvarovillalbaa/compute-economics.git (c7ea3b8e4b7324270988a3eab1e26942d05188e5)\n    Updated https://github.com/alvarovillalbaa/compute-economics.git (c7ea3b8e4b7324270988a3eab1e26942d05188e5)\nResolved 3 packages in 2.28s\n   Building compute-economics @ git+https://github.com/alvarovillalbaa/compute-economics.git@c7ea3b8e4b7324270988a3eab1e26942d05188e5\n      Built compute-economics @ git+https://github.com/alvarovillalbaa/compute-economics.git@c7ea3b8e4b7324270988a3eab1e26942d05188e5\nPrepared 1 package in 659ms\nInstalled 3 packages in 2ms\n + clous-llm-lab==0.4.0 (from file://<task>/wheels/clous_llm_lab-0.4.0-py3-none-any.whl)\n + compute-economics==0.1.0 (from git+https://github.com/alvarovillalbaa/compute-economics.git@c7ea3b8e4b7324270988a3eab1e26942d05188e5)\n + experiment-kit==0.1.0 (from git+https://github.com/alvarovillalbaa/experiment-kit.git@fe96641e94a596551e24f26661cb7ca73f6d90d1)\n",
+    "014-build-verification-runtime.log": "Building wheel...\n<task>/cache/builds-v0/.tmpSyfUw6/lib/python3.14/site-packages/setuptools/config/_apply_pyprojecttoml.py:82: SetuptoolsDeprecationWarning: `project.license` as a TOML table is deprecated\n!!\n\n        ********************************************************************************\n        Please use a simple string containing a SPDX expression for `project.license`. You can also use `project.license-files`. (Both options available on setuptools>=77.0.0).\n\n        By 2027-Feb-18, you need to update your project and remove deprecated calls\n        or your builds will no longer be supported.\n\n        See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.\n        ********************************************************************************\n\n!!\n  corresp(dist, value, root_dir)\nrunning egg_info\ncreating src/verification_runtime.egg-info\nwriting src/verification_runtime.egg-info/PKG-INFO\nwriting dependency_links to src/verification_runtime.egg-info/dependency_links.txt\nwriting entry points to src/verification_runtime.egg-info/entry_points.txt\nwriting top-level names to src/verification_runtime.egg-info/top_level.txt\nwriting manifest file 'src/verification_runtime.egg-info/SOURCES.txt'\nreading manifest file 'src/verification_runtime.egg-info/SOURCES.txt'\nadding license file 'LICENSE'\nwriting manifest file 'src/verification_runtime.egg-info/SOURCES.txt'\n<task>/cache/builds-v0/.tmpSyfUw6/lib/python3.14/site-packages/setuptools/config/_apply_pyprojecttoml.py:82: SetuptoolsDeprecationWarning: `project.license` as a TOML table is deprecated\n!!\n\n        ********************************************************************************\n        Please use a simple string containing a SPDX expression for `project.license`. You can also use `project.license-files`. (Both options available on setuptools>=77.0.0).\n\n        By 2027-Feb-18, you need to update your project and remove deprecated calls\n        or your builds will no longer be supported.\n\n        See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.\n        ********************************************************************************\n\n!!\n  corresp(dist, value, root_dir)\nrunning bdist_wheel\nrunning build\nrunning build_py\ncreating build/lib/verification_runtime\ncopying src/verification_runtime/verification.py -> build/lib/verification_runtime\ncopying src/verification_runtime/__init__.py -> build/lib/verification_runtime\ncopying src/verification_runtime/cli.py -> build/lib/verification_runtime\nrunning egg_info\nwriting src/verification_runtime.egg-info/PKG-INFO\nwriting dependency_links to src/verification_runtime.egg-info/dependency_links.txt\nwriting entry points to src/verification_runtime.egg-info/entry_points.txt\nwriting top-level names to src/verification_runtime.egg-info/top_level.txt\nreading manifest file 'src/verification_runtime.egg-info/SOURCES.txt'\nadding license file 'LICENSE'\nwriting manifest file 'src/verification_runtime.egg-info/SOURCES.txt'\nwarning: build_py: byte-compiling is disabled, skipping.\n\ninstalling to build/bdist.macosx-26.0-arm64/wheel\nrunning install\nrunning install_lib\ncreating build/bdist.macosx-26.0-arm64/wheel\ncreating build/bdist.macosx-26.0-arm64/wheel/verification_runtime\ncopying build/lib/verification_runtime/verification.py -> build/bdist.macosx-26.0-arm64/wheel/./verification_runtime\ncopying build/lib/verification_runtime/__init__.py -> build/bdist.macosx-26.0-arm64/wheel/./verification_runtime\ncopying build/lib/verification_runtime/cli.py -> build/bdist.macosx-26.0-arm64/wheel/./verification_runtime\nwarning: install_lib: byte-compiling is disabled, skipping.\n\nrunning install_egg_info\nCopying src/verification_runtime.egg-info to build/bdist.macosx-26.0-arm64/wheel/./verification_runtime-0.1.0-py3.14.egg-info\nrunning install_scripts\ncreating build/bdist.macosx-26.0-arm64/wheel/verification_runtime-0.1.0.dist-info/WHEEL\ncreating '<task>/wheels/.tmp-pg_sgyhd/verification_runtime-0.1.0-py3-none-any.whl' and adding 'build/bdist.macosx-26.0-arm64/wheel' to it\nadding 'verification_runtime/__init__.py'\nadding 'verification_runtime/cli.py'\nadding 'verification_runtime/verification.py'\nadding 'verification_runtime-0.1.0.dist-info/licenses/LICENSE'\nadding 'verification_runtime-0.1.0.dist-info/METADATA'\nadding 'verification_runtime-0.1.0.dist-info/WHEEL'\nadding 'verification_runtime-0.1.0.dist-info/entry_points.txt'\nadding 'verification_runtime-0.1.0.dist-info/top_level.txt'\nadding 'verification_runtime-0.1.0.dist-info/RECORD'\nremoving build/bdist.macosx-26.0-arm64/wheel\nSuccessfully built wheels/verification_runtime-0.1.0-py3-none-any.whl\n",
+    "010-check-mirror-model-distillation.log": "",
+    "078-origins-evals.log": "{\"clous-llm-lab\": {\"url\": \"file://<task>/wheels/clous_llm_lab-0.4.0-py3-none-any.whl\", \"archive_info\": {}}, \"experiment-kit\": {\"url\": \"https://github.com/alvarovillalbaa/experiment-kit.git\", \"vcs_info\": {\"vcs\": \"git\", \"commit_id\": \"fe96641e94a596551e24f26661cb7ca73f6d90d1\", \"requested_revision\": \"fe96641e94a596551e24f26661cb7ca73f6d90d1\"}}, \"open-evals-sdk\": {\"url\": \"https://github.com/alvarovillalbaa/open-evals.git\", \"vcs_info\": {\"vcs\": \"git\", \"commit_id\": \"d1002d58109156683be3ad4fc394c7cc6c534057\", \"requested_revision\": \"d1002d58109156683be3ad4fc394c7cc6c534057\"}, \"subdirectory\": \"python/open_evals_sdk\"}}\n",
+    "037-check-compute-economics.log": "{\"status\": \"passed\", \"distribution\": \"compute-economics\", \"profile\": null, \"installed\": {\"compute-economics\": {\"version\": \"0.1.0\", \"module\": \"<environment>/lib/python3.14/site-packages/compute_economics/__init__.py\"}}, \"cli_checks\": [\"training estimate\"], \"sdk_transport\": \"not used\"}\n",
+    "070-origins-compute.log": "{\"compute-planner\": {\"url\": \"https://github.com/alvarovillalbaa/compute-planner.git\", \"vcs_info\": {\"vcs\": \"git\", \"commit_id\": \"2ff06e9c649bc413fbe565fb25d0347970236036\", \"requested_revision\": \"2ff06e9c649bc413fbe565fb25d0347970236036\"}}, \"clous-llm-lab\": {\"url\": \"file://<task>/wheels/clous_llm_lab-0.4.0-py3-none-any.whl\", \"archive_info\": {}}, \"experiment-kit\": {\"url\": \"https://github.com/alvarovillalbaa/experiment-kit.git\", \"vcs_info\": {\"vcs\": \"git\", \"commit_id\": \"fe96641e94a596551e24f26661cb7ca73f6d90d1\", \"requested_revision\": \"fe96641e94a596551e24f26661cb7ca73f6d90d1\"}}, \"compute-economics\": {\"url\": \"https://github.com/alvarovillalbaa/compute-economics.git\", \"vcs_info\": {\"vcs\": \"git\", \"commit_id\": \"c7ea3b8e4b7324270988a3eab1e26942d05188e5\", \"requested_revision\": \"c7ea3b8e4b7324270988a3eab1e26942d05188e5\"}}}\n",
+    "068-install-compute.log": "Using Python 3.14.7 environment at: environments/compute\nResolved 4 packages in 28ms\nInstalled 4 packages in 2ms\n + clous-llm-lab==0.4.0 (from file://<task>/wheels/clous_llm_lab-0.4.0-py3-none-any.whl)\n + compute-economics==0.1.0 (from git+https://github.com/alvarovillalbaa/compute-economics.git@c7ea3b8e4b7324270988a3eab1e26942d05188e5)\n + compute-planner==0.2.0 (from git+https://github.com/alvarovillalbaa/compute-planner.git@2ff06e9c649bc413fbe565fb25d0347970236036)\n + experiment-kit==0.1.0 (from git+https://github.com/alvarovillalbaa/experiment-kit.git@fe96641e94a596551e24f26661cb7ca73f6d90d1)\n",
+    "004-check-mirror-experiment-kit.log": "",
+    "003-mirror-experiment-kit.log": "Cloning into bare repository '<task>/mirrors/experiment-kit.git'...\n",
+    "053-check-base.log": "{\"status\": \"passed\", \"distribution\": \"clous-llm-lab\", \"profile\": \"base\", \"installed\": {\"clous-llm-lab\": {\"version\": \"0.4.0\", \"module\": \"<environment>/lib/python3.14/site-packages/lab/__init__.py\"}, \"experiment-kit\": {\"version\": \"0.1.0\", \"module\": \"<environment>/lib/python3.14/site-packages/experiment_kit/__init__.py\"}}, \"cli_checks\": [\"CPU record\", \"missing optional verifier handled\", \"missing optional planner handled\", \"missing optional economics handled\"], \"sdk_transport\": \"not used\"}\n",
+    "047-venv-open-evals-sdk.log": "Using CPython 3.14.7 interpreter at: <toolchain>/opt/python@3.14/bin/python3.14\nCreating virtual environment at: environments/open-evals-sdk\nActivate with: source environments/open-evals-sdk/bin/activate\n",
+    "033-check-experiment-kit.log": "{\"status\": \"passed\", \"distribution\": \"experiment-kit\", \"profile\": null, \"installed\": {\"experiment-kit\": {\"version\": \"0.1.0\", \"module\": \"<environment>/lib/python3.14/site-packages/experiment_kit/__init__.py\"}}, \"cli_checks\": [\"CPU record\"], \"sdk_transport\": \"not used\"}\n",
+    "049-check-open-evals-sdk.log": "{\"status\": \"passed\", \"distribution\": \"open-evals-sdk\", \"profile\": null, \"installed\": {\"open-evals-sdk\": {\"version\": \"0.1.0\", \"module\": \"<environment>/lib/python3.14/site-packages/open_evals_sdk.py\"}}, \"cli_checks\": [], \"sdk_transport\": \"mocked\"}\n",
+    "075-venv-evals.log": "Using CPython 3.14.7 interpreter at: <toolchain>/opt/python@3.14/bin/python3.14\nCreating virtual environment at: environments/evals\nActivate with: source environments/evals/bin/activate\n",
+    "021-export-model-distillation.log": "",
+    "074-origins-distillation.log": "{\"model-distillation\": {\"url\": \"https://github.com/alvarovillalbaa/model-distillation.git\", \"vcs_info\": {\"vcs\": \"git\", \"commit_id\": \"77f73c8fff67d154f514a02dd9e0c3260273aa6d\", \"requested_revision\": \"77f73c8fff67d154f514a02dd9e0c3260273aa6d\"}}, \"clous-llm-lab\": {\"url\": \"file://<task>/wheels/clous_llm_lab-0.4.0-py3-none-any.whl\", \"archive_info\": {}}, \"experiment-kit\": {\"url\": \"https://github.com/alvarovillalbaa/experiment-kit.git\", \"vcs_info\": {\"vcs\": \"git\", \"commit_id\": \"fe96641e94a596551e24f26661cb7ca73f6d90d1\", \"requested_revision\": \"fe96641e94a596551e24f26661cb7ca73f6d90d1\"}}, \"verification-runtime\": {\"url\": \"https://github.com/alvarovillalbaa/verification-runtime.git\", \"vcs_info\": {\"vcs\": \"git\", \"commit_id\": \"0f293f9808598a38f58f85563e1ccafd815bbd36\", \"requested_revision\": \"0f293f9808598a38f58f85563e1ccafd815bbd36\"}}}\n",
+    "072-install-distillation.log": "Using Python 3.14.7 environment at: environments/distillation\n   Updating https://github.com/alvarovillalbaa/model-distillation.git (77f73c8fff67d154f514a02dd9e0c3260273aa6d)\n    Updated https://github.com/alvarovillalbaa/model-distillation.git (77f73c8fff67d154f514a02dd9e0c3260273aa6d)\nResolved 4 packages in 4.11s\n   Building model-distillation @ git+https://github.com/alvarovillalbaa/model-distillation.git@77f73c8fff67d154f514a02dd9e0c3260273aa6d\n      Built model-distillation @ git+https://github.com/alvarovillalbaa/model-distillation.git@77f73c8fff67d154f514a02dd9e0c3260273aa6d\nPrepared 1 package in 670ms\nInstalled 4 packages in 2ms\n + clous-llm-lab==0.4.0 (from file://<task>/wheels/clous_llm_lab-0.4.0-py3-none-any.whl)\n + experiment-kit==0.1.0 (from git+https://github.com/alvarovillalbaa/experiment-kit.git@fe96641e94a596551e24f26661cb7ca73f6d90d1)\n + model-distillation==0.2.0 (from git+https://github.com/alvarovillalbaa/model-distillation.git@77f73c8fff67d154f514a02dd9e0c3260273aa6d)\n + verification-runtime==0.1.0 (from git+https://github.com/alvarovillalbaa/verification-runtime.git@0f293f9808598a38f58f85563e1ccafd815bbd36)\n",
+    "026-build-clous-llm-lab.log": "Building wheel...\n<task>/cache/builds-v0/.tmpLomgRt/lib/python3.14/site-packages/setuptools/config/_apply_pyprojecttoml.py:82: SetuptoolsDeprecationWarning: `project.license` as a TOML table is deprecated\n!!\n\n        ********************************************************************************\n        Please use a simple string containing a SPDX expression for `project.license`. You can also use `project.license-files`. (Both options available on setuptools>=77.0.0).\n\n        By 2027-Feb-18, you need to update your project and remove deprecated calls\n        or your builds will no longer be supported.\n\n        See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.\n        ********************************************************************************\n\n!!\n  corresp(dist, value, root_dir)\nrunning egg_info\ncreating src/clous_llm_lab.egg-info\nwriting src/clous_llm_lab.egg-info/PKG-INFO\nwriting dependency_links to src/clous_llm_lab.egg-info/dependency_links.txt\nwriting entry points to src/clous_llm_lab.egg-info/entry_points.txt\nwriting requirements to src/clous_llm_lab.egg-info/requires.txt\nwriting top-level names to src/clous_llm_lab.egg-info/top_level.txt\nwriting manifest file 'src/clous_llm_lab.egg-info/SOURCES.txt'\nreading manifest file 'src/clous_llm_lab.egg-info/SOURCES.txt'\nadding license file 'LICENSE'\nwriting manifest file 'src/clous_llm_lab.egg-info/SOURCES.txt'\n<task>/cache/builds-v0/.tmpLomgRt/lib/python3.14/site-packages/setuptools/config/_apply_pyprojecttoml.py:82: SetuptoolsDeprecationWarning: `project.license` as a TOML table is deprecated\n!!\n\n        ********************************************************************************\n        Please use a simple string containing a SPDX expression for `project.license`. You can also use `project.license-files`. (Both options available on setuptools>=77.0.0).\n\n        By 2027-Feb-18, you need to update your project and remove deprecated calls\n        or your builds will no longer be supported.\n\n        See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.\n        ********************************************************************************\n\n!!\n  corresp(dist, value, root_dir)\nrunning bdist_wheel\nrunning build\nrunning build_py\ncreating build/lib/lab\ncopying src/lab/__init__.py -> build/lib/lab\ncopying src/lab/cli.py -> build/lib/lab\ncopying src/lab/workflow.py -> build/lib/lab\ncopying src/lab/evidence.py -> build/lib/lab\nrunning egg_info\nwriting src/clous_llm_lab.egg-info/PKG-INFO\nwriting dependency_links to src/clous_llm_lab.egg-info/dependency_links.txt\nwriting entry points to src/clous_llm_lab.egg-info/entry_points.txt\nwriting requirements to src/clous_llm_lab.egg-info/requires.txt\nwriting top-level names to src/clous_llm_lab.egg-info/top_level.txt\nreading manifest file 'src/clous_llm_lab.egg-info/SOURCES.txt'\nadding license file 'LICENSE'\nwriting manifest file 'src/clous_llm_lab.egg-info/SOURCES.txt'\ncopying src/lab/composition.json -> build/lib/lab\nwarning: build_py: byte-compiling is disabled, skipping.\n\ninstalling to build/bdist.macosx-26.0-arm64/wheel\nrunning install\nrunning install_lib\ncreating build/bdist.macosx-26.0-arm64/wheel\ncreating build/bdist.macosx-26.0-arm64/wheel/lab\ncopying build/lib/lab/__init__.py -> build/bdist.macosx-26.0-arm64/wheel/./lab\ncopying build/lib/lab/cli.py -> build/bdist.macosx-26.0-arm64/wheel/./lab\ncopying build/lib/lab/workflow.py -> build/bdist.macosx-26.0-arm64/wheel/./lab\ncopying build/lib/lab/composition.json -> build/bdist.macosx-26.0-arm64/wheel/./lab\ncopying build/lib/lab/evidence.py -> build/bdist.macosx-26.0-arm64/wheel/./lab\nwarning: install_lib: byte-compiling is disabled, skipping.\n\nrunning install_egg_info\nCopying src/clous_llm_lab.egg-info to build/bdist.macosx-26.0-arm64/wheel/./clous_llm_lab-0.4.0-py3.14.egg-info\nrunning install_scripts\ncreating build/bdist.macosx-26.0-arm64/wheel/clous_llm_lab-0.4.0.dist-info/WHEEL\ncreating '<task>/wheels/.tmp-c6nogfow/clous_llm_lab-0.4.0-py3-none-any.whl' and adding 'build/bdist.macosx-26.0-arm64/wheel' to it\nadding 'clous_llm_lab-0.4.0.dist-info/licenses/LICENSE'\nadding 'lab/__init__.py'\nadding 'lab/cli.py'\nadding 'lab/composition.json'\nadding 'lab/evidence.py'\nadding 'lab/workflow.py'\nadding 'clous_llm_lab-0.4.0.dist-info/METADATA'\nadding 'clous_llm_lab-0.4.0.dist-info/WHEEL'\nadding 'clous_llm_lab-0.4.0.dist-info/entry_points.txt'\nadding 'clous_llm_lab-0.4.0.dist-info/top_level.txt'\nadding 'clous_llm_lab-0.4.0.dist-info/RECORD'\nremoving build/bdist.macosx-26.0-arm64/wheel\nSuccessfully built wheels/clous_llm_lab-0.4.0-py3-none-any.whl\n"
+  },
+  "runner_sha256": "25663b272f55cbf259c7c6cab521bdb907d4f4d2bfe97ee2b276071b11b70709",
   "source_checks": {
     "verification-runtime": {
       "revision": "0f293f9808598a38f58f85563e1ccafd815bbd36",
@@ -21,16 +2273,32 @@
       "scope": "direct verification/cost handoffs, CPU fixture, evidence transport behavior and exact pins"
     }
   },
-  "storage": {
-    "preflight_free_gib": 8.4,
-    "required_gib": 34,
-    "approval": "requested; no answer received yet",
-    "limit_requested_mib": 256,
-    "earlier_exceptions": "closed; not reused"
+  "approval_record": "product-storage-exception.json",
+  "preparation": {
+    "backend_downloads": "Three successful supported curl commands; per-file bounds and SHA-256 verified.",
+    "sdk_mirror": {
+      "arguments": [
+        "git",
+        "clone",
+        "--bare",
+        "--depth",
+        "2",
+        "--single-branch",
+        "--branch",
+        "packaging/standalone-python-sdk",
+        "https://github.com/alvarovillalbaa/open-evals.git",
+        "<task>/mirrors/open-evals.git"
+      ],
+      "exit_code": 0
+    },
+    "dependency_commits_verified_on_github": [
+      "0f293f9808598a38f58f85563e1ccafd815bbd36",
+      "fe96641e94a596551e24f26661cb7ca73f6d90d1",
+      "c7ea3b8e4b7324270988a3eab1e26942d05188e5",
+      "2ff06e9c649bc413fbe565fb25d0347970236036",
+      "77f73c8fff67d154f514a02dd9e0c3260273aa6d",
+      "d1002d58109156683be3ad4fc394c7cc6c534057"
+    ]
   },
-  "limitations": [
-    "Source checks do not prove wheel construction or fresh installation.",
-    "Model architectures and research artifacts remain planned specifications.",
-    "Only exact-match verification is implemented; other adapters planned."
-  ]
+  "paths_normalized": true
 }

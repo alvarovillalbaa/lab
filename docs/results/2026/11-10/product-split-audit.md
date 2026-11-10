@@ -2,8 +2,7 @@
 
 Last updated: 2026-11-10
 
-Status: implementation and requirements migration published; fresh-install
-verification remains incomplete pending a new owner storage exception.
+Status: implementation, requirements migration and installed verification complete.
 
 The ecosystem now has seventeen components, existing Open Evals and Lab: nineteen
 repositories. Five component libraries are implemented; twelve homes contain
@@ -11,7 +10,7 @@ planned specifications. The three additions are public MIT repositories on main:
 
 | Product | Delivered scope | Evidence |
 | --- | --- | --- |
-| [verification-runtime](https://github.com/alvarovillalbaa/verification-runtime) | Standalone exact-match package/CLI and generic result identities; broader objective adapters planned | Three source cases and CLI passed; exact source lineage archived |
+| [verification-runtime](https://github.com/alvarovillalbaa/verification-runtime) | Standalone exact-match package/CLI and generic result identities; broader objective adapters planned | Wheel, independent fresh install, installed CLI and three source cases passed; exact source lineage archived |
 | [model-architectures](https://github.com/alvarovillalbaa/model-architectures) | Independent model-math/configuration/forward/cache/weight-compatibility contract | Original model sections and prior pretraining projections preserved with hashes; engine remains planned |
 | [research-artifacts](https://github.com/alvarovillalbaa/research-artifacts) | Generic resolve/transfer/cache/integrity contract using existing storage backends | Exact source fragment and internally consistent tiny artifact reference; materializer remains planned |
 
@@ -30,6 +29,8 @@ distillation dependency. Runtime/package inputs remain identical to checked
 source `fd8f16a8f238c3f2d2d5a18f53e9a3999e776de8`; later changes are docs,
 recovery tooling and evidence. All eighteen component/Open Evals checkouts were
 clean and their selected revisions reachable during the local audit.
+The [final local-state receipt](product-final-local.json) records those checks
+and confirms unchanged runtime inputs and completed temporary-resource cleanup.
 
 The [V3 recovery map](../../../sources/repository-split-v3-map.json) chains the
 unchanged V1/V2 maps. [Provenance checks](product-provenance.json) cover all 57
@@ -38,11 +39,11 @@ checks, five new section routes and two original route refinements. The prior
 171 destination checks still pass. Five incomplete/tampered V3 cases were
 rejected. Frozen source archives and prior installed receipts are unchanged.
 
-Sixty-seven relative links across the checked living Lab/new-product docs
+Active relative links across the checked living Lab/new-product docs
 resolve. Whitespace checks pass. The original damaged-laptop implementation
 remains outside the baseline; these maps prepare its later reconciliation.
 
-## Publication and remaining gate
+## Publication and installed acceptance
 
 The [remote snapshot](product-repositories-remote.json) records nineteen public
 repository identities, branch heads, detected licenses and open reviews. The
@@ -57,12 +58,14 @@ Other existing reviews and histories are preserved. Gateway, safety-gateway and
 provider-adapter repositories remain conditional candidates from the assessment;
 this migration establishes the three explicitly recommended product homes.
 
-[Installed acceptance](product-installed-package.md) is still pending. Seven wheel
-builds, six independent installs with declared dependencies and nine Lab profiles
-must pass for the changed APIs. Source checks and older installed receipts do not
-substitute for that proof. Storage Guard reported 8.4 GiB free against 34 GiB
-required; a new 256 MiB task exception with measurement/cleanup was requested.
-Neither earlier exception is reused. No build/install has started without it.
+[Installed acceptance](product-installed-package.md) passed seven wheel builds,
+six independent installs with declared dependencies and nine Lab profiles for the
+selected commits. Exact installed Git origins match the composition pins. Source
+checks and earlier receipts were retained separately from this new proof.
+The owner approved the new 256 MiB exception after the failing preflight. Peak
+observed task use was 41.96 MiB; all temporary resources were removed after
+receipt/hash readback and an open-file check. The exception is closed. Neither
+earlier exception was reused. Builds/installs started only after this approval.
 
 No code sandbox, symbolic verifier, model architecture engine, artifact transfer,
 GPU job, deployed endpoint or scientific improvement is claimed by this source

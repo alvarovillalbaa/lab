@@ -1,0 +1,123 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-10",
+  "status": "passed",
+  "components": [
+    {
+      "repository": "experiment-kit",
+      "selected_revision": "fe96641e94a596551e24f26661cb7ca73f6d90d1",
+      "head": "4e471f1913e6a0513b3e08e0595376aac60232bf",
+      "clean": true
+    },
+    {
+      "repository": "compute-economics",
+      "selected_revision": "c7ea3b8e4b7324270988a3eab1e26942d05188e5",
+      "head": "c7ea3b8e4b7324270988a3eab1e26942d05188e5",
+      "clean": true
+    },
+    {
+      "repository": "compute-planner",
+      "selected_revision": "2ff06e9c649bc413fbe565fb25d0347970236036",
+      "head": "2ff06e9c649bc413fbe565fb25d0347970236036",
+      "clean": true
+    },
+    {
+      "repository": "compute-runners",
+      "selected_revision": "47e530cf39428098caeab74361325907f6138d7a",
+      "head": "47e530cf39428098caeab74361325907f6138d7a",
+      "clean": true
+    },
+    {
+      "repository": "model-data",
+      "selected_revision": "236f87e9be53b5298bbf89a80ae3b949f841c47c",
+      "head": "236f87e9be53b5298bbf89a80ae3b949f841c47c",
+      "clean": true
+    },
+    {
+      "repository": "model-tokenizers",
+      "selected_revision": "4527dfba4c8706868f335018ebae3a068b05c146",
+      "head": "4527dfba4c8706868f335018ebae3a068b05c146",
+      "clean": true
+    },
+    {
+      "repository": "model-pretraining",
+      "selected_revision": "9d111a3e75f8db8b9563904562483e66c79d7e27",
+      "head": "9d111a3e75f8db8b9563904562483e66c79d7e27",
+      "clean": true
+    },
+    {
+      "repository": "model-posttraining",
+      "selected_revision": "1fbb9e41f6b80dda54beeb68936e3339160cd8fe",
+      "head": "1fbb9e41f6b80dda54beeb68936e3339160cd8fe",
+      "clean": true
+    },
+    {
+      "repository": "model-distillation",
+      "selected_revision": "77f73c8fff67d154f514a02dd9e0c3260273aa6d",
+      "head": "77f73c8fff67d154f514a02dd9e0c3260273aa6d",
+      "clean": true
+    },
+    {
+      "repository": "model-serving",
+      "selected_revision": "282d7399e724ba1d7dc254a0b6f632f0350953a6",
+      "head": "282d7399e724ba1d7dc254a0b6f632f0350953a6",
+      "clean": true
+    },
+    {
+      "repository": "inference-benchmarks",
+      "selected_revision": "effcb270f54cd10d0d1b1f99d1873a2702221918",
+      "head": "effcb270f54cd10d0d1b1f99d1873a2702221918",
+      "clean": true
+    },
+    {
+      "repository": "ml-foundations",
+      "selected_revision": "b2997dc0eede147436d45a291123e14fab7c189a",
+      "head": "b2997dc0eede147436d45a291123e14fab7c189a",
+      "clean": true
+    },
+    {
+      "repository": "rl-environments",
+      "selected_revision": "810c0dc966c04bd933b5a887ee99c09c3fff63a2",
+      "head": "810c0dc966c04bd933b5a887ee99c09c3fff63a2",
+      "clean": true
+    },
+    {
+      "repository": "research-controller",
+      "selected_revision": "66e341725d024fbb546b4906e528a806171c3e7e",
+      "head": "66e341725d024fbb546b4906e528a806171c3e7e",
+      "clean": true
+    },
+    {
+      "repository": "open-evals",
+      "selected_revision": "d1002d58109156683be3ad4fc394c7cc6c534057",
+      "head": "45f4bb84e025bf042a1db321e0c484f7b769d6c9",
+      "clean": true
+    },
+    {
+      "repository": "verification-runtime",
+      "selected_revision": "0f293f9808598a38f58f85563e1ccafd815bbd36",
+      "head": "0f293f9808598a38f58f85563e1ccafd815bbd36",
+      "clean": true
+    },
+    {
+      "repository": "model-architectures",
+      "selected_revision": "ef4c4ebf8870b83a454cd9b880e02bf30a9b7361",
+      "head": "ef4c4ebf8870b83a454cd9b880e02bf30a9b7361",
+      "clean": true
+    },
+    {
+      "repository": "research-artifacts",
+      "selected_revision": "d383d12f735063b3bab2f1e2814beb3a2c8da2a8",
+      "head": "d383d12f735063b3bab2f1e2814beb3a2c8da2a8",
+      "clean": true
+    }
+  ],
+  "lab_runtime_baseline": "fd8f16a8f238c3f2d2d5a18f53e9a3999e776de8",
+  "lab_installed_source": "0396ad6045b778ca701b5e09dca63cb36e8f2486",
+  "runtime_unchanged": true,
+  "historical_sources_maps_receipts_unchanged": true,
+  "temporary_resources_removed": true,
+  "wheel_builds": 7,
+  "independent_installs": 6,
+  "lab_profiles": 9
+}

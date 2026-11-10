@@ -28,7 +28,7 @@
             "number": 2,
             "url": "https://github.com/alvarovillalbaa/lab/pull/2",
             "headRefName": "split/composable-repositories",
-            "headRefOid": "1128c2dbfa695c70012ef4e32cc2f7805dfe94e9",
+            "headRefOid": "0396ad6045b778ca701b5e09dca63cb36e8f2486",
             "baseRefName": "main"
           }
         ]
@@ -396,5 +396,18 @@
       }
     }
   ],
-  "note": "Live source/review snapshot. Lab runtime baseline is fd8f16a; later evidence-only commits may follow. Lab main predates the migration and has its MIT license in review PR 2."
+  "note": "Live remote snapshot after installed acceptance. Lab installed source is 0396ad6 and runtime baseline fd8f16a; evidence-only commits may follow. Lab main predates this migration and has its MIT license in review PR 2.",
+  "expected_reviews_open": [
+    "lab#1",
+    "lab#2",
+    "compute-planner#1",
+    "model-data#1",
+    "model-pretraining#1",
+    "model-pretraining#2",
+    "model-distillation#1",
+    "model-serving#1",
+    "open-evals#1"
+  ],
+  "new_home_heads_match_selected_revisions": true,
+  "renamed_repository_ids_preserved": true
 }
