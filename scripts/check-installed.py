@@ -5,6 +5,7 @@ from __future__ import annotations
 import argparse
 import importlib
 import importlib.metadata as metadata
+import importlib.util
 import json
 import os
 from pathlib import Path
@@ -16,6 +17,7 @@ from unittest.mock import MagicMock, patch
 
 MODULES = {
     "experiment-kit": "experiment_kit",
+    "compute-economics": "compute_economics",
     "compute-planner": "compute_planner",
     "model-distillation": "model_distillation",
     "open-evals-sdk": "open_evals_sdk",
@@ -23,11 +25,13 @@ MODULES = {
 }
 PROFILES = {
     "base": {"experiment-kit"},
-    "compute": {"experiment-kit", "compute-planner"},
+    "economics": {"experiment-kit", "compute-economics"},
+    "planning": {"experiment-kit", "compute-planner"},
+    "compute": {"experiment-kit", "compute-economics", "compute-planner"},
     "distillation": {"experiment-kit", "model-distillation"},
     "evals": {"experiment-kit", "open-evals-sdk"},
-    "cpu": {"experiment-kit", "compute-planner", "model-distillation"},
-    "full": {"experiment-kit", "compute-planner", "model-distillation", "open-evals-sdk"},
+    "cpu": {"experiment-kit", "compute-economics", "compute-planner", "model-distillation"},
+    "full": {"experiment-kit", "compute-economics", "compute-planner", "model-distillation", "open-evals-sdk"},
 }
 
 
@@ -119,11 +123,27 @@ def main(argv=None):
             elif args.distribution == "compute-planner":
                 output = check_cli("compute-planner", ["route", "pretrain_smoke"], workdir)
                 require(output.splitlines() == ["local", "runpod", "lambda_cloud"], "provider ordering changed")
+                planning = importlib.import_module("compute_planner")
+                cheap = planning.Job("cheap", "evals", 1, 1, 1)
+                valuable = planning.Job("valuable", "evals", 10, 2, 1)
+                require(planning.value_first([cheap, valuable])[0].job_id == "valuable",
+                        "installed job ranking changed")
+                require(importlib.util.find_spec("compute_planner.costing") is None,
+                        "planner still contains extracted economics implementation")
+                require(not any(hasattr(planning, name) for name in
+                                ("CostEstimate", "estimate_from_spec", "format_estimate")),
+                        "planner still reexports economics")
+                check_cli("compute-planner", ["estimate-cost", str(fixture)], workdir, expected=2)
+                cli_checks.append("provider routing and job ordering")
+            elif args.distribution == "compute-economics":
                 spec = {"model": {"parameters": 10}, "training": {"tokens_target": 100},
-                        "resources": {"gpus": 1}}
-                estimate = importlib.import_module("compute_planner").estimate_from_spec(spec)
+                        "resources": {"gpus": 1, "gpu_hourly_usd": 0}}
+                estimate = importlib.import_module("compute_economics").estimate_from_spec(spec)
                 require(estimate.training_flops == 6000, "installed estimate changed")
-                cli_checks.append("provider routing")
+                estimate_file = workdir / "estimate.json"
+                estimate_file.write_text(json.dumps(spec), encoding="utf-8")
+                check_cli("compute-economics", ["estimate-cost", str(estimate_file)], workdir)
+                cli_checks.append("training estimate")
             elif args.distribution == "model-distillation":
                 output = json.loads(check_cli("model-distillation", ["demo"], workdir))
                 require(output["source"] == "authored_fixture" and output["pair"]["chosen"] == "4",
@@ -143,13 +163,30 @@ def main(argv=None):
                     cli_checks.append("provider routing")
                 else:
                     check_cli("llm-lab", ["route", "pretrain_smoke"], workdir, expected=2)
-                    cli_checks.append("missing optional compute handled")
-                if {"compute-planner", "model-distillation"} <= expected:
+                    cli_checks.append("missing optional planner handled")
+                estimate_file = workdir / "llm-estimate.json"
+                example = Path(__file__).resolve().parents[1] / "configs/experiments/lab_124m_pretrain_smoke.json"
+                estimate_file.write_text(example.read_text(encoding="utf-8"), encoding="utf-8")
+                if "compute-economics" in expected:
+                    output = check_cli("llm-lab", ["estimate-cost", str(estimate_file)], workdir)
+                    require("cost" in output.lower(), "Lab estimate command returned no cost")
+                    cli_checks.append("economics estimate")
+                else:
+                    check_cli("llm-lab", ["estimate-cost", str(estimate_file)], workdir, expected=2)
+                    cli_checks.append("missing optional economics handled")
+                if {"compute-economics", "compute-planner", "model-distillation"} <= expected:
                     require(bool(args.code_ref), "CPU composition requires --code-ref")
                     output = json.loads(check_cli("llm-lab", ["smoke", "--code-ref", args.code_ref], workdir))
                     require(output["source"] == "authored_fixture"
                             and output["output"]["pair"]["chosen"] == "4",
                             "installed CPU composition failed")
+                    require(output["record"]["resources"] == {"device": "cpu", "gpus": 0},
+                            "CPU composition misstates executed resources")
+                    estimate = output["planning"]["estimate"]
+                    require(estimate["source"] == "authored_assumptions"
+                            and estimate["observed_billing"] is False
+                            and estimate["estimated_cost_usd"] > 0,
+                            "hypothetical cost estimate lost its provenance")
                     cli_checks.append("CPU composition")
                 if "open-evals-sdk" in expected:
                     check_sdk()

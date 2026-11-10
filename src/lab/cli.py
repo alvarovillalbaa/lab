@@ -29,7 +29,7 @@ def main(argv=None):
                 return 1
             print(f"OK: {args.spec}")
         elif args.command == "estimate-cost":
-            from compute_planner import estimate_from_spec, format_estimate
+            from compute_economics import estimate_from_spec, format_estimate
             spec = json.loads(args.spec.read_text(encoding="utf-8"))
             if not isinstance(spec, dict):
                 raise ValueError("spec must be an object")
@@ -46,7 +46,8 @@ def main(argv=None):
             from .workflow import run_smoke
             print(json.dumps(run_smoke(code_ref=args.code_ref), indent=2))
     except ImportError as exc:
-        print(f"Missing optional component: {exc.name}. Install the compute/distillation profile for this command.", file=sys.stderr)
+        profiles = {"estimate-cost": "economics or compute", "route": "planning or compute", "smoke": "compute and distillation"}
+        print(f"Missing optional component: {exc.name}. Install Lab's {profiles.get(args.command, 'required')} profile.", file=sys.stderr)
         return 2
     except (OSError, ValueError, KeyError, TypeError) as exc:
         print(f"ERROR: {exc}", file=sys.stderr)

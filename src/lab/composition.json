@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "status": "candidate",
-  "reason": "Lab migration and Open Evals SDK packaging await review.",
+  "reason": "Expanded Lab composition, component scope changes, and Open Evals SDK packaging await review.",
   "components": {
     "experiment-kit": {
       "repository": "alvarovillalbaa/experiment-kit",
@@ -9,11 +9,18 @@
       "status": "implemented",
       "interface_version": "0.1.0"
     },
-    "compute-planner": {
-      "repository": "alvarovillalbaa/compute-planner",
-      "revision": "63a0c9794d0ed67fcdd8ff1a61b881f8ae1af142",
+    "compute-economics": {
+      "repository": "alvarovillalbaa/compute-economics",
+      "revision": "c7ea3b8e4b7324270988a3eab1e26942d05188e5",
       "status": "implemented",
       "interface_version": "0.1.0"
+    },
+    "compute-planner": {
+      "repository": "alvarovillalbaa/compute-planner",
+      "revision": "2ff06e9c649bc413fbe565fb25d0347970236036",
+      "status": "implemented",
+      "interface_version": "0.2.0",
+      "pull_request": "https://github.com/alvarovillalbaa/compute-planner/pull/1"
     },
     "compute-runners": {
       "repository": "alvarovillalbaa/compute-runners",
@@ -23,13 +30,27 @@
     },
     "model-data": {
       "repository": "alvarovillalbaa/model-data",
-      "revision": "89325b15e7c7e31f9e0eff234dbd608e387b2d1c",
+      "revision": "236f87e9be53b5298bbf89a80ae3b949f841c47c",
+      "status": "planned",
+      "interface_version": null,
+      "pull_request": "https://github.com/alvarovillalbaa/model-data/pull/1"
+    },
+    "model-tokenizers": {
+      "repository": "alvarovillalbaa/model-tokenizers",
+      "revision": "4527dfba4c8706868f335018ebae3a068b05c146",
       "status": "planned",
       "interface_version": null
     },
-    "model-training": {
-      "repository": "alvarovillalbaa/model-training",
-      "revision": "24e69c525a293281b28ff36f5ef4c3558f05fcd6",
+    "model-pretraining": {
+      "repository": "alvarovillalbaa/model-pretraining",
+      "revision": "83e0be783b4a15241b6eee285854365ab2a25f9d",
+      "status": "planned",
+      "interface_version": null,
+      "pull_request": "https://github.com/alvarovillalbaa/model-pretraining/pull/1"
+    },
+    "model-posttraining": {
+      "repository": "alvarovillalbaa/model-posttraining",
+      "revision": "1fbb9e41f6b80dda54beeb68936e3339160cd8fe",
       "status": "planned",
       "interface_version": null
     },
@@ -39,9 +60,16 @@
       "status": "implemented",
       "interface_version": "0.1.0"
     },
-    "model-inference": {
-      "repository": "alvarovillalbaa/model-inference",
-      "revision": "2eafeaf2bfac00acb3960311f381d38b72f40c97",
+    "model-serving": {
+      "repository": "alvarovillalbaa/model-serving",
+      "revision": "282d7399e724ba1d7dc254a0b6f632f0350953a6",
+      "status": "planned",
+      "interface_version": null,
+      "pull_request": "https://github.com/alvarovillalbaa/model-serving/pull/1"
+    },
+    "inference-benchmarks": {
+      "repository": "alvarovillalbaa/inference-benchmarks",
+      "revision": "effcb270f54cd10d0d1b1f99d1873a2702221918",
       "status": "planned",
       "interface_version": null
     },
@@ -54,6 +82,12 @@
     "rl-environments": {
       "repository": "alvarovillalbaa/rl-environments",
       "revision": "810c0dc966c04bd933b5a887ee99c09c3fff63a2",
+      "status": "planned",
+      "interface_version": null
+    },
+    "research-controller": {
+      "repository": "alvarovillalbaa/research-controller",
+      "revision": "66e341725d024fbb546b4906e528a806171c3e7e",
       "status": "planned",
       "interface_version": null
     },
@@ -70,8 +104,17 @@
     "base": [
       "experiment-kit"
     ],
+    "economics": [
+      "experiment-kit",
+      "compute-economics"
+    ],
+    "planning": [
+      "experiment-kit",
+      "compute-planner"
+    ],
     "compute": [
       "experiment-kit",
+      "compute-economics",
       "compute-planner"
     ],
     "distillation": [
@@ -84,8 +127,16 @@
     ],
     "cpu_smoke": [
       "experiment-kit",
+      "compute-economics",
       "compute-planner",
       "model-distillation"
+    ],
+    "full": [
+      "experiment-kit",
+      "compute-economics",
+      "compute-planner",
+      "model-distillation",
+      "open-evals"
     ]
   }
 }

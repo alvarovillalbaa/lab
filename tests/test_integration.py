@@ -28,12 +28,23 @@ class IntegrationTests(unittest.TestCase):
         self.assertEqual(result["source"], "authored_fixture")
         self.assertEqual(result["record"]["resources"], {"device": "cpu", "gpus": 0})
         self.assertEqual(result["output"]["pair"]["chosen"], "4")
-        self.assertEqual(result["planning"]["job_order"], ["cpu-fixture"])
+        self.assertEqual(result["planning"]["job_order"], ["hypothetical-training"])
+        self.assertFalse(result["planning"]["estimate"]["observed_billing"])
+        self.assertEqual(result["planning"]["estimate"]["source"], "authored_assumptions")
+        self.assertGreater(result["planning"]["estimate"]["estimated_cost_usd"], 0)
         self.assertNotEqual(result["execution_id"], run_smoke(code_ref="fixture:unit-test")["execution_id"])
 
     def test_blank_code_identity_fails(self):
         with self.assertRaises(ValueError):
             run_smoke(code_ref="")
+
+    def test_economics_output_is_the_planner_job_cost(self):
+        import compute_planner
+        with patch("compute_planner.Job", wraps=compute_planner.Job) as job:
+            result = run_smoke(code_ref="fixture:cost-handoff")
+        job.assert_called_once()
+        self.assertEqual(job.call_args.args[3],
+                         result["planning"]["estimate"]["estimated_cost_usd"])
 
     def test_sdk_receives_actual_execution_evidence(self):
         client = Mock()
@@ -63,7 +74,7 @@ class IntegrationTests(unittest.TestCase):
         declared = declared_composition()
         self.assertEqual(declared["status"], "candidate")
         requirements = metadata["project"]["dependencies"] + sum(metadata["project"]["optional-dependencies"].values(), [])
-        for name in ("experiment-kit", "compute-planner", "model-distillation"):
+        for name in ("experiment-kit", "compute-economics", "compute-planner", "model-distillation"):
             self.assertTrue(any(declared["components"][name]["revision"] in req for req in requirements))
 
     def test_bad_evidence_and_missing_configuration_fail_before_sdk(self):

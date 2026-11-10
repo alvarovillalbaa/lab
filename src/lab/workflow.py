@@ -15,6 +15,7 @@ def declared_composition():
 
 
 def run_smoke(*, code_ref: str):
+    from compute_economics import estimate_from_spec
     from compute_planner import Job, providers_for, value_first
     from model_distillation import Task, TeacherResponse, verify_exact_match, build_preference_pair
 
@@ -31,11 +32,23 @@ def run_smoke(*, code_ref: str):
     chosen = TeacherResponse(task.task_id, "fixture-a", "4", "MIT", True)
     rejected = TeacherResponse(task.task_id, "fixture-b", "5", "MIT", True)
     pair = build_preference_pair(task, chosen, rejected, verify_exact_match(task, chosen))
-    jobs = value_first([Job("cpu-fixture", "distillation", 1, 0, 1)])
+    assumptions = {"model": {"parameters": 20_000_000},
+                   "training": {"tokens_target": 1_000_000},
+                   "resources": {"gpus": 1, "gpu_tflops": 40, "gpu_hourly_usd": 1.0,
+                                 "utilization": 0.2},
+                   "budget": {"overhead_multiplier": 1.0}}
+    estimate = estimate_from_spec(assumptions)
+    jobs = value_first([Job("hypothetical-training", "pretrain_smoke", 1,
+                           estimate.realistic_cost_usd, 1)])
     return {"schema_version": 1, "execution_id": execution_id, "source": "authored_fixture",
             "started_at": started, "ended_at": datetime.now(timezone.utc).isoformat(),
             "record": record, "input": {"task_id": task.task_id, "prompt": task.prompt},
             "output": {"pair": asdict(pair)},
             "planning": {"job_order": [job.job_id for job in jobs],
-                         "candidate_providers": providers_for("distillation")},
+                         "candidate_providers": providers_for("pretrain_smoke"),
+                         "estimate": {"source": "authored_assumptions", "observed_billing": False,
+                                      "workload": "hypothetical token-based GPU training",
+                                      "assumptions": assumptions,
+                                      "training_flops": estimate.training_flops,
+                                      "estimated_cost_usd": estimate.realistic_cost_usd}},
             "declared_composition": declared_composition()}
