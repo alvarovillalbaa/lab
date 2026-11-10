@@ -160,5 +160,18 @@
     "CPU smoke uses authored teacher responses; it proves no model training, model quality, GPU/provider operation, or live Open Evals delivery.",
     "No migrations, infrastructure deployment, registry publication, or damaged-laptop import.",
     "Source import checks are not installed-package proof."
-  ]
+  ],
+  "publication": {
+    "lab_pull_request": "https://github.com/alvarovillalbaa/lab/pull/2",
+    "sdk_pull_request": "https://github.com/alvarovillalbaa/open-evals/pull/1",
+    "both_prs_left_open": true,
+    "original_documentation_pr_preserved": "https://github.com/alvarovillalbaa/lab/pull/1",
+    "all_nine_remote_main_heads_verified": true,
+    "original_and_task_checkouts_clean": true
+  },
+  "navigation": {
+    "active_links_checked": 70,
+    "errors": 0
+  },
+  "quickstart_examples_passed": 3
 }

@@ -63,6 +63,10 @@ have no executable engine yet. Recovered laptop work is not included.
 
 ## Review and future work
 
+Review PRs: [Lab #2](https://github.com/alvarovillalbaa/lab/pull/2) and
+[Open Evals #1](https://github.com/alvarovillalbaa/open-evals/pull/1).
+Both are open and unmerged. The existing Lab documentation PR remains untouched.
+
 Review the Lab migration and SDK PRs, then rerun package installation/wheel
 acceptance after the storage reserve is restored. Update composition status only
 when those checks actually pass. No new CI, deploy, auth, migration, or registry
