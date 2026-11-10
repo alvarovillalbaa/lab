@@ -1,0 +1,133 @@
+{
+  "schema_version": 1,
+  "execution_id": "ef52a1e3-1194-4d04-9a77-e6db8bbfb1b0",
+  "source": "authored_fixture",
+  "started_at": "2026-11-10T13:47:56.156756+00:00",
+  "ended_at": "2026-11-10T13:47:56.157081+00:00",
+  "record": {
+    "schema_version": 1,
+    "experiment_id": "ef52a1e3-1194-4d04-9a77-e6db8bbfb1b0",
+    "kind": "distillation_fixture",
+    "objective": "Exercise component composition on CPU",
+    "code_ref": "lab@36dbfc04b9c4ab37e07584e25afee3a18ff04e1b",
+    "seed": 0,
+    "inputs": [],
+    "resources": {
+      "device": "cpu",
+      "gpus": 0
+    }
+  },
+  "input": {
+    "task_id": "math-1",
+    "prompt": "2+2?"
+  },
+  "output": {
+    "pair": {
+      "task_id": "math-1",
+      "chosen": "4",
+      "rejected": "5",
+      "source": "fixture-a_over_fixture-b"
+    }
+  },
+  "planning": {
+    "job_order": [
+      "cpu-fixture"
+    ],
+    "candidate_providers": [
+      "local",
+      "tinker",
+      "baseten_training"
+    ]
+  },
+  "declared_composition": {
+    "schema_version": 1,
+    "status": "candidate",
+    "reason": "Lab migration and Open Evals SDK packaging await review; fresh-install verification is pending.",
+    "components": {
+      "experiment-kit": {
+        "repository": "alvarovillalbaa/experiment-kit",
+        "revision": "fe96641e94a596551e24f26661cb7ca73f6d90d1",
+        "status": "implemented",
+        "interface_version": "0.1.0"
+      },
+      "compute-planner": {
+        "repository": "alvarovillalbaa/compute-planner",
+        "revision": "63a0c9794d0ed67fcdd8ff1a61b881f8ae1af142",
+        "status": "implemented",
+        "interface_version": "0.1.0"
+      },
+      "compute-runners": {
+        "repository": "alvarovillalbaa/compute-runners",
+        "revision": "47e530cf39428098caeab74361325907f6138d7a",
+        "status": "planned",
+        "interface_version": null
+      },
+      "model-data": {
+        "repository": "alvarovillalbaa/model-data",
+        "revision": "89325b15e7c7e31f9e0eff234dbd608e387b2d1c",
+        "status": "planned",
+        "interface_version": null
+      },
+      "model-training": {
+        "repository": "alvarovillalbaa/model-training",
+        "revision": "24e69c525a293281b28ff36f5ef4c3558f05fcd6",
+        "status": "planned",
+        "interface_version": null
+      },
+      "model-distillation": {
+        "repository": "alvarovillalbaa/model-distillation",
+        "revision": "c79864d530aa82fb6db7d58c83e2f53719e43587",
+        "status": "implemented",
+        "interface_version": "0.1.0"
+      },
+      "model-inference": {
+        "repository": "alvarovillalbaa/model-inference",
+        "revision": "2eafeaf2bfac00acb3960311f381d38b72f40c97",
+        "status": "planned",
+        "interface_version": null
+      },
+      "ml-foundations": {
+        "repository": "alvarovillalbaa/ml-foundations",
+        "revision": "b2997dc0eede147436d45a291123e14fab7c189a",
+        "status": "planned",
+        "interface_version": null
+      },
+      "rl-environments": {
+        "repository": "alvarovillalbaa/rl-environments",
+        "revision": "810c0dc966c04bd933b5a887ee99c09c3fff63a2",
+        "status": "planned",
+        "interface_version": null
+      },
+      "open-evals": {
+        "repository": "alvarovillalbaa/open-evals",
+        "revision": "d1002d58109156683be3ad4fc394c7cc6c534057",
+        "status": "candidate_pr",
+        "pull_request": "https://github.com/alvarovillalbaa/open-evals/pull/1",
+        "interface_version": "open-evals-sdk/0.1.0",
+        "subdirectory": "python/open_evals_sdk"
+      }
+    },
+    "profiles": {
+      "base": [
+        "experiment-kit"
+      ],
+      "compute": [
+        "experiment-kit",
+        "compute-planner"
+      ],
+      "distillation": [
+        "experiment-kit",
+        "model-distillation"
+      ],
+      "evals": [
+        "experiment-kit",
+        "open-evals"
+      ],
+      "cpu_smoke": [
+        "experiment-kit",
+        "compute-planner",
+        "model-distillation"
+      ]
+    }
+  }
+}
