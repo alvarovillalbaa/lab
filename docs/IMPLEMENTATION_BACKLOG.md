@@ -15,7 +15,7 @@ Status: in progress.
 - [x] Add local config validation.
 - [x] Add cost-estimation primitive.
 - [x] Add provider routing primitive.
-- [ ] Fill `DECISIONS.md`.
+- [ ] Fill `docs/decisions/experiment-decisions.md`.
 - [ ] Add real dependency groups after choosing package manager constraints.
 - [ ] Add CI workflow for validation.
 

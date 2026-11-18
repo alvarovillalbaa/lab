@@ -36,7 +36,7 @@ provider deployment, or model release has already happened.
 
 | Input | Artifact | Status |
 | --- | --- | --- |
-| PorTAL | tracked in README and `DECISIONS.md` until role is pinned | Needs human clarification |
+| PorTAL | tracked in README and `docs/decisions/experiment-decisions.md` until role is pinned | Needs human clarification |
 
 ## `docs/specs/human-steps.md`
 
@@ -47,7 +47,7 @@ This spec file is empty. Derived human gates live in
 
 | Section | Artifact | Status |
 | --- | --- | --- |
-| Define experiment | `DECISIONS.md`, `docs/STEP_BY_STEP.md` | Skeleton |
+| Define experiment | `docs/decisions/experiment-decisions.md`, `docs/STEP_BY_STEP.md` | Skeleton |
 | Core technical stack | `docs/ARCHITECTURE.md`, `pyproject.toml` | Skeleton |
 | Compute strategy | `src/lab/costing.py`, configs | Skeleton |
 | Public proof standard | `reports/templates/*` | Skeleton |
@@ -76,10 +76,10 @@ This spec file is empty. Derived human gates live in
 | Section | Artifact | Status |
 | --- | --- | --- |
 | Provider split | `docs/ARCHITECTURE.md`, provider configs | Skeleton |
-| Manual decisions | `DECISIONS.md`, `docs/HUMAN_GATES.md` | Skeleton |
-| Tinker optional/core decision | `DECISIONS.md` | Skeleton |
-| Baseten serving/training decision | `DECISIONS.md`, provider config | Skeleton |
-| Raw GPU provider choice | `DECISIONS.md`, provider config | Skeleton |
+| Manual decisions | `docs/decisions/experiment-decisions.md`, `docs/HUMAN_GATES.md` | Skeleton |
+| Tinker optional/core decision | `docs/decisions/experiment-decisions.md` | Skeleton |
+| Baseten serving/training decision | `docs/decisions/experiment-decisions.md`, provider config | Skeleton |
+| Raw GPU provider choice | `docs/decisions/experiment-decisions.md`, provider config | Skeleton |
 | Legal/data posture | `docs/HUMAN_GATES.md` | Skeleton |
 | Eval gates before training | `docs/HUMAN_GATES.md` | Skeleton |
 | 48-hour plan | README and `docs/STEP_BY_STEP.md` | Skeleton |

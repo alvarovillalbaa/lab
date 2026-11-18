@@ -15,7 +15,7 @@ Decide:
 
 Required artifact:
 
-- `DECISIONS.md` public claim section filled.
+- `docs/decisions/experiment-decisions.md` public claim section filled.
 
 ## Gate 1: Budget
 
@@ -29,7 +29,7 @@ Decide:
 
 Required artifact:
 
-- `DECISIONS.md` budget section filled.
+- `docs/decisions/experiment-decisions.md` budget section filled.
 - `reports/templates/cost_ledger.csv` copied to a real run ledger.
 
 ## Gate 2: Data And Licensing
