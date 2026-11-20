@@ -1,5 +1,9 @@
 # CLOUS LLM Lab
 
+<!-- project-family:start -->
+> **Project family:** [AI Research Lab](https://github.com/alvarovillalbaa#ai-research-lab) · **Area:** Lab overview and integration
+<!-- project-family:end -->
+
 This repo is a reproducible LLM training lab blueprint. The goal is not to claim
 frontier-scale training on day one. The goal is to build and publish a complete
 training factory:
